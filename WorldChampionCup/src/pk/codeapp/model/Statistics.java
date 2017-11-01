@@ -9,7 +9,11 @@ package pk.codeapp.model;
  *
  * @author Jose Pablo Brenes
  */
-public class Statistics {
+public class Statistics extends Component{
+
+    public Statistics(int id, String nombre) {
+        super(id, nombre);
+    }
     
     public void seeResults(){}
     public void seePlayerYoung(){}

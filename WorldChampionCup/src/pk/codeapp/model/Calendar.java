@@ -9,11 +9,26 @@ package pk.codeapp.model;
  *
  * @author Jose Pablo Brenes
  */
-public class Calendar {
+public class Calendar implements Edit{
     private int id;
     private Team team1;
     private Team team2;
     private String date;
     private Stadium stadium;
+
+    @Override
+    public void create() {
+     
+    }
+
+    @Override
+    public void update() {
+       
+    }
+
+    @Override
+    public void delete() {
+       
+    }
     
 }

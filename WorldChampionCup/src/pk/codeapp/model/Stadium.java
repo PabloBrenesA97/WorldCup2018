@@ -12,9 +12,28 @@ import java.util.ArrayList;
  * @author Jose Pablo Brenes
  * 
  */
-public class Stadium {
+public class Stadium extends Component implements Edit{
     private String city;
     private int capacity;
     //listPartidos
+
+    public Stadium(int id, String nombre) {
+        super(id, nombre);
+    }
+
+    @Override
+    public void create() {
+       
+    }
+
+    @Override
+    public void update() {
+     
+    }
+
+    @Override
+    public void delete() {
+ 
+    }
         
 }
