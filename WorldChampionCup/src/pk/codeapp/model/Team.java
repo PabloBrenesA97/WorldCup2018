@@ -11,16 +11,13 @@ import java.util.ArrayList;
  *
  * @author Jose Pablo Brenes
  */
-public class Team extends Component implements Edit{
+public class Team extends Component{
     private int cantPlayer;
     private String coach;
     //listAsistentes
     private String confederacy;
     private ArrayList<Player> players = new ArrayList();
     
-    public Team(int id, String nombre) {
-        super(id, nombre);
-    }
     
     @Override
     public void create() {

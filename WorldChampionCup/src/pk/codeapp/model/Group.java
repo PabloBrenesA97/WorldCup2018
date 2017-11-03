@@ -9,11 +9,9 @@ package pk.codeapp.model;
  *
  * @author Jose Pablo Brenes
  */
-public class Group extends Component{
+public class Group{
 
-    public Group(int id, String nombre) {
-        super(id, nombre);
-    }
+    
     
     //lista Equipos
     public void editTeam(Team team){}

@@ -9,7 +9,7 @@ package pk.codeapp.model;
  *
  * @author Jose Pablo Brenes
  */
-public class Player extends Component implements Edit{
+public class Player extends Component {
     private String position;
     private int age;
     private int cantCardYellow;
@@ -17,9 +17,7 @@ public class Player extends Component implements Edit{
     private int number;
     private int goals;
 
-    public Player(int id, String nombre) {
-        super(id, nombre);
-    }
+  
 
     @Override
     public void create() {
