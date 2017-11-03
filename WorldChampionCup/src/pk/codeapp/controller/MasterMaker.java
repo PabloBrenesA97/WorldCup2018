@@ -18,12 +18,15 @@ public class MasterMaker extends Maker {
 
     @Override
     public Component factoryMethod(String type) {
-        if(type.equals("Player")){
-            return new Player();
-        }else if(type.equals("Stadium")){
-            return new Stadium();
-        }else if(type.equals("Team")){
-            return new Team();
+        switch (type) {
+            case "Player":
+                return new Player();
+            case "Stadium":
+                return new Stadium();
+            case "Team":
+                return new Team();
+            default:
+                break;
         }
         return null;
     }
