@@ -6,6 +6,7 @@
 package pk.codeapp.controller;
 
 import pk.codeapp.model.Component;
+import pk.codeapp.model.Group;
 import pk.codeapp.model.Player;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.model.Team;
@@ -25,6 +26,8 @@ public class MasterMaker extends Maker {
                 return new Stadium();
             case "Team":
                 return new Team();
+            case "Group":
+                return new Group();
             default:
                 break;
         }

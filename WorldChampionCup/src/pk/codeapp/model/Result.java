@@ -25,8 +25,9 @@ public class Result implements Edit{
     private int posBalonTeam2;
 
     @Override
-    public void create() {
-       
+    public Component create() {
+    
+        return null;
     }
 
     @Override

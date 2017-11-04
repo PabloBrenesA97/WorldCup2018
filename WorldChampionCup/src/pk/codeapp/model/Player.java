@@ -20,8 +20,9 @@ public class Player extends Component {
   
 
     @Override
-    public void create() {
-       
+    public Component create() {
+    
+        return null;
     }
 
     @Override

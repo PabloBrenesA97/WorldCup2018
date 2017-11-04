@@ -10,7 +10,7 @@ package pk.codeapp.model;
  * @author Jose Pablo Brenes
  */
 public interface Edit {
-    public void create();
+    public Component create();
     public void update();
     public void delete();
 }

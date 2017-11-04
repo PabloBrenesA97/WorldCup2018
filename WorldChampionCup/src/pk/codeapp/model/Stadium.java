@@ -12,16 +12,17 @@ import java.util.ArrayList;
  * @author Jose Pablo Brenes
  * 
  */
-public class Stadium extends Component{
+public class Stadium extends Component {
     private String city;
     private int capacity;
     //listPartidos
 
     
 
-    @Override
-    public void create() {
-       
+     @Override
+    public Component create() {
+    
+        return null;
     }
 
     @Override

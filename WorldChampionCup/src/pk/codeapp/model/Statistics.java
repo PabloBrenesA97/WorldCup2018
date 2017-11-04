@@ -17,8 +17,8 @@ public class Statistics {
     public void seePlayerOld(){}
     public void seeAllStadiums(){}
     public void seeAllTeams(){}
-    public void seeAllGrups(){}
-    public void showScorers(){}
+    public void seeAllGroups(){}
+    public void showScores(){}
     public void showTable(){}
     
 }

@@ -5,13 +5,10 @@
  */
 package pk.codeapp.controller;
 
-import java.util.ArrayList;
-import pk.codeapp.model.Team;
-
 /**
  *
- * @author Jose Pablo Brenes
+ * @author Daniel Amador
  */
-public class TeamController {
-    ArrayList<Team> calendars = new ArrayList();
+public class AppController {
+    
 }

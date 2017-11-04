@@ -14,14 +14,14 @@ import java.util.ArrayList;
 public class Team extends Component{
     private int cantPlayer;
     private String coach;
-    //listAsistentes
     private String confederacy;
     private ArrayList<Player> players = new ArrayList();
     
     
-    @Override
-    public void create() {
-       
+     @Override
+    public Component create() {
+    
+        return null;
     }
 
     @Override
