@@ -9,11 +9,19 @@ package pk.codeapp.model;
  *
  * @author Jose Pablo Brenes
  */
-public abstract class Component implements Edit {
+public abstract class Component{
     private int id;
     private String name;
 
+    public Component(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
+    public Component() {
+    }
+
+    
     public int getId() {
         return id;
     }

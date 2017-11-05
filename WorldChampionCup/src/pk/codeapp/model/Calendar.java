@@ -9,27 +9,20 @@ package pk.codeapp.model;
  *
  * @author Jose Pablo Brenes
  */
-public class Calendar implements Edit{
+public class Calendar{
     private int id;
     private Team team1;
     private Team team2;
     private String date;
     private Stadium stadium;
 
-    @Override
-    public Component create() {
-    
-        return null;
-    }
-
-    @Override
-    public void update() {
-       
-    }
-
-    @Override
-    public void delete() {
-       
+    public void update(int id, Team team1, Team team2, String date, Stadium stadium) {
+        this.id = id;
+        this.team1 = team1;
+        this.team2 = team2;
+        this.date = date;
+        this.stadium = stadium;
     }
     
+
 }

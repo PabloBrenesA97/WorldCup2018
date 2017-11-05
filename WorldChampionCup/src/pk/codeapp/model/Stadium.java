@@ -15,24 +15,12 @@ import java.util.ArrayList;
 public class Stadium extends Component {
     private String city;
     private int capacity;
-    //listPartidos
-
     
-
-     @Override
-    public Component create() {
-    
-        return null;
-    }
-
-    @Override
-    public void update() {
-     
-    }
-
-    @Override
-    public void delete() {
- 
+    public void update(String name, int id, String city, int capacity) {
+        super.setName(name);
+        super.setId(id);
+        this.capacity=capacity;
+        this.city=city;
     }
         
 }

@@ -16,24 +16,11 @@ public class Player extends Component {
     private int cantCardRed;
     private int number;
     private int goals;
-
+    
+    
   
 
-    @Override
-    public Component create() {
-    
-        return null;
-    }
-
-    @Override
-    public void update() {
-        
-    }
-
-    @Override
-    public void delete() {
-        
-    }
+   
     
     
 }

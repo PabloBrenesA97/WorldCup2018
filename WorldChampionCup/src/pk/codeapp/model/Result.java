@@ -9,7 +9,7 @@ package pk.codeapp.model;
  *
  * @author Jose Pablo Brenes
  */
-public class Result implements Edit{
+public class Result{
     private int id;
     private Team teamWinner;
     private Team teamLoser;
@@ -24,19 +24,5 @@ public class Result implements Edit{
     private int posBalonTeam1;
     private int posBalonTeam2;
 
-    @Override
-    public Component create() {
-    
-        return null;
-    }
-
-    @Override
-    public void update() {
-       
-    }
-
-    @Override
-    public void delete() {
-       
-    }
+   
 }

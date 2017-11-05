@@ -18,20 +18,4 @@ public class Team extends Component{
     private ArrayList<Player> players = new ArrayList();
     
     
-     @Override
-    public Component create() {
-    
-        return null;
-    }
-
-    @Override
-    public void update() {
-      
-    }
-
-    @Override
-    public void delete() {
-      
-    }
-    
 }
