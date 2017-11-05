@@ -5,10 +5,19 @@
  */
 package pk.codeapp.controller;
 
+import java.util.ArrayList;
+import pk.codeapp.model.Stadium;
+
 /**
  *
  * @author Daniel Amador
  */
 public class AppController {
     
+    ArrayList<Stadium> ArrayStadiums = new ArrayList();
+    
+    
+    public void CreateDefaultStadiums(){
+        String[] stadiumsName= {};
+    }
 }
