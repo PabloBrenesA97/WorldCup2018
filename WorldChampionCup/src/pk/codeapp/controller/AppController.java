@@ -94,17 +94,162 @@ public class AppController {
             addDefaultPlayerEngland();
             addDefaultPlayerIceland();
             addDefaultPlayerPoland();
+            addDefaultPlayerPortugal();
+            addDefaultPlayerRussia();
+            addDefaultPlayerSerbia();
+            addDefaultPlayerCostaRica();
+            addDefaultPlayerMexico();
+            addDefaultPlayerPanama();
         } catch (ExeptionWorldCup ex) {
             new ExeptionWorldCup(5);
             ex.getMessage();
         }
     }
+    //<editor-fold desc="addDefaultPlayerPanama" defaultstate="collapsed">
+   /**
+    * Add Default player in Panama
+    * @throws ExeptionWorldCup 
+    */
+    private void addDefaultPlayerPanama() throws ExeptionWorldCup{
+        Team panama = searchTeam("Panama");
+        String[] namePlayers = {"Alex Rodríguez","José Calderón","Roderick Miller","Erick Davis","Luis Ovalle","Roberto Chen",
+        "Gabriel Gómez","Édgar Bárcenas","Armando Cooper","Ricardo Clarke","Gabriel Torres","Ismael Díaz"};
+        String[] positionPlayers = {"POR","POR","DEF","DEF","DEF","DEF","MED","MED","MED","DEL","DEL","DEL"};
+        int[] agePlayers = {27,32,25,26,29,23,33,24,29,25,29,20};
+        int[] cantCYellowPlayers ={1,0,0,0,0,1,0,2,0,0,0,0};
+        int[] cantCRedPlayers = {0,0,0,0,0,0,0,0,1,0,0,0};
+        int[] numUsePlayers ={1,12,13,15,17,23,6,8,11,7,9,10};
+        int[] cantGoals = {0,0,0,0,0,2,0,0,0,1,3,0};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i],cantCYellowPlayers[i] ,cantCRedPlayers[i],numUsePlayers[i],cantGoals[i]);
+            panama.getPlayers().add(newPlayer);
+        }
+        panama.setCantPlayer(namePlayers.length);
+    }
+    //</editor-fold>
+     //<editor-fold desc="addDefaultPlayerMexico" defaultstate="collapsed">
+   /**
+    * Add Default player in Mexico
+    * @throws ExeptionWorldCup 
+    */
+    private void addDefaultPlayerMexico() throws ExeptionWorldCup{
+        Team mexico = searchTeam("Mexico");
+        String[] namePlayers = {"Guillermo Ochoa","Jesús Corona","Héctor Moreno","Miguel Layun","Diego Reyes","Hugo Ayala",
+        "Andrés Guardado","Giovani dos Santos","Héctor Herrera","Hirving Lozano","Javier Hernández","	Carlos Vela"};
+        String[] positionPlayers = {"POR","POR","DEF","DEF","DEF","DEF","MED","MED","MED","DEL","DEL","DEL"};
+        int[] agePlayers = {31,36,29,29,25,30,31,28,27,22,29,28};
+        int[] cantCYellowPlayers ={0,0,1,0,1,0,0,0,0,0,0,0};
+        int[] cantCRedPlayers = {0,0,0,0,0,0,0,0,0,1,1,0};
+        int[] numUsePlayers ={13,1,15,7,5,4,18,10,16,8,14,11};
+        int[] cantGoals = {0,0,0,0,0,0,0,0,0,1,2,1};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i],cantCYellowPlayers[i] ,cantCRedPlayers[i],numUsePlayers[i],cantGoals[i]);
+            mexico.getPlayers().add(newPlayer);
+        }
+        mexico.setCantPlayer(namePlayers.length);
+    }
+    //</editor-fold>
+    //<editor-fold desc="addDefaultPlayerSerbia" defaultstate="collapsed">
+   /**
+    * Add Default player in Serbia
+    * @throws ExeptionWorldCup 
+    */
+    private void addDefaultPlayerCostaRica() throws ExeptionWorldCup{
+        Team costaRica = searchTeam("Costa Rica");
+        String[] namePlayers = {"Patrick Pemberton","Keylor Navas","Cristian Gamboa","José Salvatierra","Bryan Oviedo","Kendall Waston",
+        "Celso Borges","David Guzmán","Yeltsin Tejeda","Bryan Ruiz","Marco Ureña","Christian Bolaños"};
+        String[] positionPlayers = {"POR","POR","DEF","DEF","DEF","DEF","MED","MED","MED","DEL","DEL","DEL"};
+        int[] agePlayers = {35,30,28,28,27,29,29,27,25,32,27,33};
+        int[] cantCYellowPlayers ={0,0,1,0,0,0,1,0,0,0,0,0};
+        int[] cantCRedPlayers = {0,0,0,0,0,0,0,0,0,0,0,0};
+        int[] numUsePlayers ={18,1,16,6,8,19,5,20,17,10,21,7};
+        int[] cantGoals = {0,0,0,1,0,0,0,2,0,1,3,5};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i],cantCYellowPlayers[i] ,cantCRedPlayers[i],numUsePlayers[i],cantGoals[i]);
+            costaRica.getPlayers().add(newPlayer);
+        }
+        costaRica.setCantPlayer(namePlayers.length);
+    }
+    //</editor-fold>
+    //<editor-fold desc="addDefaultPlayerSerbia" defaultstate="collapsed">
+   /**
+    * Add Default player in Serbia
+    * @throws ExeptionWorldCup 
+    */
+    private void addDefaultPlayerSerbia() throws ExeptionWorldCup{
+        Team serbia = searchTeam("Serbia");
+        String[] namePlayers = {"Vladimir Stojković","Željko Brkić","Ivan Obradovic","Nenad Tomović","Branislav Ivanović","Aleksandar Kolarov",
+        "Nemanja Gudelj","Zoran Tošić","Radosav Petrović","Aleksandar Mitrović","Filip Kostić","Andrija Živković"};
+        String[] positionPlayers = {"POR","POR","DEF","DEF","DEF","DEF","MED","MED","MED","DEL","DEL","DEL"};
+        int[] agePlayers = {34,31,29,30,33,31,25,30,28,23,25,21};
+        int[] cantCYellowPlayers ={0,0,1,0,1,0,0,1,0,0,2,0};
+        int[] cantCRedPlayers = {0,0,0,0,0,0,1,0,0,0,1,0};
+        int[] numUsePlayers ={1,25,2,4,6,11,5,7,8,9,17,18};
+        int[] cantGoals = {0,0,0,0,1,0,0,1,0,0,4,1};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i],cantCYellowPlayers[i] ,cantCRedPlayers[i],numUsePlayers[i],cantGoals[i]);
+            serbia.getPlayers().add(newPlayer);
+        }
+        serbia.setCantPlayer(namePlayers.length);
+    }
+    //</editor-fold>
+    //<editor-fold desc="addDefaultPlayerRussia" defaultstate="collapsed">
+   /**
+    * Add Default player in Russia
+    * @throws ExeptionWorldCup 
+    */
+    private void addDefaultPlayerRussia() throws ExeptionWorldCup{
+        Team portugal = searchTeam("Russia");
+        String[] namePlayers = {"Ígor Akinféyev","Yuri Lodyguin","Román Shishkin","Ígor Smólnikov","Serguéi Ignashévich","Ilya Kutepov",
+        "Artur Yusúpov","Denís Glushakov","Pável Mamáyev","Aleksandr Kokorin","Fiódor Smólov","Artiom Dziuba"};
+        String[] positionPlayers = {"POR","POR","DEF","DEF","DEF","DEF","MED","MED","MED","DEL","DEL","DEL"};
+        int[] agePlayers = {31,27,30,29,38,23,28,30,29,26,27,29};
+        int[] cantCYellowPlayers ={0,0,2,0,0,0,0,0,0,0,0,0};
+        int[] cantCRedPlayers = {0,0,1,0,0,0,0,0,0,0,0,0};
+        int[] numUsePlayers ={1,12,2,3,4,5,7,8,11,9,10,22};
+        int[] cantGoals = {0,0,1,0,0,0,0,2,0,1,3,2};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i],cantCYellowPlayers[i] ,cantCRedPlayers[i],numUsePlayers[i],cantGoals[i]);
+            portugal.getPlayers().add(newPlayer);
+        }
+        portugal.setCantPlayer(namePlayers.length);
+    }
+    //</editor-fold>
+    //<editor-fold desc="addDefaultPlayerPortugal" defaultstate="collapsed">
+   /**
+    * Add Default player in Portugal
+    * @throws ExeptionWorldCup 
+    */
+    private void addDefaultPlayerPortugal() throws ExeptionWorldCup{
+         Team portugal = searchTeam("Portugal");
+        String[] namePlayers = {"Rui Patrício","José Sá","Bruno Alves","	Pepe","Luís Neto","Raphaël Guerreiro",
+        "João Moutinho","Danilo Pereira","William Carvalho","Cristiano Ronaldo","André Silva","Bernardo Silva"};
+        String[] positionPlayers = {"POR","POR","DEF","DEF","DEF","DEF","MED","MED","MED","DEL","DEL","DEL"};
+        int[] agePlayers = {29,24,35,34,28,23,30,24,24,32,21,22};
+        int[] cantCYellowPlayers ={0,0,0,0,1,0,0,1,0,1,0,0};
+        int[] cantCRedPlayers = {0,0,0,0,0,0,0,0,0,0,0,0};
+        int[] numUsePlayers ={1,12,2,3,4,5,8,13,14,7,9,10};
+        int[] cantGoals = {0,0,0,0,0,0,1,2,1,2,6,4};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i],cantCYellowPlayers[i] ,cantCRedPlayers[i],numUsePlayers[i],cantGoals[i]);
+            portugal.getPlayers().add(newPlayer);
+        }
+        portugal.setCantPlayer(namePlayers.length);
+    }
+     //</editor-fold>
+    
     //<editor-fold desc="addDefaultPlayerPoland" defaultstate="collapsed">
    /**
     * Add Default player in Poland
     * @throws ExeptionWorldCup 
     */
-    private void addDefaultPlayerPoland(){
+    private void addDefaultPlayerPoland() throws ExeptionWorldCup{
         Team poland = searchTeam("Poland");
         String[] namePlayers = {"Artur Boruc","Łukasz Fabiański","Kamil Glik","Maciej Rybus","Artur Jędrzejczyk","Michał Pazdan","Jakub Błaszczykowski",
         "Kamil Grosicki","	Grzegorz Krychowiak","Robert Lewandowski","Mariusz Stępiński","Kamil Wilczek"};
@@ -127,7 +272,7 @@ public class AppController {
     * Add Default player in Iceland
     * @throws ExeptionWorldCup 
     */
-    private void addDefaultPlayerIceland(){
+    private void addDefaultPlayerIceland() throws ExeptionWorldCup{
         Team iceland = searchTeam("Iceland");
         String[] namePlayers = {"Hannes Halldórsson","Ögmundur Kristinsson","Birkir Már Sævarsson","Ragnar Sigurðsson","Kári Árnason","Ari Freyr Skúlason",
         "Aron Gunnarsson","Jóhann Berg Guðmundsson","Birkir Bjarnason","Alfreð Finnbogason","Viðar Kjartansson","Kjartan Finnbogason"};
@@ -151,7 +296,7 @@ public class AppController {
     * Add Default player in England
     * @throws ExeptionWorldCup 
     */
-    private void addDefaultPlayerEngland(){
+    private void addDefaultPlayerEngland() throws ExeptionWorldCup{
         Team england = searchTeam("England");
         String[] namePlayers = {"Joe Hart","Jack Butland","Gary Cahill","Kyle Walker","Phil Jones","John Stones",
         "Jordan Henderson","Raheem Sterling","Ashley Young","Harry Kane","Jamie Vardy","Marcus Rashford"};
@@ -174,7 +319,7 @@ public class AppController {
     * Add Default player in France
     * @throws ExeptionWorldCup 
     */
-    private void addDefautlPlayerFrance(){
+    private void addDefautlPlayerFrance() throws ExeptionWorldCup{
         Team france = searchTeam("France");
         String[] namePlayers = {"Steve Mandanda","Benoît Costil","Laurent Koscielny","Raphaël Varane","Lucas Digne","Christophe Jallet",
         "Blaise Matuidi","Moussa Sissoko","Adrien Rabiot","Antoine Griezmann","Olivier Giroud","Anthony Martial"};
@@ -197,7 +342,7 @@ public class AppController {
     * Add Default player in Spain
     * @throws ExeptionWorldCup 
     */
-    private void addDefaultPlayerSpain(){
+    private void addDefaultPlayerSpain() throws ExeptionWorldCup{
         Team spain = searchTeam("Spain");
         String[] namePlayers = {"David de Gea","Pepe Reina","Alberto Moreno","Marc Bartra","Gerard Piqué","Sergio Ramos",
         "David Silva","Isco","Sergio Busquets","Álvaro Morata","Iago Aspas","Rodrigo"};
@@ -220,7 +365,7 @@ public class AppController {
     * Add Default player in Belgium
     * @throws ExeptionWorldCup 
     */
-    private void addDefaultPlayerBelgium(){
+    private void addDefaultPlayerBelgium() throws ExeptionWorldCup{
         Team belgium = searchTeam("Belgium");
         String[] namePlayers = {"Thibaut Courtois","Simon Mignolet","Jan Vertonghen","Thomas Vermaelen","Thomas Meunier","Laurent Ciman",
         "Axel Witsel","Mousa Dembélé","Kevin De Bruyne","Eden Hazard","Romelu Lukaku","Dries Mertens"};
@@ -425,7 +570,7 @@ public class AppController {
             "Sochi", "Ekateringburg"};
 
         for (int i = 0; i < stadiumsName.length; i++) {
-            Stadium newStadium = (Stadium) maker.factoryMethod("Stadium");
+            Stadium newStadium = (Stadium) masterMaker.factoryMethod("Stadium");
             newStadium.update(stadiumsName[i], capacityStadium[i], cityStadiums[i], capacityStadium[i]);
             arrayStadiums.add(newStadium);
         }
