@@ -18,6 +18,10 @@ public class AppController {
     private Maker maker = new MasterMaker();
 
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     private ArrayList<Stadium> arrayStadiums = new ArrayList();
 
     public void createDefaultStadiums() {
@@ -31,6 +35,7 @@ public class AppController {
         String[] cityStadiums = {"Kalingrand", "Saint Petersburg", "Moscow", "Moscow",
             "Kazan", "Nizhny Novgorod", "Samara", "Saransk", "Volgograd", "Rostov-on-Don",
             "Sochi", "Ekateringburg"};
+        
         for (int i = 0; i < stadiumsName.length; i++) {
             Stadium newStadium = (Stadium) maker.factoryMethod("Stadium");
             newStadium.update(stadiumsName[i], capacityStadium[i], cityStadiums[i], capacityStadium[i]);
@@ -38,6 +43,10 @@ public class AppController {
         }
     }
     //<editor-fold desc="All Getter & Setter here" defaultstate="collapsed">
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     public ArrayList<Team> getTeams() {
         return teams;
     }

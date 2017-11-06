@@ -18,4 +18,39 @@ public class Team extends Component{
     private ArrayList<Player> players = new ArrayList();
     
     
+    
+    public int getCantPlayer() {
+        return cantPlayer;
+    }
+
+    public void setCantPlayer(int cantPlayer) {
+        this.cantPlayer = cantPlayer;
+    }
+
+    public String getCoach() {
+        return coach;
+    }
+
+    public void setCoach(String coach) {
+        this.coach = coach;
+    }
+
+    public String getConfederacy() {
+        return confederacy;
+    }
+
+    public void setConfederacy(String confederacy) {
+        this.confederacy = confederacy;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
+    
+    
+    
 }
