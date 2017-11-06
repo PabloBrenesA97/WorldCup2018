@@ -14,5 +14,5 @@ import pk.codeapp.view.Lobby;
  * @author Daniel Amador
  */
 public class StadiumController {
-    ArrayList<Stadium> stadiumsCopy= Lobby.;
+    ArrayList<Stadium> stadiumsCopy;
 }
