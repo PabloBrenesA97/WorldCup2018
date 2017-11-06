@@ -18,10 +18,6 @@ public class AppController {
     private Maker maker = new MasterMaker();
 
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     private ArrayList<Stadium> arrayStadiums = new ArrayList();
 
     public void createDefaultStadiums() {
@@ -43,10 +39,6 @@ public class AppController {
         }
     }
     //<editor-fold desc="All Getter & Setter here" defaultstate="collapsed">
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     public ArrayList<Team> getTeams() {
         return teams;
     }
