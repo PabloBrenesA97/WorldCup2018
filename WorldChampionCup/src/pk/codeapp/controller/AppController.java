@@ -37,7 +37,7 @@ public class AppController {
         String[] confederaciesDefaultTeam = {"CAF", "CAF", "AFC", "AFC", "AFC", "AFC", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "CONCACAF", "CONCACAF", "CONCACAF", "CSF", "CSF", "CSF", "CSF"};
 
         for (int i = 0; i < namesDeafaultTeam.length; i++) {
-            Team  newTeam = (Team) maker.factoryMethod("Team");
+            Team  newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(i,namesDeafaultTeam[i], coachDeafaultTeam[i], assistantsDefaultTeam[i], confederaciesDefaultTeam[i]);
             teams.add(newTeam);
         }
@@ -57,7 +57,7 @@ public class AppController {
         if(newTeam!=null){
             newTeam.update(id, name, coach, assistant, confederacy);
         }else{
-            newTeam = (Team) maker.factoryMethod("Team");
+            newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(id,name, coach, assistant, confederacy);
             teams.add(newTeam);
         }
