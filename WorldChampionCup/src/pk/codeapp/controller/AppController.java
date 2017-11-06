@@ -15,7 +15,7 @@ import pk.codeapp.model.Team;
  */
 public class AppController {
 
-    private Maker maker = new MasterMaker();
+    private Maker masterMaker = new MasterMaker();
 
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList();
@@ -33,7 +33,7 @@ public class AppController {
             "Sochi", "Ekateringburg"};
         
         for (int i = 0; i < stadiumsName.length; i++) {
-            Stadium newStadium = (Stadium) maker.factoryMethod("Stadium");
+            Stadium newStadium = (Stadium) masterMaker.factoryMethod("Stadium");
             newStadium.update(stadiumsName[i], capacityStadium[i], cityStadiums[i], capacityStadium[i]);
             arrayStadiums.add(newStadium);
         }
