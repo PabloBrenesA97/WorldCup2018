@@ -102,14 +102,18 @@ public class AppController {
                     "Mordovia Arena", "Volgograd Arena", "Rostov Arena", "Fisht Stadium",
                     "Ekaterinburg Arena"};
         int[] stadiumsCapacity = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
-        int[] capacityStadium = {45015, 68134, 81500, 45360, 45379, 44899, 63000, 45100, 45568, 43702, 47659};
+        int[] capacityStadium = {45015, 68134, 81500, 45360, 45379, 44899, 63000, 45100, 45568, 43702, 47659,50000};
         String[] cityStadiums = {"Kalingrand", "Saint Petersburg", "Moscow", "Moscow",
             "Kazan", "Nizhny Novgorod", "Samara", "Saransk", "Volgograd", "Rostov-on-Don",
             "Sochi", "Ekateringburg"};
-
+        String[] path={"src/pk/codeapp/view/image/stadiums/1.png","src/pk/codeapp/view/image/stadiums/2.png","src/pk/codeapp/view/image/stadiums/3.png"
+        ,"src/pk/codeapp/view/image/stadiums/4.png","src/pk/codeapp/view/image/stadiums/5.png","src/pk/codeapp/view/image/stadiums/6.png"
+        ,"src/pk/codeapp/view/image/stadiums/7.png","src/pk/codeapp/view/image/stadiums/8.png","src/pk/codeapp/view/image/stadiums/9.png"
+        ,"src/pk/codeapp/view/image/stadiums/10.png","src/pk/codeapp/view/image/stadiums/11.png","src/pk/codeapp/view/image/stadiums/12.png"};
         for (int i = 0; i < stadiumsName.length; i++) {
             Stadium newStadium = (Stadium) masterMaker.factoryMethod("Stadium");
             newStadium.update(stadiumsName[i], capacityStadium[i], cityStadiums[i], capacityStadium[i]);
+            newStadium.setIcon(path[i]);
             arrayStadiums.add(newStadium);
         }
     }
@@ -133,4 +137,9 @@ public class AppController {
         this.arrayStadiums = arrayStadiums;
     }
     //</editor-fold>
+
+    public AppController() {
+        createDefaultStadiums();
+    }
+    
 }

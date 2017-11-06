@@ -21,8 +21,8 @@ public class Lobby extends javax.swing.JFrame{
     /**
      * Creates new form Lobby
      */
-     final Color colorBackground = new Color(176,15,21);
-     static AppController controller = new AppController();
+    final Color colorBackground = new Color(176,15,21);
+    public static AppController controller = new AppController();
     public Lobby() {
         
         initComponents();
