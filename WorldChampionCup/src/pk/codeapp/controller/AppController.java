@@ -8,6 +8,7 @@ package pk.codeapp.controller;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import pk.codeapp.model.ExeptionWorldCup;
 import pk.codeapp.model.Player;
 import pk.codeapp.model.Stadium;
@@ -36,10 +37,13 @@ public class AppController {
         String[] assistantsDefaultTeam = {"Hany Ramzy", "Anthony Olubunmi", "Mohámed bin Salmán", "Carlos Queiroz", "Jefu Yunaiteddo", "Pim Verbeek", "Joachim Löw", "Yves Soudan", "Migel Angel", "Guy Stéphan", "Alberto Rubio",
             "Lagerbäck", "Pogon Szczecin", "Tareyja Costa", "Zenit de San Petersburgo", "Sergei Gurenko", "Alejandro Larrea", "Leandro Augusto", "Édgar Carvajal"};
         String[] confederaciesDefaultTeam = {"CAF", "CAF", "AFC", "AFC", "AFC", "AFC", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "CONCACAF", "CONCACAF", "CONCACAF", "CSF", "CSF", "CSF", "CSF"};
-
+        String[] images ={"src/pk/codeapp/view/image/flagTeams/egy.png","src/pk/codeapp/view/image/flagTeams/nga.png","src/pk/codeapp/view/image/flagTeams/ksa.png","src/pk/codeapp/view/image/flagTeams/irn.png","src/pk/codeapp/view/image/flagTeams/jpn.png","src/pk/codeapp/view/image/flagTeams/kor.png",
+        "src/pk/codeapp/view/image/flagTeams/ger.png","src/pk/codeapp/view/image/flagTeams/bel.png","src/pk/codeapp/view/image/flagTeams/esp.png","src/pk/codeapp/view/image/flagTeams/fra.png","src/pk/codeapp/view/image/flagTeams/eng.png",
+        "src/pk/codeapp/view/image/flagTeams/isl.png","src/pk/codeapp/view/image/flagTeams/pol.png","src/pk/codeapp/view/image/flagTeams/por.png","src/pk/codeapp/view/image/flagTeams/rus.png","src/pk/codeapp/view/image/flagTeams/srb.png",
+        "src/pk/codeapp/view/image/flagTeams/crc.png","src/pk/codeapp/view/image/flagTeams/mex.png","src/pk/codeapp/view/image/flagTeams/pan.png"};
         for (int i = 0; i < namesDeafaultTeam.length; i++) {
             Team  newTeam = (Team) masterMaker.factoryMethod("Team");
-            newTeam.update(i,namesDeafaultTeam[i], coachDeafaultTeam[i], assistantsDefaultTeam[i], confederaciesDefaultTeam[i]);
+            newTeam.update(i,namesDeafaultTeam[i], coachDeafaultTeam[i], assistantsDefaultTeam[i], confederaciesDefaultTeam[i],new ImageIcon(images[i]));
             teams.add(newTeam);
         }
     }
@@ -52,14 +56,14 @@ public class AppController {
      * @param assistant
      * @param confederacy 
      */
-    public void addDefaultTeam(int id,String name,String coach,String assistant,String confederacy){
+    public void addorUpdateTeam(int id,String name,String coach,String assistant,String confederacy){
         Team newTeam = searchTeam(name);
         //Update team
         if(newTeam!=null){
-            newTeam.update(id, name, coach, assistant, confederacy);
+            newTeam.update(id, name, coach, assistant, confederacy,newTeam.getImageTeam());
         }else{
             newTeam = (Team) masterMaker.factoryMethod("Team");
-            newTeam.update(id,name, coach, assistant, confederacy);
+            newTeam.update(id,name, coach, assistant, confederacy,null);
             teams.add(newTeam);
         }
     }
@@ -304,7 +308,7 @@ public class AppController {
         int[] agePlayers = {30,24,31,27,25,23,27,22,32,24,30,20};
         int[] cantCYellowPlayers ={0,0,1,0,1,0,0,0,0,0,1,0};
         int[] cantCRedPlayers = {0,0,0,0,0,0,0,0,1,0,0,0};
-        int[] numUsePlayers ={1,1,24,2,28,16,14,18,9,9,7};
+        int[] numUsePlayers ={1,1,24,2,28,16,14,18,9,9,7,10};
         int[] cantGoals = {0,0,0,1,0,0,4,0,1,0,2,3,7};
         for (int i = 0; i < namePlayers.length; i++) {
             Player newPlayer = (Player) masterMaker.factoryMethod("Player");
