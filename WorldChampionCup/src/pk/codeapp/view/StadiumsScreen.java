@@ -12,12 +12,16 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import pk.codeapp.controller.StadiumController;
+import pk.codeapp.model.ExeptionWorldCup;
 import pk.codeapp.model.jumpWindow;
 
 /**
@@ -240,6 +244,10 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        ShowStadium show=new ShowStadium();
+        this.setVisible(false);
+      
+        show.openWindow(this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -267,8 +275,12 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        controller.delete();
+        try {
+            // TODO add your handling code here:
+            controller.delete();
+        } catch (ExeptionWorldCup ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+        }
         setImageInScreen();
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -392,8 +404,8 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
         } catch (Exception e) {
             return null;
         }
-
         return imageIcon;
 
     }
+    
 }

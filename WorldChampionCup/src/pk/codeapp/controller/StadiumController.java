@@ -7,6 +7,7 @@ package pk.codeapp.controller;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import pk.codeapp.model.ExeptionWorldCup;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.view.Lobby;
 
@@ -18,10 +19,10 @@ public class StadiumController {
 
     private AppController controller = Lobby.controller;
     private ArrayList<Stadium> stadiumsCopy = controller.getArrayStadiums();
-    private int showing =0;
+    private int showing = 0;
 
     public void IncOrDec(boolean flag) {
-        
+
         if (flag) {
             showing++;
         } else {
@@ -30,7 +31,6 @@ public class StadiumController {
     }
 
     public String getStadiumImage(int id) {
-       
         String icon = null;
         int show = Integer.MIN_VALUE;
         if (showing >= 0 && showing < stadiumsCopy.size()) {
@@ -59,8 +59,17 @@ public class StadiumController {
         }
     }
 
-    public void delete() {
-        stadiumsCopy.remove(showing);
-        showing=0;
+    public void delete() throws ExeptionWorldCup {
+        if (stadiumsCopy.size() != 0) {
+            stadiumsCopy.remove(showing);
+            showing = 0;
+        }else{
+            throw new ExeptionWorldCup(4);
+        }
+
     }
+    public Stadium getFromList(){
+        return stadiumsCopy.get(showing);
+    }
+    
 }
