@@ -7,6 +7,7 @@ package pk.codeapp.model;
 
 import java.util.ArrayList;
 
+
 /**
  *
  * @author Jose Pablo Brenes
@@ -15,9 +16,16 @@ public class Team extends Component{
     private int cantPlayer;
     private String coach;
     private String confederacy;
+    private String assistant;
     private ArrayList<Player> players = new ArrayList();
     
-    
+    public void update(int id,String name,String coach,String assistant,String confederacy){
+        setId(id);
+        setName(name);
+        setCoach(coach);
+        setAssistant(assistant);
+        setConfederacy(confederacy);
+    }
     
     public int getCantPlayer() {
         return cantPlayer;
@@ -49,6 +57,14 @@ public class Team extends Component{
 
     public void setPlayers(ArrayList<Player> players) {
         this.players = players;
+    }
+
+    public String getAssistant() {
+        return assistant;
+    }
+
+    public void setAssistant(String assistant) {
+        this.assistant = assistant;
     }
     
     
