@@ -6,6 +6,7 @@
 package pk.codeapp.view;
 
 import java.awt.Frame;
+import javax.swing.JFrame;
 import pk.codeapp.controller.StadiumController;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.model.jumpWindow;
@@ -36,7 +37,7 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
         lblCapacity = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -58,7 +59,7 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
             }
         });
 
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblImage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblCapacity.setBackground(new java.awt.Color(255, 255, 255));
         lblCapacity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -92,7 +93,7 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +125,7 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
                 .addGap(32, 32, 32))
@@ -175,13 +176,13 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCapacity;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblName;
     // End of variables declaration//GEN-END:variables
 
@@ -189,23 +190,25 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
     public void openWindow(Frame beforeWindow) {
         this.beforeWindow=(StadiumsScreen) beforeWindow;
         this.setVisible(true);
+        showInfo();
     }
 
     @Override
     public void jumpBeforeWindow() {
         this.dispose();
         beforeWindow.setVisible(true);
-        update();
     }
     public void setShowing(StadiumController controller){
         this.controller=controller;
     }
 
-    private void update() {
+    private void showInfo() {
        this.stadium=controller.getFromList();
-       lblName.setText(stadium.getName());
-       lblCity.setText(stadium.getCity());
-       lblCapacity.setText(Integer.toString(stadium.getCapacity()));
-       lblId.setText(Integer.toString(stadium.getId()));
+       System.out.println(controller.getFromList());
+       lblName.setText("Name: "+stadium.getName());
+       lblCity.setText("City: "+stadium.getCity());
+       lblCapacity.setText("Capacity: "+stadium.getCapacity());
+       lblId.setText("Id: "+stadium.getId());
+       lblImage.setIcon(controller.convertToImageIcon(stadium.getIcon(), lblImage));
     }
 }

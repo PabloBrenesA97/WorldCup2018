@@ -39,10 +39,10 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
     public StadiumsScreen() {
         initComponents();
         setImageInScreen();
-        icon.setIcon(convertToImageIcon("src/pk/codeapp/view/image/worldCupIcon.png", icon));
-        icon1.setIcon(convertToImageIcon("src/pk/codeapp/view/image/Logo_FIFA.png", icon));
+        /*Set icon in the menubar*/
+        icon.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/worldCupIcon.png", icon));
+        icon1.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/Logo_FIFA.png", icon));
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -245,6 +245,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         ShowStadium show=new ShowStadium();
+        show.setShowing(controller);
         this.setVisible(false);
       
         show.openWindow(this);
@@ -336,45 +337,54 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
     private javax.swing.JLabel lblViewLeft;
     private javax.swing.JLabel lblViewRight;
     // End of variables declaration//GEN-END:variables
-
+    
+    
+    /*Methods created when implement the interface*/
+    /**
+     * Open this window when is called from other window
+     * @param beforeWindow 
+     */
     @Override
     public void openWindow(Frame beforeWindow) {
         this.beforeWindows = (Lobby) beforeWindow;
         this.setVisible(true);
 
     }
-
+    /**
+     * go back, return the before window
+     */
     @Override
     public void jumpBeforeWindow() {
         this.dispose();
         beforeWindows.setVisible(true);
     }
-
+    
+    /*Set Image in each label*/
     private void setImageInScreen() {
-        /*-----------------------------------------------------*/
+        /*Left Label*/
         String path = controller.getStadiumImage(0);
         ImageIcon newIcon = null;
         if (path != null) {
-            newIcon = convertToImageIcon(path, lblViewLeft);
+            newIcon = controller.convertToImageIcon(path, lblViewLeft);
         }
         lblViewLeft.setIcon(newIcon);
-        /*------------------------------------------------------------*/
+        /*Center Label*/
         path = controller.getStadiumImage(1);
         newIcon = null;
         if (path != null) {
-            newIcon = convertToImageIcon(path, lblViewCenter);
+            newIcon = controller.convertToImageIcon(path, lblViewCenter);
         }
         lblViewCenter.setIcon(newIcon);
-        /*----------------------------------------------------------*/
+        /*Right Label*/
         path = controller.getStadiumImage(2);
         newIcon = null;
         if (path != null) {
-            newIcon = convertToImageIcon(path, lblViewRight);
+            newIcon = controller.convertToImageIcon(path, lblViewRight);
         }
         lblViewRight.setIcon(newIcon);
         checkNulls();
     }
-
+    /*Check if one label's icon is null and set enable their button*/
     private void checkNulls() {
         if (lblViewRight.getIcon() == null) {
             btnRight.setEnabled(false);
@@ -387,25 +397,4 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
             btnLeft.setEnabled(true);
         }
     }
-
-    private ImageIcon convertToImageIcon(String path, JLabel label) {
-
-        BufferedImage img = null;
-        try {
-            img = ImageIO.read(new File(path));
-        } catch (IOException e) {
-
-        }
-
-        ImageIcon imageIcon = null;
-        try {
-            Image dimg = img.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
-            imageIcon = new ImageIcon(dimg); //modo imageicon pal label
-        } catch (Exception e) {
-            return null;
-        }
-        return imageIcon;
-
-    }
-    
 }
