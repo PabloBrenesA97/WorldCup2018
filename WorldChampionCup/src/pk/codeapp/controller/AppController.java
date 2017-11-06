@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pk.codeapp.model.ExeptionWorldCup;
+import pk.codeapp.model.Player;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.model.Team;
 
@@ -18,7 +19,7 @@ import pk.codeapp.model.Team;
  */
 public class AppController {
 
-    private Maker maker = new MasterMaker();
+    private Maker masterMaker = new MasterMaker();
 
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
@@ -37,7 +38,7 @@ public class AppController {
         String[] confederaciesDefaultTeam = {"CAF", "CAF", "AFC", "AFC", "AFC", "AFC", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "CONCACAF", "CONCACAF", "CONCACAF", "CSF", "CSF", "CSF", "CSF"};
 
         for (int i = 0; i < namesDeafaultTeam.length; i++) {
-            Team  newTeam = (Team) maker.factoryMethod("Team");
+            Team  newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(i,namesDeafaultTeam[i], coachDeafaultTeam[i], assistantsDefaultTeam[i], confederaciesDefaultTeam[i]);
             teams.add(newTeam);
         }
@@ -57,7 +58,7 @@ public class AppController {
         if(newTeam!=null){
             newTeam.update(id, name, coach, assistant, confederacy);
         }else{
-            newTeam = (Team) maker.factoryMethod("Team");
+            newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(id,name, coach, assistant, confederacy);
             teams.add(newTeam);
         }
@@ -85,12 +86,27 @@ public class AppController {
             ex.getMessage();
         }
     }
+    /**
+     * Add Default player in Egypt
+     * @throws ExeptionWorldCup 
+     */
     private void addDefaultPlayerEgypt() throws ExeptionWorldCup{
         Team teamEgypt = searchTeam("Egypt");
-        String[] namePlayers = {"Essam El-Hadary",""};
-        String[] positionPlayers = {"POR"};
-        int[] oldPlayers = {44};
-        int[] cantCYellowPlayers ={};
+        String[] namePlayers = {"Essam El-Hadary","Sherif Ekramy","Ahmed Elmohamady","Ahmed Fathy","Ahmed Hegazy","Saad Samir","Amr Warda","Mohamed Elneny","Ramadan Sobhi","Mohamed Salah"
+        ,"Kahraba","Ahmed Hassan"};
+        String[] positionPlayers = {"POR","POR","DEF","DEF","DEF","DEF","MED","MED","MED","DEL","DEL","DEL"};
+        int[] agePlayers = {44,34,30,32,26,28,24,25,20,25,23,24};
+        int[] cantCYellowPlayers ={1,0,1,1,0,0,0,1,0,1,0,1};
+        int[] cantCRedPlayers = {0,0,0,1,0,0,0,0,0,0,0,1};
+        int[] numUsePlayers ={1,16,3,7,6,20,22,17,14,10,11,9};
+        int[] cantGoals = {0,0,0,0,1,0,2,0,1,4,1,2};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i],cantCYellowPlayers[i] ,cantCRedPlayers[i],numUsePlayers[i],cantGoals[i]);
+            teamEgypt.getPlayers().add(newPlayer);
+            
+        }
+        teamEgypt.setCantPlayer(namePlayers.length);
     }
     
     //<editor-fold desc="createDefaultStadiums" defaultstate="collapsed">
