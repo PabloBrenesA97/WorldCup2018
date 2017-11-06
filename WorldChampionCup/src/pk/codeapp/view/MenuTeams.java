@@ -6,6 +6,9 @@
 package pk.codeapp.view;
 
 import java.awt.Frame;
+import java.util.ArrayList;
+import pk.codeapp.controller.AppController;
+import pk.codeapp.model.Team;
 import pk.codeapp.model.jumpWindow;
 
 /**
@@ -18,9 +21,12 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
      * Creates new form menuTeams
      */
     private Frame menuFrame;
+    private AppController controller;
+    private int sizeGridPane=0;
     public MenuTeams() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -42,8 +48,8 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 120, 20));
 
-        viewTeamPanel.setLayout(new java.awt.GridLayout());
-        getContentPane().add(viewTeamPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 1170, 510));
+        viewTeamPanel.setLayout(new java.awt.GridLayout(1, 0));
+        getContentPane().add(viewTeamPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 1170, 510));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -106,7 +112,9 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
             }
         });
     }
-
+    public void addTeamInGridPane(ArrayList<Team> listTeams){
+        viewTeamPanel.setLayout(new java.awt.GridLayout(sizeGridPane,sizeGridPane));
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -119,11 +127,15 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
     public void openWindow(Frame beforeWindow) {
         menuFrame=beforeWindow;
         this.setVisible(true);
+        controller=Lobby.controller;
+        sizeGridPane=controller.getTeams().size();
+        addTeamInGridPane(controller.getTeams());
     }
-
+    
     @Override
     public void jumpBeforeWindow() {
         this.dispose();
         menuFrame.setVisible(true);
+        
     }
 }

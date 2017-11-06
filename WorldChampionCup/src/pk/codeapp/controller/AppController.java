@@ -18,6 +18,7 @@ public class AppController {
     private Maker maker = new MasterMaker();
 
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
+<<<<<<< Updated upstream
     private ArrayList<Stadium> arrayStadiums = new ArrayList();
 
     public void createDefaultStadiums() {
@@ -39,6 +40,9 @@ public class AppController {
     }
     //<editor-fold desc="All Getter & Setter here" defaultstate="collapsed">
 
+=======
+    
+>>>>>>> Stashed changes
     public ArrayList<Team> getTeams() {
         return teams;
     }
