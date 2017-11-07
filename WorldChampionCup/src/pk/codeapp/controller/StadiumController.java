@@ -145,7 +145,7 @@ public class StadiumController {
                     throw new ExceptionWorldCup(7);
                 } else {
                     if (exist(ident = Integer.parseInt(id))) {
-                        throw new ExceptionWorldCup(8);
+                        throw new ExceptionWorldCup(9);
                     } else {
                         if (state) {
                             Stadium newStadium = (Stadium) maker.factoryMethod("Stadium");
@@ -153,6 +153,7 @@ public class StadiumController {
                             newStadium.setIcon(path);
                         }else{
                             controller.getArrayStadiums().get(showing).update(name, ident, city, capacityEx);
+                             controller.getArrayStadiums().get(showing).setIcon(path);
                         }
                     }
                 }
