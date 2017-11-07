@@ -6,15 +6,8 @@
 package pk.codeapp.controller;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
-=======
-
 import pk.codeapp.model.ExceptionWorldCup;
-
->>>>>>> master
 import javax.swing.ImageIcon;
 import pk.codeapp.model.Player;
 import pk.codeapp.model.Stadium;
@@ -30,12 +23,9 @@ public class AppController {
     private  DefaultListModel<String> listModel = new DefaultListModel();
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
-<<<<<<< HEAD
     private Team viewTeam;
      //<editor-fold desc="ControllertoTeams" defaultstate="collapsed">
-=======
     //<editor-fold desc="ControllertoTeams" defaultstate="collapsed">
->>>>>>> master
     //<editor-fold desc="createDefaultTeams" defaultstate="collapsed">
 
     /**
@@ -70,19 +60,12 @@ public class AppController {
      * @param assistant
      * @param confederacy
      */
-<<<<<<< HEAD
-    public boolean addTeam(int id,String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
-        Team newTeam = searchTeam(name);
-        //Update team
-        if(newTeam==null){
-=======
-    public void addorUpdateTeam(int id, String name, String coach, String assistant, String confederacy) {
+    public boolean addTeam(int id,String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
         Team newTeam = searchTeam(name);
         //Update team
         if (newTeam != null) {
             newTeam.update(id, name, coach, assistant, confederacy, newTeam.getImageTeam());
         } else {
->>>>>>> master
             newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(id, name, coach, assistant, confederacy, null);
             teams.add(newTeam);
@@ -90,7 +73,6 @@ public class AppController {
         }
         return false;
     }
-<<<<<<< HEAD
     
 //    public DefaultListModel<String> viewPlayerInList(Team team){
 //        DefaultListModel<String> list = new DefaultListModel();
@@ -106,7 +88,7 @@ public class AppController {
      * @return
      * @throws ExeptionWorldCup 
      */
-    public boolean updateTeam(String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
+    public boolean updateTeam(String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
         Team newTeam = searchTeam(name);
          if(newTeam!=null){
              newTeam.update(newTeam.getId(),name, coach, assistant, confederacy,newTeam.getImageTeam());
@@ -126,9 +108,6 @@ public class AppController {
         }
         return false;
     }
-=======
-
->>>>>>> master
     /**
      * Search the Team
      *
@@ -691,8 +670,6 @@ public class AppController {
     }
     
     //</editor-fold>
-
-<<<<<<< HEAD
     public Team getViewTeam() {
         return viewTeam;
     }
@@ -700,7 +677,6 @@ public class AppController {
     public void setViewTeam(Team viewTeam) {
         this.viewTeam = viewTeam;
     }
-=======
     public AppController() {
         createDefaultStadiums();
     }
@@ -708,6 +684,4 @@ public class AppController {
     public void addStadium(Stadium aux) {
         arrayStadiums.add(aux);
     }
-
->>>>>>> master
 }

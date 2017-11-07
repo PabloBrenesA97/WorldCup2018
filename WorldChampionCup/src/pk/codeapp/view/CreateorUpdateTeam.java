@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import pk.codeapp.controller.AppController;
-import pk.codeapp.model.ExeptionWorldCup;
+import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.JumpWindow;
 import pk.codeapp.model.Team;
 
@@ -135,12 +135,14 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
         if(functiontoReaalize.equals("Create")){
             try {
                 addTeam(txtName.getText(),txtCoach.getText(),txtAssistant.getText(),(String) cmbConfederacy.getSelectedItem());
-            } catch (ExeptionWorldCup ex) {}
+            } catch (ExceptionWorldCup ex) {
+                
+            }
         }else{
             try {
                 update(txtName.getText(),txtCoach.getText(),txtAssistant.getText(),(String) cmbConfederacy.getSelectedItem());
-            } catch (ExeptionWorldCup ex) {
-                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            } catch (ExceptionWorldCup ex) {
+                
             }
         }
     }//GEN-LAST:event_btnAddActionPerformed
@@ -214,7 +216,7 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
             btnAdd.setText("Update");
             try {
                 updateLines();
-            } catch (ExeptionWorldCup ex) {
+            } catch (ExceptionWorldCup ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage());
             }
         }
@@ -229,9 +231,9 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
      * Fill lines with actual dates of team selected
      * @throws ExeptionWorldCup 
      */
-    private void updateLines() throws ExeptionWorldCup{
+    private void updateLines() throws ExceptionWorldCup{
         if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
-            throw new ExeptionWorldCup(6);
+            throw new ExceptionWorldCup(6);
         txtName.setText(updateTeam.getName());
         txtAssistant.setText(updateTeam.getAssistant());
         txtCoach.setText(updateTeam.getCoach());
@@ -245,19 +247,19 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
      * @param confederacy
      * @throws ExeptionWorldCup 
      */
-    private void update(String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
+    private void update(String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
         if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
-            throw new ExeptionWorldCup(6);
+            throw new ExceptionWorldCup(6);
         if(!controller.updateTeam(name, coach, assistant, confederacy))
-            throw new ExeptionWorldCup(7);
+            throw new ExceptionWorldCup(7);
     }
     
-    private void addTeam(String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
+    private void addTeam(String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
          if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
-            throw new ExeptionWorldCup(6);
+            throw new ExceptionWorldCup(6);
          else{
              if(!controller.addTeam(controller.getTeams().size(), name, coach, assistant, confederacy))
-                 throw new ExeptionWorldCup(8);
+                 throw new ExceptionWorldCup(8);
          }
          
     }

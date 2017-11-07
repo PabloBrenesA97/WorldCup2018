@@ -17,14 +17,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 import pk.codeapp.controller.StadiumController;
 import pk.codeapp.model.ExceptionWorldCup;
+import pk.codeapp.model.JumpWindow;
 import pk.codeapp.model.Stadium;
-import pk.codeapp.model.jumpWindow;
 
 /**
  *
  * @author Daniel Amador
  */
-public class CreateStadium extends javax.swing.JFrame implements jumpWindow {
+public class CreateStadium extends javax.swing.JFrame implements JumpWindow {
 
     private StadiumsScreen beforeWindow;
     private StadiumController controller;

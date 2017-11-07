@@ -4,24 +4,19 @@
  * and open the template in the editor.
  */
 package pk.codeapp.view;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Frame;
-
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.border.Border;
 import pk.codeapp.controller.StadiumController;
 import pk.codeapp.model.ExceptionWorldCup;
-import pk.codeapp.model.jumpWindow;
+import pk.codeapp.model.JumpWindow;
+
 
 /**
  *
  * @author Daniel Amador
  */
-public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
+public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
 
     private String condition = "nobody";
     private StadiumController controller = new StadiumController();
