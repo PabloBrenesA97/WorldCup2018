@@ -14,23 +14,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import pk.codeapp.controller.AppController;
 import pk.codeapp.model.Path;
 import pk.codeapp.model.Team;
-import pk.codeapp.model.jumpWindow;
+import pk.codeapp.model.JumpWindow;
 
 /**
  *
  * @author Jose Pablo Brenes
  */
-public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionListener {
+public class MenuTeams extends javax.swing.JFrame implements ActionListener, JumpWindow {
 
     /**
      * Creates new form menuTeams
      */
     private Frame menuFrame;
     private AppController controller = Lobby.controller;
-    
+
     public MenuTeams() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -89,6 +91,11 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionL
                 btnDeleteMouseExited(evt);
             }
         });
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 660, 130, 60));
 
         btnUpdate.setBackground(new java.awt.Color(255, 0, 0));
@@ -103,10 +110,15 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionL
                 btnUpdateMouseExited(evt);
             }
         });
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 130, 60));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 20));
 
-        viewTeams.setLayout(new java.awt.GridLayout());
+        viewTeams.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(viewTeams, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 1190, 520));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
@@ -133,12 +145,12 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionL
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jumpBeforeWindow();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCrateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrateMouseEntered
         btnCrate.setBackground(Color.black);
-        
+
     }//GEN-LAST:event_btnCrateMouseEntered
 
     private void btnCrateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrateMouseExited
@@ -162,8 +174,41 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionL
     }//GEN-LAST:event_btnDeleteMouseExited
 
     private void btnCrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrateActionPerformed
-        
+        CreateorUpdateTeam create = new CreateorUpdateTeam();
+        create.setFunctiontoReaalize("create");
+        this.setVisible(false);
+        create.openWindow(this);
     }//GEN-LAST:event_btnCrateActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        /*List of Teams for comboBox*/
+        Team teamUpdate = showListTeams();
+        /*------------------------------------------*/
+        CreateorUpdateTeam create = new CreateorUpdateTeam();
+        create.setFunctiontoReaalize("Update");
+        create.setUpdateTeam(teamUpdate);
+        this.setVisible(false);
+        create.openWindow(this);
+    }//GEN-LAST:event_btnUpdateActionPerformed
+    private Team showListTeams() {
+        String[] listTeams = new String[controller.getTeams().size()];
+        for (int i = 0; i < controller.getTeams().size(); i++) {
+            listTeams[i] = controller.getTeams().get(i).getName();
+        }
+        JComboBox cmbTeams = new JComboBox(listTeams);
+        JOptionPane.showMessageDialog(null, cmbTeams, "select one Team", JOptionPane.QUESTION_MESSAGE);
+        String txtTeam = (String) cmbTeams.getSelectedItem();
+        Team team = controller.searchTeam(txtTeam);
+        return team;
+    }
+    
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        Team teamDelete=showListTeams();
+        // validar 
+        controller.deleteTeam(teamDelete);
+        
+            
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,13 +245,15 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionL
             }
         });
     }
+
     /**
      * Add Button to reference teams
-     * @param listTeams 
+     *
+     * @param listTeams
      */
     public void addTeamInGridPane(ArrayList<Team> listTeams) {
         Font font = new Font("Book Antiqua", 5, 20);
-        viewTeams.setLayout(new GridLayout(8,5));
+        viewTeams.setLayout(new GridLayout(8, 5));
         viewTeams.setOpaque(false);
         for (int i = 0; i < controller.getTeams().size(); i++) {
             JButton button = new JButton(controller.getTeams().get(i).getImageTeam());
@@ -234,7 +281,7 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionL
     public void openWindow(Frame beforeWindow) {
         menuFrame = beforeWindow;
         this.setVisible(true);
-        
+
     }
 
     @Override
@@ -246,6 +293,11 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionL
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        JButton temp = (JButton) e.getSource();
+        Team team=controller.searchTeam(temp.getText());
+        TeamWithPlayers teamPlayers = new TeamWithPlayers();
+        this.setVisible(false);
+        controller.setViewTeam(team);
+        teamPlayers.openWindow(this);
     }
 }

@@ -8,6 +8,7 @@ package pk.codeapp.controller;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import pk.codeapp.model.ExeptionWorldCup;
 import pk.codeapp.model.Player;
@@ -21,9 +22,10 @@ import pk.codeapp.model.Team;
 public class AppController {
 
     private Maker masterMaker = new MasterMaker();
-
+    private  DefaultListModel<String> listModel = new DefaultListModel();
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
+    private Team viewTeam;
      //<editor-fold desc="ControllertoTeams" defaultstate="collapsed">
     //<editor-fold desc="createDefaultTeams" defaultstate="collapsed">
     /**
@@ -56,18 +58,52 @@ public class AppController {
      * @param assistant
      * @param confederacy 
      */
-    public void addorUpdateTeam(int id,String name,String coach,String assistant,String confederacy){
+    public boolean addTeam(int id,String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
         Team newTeam = searchTeam(name);
         //Update team
-        if(newTeam!=null){
-            newTeam.update(id, name, coach, assistant, confederacy,newTeam.getImageTeam());
-        }else{
+        if(newTeam==null){
             newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(id,name, coach, assistant, confederacy,null);
             teams.add(newTeam);
+            return true;
         }
+        return false;
     }
     
+//    public DefaultListModel<String> viewPlayerInList(Team team){
+//        DefaultListModel<String> list = new DefaultListModel();
+//       
+//    }
+   
+    /**
+     * Update Team 
+     * @param name
+     * @param coach
+     * @param assistant
+     * @param confederacy
+     * @return
+     * @throws ExeptionWorldCup 
+     */
+    public boolean updateTeam(String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
+        Team newTeam = searchTeam(name);
+         if(newTeam!=null){
+             newTeam.update(newTeam.getId(),name, coach, assistant, confederacy,newTeam.getImageTeam());
+             return true;
+         }
+             return false;
+    }
+    public boolean deleteTeam(Team teamDelete){
+        for (int i = 0; i < teams.size(); i++) {
+            if(teams.get(i).equals(teamDelete)){
+                if(teams.get(i).getPlayers().isEmpty())
+                    return false;
+                else{
+                teams.remove(i);
+                return true;}
+            }
+        }
+        return false;
+    }
     /**
      *  Search the Team
      * @param id
@@ -598,5 +634,14 @@ public class AppController {
     public void setArrayStadiums(ArrayList<Stadium> arrayStadiums) {
         this.arrayStadiums = arrayStadiums;
     }
+    
     //</editor-fold>
+
+    public Team getViewTeam() {
+        return viewTeam;
+    }
+
+    public void setViewTeam(Team viewTeam) {
+        this.viewTeam = viewTeam;
+    }
 }

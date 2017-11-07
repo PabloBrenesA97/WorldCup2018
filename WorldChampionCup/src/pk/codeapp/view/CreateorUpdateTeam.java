@@ -5,17 +5,33 @@
  */
 package pk.codeapp.view;
 
+import java.awt.Frame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import pk.codeapp.controller.AppController;
+import pk.codeapp.model.ExeptionWorldCup;
+import pk.codeapp.model.JumpWindow;
+import pk.codeapp.model.Team;
+
+
 /**
  *
  * @author Jose Pablo Brenes
  */
-public class CreateorUpdateTeam extends javax.swing.JFrame {
+public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow{
 
     /**
      * Creates new form CreateTeam
      */
+    private String functiontoReaalize;
+    private Frame beforeWindow;
+    private Team updateTeam;
+    private AppController controller = Lobby.controller;
     public CreateorUpdateTeam() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,21 +43,107 @@ public class CreateorUpdateTeam extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        btnBack = new javax.swing.JButton();
+        txtName = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
+        txtCoach = new javax.swing.JTextField();
+        txtAssistant = new javax.swing.JTextField();
+        cmbConfederacy = new javax.swing.JComboBox<>();
+        lblCoach2 = new javax.swing.JLabel();
+        lblCoach1 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblCoach = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 200, 60));
+
+        txtName.setBackground(new java.awt.Color(0, 0, 0));
+        txtName.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        txtName.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 350, 60));
+
+        btnAdd.setBackground(new java.awt.Color(0, 0, 0));
+        btnAdd.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("jButton1");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 650, 210, 60));
+
+        txtCoach.setBackground(new java.awt.Color(0, 0, 0));
+        txtCoach.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        txtCoach.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtCoach, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 350, 60));
+
+        txtAssistant.setBackground(new java.awt.Color(0, 0, 0));
+        txtAssistant.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        txtAssistant.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtAssistant, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, 350, 60));
+
+        cmbConfederacy.setBackground(new java.awt.Color(0, 0, 0));
+        cmbConfederacy.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        cmbConfederacy.setForeground(new java.awt.Color(255, 255, 255));
+        cmbConfederacy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CAF ", "AFC", "UEFA ", "CONCACAF ", "CSF ", " " }));
+        getContentPane().add(cmbConfederacy, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, 340, 50));
+
+        lblCoach2.setFont(new java.awt.Font("Book Antiqua", 1, 36)); // NOI18N
+        lblCoach2.setForeground(new java.awt.Color(255, 255, 255));
+        lblCoach2.setText("Confederacy");
+        getContentPane().add(lblCoach2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 520, -1, -1));
+
+        lblCoach1.setFont(new java.awt.Font("Book Antiqua", 1, 36)); // NOI18N
+        lblCoach1.setForeground(new java.awt.Color(255, 255, 255));
+        lblCoach1.setText("Assistant");
+        getContentPane().add(lblCoach1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 390, -1, -1));
+
+        lblName.setFont(new java.awt.Font("Book Antiqua", 1, 36)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 255, 255));
+        lblName.setText("Name");
+        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
+
+        lblCoach.setFont(new java.awt.Font("Book Antiqua", 1, 36)); // NOI18N
+        lblCoach.setForeground(new java.awt.Color(255, 255, 255));
+        lblCoach.setText("Coach");
+        getContentPane().add(lblCoach, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, -1));
+
+        lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/secundary5.jpg"))); // NOI18N
+        getContentPane().add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        jumpBeforeWindow();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        if(functiontoReaalize.equals("Create")){
+            try {
+                addTeam(txtName.getText(),txtCoach.getText(),txtAssistant.getText(),(String) cmbConfederacy.getSelectedItem());
+            } catch (ExeptionWorldCup ex) {}
+        }else{
+            try {
+                update(txtName.getText(),txtCoach.getText(),txtAssistant.getText(),(String) cmbConfederacy.getSelectedItem());
+            } catch (ExeptionWorldCup ex) {
+                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +182,91 @@ public class CreateorUpdateTeam extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JComboBox<String> cmbConfederacy;
+    private javax.swing.JLabel lblCoach;
+    private javax.swing.JLabel lblCoach1;
+    private javax.swing.JLabel lblCoach2;
+    private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JTextField txtAssistant;
+    private javax.swing.JTextField txtCoach;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
+
+
+
+    public String getFunctiontoReaalize() {
+        return functiontoReaalize;
+    }
+
+    public void setFunctiontoReaalize(String functiontoReaalize) {
+        this.functiontoReaalize = functiontoReaalize;
+    }
+   @Override
+    public void openWindow(Frame menuTeams) {
+        this.beforeWindow=menuTeams;
+        this.setVisible(true);
+        if(functiontoReaalize.equals("create"))
+            btnAdd.setText("Create");
+        else{
+            btnAdd.setText("Update");
+            try {
+                updateLines();
+            } catch (ExeptionWorldCup ex) {
+                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            }
+        }
+    }
+
+    @Override
+    public void jumpBeforeWindow() {
+        this.dispose();
+        beforeWindow.setVisible(true);
+    }
+    /**
+     * Fill lines with actual dates of team selected
+     * @throws ExeptionWorldCup 
+     */
+    private void updateLines() throws ExeptionWorldCup{
+        if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
+            throw new ExeptionWorldCup(6);
+        txtName.setText(updateTeam.getName());
+        txtAssistant.setText(updateTeam.getAssistant());
+        txtCoach.setText(updateTeam.getCoach());
+        
+    }
+    /**
+     *  Update Team
+     * @param name
+     * @param coach
+     * @param assistant
+     * @param confederacy
+     * @throws ExeptionWorldCup 
+     */
+    private void update(String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
+        if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
+            throw new ExeptionWorldCup(6);
+        if(!controller.updateTeam(name, coach, assistant, confederacy))
+            throw new ExeptionWorldCup(7);
+    }
+    
+    private void addTeam(String name,String coach,String assistant,String confederacy) throws ExeptionWorldCup{
+         if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
+            throw new ExeptionWorldCup(6);
+         else{
+             if(!controller.addTeam(controller.getTeams().size(), name, coach, assistant, confederacy))
+                 throw new ExeptionWorldCup(8);
+         }
+         
+    }
+    public Team getUpdateTeam() {
+        return updateTeam;
+    }
+
+    public void setUpdateTeam(Team updateTeam) {
+        this.updateTeam = updateTeam;
+    }
+    
 }

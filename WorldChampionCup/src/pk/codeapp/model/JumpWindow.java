@@ -11,7 +11,7 @@ import java.awt.Frame;
  *
  * @author Jose Pablo Brenes
  */
-public interface jumpWindow {
+public interface JumpWindow {
     /**
      * Jump the next  Window 
      * @param beforeWindow 

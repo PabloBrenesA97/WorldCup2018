@@ -10,7 +10,7 @@ import java.awt.Frame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pk.codeapp.controller.AppController;
-import pk.codeapp.model.jumpWindow;
+import pk.codeapp.model.JumpWindow;
 /**
  *
  * @author Jose Pablo Brenes
