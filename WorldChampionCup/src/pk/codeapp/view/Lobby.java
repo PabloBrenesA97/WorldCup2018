@@ -21,8 +21,8 @@ public class Lobby extends javax.swing.JFrame{
     /**
      * Creates new form Lobby
      */
-     final Color colorBackground = new Color(176,15,21);
-     static AppController controller = new AppController();
+    final Color colorBackground = new Color(176,15,21);
+    public static AppController controller = new AppController();
     public Lobby() {
         
         initComponents();
@@ -58,7 +58,7 @@ public class Lobby extends javax.swing.JFrame{
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnMenu.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\menu.png")); // NOI18N
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/menu.png"))); // NOI18N
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuActionPerformed(evt);
@@ -84,6 +84,11 @@ public class Lobby extends javax.swing.JFrame{
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnStadiumsMouseExited(evt);
+            }
+        });
+        btnStadiums.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStadiumsActionPerformed(evt);
             }
         });
 
@@ -212,7 +217,7 @@ public class Lobby extends javax.swing.JFrame{
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1833, 6, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\main.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/main.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
@@ -280,6 +285,13 @@ public class Lobby extends javax.swing.JFrame{
         this.setVisible(false);
         menuTeams.openWindow(this);
     }//GEN-LAST:event_btnTeamsActionPerformed
+
+    private void btnStadiumsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStadiumsActionPerformed
+      StadiumsScreen jumpStadiums= new StadiumsScreen();
+      this.setVisible(false);
+      jumpStadiums.openWindow(this);
+      
+    }//GEN-LAST:event_btnStadiumsActionPerformed
 
     /**
      * @param args the command line arguments

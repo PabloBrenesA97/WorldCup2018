@@ -5,17 +5,38 @@
  */
 package pk.codeapp.view;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Frame;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.border.Border;
+import pk.codeapp.controller.StadiumController;
+import pk.codeapp.model.ExceptionWorldCup;
+import pk.codeapp.model.jumpWindow;
+
 /**
  *
  * @author Daniel Amador
  */
-public class StadiumsScreen extends javax.swing.JFrame {
+public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
 
+    private String condition = "nobody";
+    private StadiumController controller = new StadiumController();
     /**
      * Creates new form NewJFrame
      */
+    private Lobby beforeWindows;
+
     public StadiumsScreen() {
         initComponents();
+        setImageInScreen();
+
+        /*Set icon in the menubar*/
+        icon.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/worldCupIcon.png", icon));
+        icon1.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/Logo_FIFA.png", icon));
     }
 
     /**
@@ -27,23 +48,245 @@ public class StadiumsScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        lblViewRight = new javax.swing.JLabel();
+        lblViewCenter = new javax.swing.JLabel();
+        lblViewLeft = new javax.swing.JLabel();
+        btnRight = new javax.swing.JButton();
+        btnLeft = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        icon1 = new javax.swing.JLabel();
+        icon = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
+
+        jPanel2.setBackground(new java.awt.Color(250, 250, 240));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1337, 720));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1337, 720));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1337, 720));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblViewRight.setAlignmentY(0.0F);
+        jPanel2.add(lblViewRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 225, 350, 350));
+
+        lblViewCenter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(lblViewCenter, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 480, 520));
+
+        lblViewLeft.setAlignmentY(0.0F);
+        jPanel2.add(lblViewLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 225, 350, 350));
+
+        btnRight.setBackground(new java.awt.Color(255, 255, 255));
+        btnRight.setForeground(new java.awt.Color(255, 255, 255));
+        btnRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/jumpRight.jpg"))); // NOI18N
+        btnRight.setBorder(null);
+        btnRight.setBorderPainted(false);
+        btnRight.setFocusPainted(false);
+        btnRight.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRightActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1266, 345, -1, 60));
+
+        btnLeft.setBackground(new java.awt.Color(255, 255, 255));
+        btnLeft.setForeground(new java.awt.Color(255, 255, 255));
+        btnLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/jumpLeft.jpg"))); // NOI18N
+        btnLeft.setBorder(null);
+        btnLeft.setBorderPainted(false);
+        btnLeft.setFocusPainted(false);
+        btnLeft.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLeft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLeftActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 345, 40, 60));
+
+        jPanel1.setBackground(new java.awt.Color(224, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
+        jButton1.setText("2018 FIFA WORLD CUP RUSSIA™");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 460, 29));
+
+        jButton2.setBackground(new java.awt.Color(224, 0, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Show");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusCycleRoot(true);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 150, 40));
+
+        jButton3.setBackground(new java.awt.Color(224, 0, 0));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Create");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setContentAreaFilled(false);
+        jButton3.setFocusCycleRoot(true);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 140, 40));
+
+        jButton4.setBackground(new java.awt.Color(224, 0, 0));
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Update");
+        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.setContentAreaFilled(false);
+        jButton4.setFocusCycleRoot(true);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 130, 40));
+        jPanel1.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 110, 90));
+        jPanel1.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 10, 120, 90));
+
+        jButton5.setBackground(new java.awt.Color(224, 0, 0));
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Delete");
+        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.setContentAreaFilled(false);
+        jButton5.setFocusCycleRoot(true);
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 130, 40));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftActionPerformed
+        // TODO add your handling code here:
+        controller.IncOrDec(false);
+        setImageInScreen();
+    }//GEN-LAST:event_btnLeftActionPerformed
+
+    private void btnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRightActionPerformed
+        // TODO add your handling code here:
+        controller.IncOrDec(true);
+        setImageInScreen();
+
+    }//GEN-LAST:event_btnRightActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jumpBeforeWindow();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        ShowStadium show = new ShowStadium();
+        show.setShowing(controller);
+        this.setVisible(false);
+
+        show.openWindow(this);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CreateStadium creator= new CreateStadium();
+        creator.setController(controller);
+        this.setVisible(false);
+        creator.openWindow(this);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        CreateStadium creator= new CreateStadium(1);
+        creator.setController(controller);
+        this.setVisible(false);
+        creator.openWindow2(this);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+            // TODO add your handling code here:
+            controller.delete();
+        } catch (ExceptionWorldCup ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+        }
+        setImageInScreen();
+    }//GEN-LAST:event_jButton5ActionPerformed
+    int cont = 0;
     /**
      * @param args the command line arguments
      */
@@ -58,16 +301,24 @@ public class StadiumsScreen extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -81,5 +332,84 @@ public class StadiumsScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLeft;
+    private javax.swing.JButton btnRight;
+    private javax.swing.JLabel icon;
+    private javax.swing.JLabel icon1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblViewCenter;
+    private javax.swing.JLabel lblViewLeft;
+    private javax.swing.JLabel lblViewRight;
     // End of variables declaration//GEN-END:variables
+
+    /*Methods created when implement the interface*/
+    /**
+     * Open this window when is called from other window
+     *
+     * @param beforeWindow
+     */
+    @Override
+    public void openWindow(Frame beforeWindow) {
+        this.beforeWindows = (Lobby) beforeWindow;
+        this.setVisible(true);
+
+    }
+
+    /**
+     * go back, return the before window
+     */
+    @Override
+    public void jumpBeforeWindow() {
+        this.dispose();
+        beforeWindows.setVisible(true);
+    }
+
+    /*Set Image in each label*/
+    private void setImageInScreen() {
+        /*Left Label*/
+        String path = controller.getStadiumImage(0);
+        ImageIcon newIcon = null;
+        if (path != null) {
+            newIcon = controller.convertToImageIcon(path, lblViewLeft);
+        }
+        lblViewLeft.setIcon(newIcon);
+        /*Center Label*/
+        path = controller.getStadiumImage(1);
+        newIcon = null;
+        if (path != null) {
+            newIcon = controller.convertToImageIcon(path, lblViewCenter);
+        }
+        lblViewCenter.setIcon(newIcon);
+        /*Right Label*/
+        path = controller.getStadiumImage(2);
+        newIcon = null;
+        if (path != null) {
+            newIcon = controller.convertToImageIcon(path, lblViewRight);
+        }
+        lblViewRight.setIcon(newIcon);
+        condition = checkNulls();
+    }
+
+    /*Check if one label's icon is null and set enable their button*/
+    private String checkNulls() {
+        if (lblViewRight.getIcon() == null) {
+            btnRight.setEnabled(false);
+            return "right";
+        } else {
+            btnRight.setEnabled(true);
+        }
+        if (lblViewLeft.getIcon() == null) {
+            btnLeft.setEnabled(false);
+            return "left";
+        } else {
+            btnLeft.setEnabled(true);
+        }
+        return "nobody";
+    }
 }
