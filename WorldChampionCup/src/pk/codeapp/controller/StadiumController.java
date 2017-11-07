@@ -127,7 +127,7 @@ public class StadiumController {
     }
 
     public void createStadium(String name, String city, String capacity, String id, String path, boolean state) throws ExceptionWorldCup {
-        System.out.println("Entre");
+       
         if (name == null | city == null | path == null | capacity == null | id == null) {
             throw new ExceptionWorldCup(6);
         } else {
@@ -151,6 +151,7 @@ public class StadiumController {
                             Stadium newStadium = (Stadium) maker.factoryMethod("Stadium");
                             newStadium.update(name, ident, city, capacityEx);
                             newStadium.setIcon(path);
+                            controller.addStadium(newStadium);
                         }else{
                             controller.getArrayStadiums().get(showing).update(name, ident, city, capacityEx);
                              controller.getArrayStadiums().get(showing).setIcon(path);
