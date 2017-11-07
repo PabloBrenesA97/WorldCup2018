@@ -8,7 +8,7 @@ package pk.codeapp.controller;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import pk.codeapp.model.ExeptionWorldCup;
+import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Player;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.model.Team;
@@ -94,15 +94,15 @@ public class AppController {
             addDefaultPlayerEngland();
             addDefaultPlayerIceland();
             addDefaultPlayerPoland();
-        } catch (ExeptionWorldCup ex) {
-            new ExeptionWorldCup(5);
+        } catch (ExceptionWorldCup ex) {
+            new ExceptionWorldCup(5);
             ex.getMessage();
         }
     }
     //<editor-fold desc="addDefaultPlayerPoland" defaultstate="collapsed">
    /**
     * Add Default player in Poland
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
     private void addDefaultPlayerPoland(){
         Team poland = searchTeam("Poland");
@@ -125,7 +125,7 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerIceland" defaultstate="collapsed">
    /**
     * Add Default player in Iceland
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
     private void addDefaultPlayerIceland(){
         Team iceland = searchTeam("Iceland");
@@ -149,7 +149,7 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerEngland" defaultstate="collapsed">
    /**
     * Add Default player in England
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
     private void addDefaultPlayerEngland(){
         Team england = searchTeam("England");
@@ -172,7 +172,7 @@ public class AppController {
      //<editor-fold desc="addDefaultPlayerFrance" defaultstate="collapsed">
    /**
     * Add Default player in France
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
     private void addDefautlPlayerFrance(){
         Team france = searchTeam("France");
@@ -195,7 +195,7 @@ public class AppController {
      //<editor-fold desc="addDefaultPlayerSpain" defaultstate="collapsed">
    /**
     * Add Default player in Spain
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
     private void addDefaultPlayerSpain(){
         Team spain = searchTeam("Spain");
@@ -218,7 +218,7 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerBelgium" defaultstate="collapsed">
    /**
     * Add Default player in Belgium
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
     private void addDefaultPlayerBelgium(){
         Team belgium = searchTeam("Belgium");
@@ -242,9 +242,9 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerGermany" defaultstate="collapsed">
    /**
     * Add Default player in Germany
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
-    private void addDefaultPlayerGermany() throws ExeptionWorldCup{
+    private void addDefaultPlayerGermany() throws ExceptionWorldCup{
         Team germany = searchTeam("Germany");
         String[] namePlayers = {"Kevin Trapp","Bernd Leno","Niklas Süle","Marvin Plattenhardt","Matthias Ginter","Mats Hummels",            
         "Sami Khedira","Julian Draxler","Toni Kroos","Mesut Özil","Thomas Müller","Mario Gómez"};
@@ -266,9 +266,9 @@ public class AppController {
      //<editor-fold desc="addDefaultPlayerKorea" defaultstate="collapsed">
    /**
     * Add Default player in Korea
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
-    private void addDefaultPlayerKorea() throws ExeptionWorldCup{
+    private void addDefaultPlayerKorea() throws ExceptionWorldCup{
         Team korea = searchTeam("Korea");
         String[] namePlayers = {"Kim Seunggyu","Kim Jinhyeon","Kim Younggwon","Jang Hyunsoo","Kim Jinsu","Kim Minwoo",
         "Ki Sungyueng","Koo Jacheol","Son Heungmin","Lee Keunho","Lee Jeonghyeop","Lee Changmin"};
@@ -290,9 +290,9 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerJapan" defaultstate="collapsed">
    /**
     * Add Default player in Japan
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
-    private void addDefaultPlayerJapan() throws ExeptionWorldCup{
+    private void addDefaultPlayerJapan() throws ExceptionWorldCup{
         Team japan = searchTeam("Japan");
         String[] namePlayers = {"Eiji Kawashima","Masaaki Higashiguchi","Yūto Nagatomo","Tomoaki Makino","Maya Yoshida","Hiroki Sakai",
         "Shu Kurata","Shinji Kagawa","Yūki Kobayashi","Takashi Inui","Yuya Osako","Takuma Asano"};
@@ -314,9 +314,9 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerIran" defaultstate="collapsed">
    /**
     * Add Default player in Iran
-    * @throws ExeptionWorldCup 
+    * @throws ExceptionWorldCup 
     */
-    private void addDefaultPlayerIran() throws ExeptionWorldCup{
+    private void addDefaultPlayerIran() throws ExceptionWorldCup{
         Team iran = searchTeam("Iran");
         String[] namePlayers = {"Alireza Beiranvand","Mohammad Rashid Mazaheri","Jalal Hosseini","Morteza Pouraliganji","Ramin Rezaeian","Vouria Ghafouri",
         "Ehsan Hajsafi","Ashkan Dejagah","Alireza Jahanbakhsh","Karim Ansarifard","Reza Ghoochannejhad","Sardar Azmoun"};
@@ -338,9 +338,9 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerSaudiArabia" defaultstate="collapsed">
     /**
      *  Add Default player in SaudiArabia
-     * @throws ExeptionWorldCup 
+     * @throws ExceptionWorldCup 
      */
-    private void addDefaultPlayerSaudiArabia() throws ExeptionWorldCup{
+    private void addDefaultPlayerSaudiArabia() throws ExceptionWorldCup{
         Team saudiArabia = searchTeam("Saudi Arabia");
         String[] namePlayers = {"Waleed Abdullah","Abdullah Al-Mayouf","Hassan Muath","Mansoor Al-Harbi","Omar Hawsawi","Yasser Al-Shahrani",
         "Taisir Al-Jassim","Yahya Al-Shehri","Salman Al-Faraj","Muhannad Assiri","	Mukhtar Fallatah","Hazaa Al-Hazaa"};
@@ -362,9 +362,9 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerNigeria" defaultstate="collapsed">
     /**
      * Add Default player in Nigeria
-     * @throws ExeptionWorldCup 
+     * @throws ExceptionWorldCup 
      */
-    private void addDefaultPlayerNigeria() throws ExeptionWorldCup{
+    private void addDefaultPlayerNigeria() throws ExceptionWorldCup{
         Team teamNigeria = searchTeam("Nigeria");
         String[] namePlayers = {"Ikechukwu Ezenwa","Austin Ejide","Elderson Echiéjilé","Efe Ambrose","Azubuike Egwuekwe","Kunle Odunlami","Ejike Uzoenyi",
         "John Obi Mikel","Victor Moses","Ahmed Musa","Obafemi Martins","Emmanuel Emenike"};
@@ -387,9 +387,9 @@ public class AppController {
     //<editor-fold desc="addDefaultPlayerEgypt" defaultstate="collapsed">
     /**
      * Add Default player in Egypt
-     * @throws ExeptionWorldCup 
+     * @throws ExceptionWorldCup 
      */
-    private void addDefaultPlayerEgypt() throws ExeptionWorldCup{
+    private void addDefaultPlayerEgypt() throws ExceptionWorldCup{
         Team teamEgypt = searchTeam("Egypt");
         String[] namePlayers = {"Essam El-Hadary","Sherif Ekramy","Ahmed Elmohamady","Ahmed Fathy","Ahmed Hegazy","Saad Samir","Amr Warda","Mohamed Elneny","Ramadan Sobhi","Mohamed Salah"
         ,"Kahraba","Ahmed Hassan"};
@@ -457,6 +457,9 @@ public class AppController {
 
     public AppController() {
         createDefaultStadiums();
+    }
+    public void addStadium(Stadium aux){
+        arrayStadiums.add(aux);
     }
     
 }

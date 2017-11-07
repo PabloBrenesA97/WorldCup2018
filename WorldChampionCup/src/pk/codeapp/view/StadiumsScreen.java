@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import pk.codeapp.controller.StadiumController;
-import pk.codeapp.model.ExeptionWorldCup;
+import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.jumpWindow;
 
 /**
@@ -255,7 +255,10 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        CreateStadium creator= new CreateStadium();
+        creator.setController(controller);
+        this.setVisible(false);
+        creator.openWindow(this);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -264,6 +267,10 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        CreateStadium creator= new CreateStadium(1);
+        creator.setController(controller);
+        this.setVisible(false);
+        creator.openWindow2(this);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
@@ -274,7 +281,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
         try {
             // TODO add your handling code here:
             controller.delete();
-        } catch (ExeptionWorldCup ex) {
+        } catch (ExceptionWorldCup ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
         setImageInScreen();
