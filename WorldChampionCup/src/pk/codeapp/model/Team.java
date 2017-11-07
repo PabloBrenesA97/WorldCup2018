@@ -6,6 +6,7 @@
 package pk.codeapp.model;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -17,14 +18,17 @@ public class Team extends Component{
     private String coach;
     private String confederacy;
     private String assistant;
+
     private ArrayList<Player> players = new ArrayList();
-    
-    public void update(int id,String name,String coach,String assistant,String confederacy){
+    private ImageIcon imageTeam;
+    public void update(int id,String name,String coach,String assistant,String confederacy,ImageIcon imageTeam){
         setId(id);
         setName(name);
         setCoach(coach);
         setAssistant(assistant);
         setConfederacy(confederacy);
+        setImageTeam(imageTeam);
+
     }
     
     public int getCantPlayer() {
@@ -34,7 +38,7 @@ public class Team extends Component{
     public void setCantPlayer(int cantPlayer) {
         this.cantPlayer = cantPlayer;
     }
-
+    
     public String getCoach() {
         return coach;
     }
@@ -66,7 +70,12 @@ public class Team extends Component{
     public void setAssistant(String assistant) {
         this.assistant = assistant;
     }
-    
-    
-    
+
+    public ImageIcon getImageTeam() {
+        return imageTeam;
+    }
+
+    public void setImageTeam(ImageIcon imageTeam) {
+        this.imageTeam = imageTeam;
+    }
 }

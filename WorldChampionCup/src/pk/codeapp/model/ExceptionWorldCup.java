@@ -12,10 +12,16 @@ package pk.codeapp.model;
 public class ExceptionWorldCup extends Exception{
     /*All varibles here*/
     private String message;
+<<<<<<< HEAD:WorldChampionCup/src/pk/codeapp/model/ExceptionWorldCup.java
     private final String[] LIST_EXCEPTION = {"1) You can not eliminate stadiums that have matches",
         "2) You can not eliminate teams that have players", "3) You can not eliminate player",
         "4) You can not eliminate players who have scored or who have played a match","5) There are no elements",
         "6) Don't leave spaces in blank","7) The capacity must exceed 1000 spectators","8) Only numbers are accepted"};
+=======
+    private final String[] LIST_EXCEPTION = {"You can not eliminate stadiums that have matches",
+        "You can not eliminate teams that have players", "You can not eliminate player",
+        "you can not eliminate players who have scored or who have played a match","equipment does not exist"};
+>>>>>>> master:WorldChampionCup/src/pk/codeapp/model/ExeptionWorldCup.java
     
     /**
      * Defualt constructor that instance this class

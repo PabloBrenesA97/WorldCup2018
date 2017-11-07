@@ -26,6 +26,8 @@ public class Lobby extends javax.swing.JFrame{
     public Lobby() {
         
         initComponents();
+        controller.createDefaultTeams();
+        controller.addDefaultPlayers();
         this.setLocationRelativeTo(null);
     }
 

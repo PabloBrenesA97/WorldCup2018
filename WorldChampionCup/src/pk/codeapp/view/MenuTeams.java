@@ -5,9 +5,17 @@
  */
 package pk.codeapp.view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Frame;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import pk.codeapp.controller.AppController;
+import pk.codeapp.model.Path;
 import pk.codeapp.model.Team;
 import pk.codeapp.model.jumpWindow;
 
@@ -15,18 +23,18 @@ import pk.codeapp.model.jumpWindow;
  *
  * @author Jose Pablo Brenes
  */
-public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
+public class MenuTeams extends javax.swing.JFrame implements jumpWindow, ActionListener {
 
     /**
      * Creates new form menuTeams
      */
     private Frame menuFrame;
-    private AppController controller;
-    private int sizeGridPane=0;
+    private AppController controller = Lobby.controller;
+    
     public MenuTeams() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+        addTeamInGridPane(controller.getTeams());
     }
 
     /**
@@ -38,18 +46,68 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnCrate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        viewTeamPanel = new javax.swing.JPanel();
+        viewTeams = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 120, 20));
 
-        viewTeamPanel.setLayout(new java.awt.GridLayout(1, 0));
-        getContentPane().add(viewTeamPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 1170, 510));
+        btnCrate.setBackground(new java.awt.Color(255, 0, 0));
+        btnCrate.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        btnCrate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrate.setText("Create");
+        btnCrate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCrateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCrateMouseExited(evt);
+            }
+        });
+        btnCrate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 660, 130, 60));
+
+        btnDelete.setBackground(new java.awt.Color(255, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseExited(evt);
+            }
+        });
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 660, 130, 60));
+
+        btnUpdate.setBackground(new java.awt.Color(255, 0, 0));
+        btnUpdate.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
+        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseExited(evt);
+            }
+        });
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 130, 60));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 20));
+
+        viewTeams.setLayout(new java.awt.GridLayout());
+        getContentPane().add(viewTeams, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 1190, 520));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
@@ -65,7 +123,7 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Teams");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, 50));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 120, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/secundary3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
@@ -74,8 +132,38 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       jumpBeforeWindow();
+        jumpBeforeWindow();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCrateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrateMouseEntered
+        btnCrate.setBackground(Color.black);
+        
+    }//GEN-LAST:event_btnCrateMouseEntered
+
+    private void btnCrateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrateMouseExited
+        btnCrate.setBackground(Color.red);
+    }//GEN-LAST:event_btnCrateMouseExited
+
+    private void btnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseEntered
+        btnUpdate.setBackground(Color.black);
+    }//GEN-LAST:event_btnUpdateMouseEntered
+
+    private void btnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseExited
+        btnUpdate.setBackground(Color.red);
+    }//GEN-LAST:event_btnUpdateMouseExited
+
+    private void btnDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseEntered
+        btnDelete.setBackground(Color.black);
+    }//GEN-LAST:event_btnDeleteMouseEntered
+
+    private void btnDeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseExited
+        btnDelete.setBackground(Color.red);
+    }//GEN-LAST:event_btnDeleteMouseExited
+
+    private void btnCrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrateActionPerformed
+        
+    }//GEN-LAST:event_btnCrateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,30 +200,52 @@ public class MenuTeams extends javax.swing.JFrame implements jumpWindow{
             }
         });
     }
-    public void addTeamInGridPane(ArrayList<Team> listTeams){
-        viewTeamPanel.setLayout(new java.awt.GridLayout(sizeGridPane,sizeGridPane));
+    /**
+     * Add Button to reference teams
+     * @param listTeams 
+     */
+    public void addTeamInGridPane(ArrayList<Team> listTeams) {
+        Font font = new Font("Book Antiqua", 5, 20);
+        viewTeams.setLayout(new GridLayout(8,5));
+        viewTeams.setOpaque(false);
+        for (int i = 0; i < controller.getTeams().size(); i++) {
+            JButton button = new JButton(controller.getTeams().get(i).getImageTeam());
+            button.setText(controller.getTeams().get(i).getName());
+            button.addActionListener(this);
+            button.setVisible(true);
+            button.setFont(font);
+            button.setBackground(Color.black);
+            button.setForeground(Color.white);
+            viewTeams.add(button);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JPanel viewTeamPanel;
+    private javax.swing.JPanel viewTeams;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void openWindow(Frame beforeWindow) {
-        menuFrame=beforeWindow;
+        menuFrame = beforeWindow;
         this.setVisible(true);
-        controller=Lobby.controller;
-        sizeGridPane=controller.getTeams().size();
-        addTeamInGridPane(controller.getTeams());
+        
     }
-    
+
     @Override
     public void jumpBeforeWindow() {
         this.dispose();
         menuFrame.setVisible(true);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
         
     }
 }
