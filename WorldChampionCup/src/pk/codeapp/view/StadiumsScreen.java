@@ -8,14 +8,7 @@ package pk.codeapp.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Frame;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -30,6 +23,7 @@ import pk.codeapp.model.jumpWindow;
  */
 public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
 
+    private String condition = "nobody";
     private StadiumController controller = new StadiumController();
     /**
      * Creates new form NewJFrame
@@ -39,10 +33,12 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
     public StadiumsScreen() {
         initComponents();
         setImageInScreen();
+
         /*Set icon in the menubar*/
         icon.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/worldCupIcon.png", icon));
         icon1.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/Logo_FIFA.png", icon));
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -137,7 +133,6 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusCycleRoot(true);
-        jButton2.setOpaque(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -244,10 +239,10 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ShowStadium show=new ShowStadium();
+        ShowStadium show = new ShowStadium();
         show.setShowing(controller);
         this.setVisible(false);
-      
+
         show.openWindow(this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -284,7 +279,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
         }
         setImageInScreen();
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    int cont = 0;
     /**
      * @param args the command line arguments
      */
@@ -299,16 +294,24 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StadiumsScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StadiumsScreen.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -337,12 +340,12 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
     private javax.swing.JLabel lblViewLeft;
     private javax.swing.JLabel lblViewRight;
     // End of variables declaration//GEN-END:variables
-    
-    
+
     /*Methods created when implement the interface*/
     /**
      * Open this window when is called from other window
-     * @param beforeWindow 
+     *
+     * @param beforeWindow
      */
     @Override
     public void openWindow(Frame beforeWindow) {
@@ -350,6 +353,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
         this.setVisible(true);
 
     }
+
     /**
      * go back, return the before window
      */
@@ -358,7 +362,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
         this.dispose();
         beforeWindows.setVisible(true);
     }
-    
+
     /*Set Image in each label*/
     private void setImageInScreen() {
         /*Left Label*/
@@ -382,19 +386,23 @@ public class StadiumsScreen extends javax.swing.JFrame implements jumpWindow {
             newIcon = controller.convertToImageIcon(path, lblViewRight);
         }
         lblViewRight.setIcon(newIcon);
-        checkNulls();
+        condition = checkNulls();
     }
+
     /*Check if one label's icon is null and set enable their button*/
-    private void checkNulls() {
+    private String checkNulls() {
         if (lblViewRight.getIcon() == null) {
             btnRight.setEnabled(false);
+            return "right";
         } else {
             btnRight.setEnabled(true);
         }
         if (lblViewLeft.getIcon() == null) {
             btnLeft.setEnabled(false);
+            return "left";
         } else {
             btnLeft.setEnabled(true);
         }
+        return "nobody";
     }
 }

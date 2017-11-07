@@ -36,106 +36,96 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lblName = new javax.swing.JLabel();
         lblImage = new javax.swing.JLabel();
-        lblCapacity = new javax.swing.JLabel();
-        lblId = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jLabel4 = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        lblId = new javax.swing.JLabel();
+        lblCapacity = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        lblImage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        lblCapacity.setBackground(new java.awt.Color(255, 255, 255));
-        lblCapacity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblCapacity.setForeground(new java.awt.Color(255, 255, 255));
-        lblCapacity.setText("Capacity: ");
-
-        lblId.setBackground(new java.awt.Color(255, 255, 255));
-        lblId.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblId.setForeground(new java.awt.Color(255, 255, 255));
-        lblId.setText("ID:");
-
-        jScrollPane1.setViewportView(jList1);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Matches:");
+        jPanel1.setBackground(new java.awt.Color(224, 0, 0));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblName.setBackground(new java.awt.Color(255, 255, 255));
         lblName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name:");
+        jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
+
+        lblImage.setBackground(new java.awt.Color(255, 255, 255));
+        lblImage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lblImage.setOpaque(true);
+        jPanel1.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 719, 610));
+
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 520, 410));
 
         lblCity.setBackground(new java.awt.Color(255, 255, 255));
         lblCity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setText("City:");
+        jPanel1.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblId)
-                            .addComponent(jLabel4)
-                            .addComponent(lblCapacity)
-                            .addComponent(lblName)
-                            .addComponent(lblCity))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblName)
-                        .addGap(36, 36, 36)
-                        .addComponent(lblCity)
-                        .addGap(25, 25, 25)
-                        .addComponent(lblId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblCapacity)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
-                .addGap(32, 32, 32))
-        );
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Matches:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 220, -1, -1));
+
+        lblId.setBackground(new java.awt.Color(255, 255, 255));
+        lblId.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblId.setForeground(new java.awt.Color(255, 255, 255));
+        lblId.setText("ID:");
+        jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, -1, -1));
+
+        lblCapacity.setBackground(new java.awt.Color(255, 255, 255));
+        lblCapacity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblCapacity.setForeground(new java.awt.Color(255, 255, 255));
+        lblCapacity.setText("Capacity: ");
+        jPanel1.add(lblCapacity, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(224, 0, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
+        jButton1.setText("2018 FIFA WORLD CUP RUSSIA™");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 460, 29));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         jumpBeforeWindow();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -178,6 +168,8 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCapacity;
     private javax.swing.JLabel lblCity;
@@ -207,7 +199,7 @@ public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
        System.out.println(controller.getFromList());
        lblName.setText("Name: "+stadium.getName());
        lblCity.setText("City: "+stadium.getCity());
-       lblCapacity.setText("Capacity: "+stadium.getCapacity());
+       lblCapacity.setText("Capacity: "+stadium.getCapacity()+" spectators");
        lblId.setText("Id: "+stadium.getId());
        lblImage.setIcon(controller.convertToImageIcon(stadium.getIcon(), lblImage));
     }
