@@ -9,8 +9,10 @@ import java.awt.Frame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import pk.codeapp.controller.AppController;
+import pk.codeapp.controller.CreateorUpdateTeamController;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.JumpWindow;
 import pk.codeapp.model.Team;
@@ -25,13 +27,17 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
     /**
      * Creates new form CreateTeam
      */
-    private String functiontoReaalize;
+    private String functiontoRealize;
     private Frame beforeWindow;
     private Team updateTeam;
-    private AppController controller = Lobby.controller;
+    private CreateorUpdateTeamController controller;
     public CreateorUpdateTeam() {
         initComponents();
+        controller = new CreateorUpdateTeamController(this);
         this.setLocationRelativeTo(null);
+        btnBack.addActionListener(controller);
+        btnAdd.addActionListener(controller);
+        controller = new CreateorUpdateTeamController(this);
     }
 
     /**
@@ -62,11 +68,6 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
         btnBack.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 200, 60));
 
         txtName.setBackground(new java.awt.Color(0, 0, 0));
@@ -78,11 +79,6 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
         btnAdd.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("jButton1");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 650, 210, 60));
 
         txtCoach.setBackground(new java.awt.Color(0, 0, 0));
@@ -127,26 +123,6 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        jumpBeforeWindow();
-    }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if(functiontoReaalize.equals("Create")){
-            try {
-                addTeam(txtName.getText(),txtCoach.getText(),txtAssistant.getText(),(String) cmbConfederacy.getSelectedItem());
-            } catch (ExceptionWorldCup ex) {
-                
-            }
-        }else{
-            try {
-                update(txtName.getText(),txtCoach.getText(),txtAssistant.getText(),(String) cmbConfederacy.getSelectedItem());
-            } catch (ExceptionWorldCup ex) {
-                
-            }
-        }
-    }//GEN-LAST:event_btnAddActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -186,40 +162,31 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
-    private javax.swing.JComboBox<String> cmbConfederacy;
+    public javax.swing.JComboBox<String> cmbConfederacy;
     private javax.swing.JLabel lblCoach;
     private javax.swing.JLabel lblCoach1;
     private javax.swing.JLabel lblCoach2;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblName;
-    private javax.swing.JTextField txtAssistant;
-    private javax.swing.JTextField txtCoach;
-    private javax.swing.JTextField txtName;
+    public javax.swing.JTextField txtAssistant;
+    public javax.swing.JTextField txtCoach;
+    public javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 
 
 
-    public String getFunctiontoReaalize() {
-        return functiontoReaalize;
+    public String getFunctiontoRealize() {
+        return functiontoRealize;
     }
 
-    public void setFunctiontoReaalize(String functiontoReaalize) {
-        this.functiontoReaalize = functiontoReaalize;
+    public void setFunctiontoRealize(String functiontoReaalize) {
+        this.functiontoRealize = functiontoReaalize;
     }
    @Override
     public void openWindow(Frame menuTeams) {
         this.beforeWindow=menuTeams;
         this.setVisible(true);
-        if(functiontoReaalize.equals("create"))
-            btnAdd.setText("Create");
-        else{
-            btnAdd.setText("Update");
-            try {
-                updateLines();
-            } catch (ExceptionWorldCup ex) {
-                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-            }
-        }
+        controller.fillLines();
     }
 
     @Override
@@ -227,48 +194,29 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
         this.dispose();
         beforeWindow.setVisible(true);
     }
-    /**
-     * Fill lines with actual dates of team selected
-     * @throws ExeptionWorldCup 
-     */
-    private void updateLines() throws ExceptionWorldCup{
-        if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
-            throw new ExceptionWorldCup(6);
-        txtName.setText(updateTeam.getName());
-        txtAssistant.setText(updateTeam.getAssistant());
-        txtCoach.setText(updateTeam.getCoach());
-        
-    }
-    /**
-     *  Update Team
-     * @param name
-     * @param coach
-     * @param assistant
-     * @param confederacy
-     * @throws ExeptionWorldCup 
-     */
-    private void update(String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
-        if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
-            throw new ExceptionWorldCup(6);
-        if(!controller.updateTeam(name, coach, assistant, confederacy))
-            throw new ExceptionWorldCup(7);
-    }
-    
-    private void addTeam(String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
-         if(txtName.getText()=="" || txtAssistant.getText()=="" || txtCoach.getText()=="" || cmbConfederacy.equals(""))
-            throw new ExceptionWorldCup(6);
-         else{
-             if(!controller.addTeam(controller.getTeams().size(), name, coach, assistant, confederacy))
-                 throw new ExceptionWorldCup(8);
-         }
-         
-    }
+
     public Team getUpdateTeam() {
         return updateTeam;
     }
 
     public void setUpdateTeam(Team updateTeam) {
         this.updateTeam = updateTeam;
+    }
+
+    public JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    public void setBtnAdd(JButton btnAdd) {
+        this.btnAdd = btnAdd;
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
     }
     
 }

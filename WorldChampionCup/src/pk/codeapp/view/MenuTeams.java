@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import pk.codeapp.controller.AppController;
+import pk.codeapp.controller.MenuTeamController;
 import pk.codeapp.model.Path;
 import pk.codeapp.model.Team;
 import pk.codeapp.model.JumpWindow;
@@ -25,18 +26,24 @@ import pk.codeapp.model.JumpWindow;
  *
  * @author Jose Pablo Brenes
  */
-public class MenuTeams extends javax.swing.JFrame implements ActionListener, JumpWindow {
+public class MenuTeams extends javax.swing.JFrame implements JumpWindow {
 
     /**
      * Creates new form menuTeams
      */
     private Frame menuFrame;
-    private AppController controller = Lobby.controller;
-
+    private MenuTeamController controller;
+    
     public MenuTeams() {
         initComponents();
         this.setLocationRelativeTo(null);
-        addTeamInGridPane(controller.getTeams());
+        controller = new MenuTeamController(this);
+        btnCrate.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnUpdate.addActionListener(controller);
+        btnBack.addActionListener(controller);
+        controller.addTeamInGridPane(Lobby.controller.getTeams());
+        
     }
 
     /**
@@ -53,7 +60,7 @@ public class MenuTeams extends javax.swing.JFrame implements ActionListener, Jum
         btnUpdate = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         viewTeams = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -64,73 +71,29 @@ public class MenuTeams extends javax.swing.JFrame implements ActionListener, Jum
         btnCrate.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         btnCrate.setForeground(new java.awt.Color(255, 255, 255));
         btnCrate.setText("Create");
-        btnCrate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCrateMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCrateMouseExited(evt);
-            }
-        });
-        btnCrate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrateActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnCrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 660, 130, 60));
 
         btnDelete.setBackground(new java.awt.Color(255, 0, 0));
         btnDelete.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
-        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDeleteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnDeleteMouseExited(evt);
-            }
-        });
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 660, 130, 60));
 
         btnUpdate.setBackground(new java.awt.Color(255, 0, 0));
         btnUpdate.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
-        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnUpdateMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnUpdateMouseExited(evt);
-            }
-        });
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 660, 130, 60));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, 120, 20));
 
         viewTeams.setLayout(new java.awt.GridLayout(1, 0));
         getContentPane().add(viewTeams, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 1190, 520));
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 660, 130, 50));
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 660, 130, 50));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,74 +105,8 @@ public class MenuTeams extends javax.swing.JFrame implements ActionListener, Jum
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jumpBeforeWindow();
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void btnCrateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrateMouseEntered
-        btnCrate.setBackground(Color.black);
-
-    }//GEN-LAST:event_btnCrateMouseEntered
-
-    private void btnCrateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrateMouseExited
-        btnCrate.setBackground(Color.red);
-    }//GEN-LAST:event_btnCrateMouseExited
-
-    private void btnUpdateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseEntered
-        btnUpdate.setBackground(Color.black);
-    }//GEN-LAST:event_btnUpdateMouseEntered
-
-    private void btnUpdateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseExited
-        btnUpdate.setBackground(Color.red);
-    }//GEN-LAST:event_btnUpdateMouseExited
-
-    private void btnDeleteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseEntered
-        btnDelete.setBackground(Color.black);
-    }//GEN-LAST:event_btnDeleteMouseEntered
-
-    private void btnDeleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseExited
-        btnDelete.setBackground(Color.red);
-    }//GEN-LAST:event_btnDeleteMouseExited
-
-    private void btnCrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrateActionPerformed
-        CreateorUpdateTeam create = new CreateorUpdateTeam();
-        create.setFunctiontoReaalize("create");
-        this.setVisible(false);
-        create.openWindow(this);
-    }//GEN-LAST:event_btnCrateActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        /*List of Teams for comboBox*/
-        Team teamUpdate = showListTeams();
-        /*------------------------------------------*/
-        CreateorUpdateTeam create = new CreateorUpdateTeam();
-        create.setFunctiontoReaalize("Update");
-        create.setUpdateTeam(teamUpdate);
-        this.setVisible(false);
-        create.openWindow(this);
-    }//GEN-LAST:event_btnUpdateActionPerformed
-    private Team showListTeams() {
-        String[] listTeams = new String[controller.getTeams().size()];
-        for (int i = 0; i < controller.getTeams().size(); i++) {
-            listTeams[i] = controller.getTeams().get(i).getName();
-        }
-        JComboBox cmbTeams = new JComboBox(listTeams);
-        JOptionPane.showMessageDialog(null, cmbTeams, "select one Team", JOptionPane.QUESTION_MESSAGE);
-        String txtTeam = (String) cmbTeams.getSelectedItem();
-        Team team = controller.searchTeam(txtTeam);
-        return team;
-    }
     
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        Team teamDelete=showListTeams();
-        // validar 
-        controller.deleteTeam(teamDelete);
-        
-            
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -246,42 +143,23 @@ public class MenuTeams extends javax.swing.JFrame implements ActionListener, Jum
         });
     }
 
-    /**
-     * Add Button to reference teams
-     *
-     * @param listTeams
-     */
-    public void addTeamInGridPane(ArrayList<Team> listTeams) {
-        Font font = new Font("Book Antiqua", 5, 20);
-        viewTeams.setLayout(new GridLayout(8, 5));
-        viewTeams.setOpaque(false);
-        for (int i = 0; i < controller.getTeams().size(); i++) {
-            JButton button = new JButton(controller.getTeams().get(i).getImageTeam());
-            button.setText(controller.getTeams().get(i).getName());
-            button.addActionListener(this);
-            button.setVisible(true);
-            button.setFont(font);
-            button.setBackground(Color.black);
-            button.setForeground(Color.white);
-            viewTeams.add(button);
-        }
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCrate;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JPanel viewTeams;
+    public javax.swing.JPanel viewTeams;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void openWindow(Frame beforeWindow) {
         menuFrame = beforeWindow;
         this.setVisible(true);
-
+      
     }
 
     @Override
@@ -291,13 +169,36 @@ public class MenuTeams extends javax.swing.JFrame implements ActionListener, Jum
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton temp = (JButton) e.getSource();
-        Team team=controller.searchTeam(temp.getText());
-        TeamWithPlayers teamPlayers = new TeamWithPlayers();
-        this.setVisible(false);
-        controller.setViewTeam(team);
-        teamPlayers.openWindow(this);
+    public JButton getBtnBack() {
+        return btnBack;
     }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnCrate() {
+        return btnCrate;
+    }
+
+    public void setBtnCrate(JButton btnCrate) {
+        this.btnCrate = btnCrate;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public void setBtnUpdate(JButton btnUpdate) {
+        this.btnUpdate = btnUpdate;
+    }
+
 }

@@ -33,16 +33,19 @@ public class AppController {
      */
     public void createDefaultTeams() {
         String[] namesDeafaultTeam = {"Egypt", "Nigeria", "Saudi Arabia", "Iran", "Japan", "Korea", "Germany", "Belgium", "Spain", "France", "England", "Iceland", "Poland",
-            "Portugal", "Russia", "Serbia", "Costa Rica", "Mexico", "Panama"};
+            "Portugal", "Russia", "Serbia", "Costa Rica", "Mexico", "Panama","Argentina","Brasil","Colombia","Uruguay"};
         String[] coachDeafaultTeam = {"Héctor Cúper", "Salisu Yusuf", "Edgardo Bauza", "Carlos Queiroz", "Vahid Halilhodžić", "Shin Tae-Yong", "Joachim Löw", "Roberto Martínez Montoliú", "Julen Lopetegui", "Didier Deschamps",
-            "Gareth Southgate", "Heimir Hallgrímsson", "Adam Nawałka", "Manuel Costa", "Stanislav Cherchésov", "Aleksandar Đorđević", "Óscar Ramírez", "Juan Carlos Osorio", "Hernán Darío Gómez"};
+            "Gareth Southgate", "Heimir Hallgrímsson", "Adam Nawałka", "Manuel Costa", "Stanislav Cherchésov", "Aleksandar Đorđević", "Óscar Ramírez", "Juan Carlos Osorio", "Hernán Darío Gómez",
+        "Jorge Sampaoli","Adenor Bacchi","José Néstor Pekerman","Óscar Tabárez"};
         String[] assistantsDefaultTeam = {"Hany Ramzy", "Anthony Olubunmi", "Mohámed bin Salmán", "Carlos Queiroz", "Jefu Yunaiteddo", "Pim Verbeek", "Joachim Löw", "Yves Soudan", "Migel Angel", "Guy Stéphan", "Alberto Rubio",
-            "Lagerbäck", "Pogon Szczecin", "Tareyja Costa", "Zenit de San Petersburgo", "Sergei Gurenko", "Alejandro Larrea", "Leandro Augusto", "Édgar Carvajal"};
+            "Lagerbäck", "Pogon Szczecin", "Tareyja Costa", "Zenit de San Petersburgo", "Sergei Gurenko", "Alejandro Larrea", "Leandro Augusto", "Édgar Carvajal",
+            "Sebastián Beccacece","Dunga","Gabriel Wainer","Hugo Bagnulo"};
         String[] confederaciesDefaultTeam = {"CAF", "CAF", "AFC", "AFC", "AFC", "AFC", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "CONCACAF", "CONCACAF", "CONCACAF", "CSF", "CSF", "CSF", "CSF"};
         String[] images = {"src/pk/codeapp/view/image/flagTeams/egy.png", "src/pk/codeapp/view/image/flagTeams/nga.png", "src/pk/codeapp/view/image/flagTeams/ksa.png", "src/pk/codeapp/view/image/flagTeams/irn.png", "src/pk/codeapp/view/image/flagTeams/jpn.png", "src/pk/codeapp/view/image/flagTeams/kor.png",
             "src/pk/codeapp/view/image/flagTeams/ger.png", "src/pk/codeapp/view/image/flagTeams/bel.png", "src/pk/codeapp/view/image/flagTeams/esp.png", "src/pk/codeapp/view/image/flagTeams/fra.png", "src/pk/codeapp/view/image/flagTeams/eng.png",
             "src/pk/codeapp/view/image/flagTeams/isl.png", "src/pk/codeapp/view/image/flagTeams/pol.png", "src/pk/codeapp/view/image/flagTeams/por.png", "src/pk/codeapp/view/image/flagTeams/rus.png", "src/pk/codeapp/view/image/flagTeams/srb.png",
-            "src/pk/codeapp/view/image/flagTeams/crc.png", "src/pk/codeapp/view/image/flagTeams/mex.png", "src/pk/codeapp/view/image/flagTeams/pan.png"};
+            "src/pk/codeapp/view/image/flagTeams/crc.png", "src/pk/codeapp/view/image/flagTeams/mex.png", "src/pk/codeapp/view/image/flagTeams/pan.png","src/pk/codeapp/view/image/flagTeams/arg.png","src/pk/codeapp/view/image/flagTeams/bra.png",
+            "src/pk/codeapp/view/image/flagTeams/col.png","src/pk/codeapp/view/image/flagTeams/uru.png"};
         for (int i = 0; i < namesDeafaultTeam.length; i++) {
             Team newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(i, namesDeafaultTeam[i], coachDeafaultTeam[i], assistantsDefaultTeam[i], confederaciesDefaultTeam[i], new ImageIcon(images[i]));
@@ -51,77 +54,20 @@ public class AppController {
     }
     //</editor-fold>
 
-    /**
-     * Create or Update Team
-     *
-     * @param id
-     * @param name
-     * @param coach
-     * @param assistant
-     * @param confederacy
-     */
-    public boolean addTeam(int id,String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
-        Team newTeam = searchTeam(name);
-        //Update team
-        if (newTeam != null) {
-            newTeam.update(id, name, coach, assistant, confederacy, newTeam.getImageTeam());
-        } else {
-            newTeam = (Team) masterMaker.factoryMethod("Team");
-            newTeam.update(id, name, coach, assistant, confederacy, null);
-            teams.add(newTeam);
-            return true;
+   public Team searchTeam(String name){
+        for (int i = 0; i < teams.size(); i++) {
+            if(teams.get(i).getName().equals(name))
+                return teams.get(i);
         }
-        return false;
+        return null;
     }
     
 //    public DefaultListModel<String> viewPlayerInList(Team team){
 //        DefaultListModel<String> list = new DefaultListModel();
 //       
-//    }
+//    
    
-    /**
-     * Update Team 
-     * @param name
-     * @param coach
-     * @param assistant
-     * @param confederacy
-     * @return
-     * @throws ExeptionWorldCup 
-     */
-    public boolean updateTeam(String name,String coach,String assistant,String confederacy) throws ExceptionWorldCup{
-        Team newTeam = searchTeam(name);
-         if(newTeam!=null){
-             newTeam.update(newTeam.getId(),name, coach, assistant, confederacy,newTeam.getImageTeam());
-             return true;
-         }
-             return false;
-    }
-    public boolean deleteTeam(Team teamDelete){
-        for (int i = 0; i < teams.size(); i++) {
-            if(teams.get(i).equals(teamDelete)){
-                if(teams.get(i).getPlayers().isEmpty())
-                    return false;
-                else{
-                teams.remove(i);
-                return true;}
-            }
-        }
-        return false;
-    }
-    /**
-     * Search the Team
-     *
-     * @param id
-     * @return
-     */
-    public Team searchTeam(String name) {
-        for (int i = 0; i < teams.size(); i++) {
-            if (teams.get(i).getName().equals(name)) {
-                return teams.get(i);
-            }
-        }
-        return null;
-    }
+   
 
     //</editor-fold>
     //<editor-fold desc="ControllertoPlayers" defaultstate="collapsed">
@@ -141,11 +87,117 @@ public class AppController {
             addDefaultPlayerEngland();
             addDefaultPlayerIceland();
             addDefaultPlayerPoland();
+            addDefaultPlayerPortugal();
+            addDefaultPlayerRussia();
+            addDefaultPlayerSerbia();
+            addDefaultPlayerCostaRica();
+            addDefaultPlayerPortugal();
+            addDefaultPlayerMexico();
+            addDefaultPlayerPanama();
+            addDefaultPlayerArgentina();
+            addDefaultPlayerBrasil();
+            addDefaultPlayerColombia();
+            addDefaultPlayerUruguay();
         } catch (ExceptionWorldCup ex) {
-            new ExceptionWorldCup(5);
+            new ExceptionWorldCup(10);
         }
     }
-
+     //<editor-fold desc="addDefaultPlayerColombia" defaultstate="collapsed">
+    /**
+     * Add Default player in Colombia
+     *
+     * @throws ExeptionWorldCup
+     */
+    private void addDefaultPlayerUruguay() throws ExceptionWorldCup{
+        Team uruguay = searchTeam("Uruguay");
+        String[] namePlayers = {"Martín Silva","Martín Campaña","Maximiliano Pereira","Diego Godín","Guillermo Varela","Gastón Silva",
+        "Álvaro González","Carlos Sánchez","Cristian Rodríguez","Cristhian Stuani","Edinson Cavani","Maximiliano Gómez"};
+        String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
+        int[] agePlayers = {34,28,33,31,24,23,33,32,32,31,30,21};
+        int[] cantCYellowPlayers = {0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0};
+        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0,1, 0, 0};
+        int[] numUsePlayers = {1,28,4,5,14,9,7,8,11,10,12,15};
+        int[] cantGoals = {0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 6};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i], cantCYellowPlayers[i], cantCRedPlayers[i], numUsePlayers[i], cantGoals[i]);
+            uruguay.getPlayers().add(newPlayer);
+        }
+        uruguay.setCantPlayer(namePlayers.length);
+    }
+    //</editor-fold>
+    //<editor-fold desc="addDefaultPlayerColombia" defaultstate="collapsed">
+    /**
+     * Add Default player in Colombia
+     *
+     * @throws ExeptionWorldCup
+     */
+    private void addDefaultPlayerColombia() throws ExceptionWorldCup{
+        Team colombia = searchTeam("Colombia");
+        String[] namePlayers = {"Leandro Castellanos","José Fernando","Óscar Murillo","Santiago Arias","William Tesillo","Frank Fabra",
+        "Wilmar Barrios","Carlos Sánchez","Abel Aguilar","Carlos Bacca","Duván Zapata","Felipe Pardo"};
+        String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
+        int[] agePlayers = {33,32,29,25,27,26,24,31,31,26,27,26};
+        int[] cantCYellowPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0};
+        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0,0, 0, 1};
+        int[] numUsePlayers = {1,12,3,4,15,18,5,6,7,9,19,10};
+        int[] cantGoals = {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 2, 6};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i], cantCYellowPlayers[i], cantCRedPlayers[i], numUsePlayers[i], cantGoals[i]);
+            colombia.getPlayers().add(newPlayer);
+        }
+        colombia.setCantPlayer(namePlayers.length);
+    } 
+     //</editor-fold>
+    //<editor-fold desc="addDefaultPlayerBrasil" defaultstate="collapsed">
+    /**
+     * Add Default player in Brasil
+     *
+     * @throws ExeptionWorldCup
+     */
+    private void addDefaultPlayerBrasil() throws ExceptionWorldCup {
+        Team argentina = searchTeam("Argentina");
+        String[] namePlayers = {"Alisson","Cássio","Dani Alves","Marcelo","Danilo","Thiago Silva","Casemiro",
+        "Renato Augusto","Philippe Coutinho","Neymar","Douglas Costa","Gabriel Jesus"};
+        String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
+        int[] agePlayers = {25,30,34,29,26,23,25,29,29,25,27,20};
+        int[] cantCYellowPlayers = {0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0};
+        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0};
+        int[] numUsePlayers = {1,16,2,12,22,14,5,8,11,10,7,9};
+        int[] cantGoals = {0, 0, 0, 0, 0, 0, 1, 1, 0, 5, 3, 0};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i], cantCYellowPlayers[i], cantCRedPlayers[i], numUsePlayers[i], cantGoals[i]);
+            argentina.getPlayers().add(newPlayer);
+        }
+        argentina.setCantPlayer(namePlayers.length);
+    }
+     //</editor-fold>
+    //<editor-fold desc="addDefaultPlayerArgentina" defaultstate="collapsed">
+    /**
+     * Add Default player in Argentina
+     *
+     * @throws ExeptionWorldCup
+     */
+     private void addDefaultPlayerArgentina() throws ExceptionWorldCup {
+        Team argentina = searchTeam("Argentina");
+        String[] namePlayers = {"Sergio Romero","Nahuel Guzmán","Gabriel Mercado","Federico Fazio","Germán Pezzella","Javier Mascherano",
+        "Lucas Biglia","Giovanni Lo Celso","Emiliano Rigoni","Lionel Messi","Ángel Di María","Sergio Agüero"};
+        String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
+        int[] agePlayers = {30,31,30,30,26,33,31,21,24,30,29,29};
+        int[] cantCYellowPlayers = {0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0};
+        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
+        int[] numUsePlayers = {1,12,2,3,4,14,6,12,16,10,11,7};
+        int[] cantGoals = {0, 0, 0, 0, 0, 1, 0, 2, 0, 2, 4, 0};
+        for (int i = 0; i < namePlayers.length; i++) {
+            Player newPlayer = (Player) masterMaker.factoryMethod("Player");
+            newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i], cantCYellowPlayers[i], cantCRedPlayers[i], numUsePlayers[i], cantGoals[i]);
+            argentina.getPlayers().add(newPlayer);
+        }
+        argentina.setCantPlayer(namePlayers.length);
+    }
+    //</editor-fold>
     //<editor-fold desc="addDefaultPlayerPanama" defaultstate="collapsed">
     /**
      * Add Default player in Panama
@@ -684,4 +736,13 @@ public class AppController {
     public void addStadium(Stadium aux) {
         arrayStadiums.add(aux);
     }
+
+    public Maker getMasterMaker() {
+        return masterMaker;
+    }
+
+    public void setMasterMaker(Maker masterMaker) {
+        this.masterMaker = masterMaker;
+    }
+    
 }

@@ -9,13 +9,13 @@ import java.awt.Frame;
 import javax.swing.JFrame;
 import pk.codeapp.controller.StadiumController;
 import pk.codeapp.model.Stadium;
-import pk.codeapp.model.jumpWindow;
+import pk.codeapp.model.JumpWindow;
 
 /**
  *
  * @author Daniel Amador
  */
-public class ShowStadium extends javax.swing.JFrame implements jumpWindow{
+public class ShowStadium extends javax.swing.JFrame implements JumpWindow{
 
     /**
      * Creates new form ShowStadium
