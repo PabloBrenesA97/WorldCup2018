@@ -5,33 +5,37 @@
  */
 package pk.codeapp.view;
 import java.awt.Frame;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import pk.codeapp.controller.StadiumController;
-import pk.codeapp.model.ExceptionWorldCup;
-import pk.codeapp.model.JumpWindow;
+import pk.codeapp.model.JumpWindows;
 
 
 /**
  *
  * @author Daniel Amador
  */
-public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
-
-    private String condition = "nobody";
-    private StadiumController controller = new StadiumController();
+public class StadiumsScreen extends javax.swing.JFrame implements JumpWindows{
+    
+    private StadiumController controller ;
+    private Frame beforeWindow;
     /**
      * Creates new form NewJFrame
      */
-    private Lobby beforeWindows;
-
+    
     public StadiumsScreen() {
-        initComponents();
-        setImageInScreen();
-
-        /*Set icon in the menubar*/
-        icon.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/worldCupIcon.png", icon));
-        icon1.setIcon(controller.convertToImageIcon("src/pk/codeapp/view/image/Logo_FIFA.png", icon));
+        initComponents();  
+        controller = new StadiumController(this);
+        //<editor-fold desc="Set Action Listener in buttons" defaultstate="collapsed">
+        btnLeft.addActionListener(controller);
+        btnRight.addActionListener(controller);
+        btnCreate.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnShow.addActionListener(controller);
+        btnUpdate.addActionListener(controller);
+        btnBack.addActionListener(controller);
+        //</editor-fold>
+       
     }
 
     /**
@@ -50,13 +54,13 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
         btnRight = new javax.swing.JButton();
         btnLeft = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
+        btnShow = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
         icon1 = new javax.swing.JLabel();
         icon = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -83,11 +87,6 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
         btnRight.setBorderPainted(false);
         btnRight.setFocusPainted(false);
         btnRight.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnRight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRightActionPerformed(evt);
-            }
-        });
         jPanel2.add(btnRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(1266, 345, -1, 60));
 
         btnLeft.setBackground(new java.awt.Color(255, 255, 255));
@@ -97,107 +96,67 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
         btnLeft.setBorderPainted(false);
         btnLeft.setFocusPainted(false);
         btnLeft.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLeftActionPerformed(evt);
-            }
-        });
         jPanel2.add(btnLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 345, 40, 60));
 
         jPanel1.setBackground(new java.awt.Color(224, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
-        jButton1.setText("2018 FIFA WORLD CUP RUSSIA™");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
+        btnBack.setText("2018 FIFA WORLD CUP RUSSIA™");
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 460, 29));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 460, 29));
 
-        jButton2.setBackground(new java.awt.Color(224, 0, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Show");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusCycleRoot(true);
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 150, 40));
+        btnShow.setBackground(new java.awt.Color(224, 0, 0));
+        btnShow.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnShow.setForeground(new java.awt.Color(255, 255, 255));
+        btnShow.setText("Show");
+        btnShow.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnShow.setContentAreaFilled(false);
+        btnShow.setFocusCycleRoot(true);
+        jPanel1.add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 150, 40));
 
-        jButton3.setBackground(new java.awt.Color(224, 0, 0));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Create");
-        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusCycleRoot(true);
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCreate.setBackground(new java.awt.Color(224, 0, 0));
+        btnCreate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreate.setText("Create");
+        btnCreate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCreate.setContentAreaFilled(false);
+        btnCreate.setFocusCycleRoot(true);
+        btnCreate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                btnCreateMouseClicked(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 140, 40));
+        jPanel1.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 140, 40));
 
-        jButton4.setBackground(new java.awt.Color(224, 0, 0));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Update");
-        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton4.setContentAreaFilled(false);
-        jButton4.setFocusCycleRoot(true);
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 130, 40));
+        btnUpdate.setBackground(new java.awt.Color(224, 0, 0));
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.setContentAreaFilled(false);
+        btnUpdate.setFocusCycleRoot(true);
+        jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 70, 130, 40));
         jPanel1.add(icon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 10, 110, 90));
         jPanel1.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 10, 120, 90));
 
-        jButton5.setBackground(new java.awt.Color(224, 0, 0));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Delete");
-        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton5.setContentAreaFilled(false);
-        jButton5.setFocusCycleRoot(true);
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
-        });
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 130, 40));
+        btnDelete.setBackground(new java.awt.Color(224, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete.setContentAreaFilled(false);
+        btnDelete.setFocusCycleRoot(true);
+        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 130, 40));
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 110));
 
@@ -215,73 +174,14 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeftActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnCreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateMouseClicked
         // TODO add your handling code here:
-        controller.IncOrDec(false);
-        setImageInScreen();
-    }//GEN-LAST:event_btnLeftActionPerformed
+    }//GEN-LAST:event_btnCreateMouseClicked
 
-    private void btnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRightActionPerformed
-        // TODO add your handling code here:
-        controller.IncOrDec(true);
-        setImageInScreen();
-
-    }//GEN-LAST:event_btnRightActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jumpBeforeWindow();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        ShowStadium show = new ShowStadium();
-        show.setShowing(controller);
-        this.setVisible(false);
-
-        show.openWindow(this);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        CreateStadium creator= new CreateStadium();
-        creator.setController(controller);
-        this.setVisible(false);
-        creator.openWindow(this);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        CreateStadium creator= new CreateStadium(1);
-        creator.setController(controller);
-        this.setVisible(false);
-        creator.openWindow2(this);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        try {
-            // TODO add your handling code here:
-            controller.delete();
-        } catch (ExceptionWorldCup ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-        }
-        setImageInScreen();
-    }//GEN-LAST:event_jButton5ActionPerformed
-    int cont = 0;
     /**
      * @param args the command line arguments
      */
@@ -327,20 +227,20 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnLeft;
     private javax.swing.JButton btnRight;
+    private javax.swing.JButton btnShow;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel icon;
     private javax.swing.JLabel icon1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblViewCenter;
-    private javax.swing.JLabel lblViewLeft;
-    private javax.swing.JLabel lblViewRight;
+    public javax.swing.JLabel lblViewCenter;
+    public javax.swing.JLabel lblViewLeft;
+    public javax.swing.JLabel lblViewRight;
     // End of variables declaration//GEN-END:variables
 
     /*Methods created when implement the interface*/
@@ -351,9 +251,8 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
      */
     @Override
     public void openWindow(Frame beforeWindow) {
-        this.beforeWindows = (Lobby) beforeWindow;
+        this.beforeWindow=beforeWindow;
         this.setVisible(true);
-
     }
 
     /**
@@ -361,50 +260,38 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindow {
      */
     @Override
     public void jumpBeforeWindow() {
+        beforeWindow.setVisible(true);
         this.dispose();
-        beforeWindows.setVisible(true);
+       
+    }
+    //<editor-fold defaultstate="collapsed" desc="Getter and Setter">
+    public JButton getBtnBack() {
+        return btnBack;
     }
 
-    /*Set Image in each label*/
-    private void setImageInScreen() {
-        /*Left Label*/
-        String path = controller.getStadiumImage(0);
-        ImageIcon newIcon = null;
-        if (path != null) {
-            newIcon = controller.convertToImageIcon(path, lblViewLeft);
-        }
-        lblViewLeft.setIcon(newIcon);
-        /*Center Label*/
-        path = controller.getStadiumImage(1);
-        newIcon = null;
-        if (path != null) {
-            newIcon = controller.convertToImageIcon(path, lblViewCenter);
-        }
-        lblViewCenter.setIcon(newIcon);
-        /*Right Label*/
-        path = controller.getStadiumImage(2);
-        newIcon = null;
-        if (path != null) {
-            newIcon = controller.convertToImageIcon(path, lblViewRight);
-        }
-        lblViewRight.setIcon(newIcon);
-        condition = checkNulls();
+    public JButton getBtnCreate() {
+        return btnCreate;
     }
 
-    /*Check if one label's icon is null and set enable their button*/
-    private String checkNulls() {
-        if (lblViewRight.getIcon() == null) {
-            btnRight.setEnabled(false);
-            return "right";
-        } else {
-            btnRight.setEnabled(true);
-        }
-        if (lblViewLeft.getIcon() == null) {
-            btnLeft.setEnabled(false);
-            return "left";
-        } else {
-            btnLeft.setEnabled(true);
-        }
-        return "nobody";
+    public JButton getBtnDelete() {
+        return btnDelete;
     }
+
+    public JButton getBtnLeft() {
+        return btnLeft;
+    }
+
+    public JButton getBtnRight() {
+        return btnRight;
+    }
+
+    public JButton getBtnShow() {
+        return btnShow;
+    }
+    //</editor-fold>
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
 }

@@ -6,6 +6,8 @@
 package pk.codeapp.controller;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -13,31 +15,70 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.view.CreateStadium;
 import pk.codeapp.view.Lobby;
+import pk.codeapp.view.ShowStadium;
+import pk.codeapp.view.StadiumsScreen;
 
 /**
+ * controller from stadium screen
  *
  * @author Daniel Amador
  */
-public class StadiumController {
+public class StadiumController implements ActionListener {
 
-    /*get list of stadiums*/
+    private StadiumsScreen window;
     private AppController controller = Lobby.controller;
-    private Maker maker = new MasterMaker();
     private ArrayList<Stadium> stadiumsCopy = controller.getArrayStadiums();
     /*index that is showing */
     private int showing = 0;
 
+    public StadiumController(StadiumsScreen window) {
+        this.window = window;
+        setImageInScreen();
+    }
+
     /**
-     * add or reduce the index for move in the array
+     * Handle event in their screen
+     *
+     * @param e
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == window.getBtnBack()) {
+            window.jumpBeforeWindow();
+        }
+        if (e.getSource() == window.getBtnCreate()) {
+            //jumping create method
+            openCreateStadium();
+        }
+        if (e.getSource() == window.getBtnDelete()) {
+            //jumping delete method
+        }
+        if (e.getSource() == window.getBtnLeft()) {
+            IncOrDec(false);
+            setImageInScreen();
+        }
+        if (e.getSource() == window.getBtnRight()) {
+            IncOrDec(true);
+            setImageInScreen();
+        }
+        if (e.getSource() == window.getBtnShow()) {
+            openShowStadium();
+        }
+        if (e.getSource() == window.getBtnUpdate()) {
+            openCreateStadium(getFromList());
+        }
+    }
+
+    /**
+     * Increase o decrease the index to show this elements in the screen
      *
      * @param flag
      */
     public void IncOrDec(boolean flag) {
-
         if (flag) {
             showing++;
         } else {
@@ -46,7 +87,30 @@ public class StadiumController {
     }
 
     /**
-     * Return the String with the path to load the image
+     * Open the screen interface
+     */
+    public void openShowStadium() {
+        ShowStadium sc = new ShowStadium();
+        sc.setData(this, getFromList());
+        sc.openWindow(window);
+        
+        window.setVisible(false);
+    }
+
+    public void openCreateStadium() {
+        CreateStadium sc = new CreateStadium(this);
+        sc.openWindow(window);
+        window.setVisible(false);
+    }
+
+    public void openCreateStadium(Stadium show) {
+        CreateStadium sc = new CreateStadium(show,this);
+        sc.openWindow(window);
+        window.setVisible(false);
+    }
+
+    /**
+     * return the path of the image to show in the screen
      *
      * @param id
      * @return
@@ -84,31 +148,11 @@ public class StadiumController {
     }
 
     /**
-     * Delete a stadium
-     *
-     * @throws ExceptionWorldCup
-     */
-    public void delete() throws ExceptionWorldCup {
-        if (stadiumsCopy.size() != 0) {
-            stadiumsCopy.remove(showing);
-            showing = 0;
-        } else {
-            throw new ExceptionWorldCup(5);
-        }
-
-    }
-
-    /*return the list*/
-    public Stadium getFromList() {
-        return stadiumsCopy.get(showing);
-    }
-
-    /**
-     * Convert the image for each label size
+     * Transform the image to each image
      *
      * @param path
      * @param label
-     * @return new ImageIcon
+     * @return
      */
     public ImageIcon convertToImageIcon(String path, JLabel label) {
         BufferedImage img = null;
@@ -126,61 +170,49 @@ public class StadiumController {
         return imageIcon;
     }
 
-    public void createStadium(String name, String city, String capacity, String id, String path, boolean state) throws ExceptionWorldCup {
-       
-        if (name == null | city == null | path == null | capacity == null | id == null) {
-            throw new ExceptionWorldCup(6);
+    /*Set Image in each label*/
+    private void setImageInScreen() {
+        /*Left Label*/
+        String path = getStadiumImage(0);
+        ImageIcon newIcon = null;
+        if (path != null) {
+            newIcon = convertToImageIcon(path, window.lblViewLeft);
+        }
+        window.lblViewLeft.setIcon(newIcon);
+        /*Center Label*/
+        path = getStadiumImage(1);
+        newIcon = null;
+        if (path != null) {
+            newIcon = convertToImageIcon(path, window.lblViewCenter);
+        }
+        window.lblViewCenter.setIcon(newIcon);
+        /*Right Label*/
+        path = getStadiumImage(2);
+        newIcon = null;
+        if (path != null) {
+            newIcon = convertToImageIcon(path, window.lblViewRight);
+        }
+        window.lblViewRight.setIcon(newIcon);
+        checkNulls();
+    }
+
+    /*Check if one label's icon is null and set enable their button*/
+    private String checkNulls() {
+        if (window.lblViewRight.getIcon() == null) {
+            window.getBtnRight().setEnabled(false);
+            return "right";
         } else {
-            int capacityEx = 0;
-            int ident = 0;
-            try {
-                capacityEx = Integer.parseInt(capacity);
-                ident = Integer.parseInt(id);
-
-            } catch (Exception e) {
-
-            }
-            if (capacityEx != 0 && ident != 0) {
-                if (capacityEx < 100) {
-                    throw new ExceptionWorldCup(7);
-                } else {
-                    if (exist(ident = Integer.parseInt(id))) {
-                        throw new ExceptionWorldCup(9);
-                    } else {
-                        if (state) {
-                            Stadium newStadium = (Stadium) maker.factoryMethod("Stadium");
-                            newStadium.update(name, ident, city, capacityEx);
-                            newStadium.setIcon(path);
-                            controller.addStadium(newStadium);
-                        }else{
-                            controller.getArrayStadiums().get(showing).update(name, ident, city, capacityEx);
-                             controller.getArrayStadiums().get(showing).setIcon(path);
-                        }
-                    }
-                }
-            }
+            window.getBtnRight().setEnabled(true);
         }
-    }
-
-    private boolean exist(int id) {
-        for (int i = 0; i < stadiumsCopy.size(); i++) {
-            if (stadiumsCopy.get(i).getId() == id) {
-                return true;
-            }
+        if (window.lblViewLeft.getIcon() == null) {
+            window.getBtnLeft().setEnabled(false);
+            return "left";
+        } else {
+            window.getBtnLeft().setEnabled(true);
         }
-        return false;
+        return "nobody";
     }
-
-    public void chargeInfo(CreateStadium sc) {
-        Stadium stadium = getFromList();
-        sc.getLblCapacity().setText(stadium.getCapacity() + "");
-        sc.getLblId().setText(stadium.getId() + "");
-        sc.getLblName().setText(stadium.getName());
-        sc.getLblCity().setText(stadium.getCity());
-        sc.setPath(stadium.getIcon());
+    public Stadium getFromList() {
+        return stadiumsCopy.get(showing);
     }
-
-    public void update() {
-    }
-
 }

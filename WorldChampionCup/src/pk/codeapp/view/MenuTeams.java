@@ -5,21 +5,11 @@
  */
 package pk.codeapp.view;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Frame;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import pk.codeapp.controller.AppController;
 import pk.codeapp.controller.MenuTeamController;
-import pk.codeapp.model.Path;
-import pk.codeapp.model.Team;
+
 import pk.codeapp.model.JumpWindow;
 
 /**

@@ -6,23 +6,20 @@
 package pk.codeapp.view;
 
 import java.awt.Frame;
-import javax.swing.JFrame;
+import pk.codeapp.controller.ShowStadiumController;
 import pk.codeapp.controller.StadiumController;
+import pk.codeapp.model.JumpWindows;
 import pk.codeapp.model.Stadium;
-import pk.codeapp.model.JumpWindow;
 
 /**
  *
  * @author Daniel Amador
  */
-public class ShowStadium extends javax.swing.JFrame implements JumpWindow{
+public class ShowStadium extends javax.swing.JFrame implements JumpWindows {
 
-    /**
-     * Creates new form ShowStadium
-     */
-    private Stadium stadium;
+    ShowStadiumController controller;
     private StadiumsScreen beforeWindow;
-    private StadiumController controller;
+
     public ShowStadium() {
         initComponents();
     }
@@ -46,10 +43,9 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindow{
         lblId = new javax.swing.JLabel();
         lblCapacity = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,19 +98,19 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindow{
         jPanel2.setBackground(new java.awt.Color(224, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
-        jButton1.setText("2018 FIFA WORLD CUP RUSSIA™");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
+        btnBack.setText("2018 FIFA WORLD CUP RUSSIA™");
+        btnBack.setBorderPainted(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 460, 29));
+        jPanel2.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 460, 29));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 50));
 
@@ -124,9 +120,9 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindow{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         jumpBeforeWindow();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,24 +160,29 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindow{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
+    public javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCapacity;
-    private javax.swing.JLabel lblCity;
-    private javax.swing.JLabel lblId;
-    private javax.swing.JLabel lblImage;
-    private javax.swing.JLabel lblName;
+    public javax.swing.JLabel lblCapacity;
+    public javax.swing.JLabel lblCity;
+    public javax.swing.JLabel lblId;
+    public javax.swing.JLabel lblImage;
+    public javax.swing.JLabel lblName;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void openWindow(Frame beforeWindow) {
-        this.beforeWindow=(StadiumsScreen) beforeWindow;
+        this.beforeWindow = (StadiumsScreen) beforeWindow;
         this.setVisible(true);
-        showInfo();
+
+    }
+
+    public void setData(StadiumController control, Stadium stadium) {
+        controller = new ShowStadiumController(this, stadium, control);
+        btnBack.addActionListener(controller);
     }
 
     @Override
@@ -189,17 +190,5 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindow{
         this.dispose();
         beforeWindow.setVisible(true);
     }
-    public void setShowing(StadiumController controller){
-        this.controller=controller;
-    }
 
-    private void showInfo() {
-       this.stadium=controller.getFromList();
-       System.out.println(controller.getFromList());
-       lblName.setText("Name: "+stadium.getName());
-       lblCity.setText("City: "+stadium.getCity());
-       lblCapacity.setText("Capacity: "+stadium.getCapacity()+" spectators");
-       lblId.setText("Id: "+stadium.getId());
-       lblImage.setIcon(controller.convertToImageIcon(stadium.getIcon(), lblImage));
-    }
 }
