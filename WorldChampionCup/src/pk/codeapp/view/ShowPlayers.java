@@ -25,15 +25,15 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
     private Frame beforeWindow; 
     private PlayerController controller;
     public ShowPlayers(Team actualTeam) {
+        initComponents();
         this.actualTeam = actualTeam;
         this.setLocationRelativeTo(null);
-        
+        controller = new PlayerController(this);
     }
     
     public ShowPlayers() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
     }
 
     /**
@@ -61,6 +61,9 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tablePlayers.setBackground(new java.awt.Color(0, 0, 0));
+        tablePlayers.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        tablePlayers.setForeground(new java.awt.Color(255, 255, 255));
         tablePlayers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -71,7 +74,7 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
         ));
         jScrollPane1.setViewportView(tablePlayers);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 860, 540));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 940, 570));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 0));
 
@@ -174,14 +177,14 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAss;
-    public javax.swing.JLabel lblAssistant;
+    private javax.swing.JLabel lblAssistant;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblC;
-    public javax.swing.JLabel lblCoach;
+    private javax.swing.JLabel lblCoach;
     private javax.swing.JLabel lblCon;
-    public javax.swing.JLabel lblConfederacy;
+    private javax.swing.JLabel lblConfederacy;
     private javax.swing.JLabel lblN;
-    public javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblName;
     private javax.swing.JTable tablePlayers;
     // End of variables declaration//GEN-END:variables
 
@@ -189,7 +192,7 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
     public void openWindow(Frame beforeWindow) {
         this.beforeWindow=beforeWindow;
         this.setVisible(true);
-        controller = new PlayerController(this);
+       
     }
 
     @Override
