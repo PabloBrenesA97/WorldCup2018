@@ -11,20 +11,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import pk.codeapp.controller.AppController;
 import pk.codeapp.model.JumpWindow;
+
 /**
  *
  * @author Jose Pablo Brenes
  */
-public class Lobby extends javax.swing.JFrame{
-
+public class Lobby extends javax.swing.JFrame {
 
     /**
      * Creates new form Lobby
      */
-    final Color colorBackground = new Color(176,15,21);
+    final Color colorBackground = new Color(176, 15, 21);
     public static AppController controller = new AppController();
+
     public Lobby() {
-        
+
         initComponents();
         controller.createDefaultTeams();
         controller.addDefaultPlayers();
@@ -138,6 +139,11 @@ public class Lobby extends javax.swing.JFrame{
                 btnGroupsMouseExited(evt);
             }
         });
+        btnGroups.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGroupsActionPerformed(evt);
+            }
+        });
 
         btnResults.setBackground(new java.awt.Color(176, 15, 21));
         btnResults.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -224,7 +230,7 @@ public class Lobby extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-           move();
+        move();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnStadiumsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStadiumsMouseEntered
@@ -233,7 +239,7 @@ public class Lobby extends javax.swing.JFrame{
 
     private void btnStadiumsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStadiumsMouseExited
 
-       btnStadiums.setBackground(colorBackground);
+        btnStadiums.setBackground(colorBackground);
     }//GEN-LAST:event_btnStadiumsMouseExited
 
     private void btnTeamsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTeamsMouseEntered
@@ -242,7 +248,7 @@ public class Lobby extends javax.swing.JFrame{
 
     private void btnTeamsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTeamsMouseExited
 
-         btnTeams.setBackground(colorBackground);
+        btnTeams.setBackground(colorBackground);
     }//GEN-LAST:event_btnTeamsMouseExited
 
     private void btnCalendarsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalendarsMouseExited
@@ -287,11 +293,18 @@ public class Lobby extends javax.swing.JFrame{
     }//GEN-LAST:event_btnTeamsActionPerformed
 
     private void btnStadiumsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStadiumsActionPerformed
-      StadiumsScreen jumpStadiums= new StadiumsScreen();
-      this.setVisible(false);
-      jumpStadiums.openWindow(this);
-      
+        StadiumsScreen jumpStadiums = new StadiumsScreen();
+        this.setVisible(false);
+        jumpStadiums.openWindow(this);
+
     }//GEN-LAST:event_btnStadiumsActionPerformed
+
+    private void btnGroupsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGroupsActionPerformed
+        // TODO add your handling code here:
+        GroupScreen jumpStadiums = new GroupScreen();
+        this.setVisible(false);
+        jumpStadiums.openWindow(this);
+    }//GEN-LAST:event_btnGroupsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,13 +356,11 @@ public class Lobby extends javax.swing.JFrame{
     private javax.swing.JPanel menuToggle;
     // End of variables declaration//GEN-END:variables
 public synchronized void move() {
-        if(menuToggle.getX()<0){
-            menuToggle.setLocation(0,0);
+        if (menuToggle.getX() < 0) {
+            menuToggle.setLocation(0, 0);
 
-        }
-        else{
-            menuToggle.setLocation(-410,0);
-
+        } else {
+            menuToggle.setLocation(-410, 0);
 
         }
     }

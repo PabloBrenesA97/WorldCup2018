@@ -101,7 +101,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindows{
         jPanel1.setBackground(new java.awt.Color(224, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
         btnBack.setText("2018 FIFA WORLD CUP RUSSIA™");
@@ -116,7 +116,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindows{
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 460, 29));
 
         btnShow.setBackground(new java.awt.Color(224, 0, 0));
-        btnShow.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnShow.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         btnShow.setForeground(new java.awt.Color(255, 255, 255));
         btnShow.setText("Show");
         btnShow.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -125,7 +125,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindows{
         jPanel1.add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 150, 40));
 
         btnCreate.setBackground(new java.awt.Color(224, 0, 0));
-        btnCreate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCreate.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create");
         btnCreate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -139,7 +139,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindows{
         jPanel1.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 140, 40));
 
         btnUpdate.setBackground(new java.awt.Color(224, 0, 0));
-        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update");
         btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -150,7 +150,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindows{
         jPanel1.add(icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 10, 120, 90));
 
         btnDelete.setBackground(new java.awt.Color(224, 0, 0));
-        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnDelete.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
