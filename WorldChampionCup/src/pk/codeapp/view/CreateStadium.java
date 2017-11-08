@@ -57,7 +57,7 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
         jPanel2 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
         lblCapacity = new javax.swing.JTextField();
-        showImage = new javax.swing.JLabel();
+        lblShowImage = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
@@ -74,7 +74,6 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -128,8 +127,8 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
         lblCapacity.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         getContentPane().add(lblCapacity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 220, 30));
 
-        showImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        getContentPane().add(showImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 430, 410));
+        lblShowImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        getContentPane().add(lblShowImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 430, 410));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,7 +177,7 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
     public javax.swing.JTextField lblCity;
     public javax.swing.JTextField lblId;
     public javax.swing.JTextField lblName;
-    public javax.swing.JLabel showImage;
+    public javax.swing.JLabel lblShowImage;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -207,7 +206,7 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
     }
 
     public JLabel getShowImage() {
-        return showImage;
+        return lblShowImage;
     }
 
     public JTextField getLblCapacity() {
