@@ -11,8 +11,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -21,6 +19,7 @@ import pk.codeapp.model.Team;
 import pk.codeapp.view.CreateorUpdateTeam;
 import pk.codeapp.view.Lobby;
 import pk.codeapp.view.MenuTeams;
+import pk.codeapp.view.ShowPlayers;
 
 /**
  *
@@ -31,7 +30,6 @@ public class MenuTeamController implements ActionListener {
     private AppController controller = Lobby.controller;
     private MenuTeams menuTeams;
 
-
     public MenuTeamController(MenuTeams menuTeams) {
         this.menuTeams = menuTeams;
     }
@@ -39,21 +37,33 @@ public class MenuTeamController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == menuTeams.getBtnCrate()) {
-            jumpToCreateorUpdate("Create",null);
+            jumpToCreateorUpdate("Create", null);
         }
         if (e.getSource() == menuTeams.getBtnUpdate()) {
             Team teamUpdate = selectTeam();
-            jumpToCreateorUpdate("Update",teamUpdate);
+            jumpToCreateorUpdate("Update", teamUpdate);
         }
         if (e.getSource() == menuTeams.getBtnDelete()) {
             try {
                 jumpToDelete();
             } catch (ExceptionWorldCup ex) {
-                JOptionPane.showMessageDialog(menuTeams,ex.getMessage());
+                JOptionPane.showMessageDialog(menuTeams, ex.getMessage());
             }
         }
-        if(e.getSource() == menuTeams.getBtnBack())
+        if (e.getSource() == menuTeams.getBtnBack()) {
             menuTeams.jumpBeforeWindow();
+        } else {
+
+            JButton button = (JButton) e.getSource();
+            if (button != null) {
+                String txtTeam = button.getText();
+                Team team = controller.searchTeam(txtTeam);
+                menuTeams.setVisible(false);
+                ShowPlayers showPlayers = new ShowPlayers(team);
+                showPlayers.openWindow(menuTeams);
+                
+            }
+        }
     }
 
     /**
@@ -62,7 +72,7 @@ public class MenuTeamController implements ActionListener {
      * @param listTeams
      */
     public void addTeamInGridPane(ArrayList<Team> listTeams) {
-      
+
         Font font = new Font("Book Antiqua", 5, 20);
         menuTeams.viewTeams.setLayout(new GridLayout(8, 5));
         menuTeams.viewTeams.setOpaque(false);
@@ -81,40 +91,43 @@ public class MenuTeamController implements ActionListener {
     /**
      * Bridge to windows of Create or Update
      */
-    private void jumpToCreateorUpdate(String action,Team update){
+    private void jumpToCreateorUpdate(String action, Team update) {
         CreateorUpdateTeam windowAux = new CreateorUpdateTeam();
         menuTeams.setVisible(false);
-         windowAux.setUpdateTeam(update);
+        windowAux.setUpdateTeam(update);
         windowAux.setFunctiontoRealize(action);
         windowAux.openWindow(menuTeams);
     }
 
     /**
      * Delete Team
-     * @throws ExceptionWorldCup 
+     *
+     * @throws ExceptionWorldCup
      */
-    private void jumpToDelete() throws ExceptionWorldCup{
+    private void jumpToDelete() throws ExceptionWorldCup {
         Team teamDelete = selectTeam();
-        if(teamDelete!=null && !teamDelete.getPlayers().isEmpty())
+        if (teamDelete != null && !teamDelete.getPlayers().isEmpty()) {
             throw new ExceptionWorldCup(2);
-        else{
+        } else {
             deleteTeam(teamDelete);
-            addTeamInGridPane(controller.getTeams());}
-        
-        
+            addTeamInGridPane(controller.getTeams());
+        }
+
     }
+
     /**
-     * Show List of Teams to select one Team 
-     * @return 
+     * Show List of Teams to select one Team
+     *
+     * @return
      */
-    public Team selectTeam(){
+    public Team selectTeam() {
         String[] list = new String[controller.getTeams().size()];
         for (int i = 0; i < controller.getTeams().size(); i++) {
-            list[i]=controller.getTeams().get(i).getName();
+            list[i] = controller.getTeams().get(i).getName();
         }
-        
+
         JComboBox cmbOption = new JComboBox(list);
-        JOptionPane.showMessageDialog( null, cmbOption, "Select Team that your like Delete", JOptionPane.QUESTION_MESSAGE);
+        JOptionPane.showMessageDialog(null, cmbOption, "Select Team that your like Delete", JOptionPane.QUESTION_MESSAGE);
         Team teamDelete = controller.searchTeam((String) cmbOption.getSelectedItem());
         return teamDelete;
     }
