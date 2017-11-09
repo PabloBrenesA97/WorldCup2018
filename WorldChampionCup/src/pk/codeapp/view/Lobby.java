@@ -6,12 +6,7 @@
 package pk.codeapp.view;
 
 import java.awt.Color;
-import java.awt.Frame;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import pk.codeapp.controller.AppController;
-import pk.codeapp.model.JumpWindow;
-
 /**
  *
  * @author Jose Pablo Brenes
@@ -23,13 +18,14 @@ public class Lobby extends javax.swing.JFrame {
      */
     final Color colorBackground = new Color(176, 15, 21);
     public static AppController controller = new AppController();
-
+    private GroupScreen group;
     public Lobby() {
 
         initComponents();
         controller.createDefaultTeams();
         controller.addDefaultPlayers();
         this.setLocationRelativeTo(null);
+        group= new GroupScreen();
     }
 
     /**
@@ -301,9 +297,9 @@ public class Lobby extends javax.swing.JFrame {
 
     private void btnGroupsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGroupsActionPerformed
         // TODO add your handling code here:
-        GroupScreen jumpStadiums = new GroupScreen();
+       
         this.setVisible(false);
-        jumpStadiums.openWindow(this);
+        group.openWindow(this);
     }//GEN-LAST:event_btnGroupsActionPerformed
 
     /**

@@ -26,6 +26,7 @@ public class StadiumsScreen extends javax.swing.JFrame implements JumpWindows{
     public StadiumsScreen() {
         initComponents();  
         controller = new StadiumController(this);
+          this.setLocationRelativeTo(null);
         //<editor-fold desc="Set Action Listener in buttons" defaultstate="collapsed">
         btnLeft.addActionListener(controller);
         btnRight.addActionListener(controller);

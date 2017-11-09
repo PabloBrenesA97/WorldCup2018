@@ -22,6 +22,7 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindows {
 
     public ShowStadium() {
         initComponents();
+          this.setLocationRelativeTo(null);
     }
 
     /**
