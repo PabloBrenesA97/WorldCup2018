@@ -21,7 +21,17 @@ public class Group extends Component {
         return teams;
     }
 
-    public void setTeams(ArrayList<Team> teams) {
-        this.teams = teams;
+    public void setTeams(Team team) throws ExceptionWorldCup {
+        if(this.teams.size()<5){
+            this.teams.add(team);
+        }else{
+            throw new ExceptionWorldCup(11);
+        }
     }
+
+    public void update(int id, String name) {
+        super.setId(id);
+        super.setName(name);
+    }
+  
 }

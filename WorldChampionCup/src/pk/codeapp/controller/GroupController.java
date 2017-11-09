@@ -9,6 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import pk.codeapp.model.ExceptionWorldCup;
+import pk.codeapp.model.Group;
 import pk.codeapp.model.Team;
 import pk.codeapp.view.GroupScreen;
 import pk.codeapp.view.Lobby;
@@ -18,10 +23,10 @@ import pk.codeapp.view.Lobby;
  * @author Daniel Amador
  */
 public class GroupController implements ActionListener {
-
+    private Maker maker= new MasterMaker();
     private GroupScreen window;
     private ArrayList<Team> teams = new ArrayList();
-
+    private ArrayList<Group> groups = new ArrayList();
     public GroupController(GroupScreen aThis) {
         window = aThis;
         managerMethods();
@@ -60,27 +65,71 @@ public class GroupController implements ActionListener {
     private void managerMethods() {
         /*Copy the list*/
         copyTeamList();
-        /*Change the teams*/
-        chargeTeams();
+        createGroup();
+        try {
+            /*Change the teams*/
+            chargeTeams();
+        } catch (ExceptionWorldCup ex) {
+            JOptionPane.showMessageDialog(window, ex.getMessage());
+        }
     }
 
-    private void chargeTeams() {
+    private void chargeTeams() throws ExceptionWorldCup {
         for (int i = 0; i < 4; i++) {
-                setGroupA(getRandom(),i+1);
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupA(aux, i + 1);
+            }
         }
         for (int i = 0; i < 4; i++) {
-                setGroupB(getRandom(),i+1);
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupB(aux, i + 1);
+            }
         }
         for (int i = 0; i < 4; i++) {
-                setGroupC(getRandom(),i+1);
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupC(aux, i + 1);
+            }
         }
-        
+        for (int i = 0; i < 4; i++) {
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupD(aux, i + 1);
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupE(aux, i + 1);
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupF(aux, i + 1);
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupG(aux, i + 1);
+            }
+        }
+        for (int i = 0; i < 4; i++) {
+            Team aux = getRandom();
+            if (aux != null) {
+                setGroupH(aux, i + 1);
+            }
+        }
+
     }
 
     public Team getRandom() {
         Random rand = new Random();
         Team aux = null;
-        if (teams.size() >= 0) {
+        if ((teams.size() - 1) >= 0) {
             int randomNum = rand.nextInt(((teams.size() - 1) - 0) + 1) + 0;
 
             if (randomNum < teams.size() && randomNum >= 0) {
@@ -93,7 +142,8 @@ public class GroupController implements ActionListener {
     }
 
     //<editor-fold defaultstate="collapsed" desc="SetGroups">
-    public void setGroupA(Team team, int id) {
+    public void setGroupA(Team team, int id) throws ExceptionWorldCup {
+        groups.get(0).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblA1.setIcon(team.getImageTeam());
@@ -118,7 +168,8 @@ public class GroupController implements ActionListener {
         }
     }
 
-    public void setGroupB(Team team, int id) {
+    public void setGroupB(Team team, int id) throws ExceptionWorldCup {
+        groups.get(1).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblB1.setIcon(team.getImageTeam());
@@ -143,7 +194,8 @@ public class GroupController implements ActionListener {
         }
     }
 
-    public void setGroupC(Team team, int id) {
+    public void setGroupC(Team team, int id) throws ExceptionWorldCup {
+        groups.get(2).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblC1.setIcon(team.getImageTeam());
@@ -168,7 +220,8 @@ public class GroupController implements ActionListener {
         }
     }
 
-    public void setGroupD(Team team, int id) {
+    public void setGroupD(Team team, int id) throws ExceptionWorldCup {
+        groups.get(3).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblD1.setIcon(team.getImageTeam());
@@ -193,7 +246,8 @@ public class GroupController implements ActionListener {
         }
     }
 
-    public void setGroupE(Team team, int id) {
+    public void setGroupE(Team team, int id) throws ExceptionWorldCup {
+        groups.get(4).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblE1.setIcon(team.getImageTeam());
@@ -218,7 +272,8 @@ public class GroupController implements ActionListener {
         }
     }
 
-    public void setGroupF(Team team, int id) {
+    public void setGroupF(Team team, int id) throws ExceptionWorldCup {
+        groups.get(5).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblF1.setIcon(team.getImageTeam());
@@ -243,7 +298,8 @@ public class GroupController implements ActionListener {
         }
     }
 
-    public void setGroupG(Team team, int id) {
+    public void setGroupG(Team team, int id) throws ExceptionWorldCup {
+        groups.get(6).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblG1.setIcon(team.getImageTeam());
@@ -268,7 +324,8 @@ public class GroupController implements ActionListener {
         }
     }
 
-    public void setGroupH(Team team, int id) {
+    public void setGroupH(Team team, int id) throws ExceptionWorldCup {
+        groups.get(7).setTeams(team);
         switch (id) {
             case 1: {
                 window.lblH1.setIcon(team.getImageTeam());
@@ -291,6 +348,36 @@ public class GroupController implements ActionListener {
                 break;
             }
         }
+    }
+    
+    public void createGroup(){
+      Group gr= (Group) maker.factoryMethod("Group");
+      gr.update(1, "Group A");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      gr.update(2, "Group B");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      gr.update(3, "Group C");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      gr.update(4, "Group D");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      gr.update(5, "Group E");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      gr.update(6, "Group F");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      gr.update(7, "Group G");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      gr.update(8, "Group H");
+      gr= (Group) maker.factoryMethod("Group");
+      groups.add(gr);
+      
+      
     }
     //</editor-fold>
 
