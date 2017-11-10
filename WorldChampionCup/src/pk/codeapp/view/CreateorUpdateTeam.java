@@ -6,14 +6,9 @@
 package pk.codeapp.view;
 
 import java.awt.Frame;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
+
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import pk.codeapp.controller.AppController;
 import pk.codeapp.controller.CreateorUpdateTeamController;
-import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.JumpWindow;
 import pk.codeapp.model.Team;
 
@@ -37,7 +32,6 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
         this.setLocationRelativeTo(null);
         btnBack.addActionListener(controller);
         btnAdd.addActionListener(controller);
-        controller = new CreateorUpdateTeamController(this);
     }
 
     /**
@@ -182,8 +176,9 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
     public void setFunctiontoRealize(String functiontoReaalize) {
         this.functiontoRealize = functiontoReaalize;
     }
+    
    @Override
-    public void openWindow(Frame menuTeams) {
+    public void openWindow(Frame menuTeams){
         this.beforeWindow=menuTeams;
         this.setVisible(true);
         controller.fillLines();
@@ -192,6 +187,7 @@ public class CreateorUpdateTeam extends javax.swing.JFrame implements JumpWindow
     @Override
     public void jumpBeforeWindow() {
         this.dispose();
+        MenuTeams.controller.addTeamInGridPane(Lobby.controller.getTeams());
         beforeWindow.setVisible(true);
     }
 

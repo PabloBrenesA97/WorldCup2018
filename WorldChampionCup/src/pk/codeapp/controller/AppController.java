@@ -159,7 +159,7 @@ public class AppController {
      * @throws ExeptionWorldCup
      */
     private void addDefaultPlayerBrasil() throws ExceptionWorldCup {
-        Team argentina = searchTeam("Argentina");
+        Team brasil = searchTeam("Brasil");
         String[] namePlayers = {"Alisson","Cássio","Dani Alves","Marcelo","Danilo","Thiago Silva","Casemiro",
         "Renato Augusto","Philippe Coutinho","Neymar","Douglas Costa","Gabriel Jesus"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
@@ -171,9 +171,9 @@ public class AppController {
         for (int i = 0; i < namePlayers.length; i++) {
             Player newPlayer = (Player) masterMaker.factoryMethod("Player");
             newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i], cantCYellowPlayers[i], cantCRedPlayers[i], numUsePlayers[i], cantGoals[i]);
-            argentina.getPlayers().add(newPlayer);
+            brasil.getPlayers().add(newPlayer);
         }
-        argentina.setCantPlayer(namePlayers.length);
+        brasil.setCantPlayer(namePlayers.length);
     }
      //</editor-fold>
     //<editor-fold desc="addDefaultPlayerArgentina" defaultstate="collapsed">
@@ -747,6 +747,7 @@ public class AppController {
         this.masterMaker = masterMaker;
     }
 
+<<<<<<< HEAD
     public ArrayList<Group> getGroups() {
         return groups;
     }
@@ -755,5 +756,8 @@ public class AppController {
         this.groups = groups;
     }
     
+=======
+
+>>>>>>> master
     
 }

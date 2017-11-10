@@ -6,6 +6,7 @@
 package pk.codeapp.view;
 
 import java.awt.Frame;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import pk.codeapp.controller.PlayerController;
@@ -16,21 +17,27 @@ import pk.codeapp.model.Team;
  *
  * @author Jose Pablo Brenes
  */
-public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
+public class ShowPlayers extends javax.swing.JFrame implements JumpWindow {
 
     /**
      * Creates new form showPlayers
      */
     private Team actualTeam;
-    private Frame beforeWindow; 
-    private PlayerController controller;
+    private Frame beforeWindow;
+    public static PlayerController controller;
+
     public ShowPlayers(Team actualTeam) {
         initComponents();
         this.actualTeam = actualTeam;
         this.setLocationRelativeTo(null);
         controller = new PlayerController(this);
+        btnBack.addActionListener(controller);
+        btnCreate.addActionListener(controller);
+        btnDelete.addActionListener(controller);
+        btnUpdate.addActionListener(controller);
+        
     }
-    
+
     public ShowPlayers() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -45,6 +52,10 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnDelete = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePlayers = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -60,6 +71,30 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnDelete.setBackground(new java.awt.Color(0, 0, 0));
+        btnDelete.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 650, 180, 60));
+
+        btnUpdate.setBackground(new java.awt.Color(0, 0, 0));
+        btnUpdate.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setText("Update");
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 650, 180, 60));
+
+        btnCreate.setBackground(new java.awt.Color(0, 0, 0));
+        btnCreate.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreate.setText("Create");
+        getContentPane().add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 650, 180, 60));
+
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 180, 60));
 
         tablePlayers.setBackground(new java.awt.Color(0, 0, 0));
         tablePlayers.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
@@ -174,6 +209,10 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAss;
@@ -190,9 +229,9 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
 
     @Override
     public void openWindow(Frame beforeWindow) {
-        this.beforeWindow=beforeWindow;
+        this.beforeWindow = beforeWindow;
         this.setVisible(true);
-       
+
     }
 
     @Override
@@ -248,5 +287,37 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow{
     public void setTablePlayers(JTable tablePlayers) {
         this.tablePlayers = tablePlayers;
     }
-    
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+
+    public void setBtnBack(JButton btnBack) {
+        this.btnBack = btnBack;
+    }
+
+    public JButton getBtnCreate() {
+        return btnCreate;
+    }
+
+    public void setBtnCreate(JButton btnCreate) {
+        this.btnCreate = btnCreate;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public void setBtnDelete(JButton btnDelete) {
+        this.btnDelete = btnDelete;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public void setBtnUpdate(JButton btnUpdate) {
+        this.btnUpdate = btnUpdate;
+    }
+
 }
