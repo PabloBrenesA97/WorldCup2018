@@ -126,7 +126,7 @@ public class CreateStadiumController implements ActionListener {
             int capacityInt = Integer.parseInt(capacity);
             /*mode creating*/
             if (mode.equalsIgnoreCase("creating")) {
-                if (exist(idInt)==null) {
+                if (exist(idInt)!=null) {
                     throw new ExceptionWorldCup(9);
                 } else {
                     Stadium stadium = (Stadium) maker.factoryMethod("Stadium");
@@ -136,7 +136,6 @@ public class CreateStadiumController implements ActionListener {
                 }
             /*Mode editing*/
             } else {
-                
                 updateData(name, idInt, city, capacityInt,path);
             }
 

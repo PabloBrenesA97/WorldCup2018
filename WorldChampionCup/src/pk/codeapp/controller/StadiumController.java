@@ -12,9 +12,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.view.CreateStadium;
 import pk.codeapp.view.Lobby;
@@ -55,7 +59,12 @@ public class StadiumController implements ActionListener {
             openCreateStadium();
         }
         if (e.getSource() == window.getBtnDelete()) {
-            //jumping delete method
+            try {
+                //jumping delete method
+                deleteStadium();
+            } catch (ExceptionWorldCup ex) {
+                JOptionPane.showMessageDialog(window, ex.getMessage());
+            }
         }
         if (e.getSource() == window.getBtnLeft()) {
             IncOrDec(false);
@@ -66,10 +75,27 @@ public class StadiumController implements ActionListener {
             setImageInScreen();
         }
         if (e.getSource() == window.getBtnShow()) {
-            openShowStadium();
+            if (stadiumsCopy.size() != 0) {
+                openShowStadium();
+            } else {
+                try {
+                    throw new ExceptionWorldCup(5);
+                } catch (ExceptionWorldCup ex) {
+                    JOptionPane.showMessageDialog(window, ex.getMessage());
+                }
+            }
+
         }
         if (e.getSource() == window.getBtnUpdate()) {
-            openCreateStadium(getFromList());
+            if (stadiumsCopy.size() != 0) {
+                openCreateStadium(getFromList());
+            } else {
+                try {
+                    throw new ExceptionWorldCup(5);
+                } catch (ExceptionWorldCup ex) {
+                    JOptionPane.showMessageDialog(window, ex.getMessage());
+                }
+            }
         }
     }
 
@@ -93,7 +119,7 @@ public class StadiumController implements ActionListener {
         ShowStadium sc = new ShowStadium();
         sc.setData(this, getFromList());
         sc.openWindow(window);
-        
+
         window.setVisible(false);
     }
 
@@ -104,7 +130,7 @@ public class StadiumController implements ActionListener {
     }
 
     public void openCreateStadium(Stadium show) {
-        CreateStadium sc = new CreateStadium(show,this);
+        CreateStadium sc = new CreateStadium(show, this);
         sc.openWindow(window);
         window.setVisible(false);
     }
@@ -212,7 +238,26 @@ public class StadiumController implements ActionListener {
         }
         return "nobody";
     }
+
     public Stadium getFromList() {
         return stadiumsCopy.get(showing);
     }
+
+    private void deleteStadium() throws ExceptionWorldCup {
+
+        if (stadiumsCopy.size() != 0) {
+            boolean isCan = Lobby.controller.isInList(getFromList());
+            if (!isCan) {
+                stadiumsCopy.remove(showing);
+                showing = 0;
+                setImageInScreen();
+            } else {
+                throw new ExceptionWorldCup(1);
+            }
+        } else {
+            throw new ExceptionWorldCup(5);
+        }
+
+    }
+
 }
