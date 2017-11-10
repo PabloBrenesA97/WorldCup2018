@@ -7,8 +7,6 @@ package pk.codeapp.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Team;
@@ -23,7 +21,7 @@ public class CreateorUpdateTeamController implements ActionListener {
 
     private AppController controller = Lobby.controller;
     private CreateorUpdateTeam windowAux;
-    private Team teamUpdate;
+    public static Team teamUpdate;
 
     public CreateorUpdateTeamController(CreateorUpdateTeam windowAux) {
         this.windowAux = windowAux;
@@ -35,7 +33,7 @@ public class CreateorUpdateTeamController implements ActionListener {
      */
     public void fillLines() {
         teamUpdate = windowAux.getUpdateTeam();
-        if (windowAux.getFunctiontoRealize().equals("Update")) {
+        if (windowAux.getFunctiontoRealize().equals("Update")){
             windowAux.getBtnAdd().setText("Update");
             windowAux.txtName.setText(teamUpdate.getName());
             windowAux.txtAssistant.setText(teamUpdate.getAssistant());
@@ -109,6 +107,10 @@ public class CreateorUpdateTeamController implements ActionListener {
             windowAux.jumpBeforeWindow();
         }
     }
+    /**
+     * Check spaces in Blank
+     * @throws ExceptionWorldCup 
+     */
     private void checkSpaces() throws ExceptionWorldCup{
         System.out.println("Entro a chequear espacios");
         String conferancy = (String) windowAux.cmbConfederacy.getSelectedItem();

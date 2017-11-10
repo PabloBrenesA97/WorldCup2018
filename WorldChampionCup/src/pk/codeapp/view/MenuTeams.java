@@ -22,7 +22,7 @@ public class MenuTeams extends javax.swing.JFrame implements JumpWindow {
      * Creates new form menuTeams
      */
     private Frame menuFrame;
-    private MenuTeamController controller;
+    public static MenuTeamController controller;
     
     public MenuTeams() {
         initComponents();
@@ -191,4 +191,12 @@ public class MenuTeams extends javax.swing.JFrame implements JumpWindow {
         this.btnUpdate = btnUpdate;
     }
 
+    public MenuTeamController getController() {
+        return controller;
+    }
+
+    public void setController(MenuTeamController controller) {
+        this.controller = controller;
+    }
+    
 }

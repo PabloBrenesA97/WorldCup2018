@@ -27,7 +27,7 @@ import pk.codeapp.view.ShowPlayers;
  */
 public class MenuTeamController implements ActionListener {
 
-    private AppController controller = Lobby.controller;
+    public AppController controller = Lobby.controller;
     private MenuTeams menuTeams;
 
     public MenuTeamController(MenuTeams menuTeams) {
@@ -38,22 +38,29 @@ public class MenuTeamController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == menuTeams.getBtnCrate()) {
             jumpToCreateorUpdate("Create", null);
+            return;
         }
         if (e.getSource() == menuTeams.getBtnUpdate()) {
             Team teamUpdate = selectTeam();
+            if(teamUpdate!=null){
             jumpToCreateorUpdate("Update", teamUpdate);
+            return;
+            }
+            else
+                return;
         }
         if (e.getSource() == menuTeams.getBtnDelete()) {
             try {
                 jumpToDelete();
+                return;
             } catch (ExceptionWorldCup ex) {
                 JOptionPane.showMessageDialog(menuTeams, ex.getMessage());
+                return;
             }
         }
         if (e.getSource() == menuTeams.getBtnBack()) {
             menuTeams.jumpBeforeWindow();
-        } else {
-
+        }else{
             JButton button = (JButton) e.getSource();
             if (button != null) {
                 String txtTeam = button.getText();
@@ -72,7 +79,7 @@ public class MenuTeamController implements ActionListener {
      * @param listTeams
      */
     public void addTeamInGridPane(ArrayList<Team> listTeams) {
-
+        menuTeams.viewTeams.removeAll();
         Font font = new Font("Book Antiqua", 5, 20);
         menuTeams.viewTeams.setLayout(new GridLayout(8, 5));
         menuTeams.viewTeams.setOpaque(false);
@@ -110,7 +117,8 @@ public class MenuTeamController implements ActionListener {
             throw new ExceptionWorldCup(2);
         } else {
             deleteTeam(teamDelete);
-            addTeamInGridPane(controller.getTeams());
+            MenuTeams.controller.addTeamInGridPane(Lobby.controller.getTeams());
+            menuTeams.jumpBeforeWindow();
         }
 
     }
@@ -121,15 +129,19 @@ public class MenuTeamController implements ActionListener {
      * @return
      */
     public Team selectTeam() {
+        
         String[] list = new String[controller.getTeams().size()];
         for (int i = 0; i < controller.getTeams().size(); i++) {
             list[i] = controller.getTeams().get(i).getName();
         }
 
         JComboBox cmbOption = new JComboBox(list);
-        JOptionPane.showMessageDialog(null, cmbOption, "Select Team that your like Delete", JOptionPane.QUESTION_MESSAGE);
-        Team teamDelete = controller.searchTeam((String) cmbOption.getSelectedItem());
-        return teamDelete;
+        int input = JOptionPane.showOptionDialog(null, cmbOption, "Select Team that your like Delete",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, null, null);
+       if(input==-1){
+           return null;
+       }
+        Team teamAux = controller.searchTeam((String) cmbOption.getSelectedItem());
+        return teamAux;
     }
 
     /**
