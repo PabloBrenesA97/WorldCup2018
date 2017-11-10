@@ -8,8 +8,6 @@ package pk.codeapp.view;
 import java.awt.Frame;
 import pk.codeapp.controller.GroupController;
 import pk.codeapp.model.JumpWindow;
-import pk.codeapp.model.Team;
-
 /**
  *
  * @author Daniel Amador

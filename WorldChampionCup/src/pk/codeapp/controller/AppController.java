@@ -21,12 +21,12 @@ import pk.codeapp.model.Team;
 public class AppController {
 
     private Maker masterMaker = new MasterMaker();
-    private  DefaultListModel<String> listModel = new DefaultListModel();
+    private DefaultListModel<String> listModel = new DefaultListModel();
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
     private ArrayList<Group> groups = new ArrayList();
     private Team viewTeam;
-     //<editor-fold desc="ControllertoTeams" defaultstate="collapsed">
+    //<editor-fold desc="ControllertoTeams" defaultstate="collapsed">
     //<editor-fold desc="ControllertoTeams" defaultstate="collapsed">
     //<editor-fold desc="createDefaultTeams" defaultstate="collapsed">
 
@@ -35,19 +35,19 @@ public class AppController {
      */
     public void createDefaultTeams() {
         String[] namesDeafaultTeam = {"Egypt", "Nigeria", "Saudi Arabia", "Iran", "Japan", "Korea", "Germany", "Belgium", "Spain", "France", "England", "Iceland", "Poland",
-            "Portugal", "Russia", "Serbia", "Costa Rica", "Mexico", "Panama","Argentina","Brasil","Colombia","Uruguay"};
+            "Portugal", "Russia", "Serbia", "Costa Rica", "Mexico", "Panama", "Argentina", "Brasil", "Colombia", "Uruguay"};
         String[] coachDeafaultTeam = {"Héctor Cúper", "Salisu Yusuf", "Edgardo Bauza", "Carlos Queiroz", "Vahid Halilhodžić", "Shin Tae-Yong", "Joachim Löw", "Roberto Martínez Montoliú", "Julen Lopetegui", "Didier Deschamps",
             "Gareth Southgate", "Heimir Hallgrímsson", "Adam Nawałka", "Manuel Costa", "Stanislav Cherchésov", "Aleksandar Đorđević", "Óscar Ramírez", "Juan Carlos Osorio", "Hernán Darío Gómez",
-        "Jorge Sampaoli","Adenor Bacchi","José Néstor Pekerman","Óscar Tabárez"};
+            "Jorge Sampaoli", "Adenor Bacchi", "José Néstor Pekerman", "Óscar Tabárez"};
         String[] assistantsDefaultTeam = {"Hany Ramzy", "Anthony Olubunmi", "Mohámed bin Salmán", "Carlos Queiroz", "Jefu Yunaiteddo", "Pim Verbeek", "Joachim Löw", "Yves Soudan", "Migel Angel", "Guy Stéphan", "Alberto Rubio",
             "Lagerbäck", "Pogon Szczecin", "Tareyja Costa", "Zenit de San Petersburgo", "Sergei Gurenko", "Alejandro Larrea", "Leandro Augusto", "Édgar Carvajal",
-            "Sebastián Beccacece","Dunga","Gabriel Wainer","Hugo Bagnulo"};
+            "Sebastián Beccacece", "Dunga", "Gabriel Wainer", "Hugo Bagnulo"};
         String[] confederaciesDefaultTeam = {"CAF", "CAF", "AFC", "AFC", "AFC", "AFC", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "UEFA", "CONCACAF", "CONCACAF", "CONCACAF", "CSF", "CSF", "CSF", "CSF"};
         String[] images = {"src/pk/codeapp/view/image/flagTeams/egy.png", "src/pk/codeapp/view/image/flagTeams/nga.png", "src/pk/codeapp/view/image/flagTeams/ksa.png", "src/pk/codeapp/view/image/flagTeams/irn.png", "src/pk/codeapp/view/image/flagTeams/jpn.png", "src/pk/codeapp/view/image/flagTeams/kor.png",
             "src/pk/codeapp/view/image/flagTeams/ger.png", "src/pk/codeapp/view/image/flagTeams/bel.png", "src/pk/codeapp/view/image/flagTeams/esp.png", "src/pk/codeapp/view/image/flagTeams/fra.png", "src/pk/codeapp/view/image/flagTeams/eng.png",
             "src/pk/codeapp/view/image/flagTeams/isl.png", "src/pk/codeapp/view/image/flagTeams/pol.png", "src/pk/codeapp/view/image/flagTeams/por.png", "src/pk/codeapp/view/image/flagTeams/rus.png", "src/pk/codeapp/view/image/flagTeams/srb.png",
-            "src/pk/codeapp/view/image/flagTeams/crc.png", "src/pk/codeapp/view/image/flagTeams/mex.png", "src/pk/codeapp/view/image/flagTeams/pan.png","src/pk/codeapp/view/image/flagTeams/arg.png","src/pk/codeapp/view/image/flagTeams/bra.png",
-            "src/pk/codeapp/view/image/flagTeams/col.png","src/pk/codeapp/view/image/flagTeams/uru.png"};
+            "src/pk/codeapp/view/image/flagTeams/crc.png", "src/pk/codeapp/view/image/flagTeams/mex.png", "src/pk/codeapp/view/image/flagTeams/pan.png", "src/pk/codeapp/view/image/flagTeams/arg.png", "src/pk/codeapp/view/image/flagTeams/bra.png",
+            "src/pk/codeapp/view/image/flagTeams/col.png", "src/pk/codeapp/view/image/flagTeams/uru.png"};
         for (int i = 0; i < namesDeafaultTeam.length; i++) {
             Team newTeam = (Team) masterMaker.factoryMethod("Team");
             newTeam.update(i, namesDeafaultTeam[i], coachDeafaultTeam[i], assistantsDefaultTeam[i], confederaciesDefaultTeam[i], new ImageIcon(images[i]));
@@ -56,21 +56,19 @@ public class AppController {
     }
     //</editor-fold>
 
-   public Team searchTeam(String name){
+    public Team searchTeam(String name) {
         for (int i = 0; i < teams.size(); i++) {
-            if(teams.get(i).getName().equals(name))
+            if (teams.get(i).getName().equals(name)) {
                 return teams.get(i);
+            }
         }
         return null;
     }
-    
+
 //    public DefaultListModel<String> viewPlayerInList(Team team){
 //        DefaultListModel<String> list = new DefaultListModel();
 //       
 //    
-   
-   
-
     //</editor-fold>
     //<editor-fold desc="ControllertoPlayers" defaultstate="collapsed">
     public void addDefaultPlayers() {
@@ -104,21 +102,22 @@ public class AppController {
             new ExceptionWorldCup(10);
         }
     }
-     //<editor-fold desc="addDefaultPlayerColombia" defaultstate="collapsed">
+    //<editor-fold desc="addDefaultPlayerColombia" defaultstate="collapsed">
+
     /**
      * Add Default player in Colombia
      *
      * @throws ExeptionWorldCup
      */
-    private void addDefaultPlayerUruguay() throws ExceptionWorldCup{
+    private void addDefaultPlayerUruguay() throws ExceptionWorldCup {
         Team uruguay = searchTeam("Uruguay");
-        String[] namePlayers = {"Martín Silva","Martín Campaña","Maximiliano Pereira","Diego Godín","Guillermo Varela","Gastón Silva",
-        "Álvaro González","Carlos Sánchez","Cristian Rodríguez","Cristhian Stuani","Edinson Cavani","Maximiliano Gómez"};
+        String[] namePlayers = {"Martín Silva", "Martín Campaña", "Maximiliano Pereira", "Diego Godín", "Guillermo Varela", "Gastón Silva",
+            "Álvaro González", "Carlos Sánchez", "Cristian Rodríguez", "Cristhian Stuani", "Edinson Cavani", "Maximiliano Gómez"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
-        int[] agePlayers = {34,28,33,31,24,23,33,32,32,31,30,21};
+        int[] agePlayers = {34, 28, 33, 31, 24, 23, 33, 32, 32, 31, 30, 21};
         int[] cantCYellowPlayers = {0, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0};
-        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0,1, 0, 0};
-        int[] numUsePlayers = {1,28,4,5,14,9,7,8,11,10,12,15};
+        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0};
+        int[] numUsePlayers = {1, 28, 4, 5, 14, 9, 7, 8, 11, 10, 12, 15};
         int[] cantGoals = {0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 6};
         for (int i = 0; i < namePlayers.length; i++) {
             Player newPlayer = (Player) masterMaker.factoryMethod("Player");
@@ -127,6 +126,7 @@ public class AppController {
         }
         uruguay.setCantPlayer(namePlayers.length);
     }
+
     //</editor-fold>
     //<editor-fold desc="addDefaultPlayerColombia" defaultstate="collapsed">
     /**
@@ -134,15 +134,15 @@ public class AppController {
      *
      * @throws ExeptionWorldCup
      */
-    private void addDefaultPlayerColombia() throws ExceptionWorldCup{
+    private void addDefaultPlayerColombia() throws ExceptionWorldCup {
         Team colombia = searchTeam("Colombia");
-        String[] namePlayers = {"Leandro Castellanos","José Fernando","Óscar Murillo","Santiago Arias","William Tesillo","Frank Fabra",
-        "Wilmar Barrios","Carlos Sánchez","Abel Aguilar","Carlos Bacca","Duván Zapata","Felipe Pardo"};
+        String[] namePlayers = {"Leandro Castellanos", "José Fernando", "Óscar Murillo", "Santiago Arias", "William Tesillo", "Frank Fabra",
+            "Wilmar Barrios", "Carlos Sánchez", "Abel Aguilar", "Carlos Bacca", "Duván Zapata", "Felipe Pardo"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
-        int[] agePlayers = {33,32,29,25,27,26,24,31,31,26,27,26};
+        int[] agePlayers = {33, 32, 29, 25, 27, 26, 24, 31, 31, 26, 27, 26};
         int[] cantCYellowPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0};
-        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0,0, 0, 1};
-        int[] numUsePlayers = {1,12,3,4,15,18,5,6,7,9,19,10};
+        int[] cantCRedPlayers = {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1};
+        int[] numUsePlayers = {1, 12, 3, 4, 15, 18, 5, 6, 7, 9, 19, 10};
         int[] cantGoals = {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 2, 6};
         for (int i = 0; i < namePlayers.length; i++) {
             Player newPlayer = (Player) masterMaker.factoryMethod("Player");
@@ -150,9 +150,10 @@ public class AppController {
             colombia.getPlayers().add(newPlayer);
         }
         colombia.setCantPlayer(namePlayers.length);
-    } 
-     //</editor-fold>
+    }
+    //</editor-fold>
     //<editor-fold desc="addDefaultPlayerBrasil" defaultstate="collapsed">
+
     /**
      * Add Default player in Brasil
      *
@@ -160,13 +161,13 @@ public class AppController {
      */
     private void addDefaultPlayerBrasil() throws ExceptionWorldCup {
         Team brasil = searchTeam("Brasil");
-        String[] namePlayers = {"Alisson","Cássio","Dani Alves","Marcelo","Danilo","Thiago Silva","Casemiro",
-        "Renato Augusto","Philippe Coutinho","Neymar","Douglas Costa","Gabriel Jesus"};
+        String[] namePlayers = {"Alisson", "Cássio", "Dani Alves", "Marcelo", "Danilo", "Thiago Silva", "Casemiro",
+            "Renato Augusto", "Philippe Coutinho", "Neymar", "Douglas Costa", "Gabriel Jesus"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
-        int[] agePlayers = {25,30,34,29,26,23,25,29,29,25,27,20};
+        int[] agePlayers = {25, 30, 34, 29, 26, 23, 25, 29, 29, 25, 27, 20};
         int[] cantCYellowPlayers = {0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0};
         int[] cantCRedPlayers = {0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0};
-        int[] numUsePlayers = {1,16,2,12,22,14,5,8,11,10,7,9};
+        int[] numUsePlayers = {1, 16, 2, 12, 22, 14, 5, 8, 11, 10, 7, 9};
         int[] cantGoals = {0, 0, 0, 0, 0, 0, 1, 1, 0, 5, 3, 0};
         for (int i = 0; i < namePlayers.length; i++) {
             Player newPlayer = (Player) masterMaker.factoryMethod("Player");
@@ -175,22 +176,23 @@ public class AppController {
         }
         brasil.setCantPlayer(namePlayers.length);
     }
-     //</editor-fold>
+    //</editor-fold>
     //<editor-fold desc="addDefaultPlayerArgentina" defaultstate="collapsed">
+
     /**
      * Add Default player in Argentina
      *
      * @throws ExeptionWorldCup
      */
-     private void addDefaultPlayerArgentina() throws ExceptionWorldCup {
+    private void addDefaultPlayerArgentina() throws ExceptionWorldCup {
         Team argentina = searchTeam("Argentina");
-        String[] namePlayers = {"Sergio Romero","Nahuel Guzmán","Gabriel Mercado","Federico Fazio","Germán Pezzella","Javier Mascherano",
-        "Lucas Biglia","Giovanni Lo Celso","Emiliano Rigoni","Lionel Messi","Ángel Di María","Sergio Agüero"};
+        String[] namePlayers = {"Sergio Romero", "Nahuel Guzmán", "Gabriel Mercado", "Federico Fazio", "Germán Pezzella", "Javier Mascherano",
+            "Lucas Biglia", "Giovanni Lo Celso", "Emiliano Rigoni", "Lionel Messi", "Ángel Di María", "Sergio Agüero"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
-        int[] agePlayers = {30,31,30,30,26,33,31,21,24,30,29,29};
+        int[] agePlayers = {30, 31, 30, 30, 26, 33, 31, 21, 24, 30, 29, 29};
         int[] cantCYellowPlayers = {0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0};
         int[] cantCRedPlayers = {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0};
-        int[] numUsePlayers = {1,12,2,3,4,14,6,12,16,10,11,7};
+        int[] numUsePlayers = {1, 12, 2, 3, 4, 14, 6, 12, 16, 10, 11, 7};
         int[] cantGoals = {0, 0, 0, 0, 0, 1, 0, 2, 0, 2, 4, 0};
         for (int i = 0; i < namePlayers.length; i++) {
             Player newPlayer = (Player) masterMaker.factoryMethod("Player");
@@ -199,6 +201,7 @@ public class AppController {
         }
         argentina.setCantPlayer(namePlayers.length);
     }
+
     //</editor-fold>
     //<editor-fold desc="addDefaultPlayerPanama" defaultstate="collapsed">
     /**
@@ -223,6 +226,7 @@ public class AppController {
         }
         panama.setCantPlayer(namePlayers.length);
     }
+
     //</editor-fold>
     //<editor-fold desc="addDefaultPlayerMexico" defaultstate="collapsed">
     /**
@@ -422,6 +426,7 @@ public class AppController {
         }
         england.setCantPlayer(namePlayers.length);
     }
+
     //</editor-fold>
     //<editor-fold desc="addDefaultPlayerFrance" defaultstate="collapsed">
     /**
@@ -446,6 +451,7 @@ public class AppController {
         }
         france.setCantPlayer(namePlayers.length);
     }
+
     //</editor-fold>
     //<editor-fold desc="addDefaultPlayerSpain" defaultstate="collapsed">
     /**
@@ -522,6 +528,7 @@ public class AppController {
         }
         germany.setCantPlayer(namePlayers.length);
     }
+
     //</editor-fold>
     //<editor-fold desc="addDefaultPlayerKorea" defaultstate="collapsed">
     /**
@@ -662,7 +669,7 @@ public class AppController {
     private void addDefaultPlayerEgypt() throws ExceptionWorldCup {
         Team teamEgypt = searchTeam("Egypt");
         String[] namePlayers = {"Essam El-Hadary", "Sherif Ekramy", "Ahmed Elmohamady", "Ahmed Fathy", "Ahmed Hegazy", "Saad Samir", "Amr Warda", "Mohamed Elneny", "Ramadan Sobhi", "Mohamed Salah",
-             "Kahraba", "Ahmed Hassan"};
+            "Kahraba", "Ahmed Hassan"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
         int[] agePlayers = {44, 34, 30, 32, 26, 28, 24, 25, 20, 25, 23, 24};
         int[] cantCYellowPlayers = {1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1};
@@ -694,9 +701,9 @@ public class AppController {
             "Kazan", "Nizhny Novgorod", "Samara", "Saransk", "Volgograd", "Rostov-on-Don",
             "Sochi", "Ekateringburg"};
         String[] path = {"src/pk/codeapp/view/image/stadiums/1.png", "src/pk/codeapp/view/image/stadiums/2.png", "src/pk/codeapp/view/image/stadiums/3.png",
-             "src/pk/codeapp/view/image/stadiums/4.png", "src/pk/codeapp/view/image/stadiums/5.png", "src/pk/codeapp/view/image/stadiums/6.png",
-             "src/pk/codeapp/view/image/stadiums/7.png", "src/pk/codeapp/view/image/stadiums/8.png", "src/pk/codeapp/view/image/stadiums/9.png",
-             "src/pk/codeapp/view/image/stadiums/10.png", "src/pk/codeapp/view/image/stadiums/11.png", "src/pk/codeapp/view/image/stadiums/12.png"};
+            "src/pk/codeapp/view/image/stadiums/4.png", "src/pk/codeapp/view/image/stadiums/5.png", "src/pk/codeapp/view/image/stadiums/6.png",
+            "src/pk/codeapp/view/image/stadiums/7.png", "src/pk/codeapp/view/image/stadiums/8.png", "src/pk/codeapp/view/image/stadiums/9.png",
+            "src/pk/codeapp/view/image/stadiums/10.png", "src/pk/codeapp/view/image/stadiums/11.png", "src/pk/codeapp/view/image/stadiums/12.png"};
         for (int i = 0; i < stadiumsName.length; i++) {
             Stadium newStadium = (Stadium) masterMaker.factoryMethod("Stadium");
             newStadium.update(stadiumsName[i], i + 1, cityStadiums[i], capacityStadium[i]);
@@ -722,7 +729,7 @@ public class AppController {
     public void setArrayStadiums(ArrayList<Stadium> arrayStadiums) {
         this.arrayStadiums = arrayStadiums;
     }
-    
+
     //</editor-fold>
     public Team getViewTeam() {
         return viewTeam;
@@ -731,6 +738,7 @@ public class AppController {
     public void setViewTeam(Team viewTeam) {
         this.viewTeam = viewTeam;
     }
+
     public AppController() {
         createDefaultStadiums();
     }
@@ -746,6 +754,7 @@ public class AppController {
     public void setMasterMaker(Maker masterMaker) {
         this.masterMaker = masterMaker;
     }
+
     public ArrayList<Group> getGroups() {
         return groups;
     }
@@ -754,8 +763,21 @@ public class AppController {
         this.groups = groups;
 
     }
-    
 
-    }  
+    void makeChange(String name1, String name2) {
+    }
 
+    private Group search(String name) {
+        for (int i = 0; i < groups.size(); i++) {
+            ArrayList<Team> aux = groups.get(i).getTeams();
+            for (int j = 0; j < aux.size(); j++) {
+               if(aux.get(j).getName().equals(name)){
+                   return groups.get(i);
+               }
+                
+            }
+        }
+        return null;
+    }
 
+}

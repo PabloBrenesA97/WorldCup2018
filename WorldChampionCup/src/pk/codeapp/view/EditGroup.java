@@ -36,6 +36,8 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        group1 = new javax.swing.ButtonGroup();
+        group2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
         paneGroup1 = new javax.swing.JPanel();
@@ -49,24 +51,32 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         nameA1 = new javax.swing.JLabel();
         nameA2 = new javax.swing.JLabel();
         nameA3 = new javax.swing.JLabel();
+        op4 = new javax.swing.JRadioButton();
+        op1 = new javax.swing.JRadioButton();
+        op2 = new javax.swing.JRadioButton();
+        op3 = new javax.swing.JRadioButton();
         paneGroup2 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        lblA5 = new javax.swing.JLabel();
-        lblA6 = new javax.swing.JLabel();
-        lblA7 = new javax.swing.JLabel();
-        lblA8 = new javax.swing.JLabel();
-        nameA5 = new javax.swing.JLabel();
-        nameA6 = new javax.swing.JLabel();
-        nameA7 = new javax.swing.JLabel();
-        nameA8 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        lblC1 = new javax.swing.JLabel();
+        lblC2 = new javax.swing.JLabel();
+        lblC3 = new javax.swing.JLabel();
+        lblC4 = new javax.swing.JLabel();
+        nameC4 = new javax.swing.JLabel();
+        nameC1 = new javax.swing.JLabel();
+        nameC2 = new javax.swing.JLabel();
+        nameC3 = new javax.swing.JLabel();
+        ch2 = new javax.swing.JRadioButton();
+        ch3 = new javax.swing.JRadioButton();
+        ch4 = new javax.swing.JRadioButton();
+        ch1 = new javax.swing.JRadioButton();
+        cmbTeams = new javax.swing.JComboBox<>();
+        btnSave = new javax.swing.JButton();
+        btnMakeChange = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
@@ -135,7 +145,19 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         nameA3.setText("Name Team");
         paneGroup1.add(nameA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
-        getContentPane().add(paneGroup1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 250, 300));
+        group1.add(op4);
+        paneGroup1.add(op4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 225, -1, -1));
+
+        group1.add(op1);
+        paneGroup1.add(op1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 65, -1, -1));
+
+        group1.add(op2);
+        paneGroup1.add(op2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 125, -1, -1));
+
+        group1.add(op3);
+        paneGroup1.add(op3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 175, -1, -1));
+
+        getContentPane().add(paneGroup1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 250, 300));
 
         paneGroup2.setBackground(new java.awt.Color(250, 250, 240));
         paneGroup2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -150,34 +172,56 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
 
         paneGroup2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
-        lblA5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        paneGroup2.add(lblA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
+        lblC1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneGroup2.add(lblC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
 
-        lblA6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        paneGroup2.add(lblA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
+        lblC2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneGroup2.add(lblC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
 
-        lblA7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        paneGroup2.add(lblA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
+        lblC3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneGroup2.add(lblC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
 
-        lblA8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        paneGroup2.add(lblA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
+        lblC4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        paneGroup2.add(lblC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
 
-        nameA5.setText("Name Team");
-        paneGroup2.add(nameA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
+        nameC4.setText("Name Team");
+        paneGroup2.add(nameC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
-        nameA6.setText("Name Team");
-        paneGroup2.add(nameA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
+        nameC1.setText("Name Team");
+        paneGroup2.add(nameC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
-        nameA7.setText("Name Team");
-        paneGroup2.add(nameA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
+        nameC2.setText("Name Team");
+        paneGroup2.add(nameC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
-        nameA8.setText("Name Team");
-        paneGroup2.add(nameA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
+        nameC3.setText("Name Team");
+        paneGroup2.add(nameC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
-        getContentPane().add(paneGroup2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 290, 250, 300));
+        group2.add(ch2);
+        paneGroup2.add(ch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 125, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Team" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 220, 250, 50));
+        group2.add(ch3);
+        paneGroup2.add(ch3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 175, -1, -1));
+
+        group2.add(ch4);
+        paneGroup2.add(ch4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 225, -1, -1));
+
+        group2.add(ch1);
+        paneGroup2.add(ch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 65, -1, -1));
+
+        getContentPane().add(paneGroup2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 290, 250, 290));
+
+        cmbTeams.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Group" }));
+        getContentPane().add(cmbTeams, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 220, 250, 50));
+
+        btnSave.setBackground(new java.awt.Color(0, 0, 0));
+        btnSave.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnSave.setText("Save Change");
+        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, -1));
+
+        btnMakeChange.setBackground(new java.awt.Color(0, 0, 0));
+        btnMakeChange.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnMakeChange.setText("Make Change");
+        getContentPane().add(btnMakeChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/secundary3.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -222,7 +266,15 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBack;
-    private javax.swing.JComboBox<String> jComboBox2;
+    public javax.swing.JButton btnMakeChange;
+    public javax.swing.JButton btnSave;
+    public javax.swing.JRadioButton ch1;
+    public javax.swing.JRadioButton ch2;
+    public javax.swing.JRadioButton ch3;
+    public javax.swing.JRadioButton ch4;
+    public javax.swing.JComboBox<String> cmbTeams;
+    private javax.swing.ButtonGroup group1;
+    private javax.swing.ButtonGroup group2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -233,18 +285,22 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
     public javax.swing.JLabel lblA2;
     public javax.swing.JLabel lblA3;
     public javax.swing.JLabel lblA4;
-    public javax.swing.JLabel lblA5;
-    public javax.swing.JLabel lblA6;
-    public javax.swing.JLabel lblA7;
-    public javax.swing.JLabel lblA8;
+    public javax.swing.JLabel lblC1;
+    public javax.swing.JLabel lblC2;
+    public javax.swing.JLabel lblC3;
+    public javax.swing.JLabel lblC4;
     public javax.swing.JLabel nameA1;
     public javax.swing.JLabel nameA2;
     public javax.swing.JLabel nameA3;
     public javax.swing.JLabel nameA4;
-    public javax.swing.JLabel nameA5;
-    public javax.swing.JLabel nameA6;
-    public javax.swing.JLabel nameA7;
-    public javax.swing.JLabel nameA8;
+    public javax.swing.JLabel nameC1;
+    public javax.swing.JLabel nameC2;
+    public javax.swing.JLabel nameC3;
+    public javax.swing.JLabel nameC4;
+    public javax.swing.JRadioButton op1;
+    public javax.swing.JRadioButton op2;
+    public javax.swing.JRadioButton op3;
+    public javax.swing.JRadioButton op4;
     private javax.swing.JPanel paneGroup1;
     private javax.swing.JPanel paneGroup2;
     // End of variables declaration//GEN-END:variables
@@ -264,6 +320,8 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
 
     private void setAction() {
         btnBack.addActionListener(editGroup);
+        cmbTeams.addActionListener(editGroup);
+        btnMakeChange.addActionListener(editGroup);
     }
 
     public void initData(Group gr) {

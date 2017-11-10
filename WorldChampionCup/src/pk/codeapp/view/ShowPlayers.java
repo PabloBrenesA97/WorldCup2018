@@ -173,7 +173,7 @@ public class ShowPlayers extends javax.swing.JFrame implements JumpWindow {
         lblC.setText("Coach");
         getContentPane().add(lblC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
-        lblBackground.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\secundary2.gif")); // NOI18N
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/secundary2.gif"))); // NOI18N
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

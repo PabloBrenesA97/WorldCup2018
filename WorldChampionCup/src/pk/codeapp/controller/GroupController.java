@@ -22,10 +22,12 @@ import pk.codeapp.view.Lobby;
  * @author Daniel Amador
  */
 public class GroupController implements ActionListener {
-    private Maker maker= new MasterMaker();
+
+    private Maker maker = new MasterMaker();
     private GroupScreen window;
     private ArrayList<Team> teams = new ArrayList();
     private ArrayList<Group> groups = new ArrayList();
+
     public GroupController(GroupScreen aThis) {
         window = aThis;
         managerMethods();
@@ -36,26 +38,35 @@ public class GroupController implements ActionListener {
         if (e.getSource() == window.btnBack) {
             //call back method
             window.jumpBeforeWindow();
-        } else if (e.getSource() == window.btnEditA) {
-            //call eedit A
+        } else {
             EditGroup edit = new EditGroup();
-            edit.initData(groups.get(0));
             window.setVisible(false);
+            if (e.getSource() == window.btnEditA) {
+                //call eedit A
+                edit.initData(groups.get(0));
+            } else if (e.getSource() == window.btnEditB) {
+                //call eedit B
+                 edit.initData(groups.get(1));
+            } else if (e.getSource() == window.btnEditC) {
+                //call eedit C
+                 edit.initData(groups.get(2));
+            } else if (e.getSource() == window.btnEditD) {
+                //call eedit D
+                 edit.initData(groups.get(3));
+            } else if (e.getSource() == window.btnEditE) {
+                //call eedit E
+                 edit.initData(groups.get(4));
+            } else if (e.getSource() == window.btnEditF) {
+                //call eedit F
+                 edit.initData(groups.get(5));
+            } else if (e.getSource() == window.btnEditG) {
+                //call eedit G
+                 edit.initData(groups.get(6));
+            } else if (e.getSource() == window.btnEditH) {
+                //call eedit H
+                 edit.initData(groups.get(7));
+            }
             edit.openWindow(window);
-        } else if (e.getSource() == window.btnEditB) {
-            //call eedit B
-        } else if (e.getSource() == window.btnEditC) {
-            //call eedit C
-        } else if (e.getSource() == window.btnEditD) {
-            //call eedit D
-        } else if (e.getSource() == window.btnEditE) {
-            //call eedit E
-        } else if (e.getSource() == window.btnEditF) {
-            //call eedit F
-        } else if (e.getSource() == window.btnEditG) {
-            //call eedit G
-        } else if (e.getSource() == window.btnEditH) {
-            //call eedit H
         }
     }
 
@@ -351,35 +362,35 @@ public class GroupController implements ActionListener {
             }
         }
     }
-    
-    public void createGroup(){
-      Group gr= (Group) maker.factoryMethod("Group");
-      gr.update(1, "Group A");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      gr.update(2, "Group B");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      gr.update(3, "Group C");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      gr.update(4, "Group D");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      gr.update(5, "Group E");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      gr.update(6, "Group F");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      gr.update(7, "Group G");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      gr.update(8, "Group H");
-      gr= (Group) maker.factoryMethod("Group");
-      groups.add(gr);
-      
-      
+
+    public void createGroup() {
+        Group gr = (Group) maker.factoryMethod("Group");
+        gr.update(1, "Group A");
+        groups.add(gr);
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+        gr.update(2, "Group B");
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+        gr.update(3, "Group C");
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+        gr.update(4, "Group D");
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+        gr.update(5, "Group E");
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+        gr.update(6, "Group F");
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+        gr.update(7, "Group G");
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+        gr.update(8, "Group H");
+        gr = (Group) maker.factoryMethod("Group");
+        groups.add(gr);
+
     }
     //</editor-fold>
 
