@@ -51,7 +51,6 @@ public class Lobby extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -119,6 +118,11 @@ public class Lobby extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnCalendarsMouseExited(evt);
+            }
+        });
+        btnCalendars.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalendarsActionPerformed(evt);
             }
         });
 
@@ -302,6 +306,13 @@ public class Lobby extends javax.swing.JFrame {
         group.openWindow(this);
     }//GEN-LAST:event_btnGroupsActionPerformed
 
+    private void btnCalendarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalendarsActionPerformed
+        CalendarScreen calendar = new CalendarScreen();
+        this.setVisible(false);
+        calendar.openWindow(this);
+        
+    }//GEN-LAST:event_btnCalendarsActionPerformed
+                     
     /**
      * @param args the command line arguments
      */
