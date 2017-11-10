@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import pk.codeapp.model.Calendar;
 import pk.codeapp.model.Group;
 import pk.codeapp.model.Player;
+import pk.codeapp.model.Result;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.model.Team;
 
@@ -23,6 +24,7 @@ public class AppController {
 
     private Maker masterMaker = new MasterMaker();
     private DefaultListModel<String> listModel = new DefaultListModel();
+    private ArrayList<Result> listResults = new ArrayList();
     private DefaultListModel<Calendar> calendars = new DefaultListModel();
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
@@ -716,6 +718,14 @@ public class AppController {
 
     //</editor-fold>
     
+    public Result searchResult(int id){
+        for (int i = 0; i < listResults.size(); i++) {
+            if(listResults.get(i).getId()==id)
+                return listResults.get(i);
+        }
+        return null;
+    }
+    
     public Calendar searchCalendar(String date){
         for (int i = 0; i < calendars.size(); i++) {
             if(calendars.get(i).getDate().equals(date))
@@ -790,4 +800,12 @@ public class AppController {
         this.calendars = calendars;
     }
 
+    public ArrayList<Result> getListResults() {
+        return listResults;
+    }
+
+    public void setListResults(ArrayList<Result> listResults) {
+        this.listResults = listResults;
+    }
+    
 }
