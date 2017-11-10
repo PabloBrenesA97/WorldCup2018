@@ -69,7 +69,10 @@ public class CreateorUpdatePlayerController implements ActionListener{
      * @throws ExceptionWorldCup 
      */
     public void updatePlayer() throws ExceptionWorldCup{
-        if(windowAux.getTxtName().getText().equals("")|| windowAux.getTxtNumber().getText().equals("")|| windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("")|| windowAux.getTxtNRedCard().getText().equals("")|| windowAux.getTxtGoals().getText().equals("")||
+        if(Integer.parseInt(windowAux.getTxtAge().getText())<20){
+            throw new ExceptionWorldCup(12);
+        }
+        else if(windowAux.getTxtName().getText().equals("")|| windowAux.getTxtNumber().getText().equals("")|| windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("")|| windowAux.getTxtNRedCard().getText().equals("")|| windowAux.getTxtGoals().getText().equals("")||
                  windowAux.getTxtAge().getText().equals("")){
              throw new ExceptionWorldCup(6);
          }
@@ -84,10 +87,15 @@ public class CreateorUpdatePlayerController implements ActionListener{
      * Add Player in the List
      */
     public void createPlayer() throws ExceptionWorldCup{
-         if(windowAux.getTxtName().getText().equals("")|| windowAux.getTxtNumber().getText().equals("")|| windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("")|| windowAux.getTxtNRedCard().getText().equals("")|| windowAux.getTxtGoals().getText().equals("")||
+          
+         
+          if(windowAux.getTxtName().getText().equals("")|| windowAux.getTxtNumber().getText().equals("")|| windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("")|| windowAux.getTxtNRedCard().getText().equals("")|| windowAux.getTxtGoals().getText().equals("")||
                  windowAux.getTxtAge().getText().equals("")){
              throw new ExceptionWorldCup(6);
          }
+          if(Integer.parseInt(windowAux.getTxtAge().getText())<20){
+            throw new ExceptionWorldCup(12);
+        }
          Player newPlayer = (Player) Lobby.controller.getMasterMaker().factoryMethod("Player");
          try{
           newPlayer.update(windowAux.getBeforeWindow().getActualTeam().getPlayers().size(),windowAux.getTxtName().getText(),windowAux.getTxtPosition().getText(),Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
