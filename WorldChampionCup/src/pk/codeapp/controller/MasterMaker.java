@@ -28,6 +28,7 @@ public class MasterMaker extends Maker {
                 return new Team();
             case "Group":
                 return new Group();
+
             default:
                 break;
         }

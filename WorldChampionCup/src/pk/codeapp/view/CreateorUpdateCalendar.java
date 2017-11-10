@@ -8,6 +8,7 @@ package pk.codeapp.view;
 import java.awt.Frame;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import pk.codeapp.controller.CreateorUpdateCalendarController;
 import pk.codeapp.model.JumpWindow;
 
@@ -22,13 +23,15 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
      */
     private CalendarScreen calendarScreen;
     private CreateorUpdateCalendarController controller;
+    private String fuction;
     public CreateorUpdateCalendar() {
         initComponents();
+        
+        this.setLocationRelativeTo(null);
         controller = new CreateorUpdateCalendarController(this);
         btnBack.addActionListener(controller);
         btnAdd.addActionListener(controller);
-        cmbTeam1.addActionListener(controller);
-        cmbTeam2.addActionListener(controller);
+
         
         
     }
@@ -53,11 +56,13 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblTeam2 = new javax.swing.JLabel();
         cmbTeam2 = new javax.swing.JComboBox<>();
+        lblImg2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblImg1 = new javax.swing.JLabel();
         cmbTeam1 = new javax.swing.JComboBox<>();
+        lblTeam1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -71,7 +76,7 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
         btnAdd.setText("Default");
         getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 620, 270, 60));
 
-        jPanel5.setBackground(new java.awt.Color(192, 2, 3));
+        jPanel5.setBackground(new java.awt.Color(0, 204, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
 
         cmbDay.setBackground(new java.awt.Color(0, 0, 0));
@@ -144,7 +149,7 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 640, 230));
 
-        jPanel4.setBackground(new java.awt.Color(192, 2, 3));
+        jPanel4.setBackground(new java.awt.Color(0, 204, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -170,17 +175,21 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(192, 2, 3));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Team 2");
+        lblTeam2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTeam2.setForeground(new java.awt.Color(255, 255, 255));
+        lblTeam2.setText("Team 2");
 
         cmbTeam2.setBackground(new java.awt.Color(0, 0, 0));
         cmbTeam2.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         cmbTeam2.setForeground(new java.awt.Color(255, 255, 255));
         cmbTeam2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+
+        lblImg2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblImg2.setForeground(new java.awt.Color(255, 255, 255));
+        lblImg2.setText("Img2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -190,58 +199,85 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
                 .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(lblTeam2)
                         .addGap(184, 184, 184))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(cmbTeam2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51))))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(199, 199, 199)
+                    .addComponent(lblImg2)
+                    .addContainerGap(199, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jLabel3)
+                .addComponent(lblTeam2)
                 .addGap(18, 18, 18)
                 .addComponent(cmbTeam2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(106, 106, 106)
+                    .addComponent(lblImg2)
+                    .addContainerGap(106, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 130, 460, 250));
 
-        jPanel3.setBackground(new java.awt.Color(192, 2, 3));
+        jPanel3.setBackground(new java.awt.Color(0, 204, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Team 1");
+        lblImg1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblImg1.setForeground(new java.awt.Color(255, 255, 255));
+        lblImg1.setText("Img1");
 
         cmbTeam1.setBackground(new java.awt.Color(0, 0, 0));
         cmbTeam1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         cmbTeam1.setForeground(new java.awt.Color(255, 255, 255));
         cmbTeam1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
+        lblTeam1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblTeam1.setForeground(new java.awt.Color(255, 255, 255));
+        lblTeam1.setText("Team 1");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(186, 186, 186)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(cmbTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(56, 56, 56)
+                .addComponent(cmbTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(55, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addContainerGap(196, Short.MAX_VALUE)
+                    .addComponent(lblTeam1)
+                    .addGap(176, 176, 176)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(lblImg1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2)
-                .addGap(30, 30, 30)
+                .addGap(93, 93, 93)
                 .addComponent(cmbTeam1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(85, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(41, 41, 41)
+                    .addComponent(lblTeam1)
+                    .addContainerGap(171, Short.MAX_VALUE)))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(lblImg1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 460, 250));
@@ -325,8 +361,6 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
     private javax.swing.JComboBox<String> cmbTeam1;
     private javax.swing.JComboBox<String> cmbTeam2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -336,6 +370,10 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel lblImg1;
+    private javax.swing.JLabel lblImg2;
+    private javax.swing.JLabel lblTeam1;
+    private javax.swing.JLabel lblTeam2;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -343,6 +381,7 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
       calendarScreen = (CalendarScreen) beforeWindow;
       this.setVisible(true);
       controller.fillData();
+      
     }
 
     @Override
@@ -413,6 +452,46 @@ public class CreateorUpdateCalendar extends javax.swing.JFrame implements JumpWi
 
     public void setCmbTeam2(JComboBox<String> cmbTeam2) {
         this.cmbTeam2 = cmbTeam2;
+    }
+
+    public String getFuction() {
+        return fuction;
+    }
+
+    public void setFuction(String fuction) {
+        this.fuction = fuction;
+    }
+
+    public JLabel getLblImg1() {
+        return lblImg1;
+    }
+
+    public void setLblImg1(JLabel lblImg1) {
+        this.lblImg1 = lblImg1;
+    }
+
+    public JLabel getLblImg2() {
+        return lblImg2;
+    }
+
+    public void setLblImg2(JLabel lblImg2) {
+        this.lblImg2 = lblImg2;
+    }
+
+    public JLabel getLblTeam1() {
+        return lblTeam1;
+    }
+
+    public void setLblTeam1(JLabel lblTeam1) {
+        this.lblTeam1 = lblTeam1;
+    }
+
+    public JLabel getLblTeam2() {
+        return lblTeam2;
+    }
+
+    public void setLblTeam2(JLabel lblTeam2) {
+        this.lblTeam2 = lblTeam2;
     }
     
 }
