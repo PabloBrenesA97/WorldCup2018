@@ -708,6 +708,21 @@ public class AppController {
     }
 
     //</editor-fold>
+    
+    public Calendar searchCalendar(String date){
+        for (int i = 0; i < calendars.size(); i++) {
+            if(calendars.get(i).getDate().equals(date))
+                return calendars.get(i);
+        }
+        return null;
+    }
+    public Stadium searchStadium(String name){
+        for (int i = 0; i < arrayStadiums.size(); i++) {
+            if(arrayStadiums.get(i).getName().equals(name))
+                return arrayStadiums.get(i);
+        }
+        return null;
+    }
     //<editor-fold desc="All Getter & Setter here" defaultstate="collapsed">
     public ArrayList<Team> getTeams() {
         return teams;

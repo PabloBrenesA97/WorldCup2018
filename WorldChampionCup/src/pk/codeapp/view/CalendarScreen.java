@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import pk.codeapp.controller.CalendarController;
+import pk.codeapp.model.Calendar;
 import pk.codeapp.model.JumpWindow;
 
 /**
@@ -25,6 +26,7 @@ public class CalendarScreen extends javax.swing.JFrame implements JumpWindow{
     private Lobby lobby;
     public CalendarController controller;
     private DefaultListModel<String> dates = new DefaultListModel();
+    private Calendar actualCalendar;
     public CalendarScreen() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,6 +34,7 @@ public class CalendarScreen extends javax.swing.JFrame implements JumpWindow{
         btnCreate.addActionListener(controller);
         btnDelete.addActionListener(controller);
         btnUpdate.addActionListener(controller);
+        cmbCalendar.addActionListener(controller);
         btnBack.addActionListener(controller);
         
     }
@@ -177,21 +180,17 @@ public class CalendarScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTeam1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(lblImg1)))
-                .addGap(82, 82, 82)
+                .addGap(73, 73, 73)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblImg1)
+                    .addComponent(lblTeam1))
+                .addGap(62, 62, 62)
                 .addComponent(lblvs)
-                .addGap(77, 77, 77)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTeam2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblImg2)
-                        .addGap(10, 10, 10)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                    .addComponent(lblImg2)
+                    .addComponent(lblTeam2))
+                .addGap(77, 77, 77))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +335,7 @@ public class CalendarScreen extends javax.swing.JFrame implements JumpWindow{
     public void openWindow(Frame beforeWindow) {
       lobby = (Lobby) beforeWindow;
       this.setVisible(true);
-      
+      controller.fillData();
     }
 
     @Override
@@ -344,7 +343,7 @@ public class CalendarScreen extends javax.swing.JFrame implements JumpWindow{
        this.dispose();
        lobby.setVisible(true);
     }
-
+    // <editor-fold defaultstate="collapsed" desc="Get_Set">          
     public JLabel getLblDate() {
         return lblDate;
     }
@@ -440,5 +439,13 @@ public class CalendarScreen extends javax.swing.JFrame implements JumpWindow{
     public void setBtnUpdate(JButton btnUpdate) {
         this.btnUpdate = btnUpdate;
     }
-    
+
+    public Calendar getActualCalendar() {
+        return actualCalendar;
+    }
+
+    public void setActualCalendar(Calendar actualCalendar) {
+        this.actualCalendar = actualCalendar;
+    }
+    //</editor-fold>
 }
