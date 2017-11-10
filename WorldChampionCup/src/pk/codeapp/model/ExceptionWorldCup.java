@@ -16,7 +16,7 @@ public class ExceptionWorldCup extends Exception{
         "2) You can not eliminate teams that have players", "3) You can not eliminate player",
         "4) You can not eliminate players who have scored or who have played a match","5) There are no elements",
         "6) Don't leave spaces in blank","7) The capacity must exceed 1000 spectators","8) Only numbers are accepted","9) The information is already exist",
-        "10) There is not element"};
+        "10) There is not element","11) No more elements can be added"};
     
     /**
      * Defualt constructor that instance this class

@@ -22,6 +22,7 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindows {
 
     public ShowStadium() {
         initComponents();
+          this.setLocationRelativeTo(null);
     }
 
     /**
@@ -57,7 +58,7 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindows {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblName.setBackground(new java.awt.Color(255, 255, 255));
-        lblName.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblName.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Name:");
         jPanel1.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, -1, -1));
@@ -72,25 +73,25 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindows {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 520, 410));
 
         lblCity.setBackground(new java.awt.Color(255, 255, 255));
-        lblCity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblCity.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblCity.setForeground(new java.awt.Color(255, 255, 255));
         lblCity.setText("City:");
         jPanel1.add(lblCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, -1, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Matches:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 220, -1, -1));
 
         lblId.setBackground(new java.awt.Color(255, 255, 255));
-        lblId.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblId.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblId.setForeground(new java.awt.Color(255, 255, 255));
         lblId.setText("ID:");
         jPanel1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 140, -1, -1));
 
         lblCapacity.setBackground(new java.awt.Color(255, 255, 255));
-        lblCapacity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblCapacity.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblCapacity.setForeground(new java.awt.Color(255, 255, 255));
         lblCapacity.setText("Capacity: ");
         jPanel1.add(lblCapacity, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, -1, -1));
@@ -98,7 +99,7 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindows {
         jPanel2.setBackground(new java.awt.Color(224, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBack.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/miniButton.jpg"))); // NOI18N
         btnBack.setText("2018 FIFA WORLD CUP RUSSIA™");
