@@ -9,12 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Group;
 import pk.codeapp.model.Team;
+import pk.codeapp.view.EditGroup;
 import pk.codeapp.view.GroupScreen;
 import pk.codeapp.view.Lobby;
 
@@ -39,6 +38,10 @@ public class GroupController implements ActionListener {
             window.jumpBeforeWindow();
         } else if (e.getSource() == window.btnEditA) {
             //call eedit A
+            EditGroup edit = new EditGroup();
+            edit.initData(groups.get(0));
+            window.setVisible(false);
+            edit.openWindow(window);
         } else if (e.getSource() == window.btnEditB) {
             //call eedit B
         } else if (e.getSource() == window.btnEditC) {
@@ -123,7 +126,7 @@ public class GroupController implements ActionListener {
                 setGroupH(aux, i + 1);
             }
         }
-
+        Lobby.controller.setGroups(groups);
     }
 
     public Team getRandom() {
@@ -137,7 +140,6 @@ public class GroupController implements ActionListener {
                 teams.remove(randomNum);
             }
         }
-
         return aux;
     }
 
