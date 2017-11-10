@@ -47,7 +47,7 @@ public class GroupController implements ActionListener {
             EditGroup edit = new EditGroup();
             window.setVisible(false);
             if (e.getSource() == window.btnEditA) {
-                //call eedit A
+                //call eedit Aif
                 edit.initData(groups.get(0));
             } else if (e.getSource() == window.btnEditB) {
                 //call eedit B
@@ -346,8 +346,9 @@ public class GroupController implements ActionListener {
     //</editor-fold>
 
     public void showGroupData() {
-        for (int i = 0; i < groups.size(); i++) {
-            Group gr = groups.get(i);
+        ArrayList<Group> aux=Lobby.controller.getGroups();
+        for (int i = 0; i < aux.size(); i++) {
+            Group gr = aux.get(i);
             for (int j = 0; j < gr.getTeams().size(); j++) {
                 managerSetGroups(i, gr.getTeams().get(j), j);
             }
@@ -357,34 +358,42 @@ public class GroupController implements ActionListener {
     private void managerSetGroups(int i, Team get, int index) {
         switch (i) {
             case 0: {
+                window.btnEditA.setEnabled(true);
                 setGroupA(get, index + 1);
                 break;
             }
             case 1: {
+                window.btnEditB.setEnabled(true);
                 setGroupB(get, index + 1);
                 break;
             }
             case 2: {
+                window.btnEditC.setEnabled(true);
                 setGroupC(get, index + 1);
                 break;
             }
             case 3: {
+                window.btnEditD.setEnabled(true);
                 setGroupD(get, index + 1);
                 break;
             }
             case 4: {
+                window.btnEditE.setEnabled(true);
                 setGroupE(get, index + 1);
                 break;
             }
             case 5: {
+                window.btnEditF.setEnabled(true);
                 setGroupF(get, index + 1);
                 break;
             }
             case 6: {
+                window.btnEditG.setEnabled(true);
                 setGroupG(get, index + 1);
                 break;
             }
             case 7: {
+                window.btnEditH.setEnabled(true);
                 setGroupH(get, index + 1);
                 break;
             }

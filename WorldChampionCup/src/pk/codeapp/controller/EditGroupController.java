@@ -8,6 +8,8 @@ package pk.codeapp.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Group;
@@ -22,18 +24,29 @@ import pk.codeapp.view.Lobby;
 public class EditGroupController implements ActionListener {
 
     private Group editing;
-    private ArrayList<Team> copy;
-    private ArrayList<Group> groups = Lobby.controller.getGroups();
+    private ArrayList<Team> listCopy;
+    private ArrayList<Group> listGroups = Lobby.controller.getGroups();
     private EditGroup window;
 
+    /**
+     * Constructor that inicializes the instance
+     *
+     * @param group
+     * @param window
+     */
     public EditGroupController(Group group, EditGroup window) {
         this.editing = group;
-        copy = editing.getTeams();
+        listCopy = editing.getTeams();
         this.window = window;
-        window.btnSave.setEnabled(false);
+        window.btnMakeChange.setEnabled(false);
         managerMethods();
     }
 
+    /**
+     * Method that is in charge of events
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == window.btnBack) {
@@ -44,67 +57,93 @@ public class EditGroupController implements ActionListener {
             whatIs(selected);
         }
         if (e.getSource() == window.btnMakeChange) {
-            makeChangeSelected();
+            String name1 = null;
+            String name2 = null;
+            try {
+                name1 = selectedOne();
+                name2 = selectedTwo();
+            } catch (ExceptionWorldCup ex) {
+                JOptionPane.showMessageDialog(window, ex.getMessage());
+            }
+            letsDoIt(name1, name2);
+        }
+        if (e.getSource() == window.btnSave) {
+            saveChanges();
         }
     }
 
+    /**
+     * Charge data in the panel called Editing
+     */
     private void chargeData() {
-        for (int i = 0; i < copy.size(); i++) {
-            chooseData(i);
+        for (int i = 0; i < listCopy.size(); i++) {
+            chargeDataAux(i);
         }
     }
 
-    private void chooseData(int id) {
+    /**
+     * Aux to chargeData that choose the labels add set information
+     *
+     * @param id
+     */
+    private void chargeDataAux(int id) {
         switch (id) {
             case 0: {
-                if (copy.get(0) != null) {
-                    window.lblA1.setIcon(copy.get(0).getImageTeam());
-                    window.nameA1.setText(copy.get(0).getName());
+                if (listCopy.get(0) != null) {
+                    window.lblA1.setIcon(listCopy.get(0).getImageTeam());
+                    window.nameA1.setText(listCopy.get(0).getName());
 
                 }
                 break;
             }
             case 1: {
-                if (copy.get(1) != null) {
-                    window.lblA2.setIcon(copy.get(1).getImageTeam());
-                    window.nameA2.setText(copy.get(1).getName());
+                if (listCopy.get(1) != null) {
+                    window.lblA2.setIcon(listCopy.get(1).getImageTeam());
+                    window.nameA2.setText(listCopy.get(1).getName());
                 }
                 break;
             }
             case 2: {
-                if (copy.get(2) != null) {
-                    window.lblA3.setIcon(copy.get(2).getImageTeam());
-                    window.nameA3.setText(copy.get(2).getName());
+                if (listCopy.get(2) != null) {
+                    window.lblA3.setIcon(listCopy.get(2).getImageTeam());
+                    window.nameA3.setText(listCopy.get(2).getName());
                 }
                 break;
             }
             case 3: {
-                if (copy.get(3) != null) {
-                    window.lblA4.setIcon(copy.get(3).getImageTeam());
-                    window.nameA4.setText(copy.get(3).getName());
+                if (listCopy.get(3) != null) {
+                    window.lblA4.setIcon(listCopy.get(3).getImageTeam());
+                    window.nameA4.setText(listCopy.get(3).getName());
                 }
                 break;
             }
         }
     }
 
+    /**
+     * Charge groups in the ComboBox
+     */
     private void fillComboBox() {
-        for (int i = 0; i < groups.size(); i++) {
-            window.cmbTeams.addItem(groups.get(i).getName());
+        for (int i = 0; i < listGroups.size(); i++) {
+            if (!listGroups.get(i).getName().equals(editing.getName())) {
+                window.cmbTeams.addItem(listGroups.get(i).getName());
+            }
         }
     }
 
+    /**
+     * search in the list when a group is selected to charge data in the screen
+     *
+     * @param selected
+     */
     private void whatIs(String selected) {
         if (selected.equals("Select a Group")) {
-            window.btnSave.setEnabled(false);
+            window.btnMakeChange.setEnabled(false);
         } else {
-            window.btnSave.setEnabled(true);
+            window.btnMakeChange.setEnabled(true);
             Group aux = searchList(selected);
-            try {
-                chargeDataAux(aux);
-            } catch (ExceptionWorldCup ex) {
-                JOptionPane.showMessageDialog(window, ex.getMessage());
-            }
+            chargeDataAux(aux);
+
         }
     }
 
@@ -114,23 +153,25 @@ public class EditGroupController implements ActionListener {
     }
 
     private Group searchList(String selected) {
-        for (int i = 0; i < groups.size(); i++) {
-            if (groups.get(i).getName().equals(selected)) {
-                return groups.get(i);
+        for (int i = 0; i < listGroups.size(); i++) {
+            if (listGroups.get(i).getName().equals(selected)) {
+                return listGroups.get(i);
             }
         }
         return null;
     }
 
-    private void chargeDataAux(Group aux) throws ExceptionWorldCup {
+    private void chargeDataAux(Group aux) {
         ArrayList<Team> reco = aux.getTeams();
         if (reco.size() == 0) {
-            throw new ExceptionWorldCup(10);
-        } else {
-            for (int i = 0; i < reco.size(); i++) {
-                chooseCase(i, reco);
-            }
+            JOptionPane.showMessageDialog(window, "There is not elements");
+            window.btnMakeChange.setEnabled(false);
         }
+
+        for (int i = 0; i < reco.size(); i++) {
+            chooseCase(i, reco);
+        }
+
     }
 
     private void chooseCase(int i, ArrayList<Team> reco) {
@@ -181,52 +222,70 @@ public class EditGroupController implements ActionListener {
         }
     }
 
-    private void makeChangeSelected() {
-        String name1 = null;
-        String name2 = null;
-        try {
-            name1 = selectedOne();
-            name2 = selectedTwo();
-        } catch (ExceptionWorldCup ex) {
-            JOptionPane.showMessageDialog(window, ex.getMessage());
-        }
-        makeChange(name1, name2);
-    }
-
     private String selectedOne() throws ExceptionWorldCup {
         if (window.op1.isSelected()) {
             return window.nameA1.getText();
-        }
-        if (window.op2.isSelected()) {
+        } else if (window.op2.isSelected()) {
             return window.nameA2.getText();
-        }
-        if (window.op3.isSelected()) {
+        } else if (window.op3.isSelected()) {
             return window.nameA3.getText();
-        }
-        if (window.op4.isSelected()) {
+        } else if (window.op4.isSelected()) {
             return window.nameA4.getText();
+        } else {
+            throw new ExceptionWorldCup(6);
         }
-        throw new ExceptionWorldCup(6);
     }
 
     private String selectedTwo() throws ExceptionWorldCup {
         if (window.ch1.isSelected()) {
             return window.nameC1.getText();
-        }
-        if (window.ch1.isSelected()) {
+        } else if (window.ch1.isSelected()) {
             return window.nameC2.getText();
-        }
-        if (window.ch1.isSelected()) {
+        } else if (window.ch1.isSelected()) {
             return window.nameC3.getText();
-        }
-        if (window.ch1.isSelected()) {
+        } else if (window.ch1.isSelected()) {
             return window.nameC4.getText();
+        } else {
+            throw new ExceptionWorldCup(6);
         }
-        throw new ExceptionWorldCup(6);
+
     }
 
-    private void makeChange(String name1, String name2) {
-        Lobby.controller.makeChange(name1,name2);
+    private void saveChanges() {
+        Lobby.controller.setGroups(listGroups);
+        JOptionPane.showMessageDialog(window, "Successful");
+    }
+
+    private void letsDoIt(String name1, String name2) {
+        Group edit = null;
+        Team aux = null;
+        for (int i = 0; i < listGroups.size(); i++) {
+            if (listGroups.get(i).getName().equals(editing.getName())) {
+                edit = listGroups.get(i);
+                aux = searchTeam(name1, edit.getTeams());
+                edit.getTeams().remove(aux);
+            }
+        }
+        
+        for (int i = 0; i < listGroups.size(); i++) {
+            for (int j = 0; j <listGroups.get(i).getTeams().size(); j++) {
+                if(listGroups.get(i).getTeams().get(j).getName().equals(name2)){
+                    edit.getTeams().add(listGroups.get(i).getTeams().get(j));
+                    listGroups.get(i).getTeams().remove(listGroups.get(i).getTeams().get(j));
+                    listGroups.get(i).getTeams().add(aux);
+                }
+            }
+        }
+
+    }
+
+    public Team searchTeam(String name, ArrayList<Team> aux) {
+        for (int j = 0; j < aux.size(); j++) {
+            if (aux.get(j).getName().equals(name)) {
+                return aux.get(j);
+            }
+        }
+        return null;
     }
 
 }

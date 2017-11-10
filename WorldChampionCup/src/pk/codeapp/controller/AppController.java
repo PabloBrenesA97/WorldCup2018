@@ -756,7 +756,7 @@ public class AppController {
     public void setMasterMaker(Maker masterMaker) {
         this.masterMaker = masterMaker;
     }
-
+    /*get and set groups*/
     public ArrayList<Group> getGroups() {
         return groups;
     }
@@ -765,6 +765,7 @@ public class AppController {
         this.groups = groups;
 
     }
+   
 
     public DefaultListModel<Calendar> getCalendars() {
         return calendars;
@@ -772,22 +773,6 @@ public class AppController {
 
     public void setCalendars(DefaultListModel<Calendar> calendars) {
         this.calendars = calendars;
-    }
-
-    void makeChange(String name1, String name2) {
-    }
-
-    private Group search(String name) {
-        for (int i = 0; i < groups.size(); i++) {
-            ArrayList<Team> aux = groups.get(i).getTeams();
-            for (int j = 0; j < aux.size(); j++) {
-                if (aux.get(j).getName().equals(name)) {
-                    return groups.get(i);
-                }
-
-            }
-        }
-        return null;
     }
 
 }

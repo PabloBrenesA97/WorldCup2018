@@ -151,6 +151,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditA.setEnabled(false);
         jPanel9.add(btnEditA, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -193,6 +194,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditB.setEnabled(false);
         jPanel10.add(btnEditB, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -235,6 +237,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel11.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditC.setEnabled(false);
         jPanel11.add(btnEditC, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup3.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -277,6 +280,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel12.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditD.setEnabled(false);
         jPanel12.add(btnEditD, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -319,6 +323,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel13.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditE.setEnabled(false);
         jPanel13.add(btnEditE, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup5.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -361,6 +366,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel15.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditG.setEnabled(false);
         jPanel15.add(btnEditG, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup6.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -403,6 +409,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel16.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditH.setEnabled(false);
         jPanel16.add(btnEditH, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup8.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -445,6 +452,7 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
         jPanel14.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         btnEditF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/iconEdit.png"))); // NOI18N
+        btnEditF.setEnabled(false);
         jPanel14.add(btnEditF, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 60, 40));
 
         paneGroup7.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

@@ -133,16 +133,16 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         lblA4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup1.add(lblA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
 
-        nameA4.setText("Name Team");
+        nameA4.setText("Team Name");
         paneGroup1.add(nameA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
-        nameA1.setText("Name Team");
+        nameA1.setText("Team Name");
         paneGroup1.add(nameA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
-        nameA2.setText("Name Team");
+        nameA2.setText("Team Name");
         paneGroup1.add(nameA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
-        nameA3.setText("Name Team");
+        nameA3.setText("Team Name");
         paneGroup1.add(nameA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         group1.add(op4);
@@ -184,16 +184,16 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         lblC4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup2.add(lblC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
 
-        nameC4.setText("Name Team");
+        nameC4.setText("Team Name");
         paneGroup2.add(nameC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
-        nameC1.setText("Name Team");
+        nameC1.setText("Team Name");
         paneGroup2.add(nameC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
-        nameC2.setText("Name Team");
+        nameC2.setText("Team Name");
         paneGroup2.add(nameC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
-        nameC3.setText("Name Team");
+        nameC3.setText("Team Name");
         paneGroup2.add(nameC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         group2.add(ch2);
@@ -273,8 +273,8 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
     public javax.swing.JRadioButton ch3;
     public javax.swing.JRadioButton ch4;
     public javax.swing.JComboBox<String> cmbTeams;
-    private javax.swing.ButtonGroup group1;
-    private javax.swing.ButtonGroup group2;
+    public javax.swing.ButtonGroup group1;
+    public javax.swing.ButtonGroup group2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
