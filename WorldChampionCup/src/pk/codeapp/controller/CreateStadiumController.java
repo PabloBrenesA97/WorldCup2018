@@ -5,16 +5,11 @@
  */
 package pk.codeapp.controller;
 
-import java.awt.Image;
+//<editor-fold defaultstate="collapsed" desc="Imports">
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
@@ -22,20 +17,25 @@ import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.view.CreateStadium;
 import pk.codeapp.view.Lobby;
+//</editor-fold>
 
 /**
  *
  * @author Daniel Amador
  */
 public class CreateStadiumController implements ActionListener {
-
     private CreateStadium window;
     private String path;
     private StadiumController controller;
     private Stadium stadium;
     private Maker maker = new MasterMaker();
     private String mode = "Creating";
-
+    
+    /**
+     * Constructor that initializes the instance
+     * @param window
+     * @param controller 
+     */
     public CreateStadiumController(CreateStadium window, StadiumController controller) {
         this.window = window;
         this.controller = controller;

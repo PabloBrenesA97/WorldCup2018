@@ -22,12 +22,8 @@ import pk.codeapp.model.Team;
 public class AppController {
 
     private Maker masterMaker = new MasterMaker();
-<<<<<<< HEAD
     private DefaultListModel<String> listModel = new DefaultListModel();
-=======
-    private  DefaultListModel<String> listModel = new DefaultListModel();
     private DefaultListModel<Calendar> calendars = new DefaultListModel();
->>>>>>> master
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
     private ArrayList<Group> groups = new ArrayList();
@@ -769,8 +765,6 @@ public class AppController {
         this.groups = groups;
 
     }
-<<<<<<< HEAD
-=======
 
     public DefaultListModel<Calendar> getCalendars() {
         return calendars;
@@ -779,8 +773,6 @@ public class AppController {
     public void setCalendars(DefaultListModel<Calendar> calendars) {
         this.calendars = calendars;
     }
-    
->>>>>>> master
 
     void makeChange(String name1, String name2) {
     }
@@ -789,10 +781,10 @@ public class AppController {
         for (int i = 0; i < groups.size(); i++) {
             ArrayList<Team> aux = groups.get(i).getTeams();
             for (int j = 0; j < aux.size(); j++) {
-               if(aux.get(j).getName().equals(name)){
-                   return groups.get(i);
-               }
-                
+                if (aux.get(j).getName().equals(name)) {
+                    return groups.get(i);
+                }
+
             }
         }
         return null;
