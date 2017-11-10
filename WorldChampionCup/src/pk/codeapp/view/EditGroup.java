@@ -71,7 +71,6 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         ch4 = new javax.swing.JRadioButton();
         ch1 = new javax.swing.JRadioButton();
         cmbTeams = new javax.swing.JComboBox<>();
-        btnSave = new javax.swing.JButton();
         btnMakeChange = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -213,11 +212,6 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         cmbTeams.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a Group" }));
         getContentPane().add(cmbTeams, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 220, 250, 50));
 
-        btnSave.setBackground(new java.awt.Color(0, 0, 0));
-        btnSave.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        btnSave.setText("Save Change");
-        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 550, -1, -1));
-
         btnMakeChange.setBackground(new java.awt.Color(0, 0, 0));
         btnMakeChange.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         btnMakeChange.setText("Make Change");
@@ -267,7 +261,6 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBack;
     public javax.swing.JButton btnMakeChange;
-    public javax.swing.JButton btnSave;
     public javax.swing.JRadioButton ch1;
     public javax.swing.JRadioButton ch2;
     public javax.swing.JRadioButton ch3;
