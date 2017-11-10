@@ -717,6 +717,7 @@ public class AppController {
     }
 
     //</editor-fold>
+<<<<<<< HEAD
     
     public Result searchResult(int id){
         for (int i = 0; i < listResults.size(); i++) {
@@ -727,19 +728,26 @@ public class AppController {
     }
     
     public Calendar searchCalendar(String date){
+=======
+    public Calendar searchCalendar(String date) {
+>>>>>>> master
         for (int i = 0; i < calendars.size(); i++) {
-            if(calendars.get(i).getDate().equals(date))
+            if (calendars.get(i).getDate().equals(date)) {
                 return calendars.get(i);
+            }
         }
         return null;
     }
-    public Stadium searchStadium(String name){
+
+    public Stadium searchStadium(String name) {
         for (int i = 0; i < arrayStadiums.size(); i++) {
-            if(arrayStadiums.get(i).getName().equals(name))
+            if (arrayStadiums.get(i).getName().equals(name)) {
                 return arrayStadiums.get(i);
+            }
         }
         return null;
     }
+
     //<editor-fold desc="All Getter & Setter here" defaultstate="collapsed">
     public ArrayList<Team> getTeams() {
         return teams;
@@ -781,6 +789,7 @@ public class AppController {
     public void setMasterMaker(Maker masterMaker) {
         this.masterMaker = masterMaker;
     }
+
     /*get and set groups*/
     public ArrayList<Group> getGroups() {
         return groups;
@@ -790,7 +799,6 @@ public class AppController {
         this.groups = groups;
 
     }
-   
 
     public DefaultListModel<Calendar> getCalendars() {
         return calendars;
@@ -800,6 +808,7 @@ public class AppController {
         this.calendars = calendars;
     }
 
+<<<<<<< HEAD
     public ArrayList<Result> getListResults() {
         return listResults;
     }
@@ -809,3 +818,15 @@ public class AppController {
     }
     
 }
+=======
+    public boolean isInList(Stadium stadium) {
+        for (int i = 0; i < calendars.size(); i++) {
+            if (calendars.get(i).getStadium() == stadium) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+}
+>>>>>>> master
