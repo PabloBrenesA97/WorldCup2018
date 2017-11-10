@@ -746,18 +746,16 @@ public class AppController {
     public void setMasterMaker(Maker masterMaker) {
         this.masterMaker = masterMaker;
     }
-
-<<<<<<< HEAD
-
-=======
     public ArrayList<Group> getGroups() {
         return groups;
     }
 
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
+
     }
     
->>>>>>> master
-    
-}
+
+    }  
+
+
