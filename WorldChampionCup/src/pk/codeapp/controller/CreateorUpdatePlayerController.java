@@ -87,10 +87,18 @@ public class CreateorUpdatePlayerController implements ActionListener{
      * Add Player in the List
      */
     public void createPlayer() throws ExceptionWorldCup{
+<<<<<<< Updated upstream
           
          
           if(windowAux.getTxtName().getText().equals("")|| windowAux.getTxtNumber().getText().equals("")|| windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("")|| windowAux.getTxtNRedCard().getText().equals("")|| windowAux.getTxtGoals().getText().equals("")||
                  windowAux.getTxtAge().getText().equals("")){
+=======
+          if(Integer.parseInt(windowAux.getTxtAge().getText())<20){
+            throw new ExceptionWorldCup(12);
+        }
+          if(windowAux.getTxtName().getText()==null|| windowAux.getTxtNumber().getText()==null|| windowAux.getTxtPosition().getText()==null || windowAux.getTxtNYellowCard1().getText()==null|| windowAux.getTxtNRedCard().getText()==null|| windowAux.getTxtGoals().getText()==null||
+                 windowAux.getTxtAge().getText()==null){
+>>>>>>> Stashed changes
              throw new ExceptionWorldCup(6);
          }
           if(Integer.parseInt(windowAux.getTxtAge().getText())<20){
