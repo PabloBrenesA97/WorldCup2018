@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import pk.codeapp.model.ExceptionWorldCup;
 import javax.swing.ImageIcon;
+import pk.codeapp.model.Calendar;
 import pk.codeapp.model.Group;
 import pk.codeapp.model.Player;
 import pk.codeapp.model.Stadium;
@@ -21,7 +22,12 @@ import pk.codeapp.model.Team;
 public class AppController {
 
     private Maker masterMaker = new MasterMaker();
+<<<<<<< HEAD
     private DefaultListModel<String> listModel = new DefaultListModel();
+=======
+    private  DefaultListModel<String> listModel = new DefaultListModel();
+    private DefaultListModel<Calendar> calendars = new DefaultListModel();
+>>>>>>> master
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
     private ArrayList<Group> groups = new ArrayList();
@@ -763,6 +769,18 @@ public class AppController {
         this.groups = groups;
 
     }
+<<<<<<< HEAD
+=======
+
+    public DefaultListModel<Calendar> getCalendars() {
+        return calendars;
+    }
+
+    public void setCalendars(DefaultListModel<Calendar> calendars) {
+        this.calendars = calendars;
+    }
+    
+>>>>>>> master
 
     void makeChange(String name1, String name2) {
     }
