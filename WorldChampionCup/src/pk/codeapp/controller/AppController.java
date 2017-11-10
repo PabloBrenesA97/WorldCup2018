@@ -717,7 +717,7 @@ public class AppController {
     }
 
     //</editor-fold>
-<<<<<<< HEAD
+
     
     public Result searchResult(int id){
         for (int i = 0; i < listResults.size(); i++) {
@@ -727,10 +727,10 @@ public class AppController {
         return null;
     }
     
-    public Calendar searchCalendar(String date){
-=======
+
+
     public Calendar searchCalendar(String date) {
->>>>>>> master
+
         for (int i = 0; i < calendars.size(); i++) {
             if (calendars.get(i).getDate().equals(date)) {
                 return calendars.get(i);
@@ -808,7 +808,7 @@ public class AppController {
         this.calendars = calendars;
     }
 
-<<<<<<< HEAD
+
     public ArrayList<Result> getListResults() {
         return listResults;
     }
@@ -817,8 +817,8 @@ public class AppController {
         this.listResults = listResults;
     }
     
-}
-=======
+
+
     public boolean isInList(Stadium stadium) {
         for (int i = 0; i < calendars.size(); i++) {
             if (calendars.get(i).getStadium() == stadium) {
@@ -829,4 +829,4 @@ public class AppController {
         return false;
     }
 }
->>>>>>> master
+
