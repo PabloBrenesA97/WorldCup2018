@@ -14,7 +14,7 @@ import pk.codeapp.model.JumpWindow;
  */
 public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
     private Lobby beforeWindow;
-    private GroupController gController;
+    static public GroupController gController;
     /**
      * Creates new form GroupScreen
      */

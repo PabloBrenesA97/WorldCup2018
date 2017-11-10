@@ -15,6 +15,7 @@ import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Group;
 import pk.codeapp.model.Team;
 import pk.codeapp.view.EditGroup;
+import pk.codeapp.view.GroupScreen;
 import pk.codeapp.view.Lobby;
 
 /**
@@ -53,8 +54,8 @@ public class EditGroupController implements ActionListener {
             window.jumpBeforeWindow();
         }
         if (e.getSource() == window.cmbTeams) {
-            String selected = (String) window.cmbTeams.getSelectedItem();
-            whatIs(selected);
+
+            whatIs();
         }
         if (e.getSource() == window.btnMakeChange) {
             String name1 = null;
@@ -66,10 +67,9 @@ public class EditGroupController implements ActionListener {
                 JOptionPane.showMessageDialog(window, ex.getMessage());
             }
             letsDoIt(name1, name2);
-        }
-        if (e.getSource() == window.btnSave) {
             saveChanges();
         }
+
     }
 
     /**
@@ -136,7 +136,8 @@ public class EditGroupController implements ActionListener {
      *
      * @param selected
      */
-    private void whatIs(String selected) {
+    private void whatIs() {
+        String selected = (String) window.cmbTeams.getSelectedItem();
         if (selected.equals("Select a Group")) {
             window.btnMakeChange.setEnabled(false);
         } else {
@@ -254,6 +255,10 @@ public class EditGroupController implements ActionListener {
     private void saveChanges() {
         Lobby.controller.setGroups(listGroups);
         JOptionPane.showMessageDialog(window, "Successful");
+        GroupScreen.gController.showGroupData();
+        chargeData();
+        whatIs();
+
     }
 
     private void letsDoIt(String name1, String name2) {
@@ -266,10 +271,10 @@ public class EditGroupController implements ActionListener {
                 edit.getTeams().remove(aux);
             }
         }
-        
+
         for (int i = 0; i < listGroups.size(); i++) {
-            for (int j = 0; j <listGroups.get(i).getTeams().size(); j++) {
-                if(listGroups.get(i).getTeams().get(j).getName().equals(name2)){
+            for (int j = 0; j < listGroups.get(i).getTeams().size(); j++) {
+                if (listGroups.get(i).getTeams().get(j).getName().equals(name2)) {
                     edit.getTeams().add(listGroups.get(i).getTeams().get(j));
                     listGroups.get(i).getTeams().remove(listGroups.get(i).getTeams().get(j));
                     listGroups.get(i).getTeams().add(aux);
