@@ -115,11 +115,10 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         cmbResult = new javax.swing.JComboBox<>();
         lblResult = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblvs.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -324,6 +323,9 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblResult.setText("Result");
         getContentPane().add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\RiversMosku.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
@@ -348,6 +350,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cmbResult;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

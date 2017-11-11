@@ -11,7 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import pk.codeapp.model.Calendar;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Result;
 import pk.codeapp.model.Team;
@@ -35,12 +37,21 @@ public class CreateorUpdateResultController implements ActionListener {
         if (e.getSource() == windowAux.getBtnBack()) {
             windowAux.jumpBeforeWindow();
         }
+        if(e.getSource()==windowAux.getCmbList()){
+            JComboBox box = (JComboBox)e.getSource();
+            Calendar calendar = Lobby.controller.searchCalendar((String)box.getSelectedItem());
+            windowAux.getLblTeam1().setText(calendar.getTeam1().getName());
+            windowAux.getLblTeam2().setText(calendar.getTeam2().getName());
+        }
         if (e.getSource() == windowAux.getBtnAdd()) {
             JButton button = (JButton) e.getSource();
             if (button.getText().equals("Create")) {
+
                 jumpToCreate();
+                 
                 if(Lobby.controller.getListResults().size()>0){
                 windowAux.getResultScreen().getController().fillComboBox();
+               
                 windowAux.getResultScreen().setActualResult(Lobby.controller.getListResults().get(Lobby.controller.getListResults().size() - 1));
                 windowAux.getResultScreen().getController().fillAllInformation();
                 windowAux.jumpBeforeWindow();}
@@ -64,18 +75,21 @@ public class CreateorUpdateResultController implements ActionListener {
      */
     public void jumpToUpdate() throws ExceptionWorldCup {
         checkException();
-        Team team1 = Lobby.controller.searchTeam((String) windowAux.getCmbTeam1().getSelectedItem());
-        Team team2 = Lobby.controller.searchTeam((String) windowAux.getCmbTeam2().getSelectedItem());
-            if (Integer.parseInt(windowAux.getTxtGoalsTeam1().getText())>Integer.parseInt(windowAux.getTxtGoalsTeam2().getText())) {
-                windowAux.getResultScreen().getActualResult().update(windowAux.getResultScreen().getActualResult().getId(), team1, team2, team1.getName(), team2.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
+
+        Result result = Lobby.controller.searchResult(windowAux.getResultScreen().getActualResult().getId());
+            if ((Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()))>(Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()))) {
+                System.out.println("Arrba "+windowAux.getTxtGoalsTeam1().getText());
+                result.update(result.getId(), result.getTeam1(), result.getTeam2(), result.getTeam1().getName(), result.getTeam2().getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                         Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
                         Integer.parseInt(windowAux.getTxtOffsides().getText()), Integer.parseInt(windowAux.getTxtPosBalonE1().getText()), Integer.parseInt(windowAux.getTxtPosBalonE2().getText()));
-            } else if ((Integer.parseInt(windowAux.getTxtGoalsTeam1().getText())<Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()))) {
-                windowAux.getResultScreen().getActualResult().update(windowAux.getResultScreen().getActualResult().getId(), team1, team2, team2.getName(), team1.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
+            } else if ((Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()))<(Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()))) {
+                System.out.println("Abajo "+windowAux.getTxtGoalsTeam2().getText());
+                  System.out.println(result.getId());
+                result.update(result.getId(), result.getTeam1(), result.getTeam2(), result.getTeam2().getName(), result.getTeam1().getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                         Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
                         Integer.parseInt(windowAux.getTxtOffsides().getText()), Integer.parseInt(windowAux.getTxtPosBalonE1().getText()), Integer.parseInt(windowAux.getTxtPosBalonE2().getText()));
             } else {
-                windowAux.getResultScreen().getActualResult().update(windowAux.getResultScreen().getActualResult().getId(), team1, team2, team1.getName(), team1.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
+                result.update(result.getId(), result.getTeam1(), result.getTeam2(), result.getTeam1().getName(), result.getTeam1().getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                         Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
                         Integer.parseInt(windowAux.getTxtOffsides().getText()), Integer.parseInt(windowAux.getTxtPosBalonE1().getText()), Integer.parseInt(windowAux.getTxtPosBalonE2().getText()));
             }
@@ -91,8 +105,9 @@ public class CreateorUpdateResultController implements ActionListener {
             checkException();
             Result newResult = new Result();
             
-            Team team1 = Lobby.controller.searchTeam((String) windowAux.getCmbTeam1().getSelectedItem());
-            Team team2 = Lobby.controller.searchTeam((String) windowAux.getCmbTeam2().getSelectedItem());
+            Calendar calendar = Lobby.controller.searchCalendar((String) windowAux.getCmbList().getSelectedItem());
+            Team team1 = calendar.getTeam1();
+            Team team2 = calendar.getTeam2();
             try {
                 if (Integer.parseInt(windowAux.getTxtGoalsTeam1().getText())>Integer.parseInt(windowAux.getTxtGoalsTeam2().getText())) {
                     newResult.update(Lobby.controller.getListResults().size(), team1, team2, team1.getName(), team2.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
@@ -132,6 +147,9 @@ public class CreateorUpdateResultController implements ActionListener {
                 || Integer.parseInt(windowAux.getTxtRedCard().getText()) < 0 || Integer.parseInt(windowAux.getTxtYellowCard().getText()) < 0) {
             throw new ExceptionWorldCup(14);
         }
+        if(Integer.parseInt(windowAux.getTxtCorners().getText()) > 100 || Integer.parseInt(windowAux.getTxtFaults().getText()) > 100 || Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()) > 100 || Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()) > 100 || (Integer.parseInt(windowAux.getTxtMinPlayed().getText()) > 100 || Integer.parseInt(windowAux.getTxtOffsides().getText()) > 100 || Integer.parseInt(windowAux.getTxtPosBalonE1().getText()) > 100|| Integer.parseInt(windowAux.getTxtPosBalonE2().getText()) > 100
+                || Integer.parseInt(windowAux.getTxtRedCard().getText()) >100 || Integer.parseInt(windowAux.getTxtYellowCard().getText()) >100))
+            throw new ExceptionWorldCup(15);
     }
 
     /**
@@ -140,9 +158,8 @@ public class CreateorUpdateResultController implements ActionListener {
     public void fillData() {
         Result actualResult = windowAux.getResultScreen().getActualResult();
         if (windowAux.getFuction().equals("Update")) {
+            windowAux.getCmbList().setVisible(false);
             windowAux.getBtnAdd().setText("Update");
-            windowAux.getCmbTeam1().setVisible(false);
-            windowAux.getCmbTeam2().setVisible(false);
             windowAux.getLblTeam1().setText(actualResult.getTeam1().getName());
             windowAux.getLblTeam2().setText(actualResult.getTeam2().getName());
             windowAux.getTxtCorners().setText("" + actualResult.getCantCornerKicks());
@@ -157,15 +174,17 @@ public class CreateorUpdateResultController implements ActionListener {
             windowAux.getTxtYellowCard().setText("" + actualResult.getCantCardsYellow());
         } else {
             windowAux.getBtnAdd().setText("Create");
+            windowAux.getCmbList().setVisible(true);
             DefaultComboBoxModel<String> listTeam1 = new DefaultComboBoxModel();
-            DefaultComboBoxModel<String> listTeam2 = new DefaultComboBoxModel();
-            for (int i = 0; i < Lobby.controller.getTeams().size(); i++) {
-                listTeam1.addElement(Lobby.controller.getTeams().get(i).getName());
-                listTeam2.addElement(Lobby.controller.getTeams().get(i).getName());
+
+            for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
+                listTeam1.addElement(Lobby.controller.getCalendars().get(i).getDate());
             }
-            windowAux.getCmbTeam1().setModel(listTeam1);
-            windowAux.getCmbTeam2().setModel(listTeam2);
+            windowAux.getCmbList().setModel(listTeam1);
+            
         }
+        windowAux.getLblTeam1().setText(Lobby.controller.getCalendars().get(0).getTeam1().getName());
+        windowAux.getLblTeam2().setText(Lobby.controller.getCalendars().get(0).getTeam2().getName());
     }
 
 }

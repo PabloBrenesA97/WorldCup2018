@@ -31,6 +31,7 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
         controller = new CreateorUpdateResultController(this);
         btnBack.addActionListener(controller);
         btnAdd.addActionListener(controller);
+        cmbList.addActionListener(controller);
     }
 
     /**
@@ -42,6 +43,8 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTeam2 = new javax.swing.JLabel();
+        lblVS = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         txtOffsides = new javax.swing.JTextField();
         txtFaults = new javax.swing.JTextField();
@@ -62,9 +65,7 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtGoalsTeam1 = new javax.swing.JTextField();
-        cmbTeam2 = new javax.swing.JComboBox<>();
-        cmbTeam1 = new javax.swing.JComboBox<>();
-        lblTeam2 = new javax.swing.JLabel();
+        cmbList = new javax.swing.JComboBox<>();
         lblTeam1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
@@ -72,6 +73,16 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblTeam2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblTeam2.setForeground(new java.awt.Color(255, 255, 255));
+        lblTeam2.setText("Team 2");
+        getContentPane().add(lblTeam2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, -1, -1));
+
+        lblVS.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        lblVS.setForeground(new java.awt.Color(255, 255, 255));
+        lblVS.setText("vs");
+        getContentPane().add(lblVS, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, -1));
 
         btnAdd.setBackground(new java.awt.Color(0, 0, 0));
         btnAdd.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -170,25 +181,15 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
         txtGoalsTeam1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(txtGoalsTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 120, 40));
 
-        cmbTeam2.setBackground(new java.awt.Color(0, 0, 0));
-        cmbTeam2.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        cmbTeam2.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(cmbTeam2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 220, 40));
-
-        cmbTeam1.setBackground(new java.awt.Color(0, 0, 0));
-        cmbTeam1.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        cmbTeam1.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(cmbTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 220, 40));
-
-        lblTeam2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        lblTeam2.setForeground(new java.awt.Color(255, 255, 255));
-        lblTeam2.setText("Team 2");
-        getContentPane().add(lblTeam2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, -1, -1));
+        cmbList.setBackground(new java.awt.Color(0, 0, 0));
+        cmbList.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        cmbList.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(cmbList, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 220, 40));
 
         lblTeam1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         lblTeam1.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam1.setText("Team 1");
-        getContentPane().add(lblTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
+        getContentPane().add(lblTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -262,8 +263,7 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     public javax.swing.JButton btnBack;
-    private javax.swing.JComboBox<String> cmbTeam1;
-    private javax.swing.JComboBox<String> cmbTeam2;
+    private javax.swing.JComboBox<String> cmbList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -277,6 +277,7 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTeam1;
     private javax.swing.JLabel lblTeam2;
+    private javax.swing.JLabel lblVS;
     private javax.swing.JTextField txtCorners;
     private javax.swing.JTextField txtFaults;
     private javax.swing.JTextField txtGoalsTeam1;
@@ -307,21 +308,15 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
 
   
 
-    public JComboBox<String> getCmbTeam1() {
-        return cmbTeam1;
+    public JComboBox<String> getCmbList() {
+        return cmbList;
     }
 
     public void setCmbTeam1(JComboBox<String> cmbTeam1) {
-        this.cmbTeam1 = cmbTeam1;
+        this.cmbList = cmbTeam1;
     }
 
-    public JComboBox<String> getCmbTeam2() {
-        return cmbTeam2;
-    }
-
-    public void setCmbTeam2(JComboBox<String> cmbTeam2) {
-        this.cmbTeam2 = cmbTeam2;
-    }
+  
 
     public JTextField getTxtCorners() {
         return txtCorners;
@@ -419,13 +414,6 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
         this.lblTeam1 = lblTeam1;
     }
 
-    public JLabel getLblTeam2() {
-        return lblTeam2;
-    }
-
-    public void setLblTeam2(JLabel lblTeam2) {
-        this.lblTeam2 = lblTeam2;
-    }
 
     public String getFuction() {
         return fuction;
@@ -433,6 +421,14 @@ public class CreateorUpdateResult extends javax.swing.JFrame implements JumpWind
 
     public void setFuction(String fuction) {
         this.fuction = fuction;
+    }
+
+    public JLabel getLblTeam2() {
+        return lblTeam2;
+    }
+
+    public void setLblTeam2(JLabel lblTeam2) {
+        this.lblTeam2 = lblTeam2;
     }
     
     @Override
