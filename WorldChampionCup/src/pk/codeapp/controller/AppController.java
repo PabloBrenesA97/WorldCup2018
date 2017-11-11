@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import pk.codeapp.model.Calendar;
 import pk.codeapp.model.Group;
 import pk.codeapp.model.Player;
+import pk.codeapp.model.Result;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.model.Team;
 
@@ -23,6 +24,7 @@ public class AppController {
 
     private Maker masterMaker = new MasterMaker();
     private DefaultListModel<String> listModel = new DefaultListModel();
+    private ArrayList<Result> listResults = new ArrayList();
     private DefaultListModel<Calendar> calendars = new DefaultListModel();
     private ArrayList<Team> teams = new ArrayList(); // List of Teams
     private ArrayList<Stadium> arrayStadiums = new ArrayList(); //List of Stadiums
@@ -312,7 +314,7 @@ public class AppController {
      * @throws ExeptionWorldCup
      */
     private void addDefaultPlayerRussia() throws ExceptionWorldCup {
-        Team portugal = searchTeam("Russia");
+        Team rusia = searchTeam("Russia");
         String[] namePlayers = {"Ígor Akinféyev", "Yuri Lodyguin", "Román Shishkin", "Ígor Smólnikov", "Serguéi Ignashévich", "Ilya Kutepov",
             "Artur Yusúpov", "Denís Glushakov", "Pável Mamáyev", "Aleksandr Kokorin", "Fiódor Smólov", "Artiom Dziuba"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
@@ -324,9 +326,9 @@ public class AppController {
         for (int i = 0; i < namePlayers.length; i++) {
             Player newPlayer = (Player) masterMaker.factoryMethod("Player");
             newPlayer.update(i, namePlayers[i], positionPlayers[i], agePlayers[i], cantCYellowPlayers[i], cantCRedPlayers[i], numUsePlayers[i], cantGoals[i]);
-            portugal.getPlayers().add(newPlayer);
+            rusia.getPlayers().add(newPlayer);
         }
-        portugal.setCantPlayer(namePlayers.length);
+        rusia.setCantPlayer(namePlayers.length);
     }
 
     //</editor-fold>
@@ -338,7 +340,7 @@ public class AppController {
      */
     private void addDefaultPlayerPortugal() throws ExceptionWorldCup {
         Team portugal = searchTeam("Portugal");
-        String[] namePlayers = {"Rui Patrício", "José Sá", "Bruno Alves", "	Pepe", "Luís Neto", "Raphaël Guerreiro",
+        String[] namePlayers = {"Rui Patrício", "José Sá", "Bruno Alves", "Pepe", "Luís Neto", "Raphaël Guerreiro",
             "João Moutinho", "Danilo Pereira", "William Carvalho", "Cristiano Ronaldo", "André Silva", "Bernardo Silva"};
         String[] positionPlayers = {"POR", "POR", "DEF", "DEF", "DEF", "DEF", "MED", "MED", "MED", "DEL", "DEL", "DEL"};
         int[] agePlayers = {29, 24, 35, 34, 28, 23, 30, 24, 24, 32, 21, 22};
@@ -715,7 +717,20 @@ public class AppController {
     }
 
     //</editor-fold>
+
+    
+    public Result searchResult(int id){
+        for (int i = 0; i < listResults.size(); i++) {
+            if(listResults.get(i).getId()==id)
+                return listResults.get(i);
+        }
+        return null;
+    }
+    
+
+
     public Calendar searchCalendar(String date) {
+
         for (int i = 0; i < calendars.size(); i++) {
             if (calendars.get(i).getDate().equals(date)) {
                 return calendars.get(i);
@@ -793,6 +808,17 @@ public class AppController {
         this.calendars = calendars;
     }
 
+
+    public ArrayList<Result> getListResults() {
+        return listResults;
+    }
+
+    public void setListResults(ArrayList<Result> listResults) {
+        this.listResults = listResults;
+    }
+    
+
+
     public boolean isInList(Stadium stadium) {
         for (int i = 0; i < calendars.size(); i++) {
             if (calendars.get(i).getStadium() == stadium) {
@@ -803,3 +829,4 @@ public class AppController {
         return false;
     }
 }
+

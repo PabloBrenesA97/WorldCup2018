@@ -161,6 +161,11 @@ public class Lobby extends javax.swing.JFrame {
                 btnResultsMouseExited(evt);
             }
         });
+        btnResults.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultsActionPerformed(evt);
+            }
+        });
 
         btnStatistics.setBackground(new java.awt.Color(176, 15, 21));
         btnStatistics.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -322,12 +327,20 @@ public class Lobby extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCalendarsActionPerformed
 
+<<<<<<< HEAD
     private void btnStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticsActionPerformed
         // TODO add your handling code here:
          StatisticsScreen estadistics = new StatisticsScreen();
         this.setVisible(false);
         estadistics.openWindow(this);
     }//GEN-LAST:event_btnStatisticsActionPerformed
+=======
+    private void btnResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultsActionPerformed
+        this.setVisible(false);
+        ResultScreen result = new ResultScreen();
+        result.openWindow(this);
+    }//GEN-LAST:event_btnResultsActionPerformed
+>>>>>>> master
                      
     /**
      * @param args the command line arguments
