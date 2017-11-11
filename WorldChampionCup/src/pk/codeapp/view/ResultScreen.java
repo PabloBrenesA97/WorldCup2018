@@ -142,7 +142,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblnameTotalCorner.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblnameTotalCorner.setForeground(new java.awt.Color(255, 255, 255));
         lblnameTotalCorner.setText("Total Corners");
-        getContentPane().add(lblnameTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
+        getContentPane().add(lblnameTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 530, -1, -1));
 
         lblTotalFaults.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalFaults.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,7 +151,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblTeam6.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTeam6.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam6.setText("Total Faults");
-        getContentPane().add(lblTeam6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, -1, -1));
+        getContentPane().add(lblTeam6, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 440, -1, -1));
 
         lblTotalRC.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalRC.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,7 +160,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblTeam5.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTeam5.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam5.setText("Total Red Card");
-        getContentPane().add(lblTeam5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, -1, -1));
+        getContentPane().add(lblTeam5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 310, -1, -1));
 
         lblTotalYC.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalYC.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,7 +228,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblNameTeamLoser.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblNameTeamLoser.setForeground(new java.awt.Color(255, 255, 255));
         lblNameTeamLoser.setText("Team Loser");
-        getContentPane().add(lblNameTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
+        getContentPane().add(lblNameTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, -1, -1));
 
         lblTeamWinner.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblTeamWinner.setForeground(new java.awt.Color(255, 255, 255));
@@ -321,10 +321,10 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblResult.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblResult.setForeground(new java.awt.Color(255, 255, 255));
         lblResult.setText("Result");
-        getContentPane().add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        getContentPane().add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\RiversMosku.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/unnamed-1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

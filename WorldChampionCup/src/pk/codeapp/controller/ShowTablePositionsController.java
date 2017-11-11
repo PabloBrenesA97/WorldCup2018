@@ -40,9 +40,9 @@ public class ShowTablePositionsController implements ActionListener {
      */
     private void fiilData(Data team) {
         for (int i = 0; i < result.size(); i++) {
-            if (result.get(i).getTeam1().getName().equals(team)) {
+            if (result.get(i).getTeam1().getName().equals(team.name)) {
                 isTeam1(team, result.get(i));
-            } else if (result.get(i).getTeam2().getName().equals(team)) {
+            } else if (result.get(i).getTeam2().getName().equals(team.name)) {
                 isTeam2(team, result.get(i));
             }
         }
@@ -179,34 +179,31 @@ public class ShowTablePositionsController implements ActionListener {
             team2 = new Data();
             team3 = new Data();
             team4 = new Data();
-            
-
-            if (reco.getTeams().size() > 0) {
+            try {
                 if (reco.getTeams().get(0) != null) {
                     team1.name = reco.getTeams().get(0).getName();
                     fiilData(team1);
                     aux.add(team1);
                 }
-            }
-            if (reco.getTeams().size() > 1) {
+
                 if (reco.getTeams().get(1) != null) {
                     team2.name = reco.getTeams().get(1).getName();
                     fiilData(team2);
                     aux.add(team2);
                 }
-            }
-            if (reco.getTeams().size() > 2) {
+
                 if (reco.getTeams().get(2) != null) {
                     team3.name = reco.getTeams().get(2).getName();
                     fiilData(team3);
                     aux.add(team3);
                 }
-            }
-            if (reco.getTeams().size() > 3) {
+
                 if (reco.getTeams().get(3) != null) {
                     team4.name = reco.getTeams().get(3).getName();
                     aux.add(team4);
                 }
+            }catch(Exception e){
+                
             }
 
         }

@@ -45,7 +45,7 @@ public class ResultController implements ActionListener {
             if ("".equals((String) comboBox.getSelectedItem())) {
                 return;
             }
-            int id = Integer.parseInt((String) comboBox.getSelectedItem());
+            int id = comboBox.getSelectedIndex();
             resultScreen.setActualResult(Lobby.controller.searchResult(id));
             fillAllInformation();
         }
@@ -112,7 +112,7 @@ public class ResultController implements ActionListener {
     public void fillComboBox() {
         DefaultComboBoxModel<String> list = new DefaultComboBoxModel();
         for (int i = 0; i < Lobby.controller.getListResults().size(); i++) {
-            list.addElement(Lobby.controller.getListResults().get(i).getId() + "");
+            list.addElement(Lobby.controller.getListResults().get(i).getTeam1().getName() + "-"+Lobby.controller.getListResults().get(i).getTeam2().getName() );
         }
         resultScreen.getCmbResult().setModel(list);
     }

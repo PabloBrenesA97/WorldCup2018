@@ -41,6 +41,7 @@ public class StatisticsController implements ActionListener {
             ShowScorers show= new ShowScorers();
             show.openWindow(window);
         } else if (e.getSource() == window.btnSeeTable) {
+            
             ShowGroupPositions show= new ShowGroupPositions();
             show.setLocationRelativeTo(window);
             window.setVisible(false);
