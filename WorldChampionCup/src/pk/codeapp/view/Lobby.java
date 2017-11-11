@@ -327,20 +327,20 @@ public class Lobby extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCalendarsActionPerformed
 
-<<<<<<< HEAD
+
     private void btnStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticsActionPerformed
         // TODO add your handling code here:
          StatisticsScreen estadistics = new StatisticsScreen();
         this.setVisible(false);
         estadistics.openWindow(this);
     }//GEN-LAST:event_btnStatisticsActionPerformed
-=======
+
     private void btnResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultsActionPerformed
         this.setVisible(false);
         ResultScreen result = new ResultScreen();
         result.openWindow(this);
     }//GEN-LAST:event_btnResultsActionPerformed
->>>>>>> master
+
                      
     /**
      * @param args the command line arguments

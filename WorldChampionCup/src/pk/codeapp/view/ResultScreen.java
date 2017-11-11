@@ -117,144 +117,146 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         jLabel2 = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
         setName(""); // NOI18N
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblvs.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblvs.setForeground(new java.awt.Color(255, 255, 255));
         lblvs.setText("VS");
-        add(lblvs, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
+        getContentPane().add(lblvs, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
 
         lblTotalOffsides.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalOffsides.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalOffsides, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 640, 130, 50));
+        getContentPane().add(lblTotalOffsides, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 640, 130, 50));
 
         lblTotalCorner1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalCorner1.setForeground(new java.awt.Color(255, 255, 255));
         lblTotalCorner1.setText("Total Offsides");
-        add(lblTotalCorner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 610, -1, -1));
+        getContentPane().add(lblTotalCorner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 610, -1, -1));
 
         lblTotalCorner.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalCorner.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 560, 130, 50));
+        getContentPane().add(lblTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 560, 130, 50));
 
         lblnameTotalCorner.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblnameTotalCorner.setForeground(new java.awt.Color(255, 255, 255));
         lblnameTotalCorner.setText("Total Corners");
-        add(lblnameTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
+        getContentPane().add(lblnameTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
 
         lblTotalFaults.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalFaults.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalFaults, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, 130, 50));
+        getContentPane().add(lblTotalFaults, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, 130, 50));
 
         lblTeam6.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTeam6.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam6.setText("Total Faults");
-        add(lblTeam6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, -1, -1));
+        getContentPane().add(lblTeam6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, -1, -1));
 
         lblTotalRC.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalRC.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 350, 130, 50));
+        getContentPane().add(lblTotalRC, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 350, 130, 50));
 
         lblTeam5.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTeam5.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam5.setText("Total Red Card");
-        add(lblTeam5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, -1, -1));
+        getContentPane().add(lblTeam5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 310, -1, -1));
 
         lblTotalYC.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalYC.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalYC, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, 130, 50));
+        getContentPane().add(lblTotalYC, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, 130, 50));
 
         lblTeam4.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTeam4.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam4.setText("Total Yellow Card");
-        add(lblTeam4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 220, -1, -1));
+        getContentPane().add(lblTeam4, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 220, -1, -1));
 
         lblMinutes.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblMinutes.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblMinutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 140, 130, 60));
+        getContentPane().add(lblMinutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 140, 130, 60));
 
         lblTeam3.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTeam3.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam3.setText("Minutes Played");
-        add(lblTeam3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, -1, -1));
+        getContentPane().add(lblTeam3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, -1, -1));
 
         lblPositionBalonT2.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblPositionBalonT2.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblPositionBalonT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 80, 50));
+        getContentPane().add(lblPositionBalonT2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 80, 50));
 
         jLabel9.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("PositionBalon:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, -1, -1));
 
         lblPositionBalonT1.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblPositionBalonT1.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblPositionBalonT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 80, 50));
+        getContentPane().add(lblPositionBalonT1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 550, 80, 50));
 
         jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("PositionBalon:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, -1, -1));
 
         lblGoalsTeam1.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblGoalsTeam1.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblGoalsTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 80, 50));
+        getContentPane().add(lblGoalsTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 80, 50));
 
         lblGoalsTeam2.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblGoalsTeam2.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblGoalsTeam2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 80, 50));
+        getContentPane().add(lblGoalsTeam2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 80, 50));
 
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("TotalGoals:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 480, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("TotalGoals:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
         lblTie.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTie.setForeground(new java.awt.Color(255, 255, 255));
         lblTie.setText("Tie");
-        add(lblTie, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+        getContentPane().add(lblTie, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
 
         lblTeamLoser.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblTeamLoser.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 190, 50));
+        getContentPane().add(lblTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 190, 50));
 
         lblNameTeamLoser.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblNameTeamLoser.setForeground(new java.awt.Color(255, 255, 255));
         lblNameTeamLoser.setText("Team Loser");
-        add(lblNameTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
+        getContentPane().add(lblNameTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
 
         lblTeamWinner.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblTeamWinner.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTeamWinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 190, 50));
+        getContentPane().add(lblTeamWinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 190, 50));
 
         lblNameTeamWinner.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblNameTeamWinner.setForeground(new java.awt.Color(255, 255, 255));
         lblNameTeamWinner.setText("Team Winner");
-        add(lblNameTeamWinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        getContentPane().add(lblNameTeamWinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         lblimg2.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblimg2.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 110, 50));
+        getContentPane().add(lblimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, 110, 50));
 
         lblimg1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblimg1.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 120, 50));
+        getContentPane().add(lblimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 120, 50));
 
         lblTeam2.setFont(new java.awt.Font("Book Antiqua", 1, 36)); // NOI18N
         lblTeam2.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam2.setText("Team 2");
-        add(lblTeam2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+        getContentPane().add(lblTeam2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
 
         lblTeam1.setFont(new java.awt.Font("Book Antiqua", 1, 36)); // NOI18N
         lblTeam1.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam1.setText("Team 1");
-        add(lblTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        getContentPane().add(lblTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
 
@@ -310,20 +312,18 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
                 .addContainerGap())
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 50));
 
         cmbResult.setBackground(new java.awt.Color(0, 0, 0));
         cmbResult.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         cmbResult.setForeground(new java.awt.Color(255, 255, 255));
-        add(cmbResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 270, 50));
+        getContentPane().add(cmbResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 270, 50));
 
         lblResult.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblResult.setForeground(new java.awt.Color(255, 255, 255));
         lblResult.setText("Result");
-        add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\RiversMosku.jpg")); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+        getContentPane().add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
