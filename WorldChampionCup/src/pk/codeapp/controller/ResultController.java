@@ -113,8 +113,8 @@ public class ResultController implements ActionListener {
         if (resultScreen.getActualResult().getTeamWinnew().equals(resultScreen.getActualResult().getTeamLoser())) {
             resultScreen.getLblNameTeamWinner().setText("");
             resultScreen.getLblNameTeamLoser().setText("");
-            resultScreen.getLblTeamWinner().setText(resultScreen.getActualResult().getTeamWinnew());
-            resultScreen.getLblTeamLoser().setText(resultScreen.getActualResult().getTeamLoser());
+            resultScreen.getLblTeamWinner().setText("");
+            resultScreen.getLblTeamLoser().setText("");
         } else {
             resultScreen.getLblTie().setText("");
         }

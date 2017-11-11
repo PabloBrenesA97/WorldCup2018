@@ -48,7 +48,6 @@ public class CreateorUpdateResultController implements ActionListener {
                 try {
                     jumpToUpdate();
                     windowAux.getResultScreen().getController().fillComboBox();
-                    windowAux.getResultScreen().setActualResult(Lobby.controller.getListResults().get(Lobby.controller.getListResults().size() - 1));
                     windowAux.getResultScreen().getController().fillAllInformation();
                     windowAux.jumpBeforeWindow();
                 } catch (ExceptionWorldCup ex) {
@@ -67,7 +66,6 @@ public class CreateorUpdateResultController implements ActionListener {
         checkException();
         Team team1 = Lobby.controller.searchTeam((String) windowAux.getCmbTeam1().getSelectedItem());
         Team team2 = Lobby.controller.searchTeam((String) windowAux.getCmbTeam2().getSelectedItem());
-        try {
             if (Integer.parseInt(windowAux.getTxtGoalsTeam1().getText())>Integer.parseInt(windowAux.getTxtGoalsTeam2().getText())) {
                 windowAux.getResultScreen().getActualResult().update(windowAux.getResultScreen().getActualResult().getId(), team1, team2, team1.getName(), team2.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                         Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
@@ -81,11 +79,9 @@ public class CreateorUpdateResultController implements ActionListener {
                         Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
                         Integer.parseInt(windowAux.getTxtOffsides().getText()), Integer.parseInt(windowAux.getTxtPosBalonE1().getText()), Integer.parseInt(windowAux.getTxtPosBalonE2().getText()));
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(windowAux, e.getMessage());
-            return;
-        }
-    }
+    
+        } 
+    
 
     /**
      * Create Result
@@ -115,7 +111,6 @@ public class CreateorUpdateResultController implements ActionListener {
                 Lobby.controller.getListResults().add(newResult);
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(windowAux, e.getMessage());
                 return;
             }
         } catch (ExceptionWorldCup ex) {
@@ -156,8 +151,8 @@ public class CreateorUpdateResultController implements ActionListener {
             windowAux.getTxtGoalsTeam2().setText("" + actualResult.getCantGoalsTeam2());
             windowAux.getTxtMinPlayed().setText("" + actualResult.getMinPlayed());
             windowAux.getTxtOffsides().setText("" + actualResult.getCantOffsides());
-            windowAux.getTxtPosBalonE1().setText(actualResult.getPosBalonTeam1() + "%");
-            windowAux.getTxtPosBalonE2().setText(actualResult.getPosBalonTeam2() + "%");
+            windowAux.getTxtPosBalonE1().setText(actualResult.getPosBalonTeam1() + "");
+            windowAux.getTxtPosBalonE2().setText(actualResult.getPosBalonTeam2() + "");
             windowAux.getTxtRedCard().setText("" + actualResult.getCantCardsRed());
             windowAux.getTxtYellowCard().setText("" + actualResult.getCantCardsYellow());
         } else {

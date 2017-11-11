@@ -80,8 +80,8 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblvs = new javax.swing.JLabel();
         lblTotalOffsides = new javax.swing.JLabel();
         lblTotalCorner1 = new javax.swing.JLabel();
-        lblTotalFaults1 = new javax.swing.JLabel();
         lblTotalCorner = new javax.swing.JLabel();
+        lblnameTotalCorner = new javax.swing.JLabel();
         lblTotalFaults = new javax.swing.JLabel();
         lblTeam6 = new javax.swing.JLabel();
         lblTotalRC = new javax.swing.JLabel();
@@ -114,8 +114,10 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         btnDelete = new javax.swing.JButton();
         cmbResult = new javax.swing.JComboBox<>();
         lblResult = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setName(""); // NOI18N
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblvs.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -132,14 +134,14 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblTotalCorner1.setText("Total Offsides");
         add(lblTotalCorner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 610, -1, -1));
 
-        lblTotalFaults1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblTotalFaults1.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalFaults1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 560, 130, 50));
-
         lblTotalCorner.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalCorner.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalCorner.setText("Total Corners");
-        add(lblTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
+        add(lblTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 560, 130, 50));
+
+        lblnameTotalCorner.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        lblnameTotalCorner.setForeground(new java.awt.Color(255, 255, 255));
+        lblnameTotalCorner.setText("Total Corners");
+        add(lblnameTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
 
         lblTotalFaults.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalFaults.setForeground(new java.awt.Color(255, 255, 255));
@@ -320,8 +322,8 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblResult.setText("Result");
         add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\secundary5.jpg")); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1280, 670));
+        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\RiversMosku.jpg")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
@@ -346,7 +348,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cmbResult;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -372,12 +374,12 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JLabel lblTotalCorner;
     private javax.swing.JLabel lblTotalCorner1;
     private javax.swing.JLabel lblTotalFaults;
-    private javax.swing.JLabel lblTotalFaults1;
     private javax.swing.JLabel lblTotalOffsides;
     private javax.swing.JLabel lblTotalRC;
     private javax.swing.JLabel lblTotalYC;
     private javax.swing.JLabel lblimg1;
     private javax.swing.JLabel lblimg2;
+    private javax.swing.JLabel lblnameTotalCorner;
     private javax.swing.JLabel lblvs;
     // End of variables declaration//GEN-END:variables
 
@@ -509,13 +511,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         this.lblTeamWinner = lblTeamWinner;
     }
 
-    public JLabel getLblTotalCorner() {
-        return lblTotalCorner;
-    }
-
-    public void setLblTotalCorner(JLabel lblTotalCorner) {
-        this.lblTotalCorner = lblTotalCorner;
-    }
+ 
 
     public JLabel getLblTotalFaults() {
         return lblTotalFaults;
@@ -595,6 +591,14 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
 
     public void setController(ResultController controller) {
         this.controller = controller;
+    }
+
+    public JLabel getLblTotalCorner() {
+        return lblTotalCorner;
+    }
+
+    public void setLblTotalCorner(JLabel lblTotalCorner) {
+        this.lblTotalCorner = lblTotalCorner;
     }
     
     
