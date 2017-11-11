@@ -97,7 +97,7 @@ public class ShowScorers extends javax.swing.JFrame implements JumpWindow{
         tablePlayers.setOpaque(false);
         jScrollPane1.setViewportView(tablePlayers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 940, 540));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 1120, 540));
 
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
