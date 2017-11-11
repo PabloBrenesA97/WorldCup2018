@@ -26,17 +26,21 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
     /**
      * Creates new form CreateStadium
      */
-
     public CreateStadium(Stadium show, StadiumController control) {
         initComponents();
-         controller= new CreateStadiumController(this,control,show);
-           this.setLocationRelativeTo(null);
+        controller = new CreateStadiumController(this, control, show);
+        this.setLocationRelativeTo(null);
     }
 
+    /**
+     * Constructor to edit stadium
+     *
+     * @param control
+     */
     public CreateStadium(StadiumController control) {
-       initComponents();
-        controller= new CreateStadiumController(this,control);
-          this.setLocationRelativeTo(null);
+        initComponents();
+        controller = new CreateStadiumController(this, control);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -160,7 +164,7 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-       
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -226,8 +230,5 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
     public JTextField getLblCity() {
         return lblCity;
     }
-    
-    
-    
 
 }

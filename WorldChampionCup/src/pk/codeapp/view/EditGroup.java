@@ -148,6 +148,7 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         paneGroup1.add(op4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 225, -1, -1));
 
         group1.add(op1);
+        op1.setSelected(true);
         paneGroup1.add(op1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 65, -1, -1));
 
         group1.add(op2);
@@ -205,6 +206,7 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         paneGroup2.add(ch4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 225, -1, -1));
 
         group2.add(ch1);
+        ch1.setSelected(true);
         paneGroup2.add(ch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 65, -1, -1));
 
         getContentPane().add(paneGroup2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 290, 250, 290));

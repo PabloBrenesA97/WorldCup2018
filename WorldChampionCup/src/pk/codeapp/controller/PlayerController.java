@@ -4,19 +4,12 @@
  * and open the template in the editor.
  */
 package pk.codeapp.controller;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Player;
 import pk.codeapp.model.Team;

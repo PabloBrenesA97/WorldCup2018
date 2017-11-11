@@ -175,6 +175,11 @@ public class Lobby extends javax.swing.JFrame {
                 btnStatisticsMouseExited(evt);
             }
         });
+        btnStatistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatisticsActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -316,6 +321,13 @@ public class Lobby extends javax.swing.JFrame {
         calendar.openWindow(this);
         
     }//GEN-LAST:event_btnCalendarsActionPerformed
+
+    private void btnStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticsActionPerformed
+        // TODO add your handling code here:
+         StatisticsScreen estadistics = new StatisticsScreen();
+        this.setVisible(false);
+        estadistics.openWindow(this);
+    }//GEN-LAST:event_btnStatisticsActionPerformed
                      
     /**
      * @param args the command line arguments
