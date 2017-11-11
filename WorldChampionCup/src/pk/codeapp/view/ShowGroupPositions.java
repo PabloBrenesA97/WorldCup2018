@@ -5,17 +5,25 @@
  */
 package pk.codeapp.view;
 
+import java.awt.Frame;
+import pk.codeapp.controller.ShowTablePositionsController;
+import pk.codeapp.model.JumpWindow;
+
 /**
  *
  * @author Daniel Amador
  */
-public class ShowGroupPositions extends javax.swing.JFrame {
+public class ShowGroupPositions extends javax.swing.JFrame implements JumpWindow {
 
+    private StatisticsScreen beforeWindow;
+    ShowTablePositionsController controller;
     /**
      * Creates new form ShowGroupPositions
      */
     public ShowGroupPositions() {
         initComponents();
+        controller= new ShowTablePositionsController(this);
+        btnBack.addActionListener(controller);
     }
 
     /**
@@ -47,7 +55,6 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         GroupG = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -80,7 +87,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 50));
 
         GroupH.setBackground(new java.awt.Color(0, 0, 0));
-        GroupH.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupH.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         GroupH.setForeground(new java.awt.Color(255, 255, 255));
         GroupH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,7 +103,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 550, 120));
 
         groupA.setBackground(new java.awt.Color(0, 0, 0));
-        groupA.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        groupA.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         groupA.setForeground(new java.awt.Color(255, 255, 255));
         groupA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,7 +119,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 550, 120));
 
         GroupB.setBackground(new java.awt.Color(0, 0, 0));
-        GroupB.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupB.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         GroupB.setForeground(new java.awt.Color(255, 255, 255));
         GroupB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -128,7 +135,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 550, 120));
 
         GroupC.setBackground(new java.awt.Color(0, 0, 0));
-        GroupC.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupC.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         GroupC.setForeground(new java.awt.Color(255, 255, 255));
         GroupC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,7 +151,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 550, 120));
 
         GroupD.setBackground(new java.awt.Color(0, 0, 0));
-        GroupD.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupD.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         GroupD.setForeground(new java.awt.Color(255, 255, 255));
         GroupD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -160,7 +167,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 550, 120));
 
         GroupE.setBackground(new java.awt.Color(0, 0, 0));
-        GroupE.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupE.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         GroupE.setForeground(new java.awt.Color(255, 255, 255));
         GroupE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,7 +183,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 550, 120));
 
         GroupF.setBackground(new java.awt.Color(0, 0, 0));
-        GroupF.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupF.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         GroupF.setForeground(new java.awt.Color(255, 255, 255));
         GroupF.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,7 +199,7 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         getContentPane().add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 550, 120));
 
         GroupG.setBackground(new java.awt.Color(0, 0, 0));
-        GroupG.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupG.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
         GroupG.setForeground(new java.awt.Color(255, 255, 255));
         GroupG.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -246,15 +253,15 @@ public class ShowGroupPositions extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable GroupB;
-    private javax.swing.JTable GroupC;
-    private javax.swing.JTable GroupD;
-    private javax.swing.JTable GroupE;
-    private javax.swing.JTable GroupF;
-    private javax.swing.JTable GroupG;
-    private javax.swing.JTable GroupH;
+    public javax.swing.JTable GroupB;
+    public javax.swing.JTable GroupC;
+    public javax.swing.JTable GroupD;
+    public javax.swing.JTable GroupE;
+    public javax.swing.JTable GroupF;
+    public javax.swing.JTable GroupG;
+    public javax.swing.JTable GroupH;
     public javax.swing.JButton btnBack;
-    private javax.swing.JTable groupA;
+    public javax.swing.JTable groupA;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -265,4 +272,15 @@ public class ShowGroupPositions extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     // End of variables declaration//GEN-END:variables
+@Override
+    public void openWindow(Frame beforeWindow) {
+        this.beforeWindow = (StatisticsScreen) beforeWindow;
+        this.setVisible(true);
+    }
+
+    @Override
+    public void jumpBeforeWindow() {
+        this.dispose();
+        beforeWindow.setVisible(true);
+    }
 }

@@ -7,6 +7,7 @@ package pk.codeapp.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import pk.codeapp.view.ShowGroupPositions;
 import pk.codeapp.view.ShowPlayerInfo;
 import pk.codeapp.view.ShowScorers;
 import pk.codeapp.view.StatisticsScreen;
@@ -38,10 +39,12 @@ public class StatisticsController implements ActionListener {
         } else if (e.getSource() == window.btnSeeScorers) {
             //jump see player scorers
             ShowScorers show= new ShowScorers();
-            show.setLocationRelativeTo(window);
             show.openWindow(window);
         } else if (e.getSource() == window.btnSeeTable) {
-            
+            ShowGroupPositions show= new ShowGroupPositions();
+            show.setLocationRelativeTo(window);
+            window.setVisible(false);
+            show.openWindow(window);
         }
     }
 }

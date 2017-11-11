@@ -21,6 +21,8 @@ import pk.codeapp.view.ShowScorers;
  */
 public class ScoringController implements ActionListener {
 
+    
+    
     ArrayList<Team> teams = Lobby.controller.getTeams();
     ArrayList<Player> scorers = new ArrayList();
     ArrayList<String> countries = new ArrayList();
