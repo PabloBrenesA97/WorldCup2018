@@ -17,7 +17,10 @@ public class ShowTablePositionsController {
     private ArrayList<Result> result = Lobby.controller.getListResults();
     private Data team1, team2, team3, team4;
     ArrayList<Data> aux = new ArrayList();
-    
+    /**
+     * Charge data for each team in the group
+     * @param team 
+     */
     private void fiilData(Data team) {
         for (int i = 0; i < result.size(); i++) {
             if (result.get(i).getTeam1().getName().equals(team)) {
@@ -27,6 +30,11 @@ public class ShowTablePositionsController {
             }
         }
     }
+    /**
+     * If is a team 1
+     * @param team
+     * @param get 
+     */
     private void isTeam1(Data team, Result get) {
         team.PJ++;
         team.GA += get.getCantGoalsTeam1();
@@ -42,6 +50,11 @@ public class ShowTablePositionsController {
             team.PE++;
         }
     }
+    /**
+     * If is a team 2
+     * @param team
+     * @param get 
+     */
     private void isTeam2(Data team, Result get) {
         team.PJ++;
         team.GA += get.getCantGoalsTeam2();
@@ -57,6 +70,10 @@ public class ShowTablePositionsController {
             team.PE++;
         }
     }
+    /**
+     * Get Major
+     * @return 
+     */
     private Data getMajor() {
 
         Data major = aux.get(0);
@@ -70,11 +87,42 @@ public class ShowTablePositionsController {
         }
         return major;
     }
+
+    private void setGroupA() {
+    }
+
+    private void setGroupB() {
+    }
+
+    private void setGroupC() {
+    }
+
+    private void setGroupD() {
+    }
+
+    private void setGroupE() {
+    }
+
+    private void setGroupF() {
+    }
+
+    private void setGroupG() {
+    }
+
+    private void setGroupH() {
+    }
+    /**
+     * Object creator
+     */
     class Data {
 
         int PJ = 0, PG = 0, PE = 0, PP = 0, GA = 0, GE = 0, GD = 0, pts = 0;
         String nombre;
     }
+    /**
+     * generate datas
+     * @param reco 
+     */
     public void generateData(Group reco) {
         team1=new Data();
         team2= new Data();
@@ -103,5 +151,15 @@ public class ShowTablePositionsController {
             }
         }
     }
-    
+    public void manager(){
+        setGroupA();
+        setGroupB();
+        setGroupC();
+        setGroupD();
+        setGroupE();
+        setGroupF();
+        setGroupG();
+        setGroupH();
+        
+    }
 }

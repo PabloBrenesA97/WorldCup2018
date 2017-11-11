@@ -29,6 +29,22 @@ public class ShowGroupPositions extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        GroupH = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        groupA = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        GroupB = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        GroupC = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        GroupD = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        GroupE = new javax.swing.JTable();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        GroupF = new javax.swing.JTable();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        GroupG = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1280, 720));
@@ -62,6 +78,134 @@ public class ShowGroupPositions extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 50));
+
+        GroupH.setBackground(new java.awt.Color(0, 0, 0));
+        GroupH.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupH.setForeground(new java.awt.Color(255, 255, 255));
+        GroupH.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        GroupH.setOpaque(false);
+        jScrollPane2.setViewportView(GroupH);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 550, 120));
+
+        groupA.setBackground(new java.awt.Color(0, 0, 0));
+        groupA.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        groupA.setForeground(new java.awt.Color(255, 255, 255));
+        groupA.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        groupA.setOpaque(false);
+        jScrollPane3.setViewportView(groupA);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 550, 120));
+
+        GroupB.setBackground(new java.awt.Color(0, 0, 0));
+        GroupB.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupB.setForeground(new java.awt.Color(255, 255, 255));
+        GroupB.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        GroupB.setOpaque(false);
+        jScrollPane4.setViewportView(GroupB);
+
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 550, 120));
+
+        GroupC.setBackground(new java.awt.Color(0, 0, 0));
+        GroupC.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupC.setForeground(new java.awt.Color(255, 255, 255));
+        GroupC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        GroupC.setOpaque(false);
+        jScrollPane5.setViewportView(GroupC);
+
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 550, 120));
+
+        GroupD.setBackground(new java.awt.Color(0, 0, 0));
+        GroupD.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupD.setForeground(new java.awt.Color(255, 255, 255));
+        GroupD.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        GroupD.setOpaque(false);
+        jScrollPane6.setViewportView(GroupD);
+
+        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 550, 120));
+
+        GroupE.setBackground(new java.awt.Color(0, 0, 0));
+        GroupE.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupE.setForeground(new java.awt.Color(255, 255, 255));
+        GroupE.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        GroupE.setOpaque(false);
+        jScrollPane7.setViewportView(GroupE);
+
+        getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 550, 120));
+
+        GroupF.setBackground(new java.awt.Color(0, 0, 0));
+        GroupF.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupF.setForeground(new java.awt.Color(255, 255, 255));
+        GroupF.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        GroupF.setOpaque(false);
+        jScrollPane8.setViewportView(GroupF);
+
+        getContentPane().add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 360, 550, 120));
+
+        GroupG.setBackground(new java.awt.Color(0, 0, 0));
+        GroupG.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        GroupG.setForeground(new java.awt.Color(255, 255, 255));
+        GroupG.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        GroupG.setOpaque(false);
+        jScrollPane9.setViewportView(GroupG);
+
+        getContentPane().add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 520, 550, 120));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,7 +246,23 @@ public class ShowGroupPositions extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable GroupB;
+    private javax.swing.JTable GroupC;
+    private javax.swing.JTable GroupD;
+    private javax.swing.JTable GroupE;
+    private javax.swing.JTable GroupF;
+    private javax.swing.JTable GroupG;
+    private javax.swing.JTable GroupH;
     public javax.swing.JButton btnBack;
+    private javax.swing.JTable groupA;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     // End of variables declaration//GEN-END:variables
 }
