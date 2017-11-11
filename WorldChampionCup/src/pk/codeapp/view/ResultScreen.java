@@ -8,6 +8,7 @@ package pk.codeapp.view;
 import java.awt.Frame;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import pk.codeapp.controller.ResultController;
 import pk.codeapp.model.JumpWindow;
 import pk.codeapp.model.Result;
@@ -26,7 +27,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private Result actualResult;
     public ResultScreen() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
         controller = new ResultController(this);
         cmbResult.addActionListener(controller);
         btnBack.addActionListener(controller);
@@ -76,6 +77,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblvs = new javax.swing.JLabel();
         lblTotalOffsides = new javax.swing.JLabel();
         lblTotalCorner1 = new javax.swing.JLabel();
         lblTotalFaults1 = new javax.swing.JLabel();
@@ -96,11 +98,11 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblGoalsTeam2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblTie = new javax.swing.JLabel();
         lblTeamLoser = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblNameTeamLoser = new javax.swing.JLabel();
         lblTeamWinner = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblNameTeamWinner = new javax.swing.JLabel();
         lblimg2 = new javax.swing.JLabel();
         lblimg1 = new javax.swing.JLabel();
         lblTeam2 = new javax.swing.JLabel();
@@ -113,18 +115,22 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         cmbResult = new javax.swing.JComboBox<>();
         lblResult = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lblvs.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        lblvs.setForeground(new java.awt.Color(255, 255, 255));
+        lblvs.setText("VS");
+        add(lblvs, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
+
         lblTotalOffsides.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalOffsides.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalOffsides, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 650, 130, 50));
+        add(lblTotalOffsides, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 640, 130, 50));
 
         lblTotalCorner1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalCorner1.setForeground(new java.awt.Color(255, 255, 255));
         lblTotalCorner1.setText("Total Offsides");
-        add(lblTotalCorner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 620, -1, -1));
+        add(lblTotalCorner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 610, -1, -1));
 
         lblTotalFaults1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalFaults1.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,17 +138,17 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblTotalCorner.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalCorner.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotalCorner.setText("Total Faults");
-        add(lblTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 520, -1, -1));
+        lblTotalCorner.setText("Total Corners");
+        add(lblTotalCorner, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 530, -1, -1));
 
         lblTotalFaults.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalFaults.setForeground(new java.awt.Color(255, 255, 255));
-        add(lblTotalFaults, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 460, 130, 50));
+        add(lblTotalFaults, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, 130, 50));
 
         lblTeam6.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTeam6.setForeground(new java.awt.Color(255, 255, 255));
         lblTeam6.setText("Total Faults");
-        add(lblTeam6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 420, -1, -1));
+        add(lblTeam6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, -1, -1));
 
         lblTotalRC.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblTotalRC.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,28 +213,28 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         jLabel6.setText("TotalGoals:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Tie");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+        lblTie.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        lblTie.setForeground(new java.awt.Color(255, 255, 255));
+        lblTie.setText("Tie");
+        add(lblTie, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
 
         lblTeamLoser.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblTeamLoser.setForeground(new java.awt.Color(255, 255, 255));
         add(lblTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 410, 190, 50));
 
-        jLabel3.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Team Loser");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
+        lblNameTeamLoser.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        lblNameTeamLoser.setForeground(new java.awt.Color(255, 255, 255));
+        lblNameTeamLoser.setText("Team Loser");
+        add(lblNameTeamLoser, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, -1));
 
         lblTeamWinner.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
         lblTeamWinner.setForeground(new java.awt.Color(255, 255, 255));
         add(lblTeamWinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 190, 50));
 
-        jLabel2.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Team Winner");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+        lblNameTeamWinner.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        lblNameTeamWinner.setForeground(new java.awt.Color(255, 255, 255));
+        lblNameTeamWinner.setText("Team Winner");
+        add(lblNameTeamWinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         lblimg2.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblimg2.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,7 +254,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblTeam1.setText("Team 1");
         add(lblTeam1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
 
         btnBack.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
@@ -314,19 +320,19 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
         lblResult.setText("Result");
         add(lblResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\secundary2.gif")); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Team Winner");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Segundo Semestre 2017\\POO\\Proyecto#2\\RusiaIsComing\\WorldCup2018\\Clases\\WorldCup2018\\WorldChampionCup\\src\\pk\\codeapp\\view\\image\\secundary5.jpg")); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1280, 670));
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
     public void openWindow(Frame beforeWindow) {
       this.beforeWindow=beforeWindow;
       this.setVisible(true);
+      controller.fillComboBox();
+      if(Lobby.controller.getListResults().size()>0){
+          this.actualResult=Lobby.controller.getListResults().get(0);
+          controller.fillAllInformation();
+      }
     }
 
     @Override
@@ -341,10 +347,6 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cmbResult;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -353,6 +355,8 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JLabel lblGoalsTeam1;
     private javax.swing.JLabel lblGoalsTeam2;
     private javax.swing.JLabel lblMinutes;
+    private javax.swing.JLabel lblNameTeamLoser;
+    private javax.swing.JLabel lblNameTeamWinner;
     private javax.swing.JLabel lblPositionBalonT1;
     private javax.swing.JLabel lblPositionBalonT2;
     private javax.swing.JLabel lblResult;
@@ -364,6 +368,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JLabel lblTeam6;
     private javax.swing.JLabel lblTeamLoser;
     private javax.swing.JLabel lblTeamWinner;
+    private javax.swing.JLabel lblTie;
     private javax.swing.JLabel lblTotalCorner;
     private javax.swing.JLabel lblTotalCorner1;
     private javax.swing.JLabel lblTotalFaults;
@@ -373,6 +378,7 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
     private javax.swing.JLabel lblTotalYC;
     private javax.swing.JLabel lblimg1;
     private javax.swing.JLabel lblimg2;
+    private javax.swing.JLabel lblvs;
     // End of variables declaration//GEN-END:variables
 
     public JButton getBtnBack() {
@@ -421,6 +427,174 @@ public class ResultScreen extends javax.swing.JFrame implements JumpWindow{
 
     public void setActualResult(Result actualResult) {
         this.actualResult = actualResult;
+    }
+
+    public JLabel getLblGoalsTeam1() {
+        return lblGoalsTeam1;
+    }
+
+    public void setLblGoalsTeam1(JLabel lblGoalsTeam1) {
+        this.lblGoalsTeam1 = lblGoalsTeam1;
+    }
+
+    public JLabel getLblGoalsTeam2() {
+        return lblGoalsTeam2;
+    }
+
+    public void setLblGoalsTeam2(JLabel lblGoalsTeam2) {
+        this.lblGoalsTeam2 = lblGoalsTeam2;
+    }
+
+    public JLabel getLblMinutes() {
+        return lblMinutes;
+    }
+
+    public void setLblMinutes(JLabel lblMinutes) {
+        this.lblMinutes = lblMinutes;
+    }
+
+    public JLabel getLblPositionBalonT1() {
+        return lblPositionBalonT1;
+    }
+
+    public void setLblPositionBalonT1(JLabel lblPositionBalonT1) {
+        this.lblPositionBalonT1 = lblPositionBalonT1;
+    }
+
+    public JLabel getLblPositionBalonT2() {
+        return lblPositionBalonT2;
+    }
+
+    public void setLblPositionBalonT2(JLabel lblPositionBalonT2) {
+        this.lblPositionBalonT2 = lblPositionBalonT2;
+    }
+
+    public JLabel getLblResult() {
+        return lblResult;
+    }
+
+    public void setLblResult(JLabel lblResult) {
+        this.lblResult = lblResult;
+    }
+
+    public JLabel getLblTeam1() {
+        return lblTeam1;
+    }
+
+    public void setLblTeam1(JLabel lblTeam1) {
+        this.lblTeam1 = lblTeam1;
+    }
+
+    public JLabel getLblTeam2() {
+        return lblTeam2;
+    }
+
+    public void setLblTeam2(JLabel lblTeam2) {
+        this.lblTeam2 = lblTeam2;
+    }
+
+    public JLabel getLblTeamLoser() {
+        return lblTeamLoser;
+    }
+
+    public void setLblTeamLoser(JLabel lblTeamLoser) {
+        this.lblTeamLoser = lblTeamLoser;
+    }
+
+    public JLabel getLblTeamWinner() {
+        return lblTeamWinner;
+    }
+
+    public void setLblTeamWinner(JLabel lblTeamWinner) {
+        this.lblTeamWinner = lblTeamWinner;
+    }
+
+    public JLabel getLblTotalCorner() {
+        return lblTotalCorner;
+    }
+
+    public void setLblTotalCorner(JLabel lblTotalCorner) {
+        this.lblTotalCorner = lblTotalCorner;
+    }
+
+    public JLabel getLblTotalFaults() {
+        return lblTotalFaults;
+    }
+
+    public void setLblTotalFaults(JLabel lblTotalFaults) {
+        this.lblTotalFaults = lblTotalFaults;
+    }
+
+    public JLabel getLblTotalOffsides() {
+        return lblTotalOffsides;
+    }
+
+    public void setLblTotalOffsides(JLabel lblTotalOffsides) {
+        this.lblTotalOffsides = lblTotalOffsides;
+    }
+
+    public JLabel getLblTotalRC() {
+        return lblTotalRC;
+    }
+
+    public void setLblTotalRC(JLabel lblTotalRC) {
+        this.lblTotalRC = lblTotalRC;
+    }
+
+    public JLabel getLblTotalYC() {
+        return lblTotalYC;
+    }
+
+    public void setLblTotalYC(JLabel lblTotalYC) {
+        this.lblTotalYC = lblTotalYC;
+    }
+
+    public JLabel getLblimg1() {
+        return lblimg1;
+    }
+
+    public void setLblimg1(JLabel lblimg1) {
+        this.lblimg1 = lblimg1;
+    }
+
+    public JLabel getLblimg2() {
+        return lblimg2;
+    }
+
+    public void setLblimg2(JLabel lblimg2) {
+        this.lblimg2 = lblimg2;
+    }
+
+    public JLabel getLblTie() {
+        return lblTie;
+    }
+
+    public void setLblTie(JLabel lblTie) {
+        this.lblTie = lblTie;
+    }
+
+    public JLabel getLblNameTeamLoser() {
+        return lblNameTeamLoser;
+    }
+
+    public void setLblNameTeamLoser(JLabel lblNameTeamLoser) {
+        this.lblNameTeamLoser = lblNameTeamLoser;
+    }
+
+    public JLabel getLblNameTeamWinner() {
+        return lblNameTeamWinner;
+    }
+
+    public void setLblNameTeamWinner(JLabel lblNameTeamWinner) {
+        this.lblNameTeamWinner = lblNameTeamWinner;
+    }
+
+    public ResultController getController() {
+        return controller;
+    }
+
+    public void setController(ResultController controller) {
+        this.controller = controller;
     }
     
     

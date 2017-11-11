@@ -11,8 +11,10 @@ package pk.codeapp.model;
  */
 public class Result extends Component{
     private int id;
-    private Team teamWinner;
-    private Team teamLoser;
+    private Team team1;
+    private Team team2;
+    private String teamLoser;
+    private String teamWinnew;
     private int cantGoalsTeam1;
     private int cantGoalsTeam2;
     private int minPlayed;
@@ -23,11 +25,13 @@ public class Result extends Component{
     private int cantOffsides;
     private int posBalonTeam1;
     private int posBalonTeam2;
-
-    public void update(int id,Team teamWinner,Team teamLoser,int cantGoalsTeam1,int cantGoalsTeam2,int minPlayed,int cantCardsYellow,int cantCardsRed,int cantFaults,int cantCornerKicks,int cantOffsides,int posBalonTeam1,
+    
+    public void update(int id,Team team1,Team team2,String teamWinner,String teamLoser,int cantGoalsTeam1,int cantGoalsTeam2,int minPlayed,int cantCardsYellow,int cantCardsRed,int cantFaults,int cantCornerKicks,int cantOffsides,int posBalonTeam1,
             int posBalonTeam2){
         this.id=id;
-        this.teamWinner=teamWinner;
+        this.team1=team1;
+        this.team2=team2;
+        this.teamWinnew=teamWinner;
         this.teamLoser=teamLoser;
         this.cantGoalsTeam1=cantGoalsTeam1;
         this.cantGoalsTeam2=cantGoalsTeam2;
@@ -38,8 +42,9 @@ public class Result extends Component{
         this.cantCornerKicks=cantCornerKicks;
         this.cantOffsides=cantOffsides;
         this.posBalonTeam1=posBalonTeam1;
-        this.posBalonTeam2=posBalonTeam2;
+    this.posBalonTeam2=posBalonTeam2;
     }
+
     public int getId() {
         return id;
     }
@@ -48,20 +53,36 @@ public class Result extends Component{
         this.id = id;
     }
 
-    public Team getTeamWinner() {
-        return teamWinner;
+    public Team getTeam1() {
+        return team1;
     }
 
-    public void setTeamWinner(Team teamWinner) {
-        this.teamWinner = teamWinner;
+    public void setTeam1(Team team1) {
+        this.team1 = team1;
     }
 
-    public Team getTeamLoser() {
+    public Team getTeam2() {
+        return team2;
+    }
+
+    public void setTeam2(Team team2) {
+        this.team2 = team2;
+    }
+
+    public String getTeamLoser() {
         return teamLoser;
     }
 
-    public void setTeamLoser(Team teamLoser) {
+    public void setTeamLoser(String teamLoser) {
         this.teamLoser = teamLoser;
+    }
+
+    public String getTeamWinnew() {
+        return teamWinnew;
+    }
+
+    public void setTeamWinnew(String teamWinnew) {
+        this.teamWinnew = teamWinnew;
     }
 
     public int getCantGoalsTeam1() {
@@ -143,6 +164,6 @@ public class Result extends Component{
     public void setPosBalonTeam2(int posBalonTeam2) {
         this.posBalonTeam2 = posBalonTeam2;
     }
-
+  
    
 }
