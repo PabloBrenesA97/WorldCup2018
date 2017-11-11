@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pk.codeapp.controller;
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,8 +61,8 @@ public class PlayerController implements ActionListener {
         }
         /*Fill titles*/
         String[] titles = {"Name Player", "Position", "Age", "NCardYellow", "NCardRed", "Number", "NumberGoals"};
-        
-        DefaultTableModel dtm = new DefaultTableModel(datas, titles){
+
+        DefaultTableModel dtm = new DefaultTableModel(datas, titles) {
             @Override
             public boolean isCellEditable(int row, int column) {
                 //all cells false
@@ -74,92 +75,106 @@ public class PlayerController implements ActionListener {
         showPlayer.getTablePlayers().setColumnSelectionAllowed(false);
         showPlayer.getTablePlayers().setFocusable(false);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==showPlayer.getBtnBack()){
+        if (e.getSource() == showPlayer.getBtnBack()) {
             showPlayer.jumpBeforeWindow();
-        }else if(e.getSource()==showPlayer.getBtnCreate()){
+        } else if (e.getSource() == showPlayer.getBtnCreate()) {
             jumpToCreatePlayer();
-        }else if(e.getSource()==showPlayer.getBtnUpdate()){
+        } else if (e.getSource() == showPlayer.getBtnUpdate()) {
             jumpToUpdatePlayer();
-        }else if(e.getSource()==showPlayer.getBtnDelete()){
+        } else if (e.getSource() == showPlayer.getBtnDelete()) {
             try {
-                jumpToDeleteTeam();
+                jumpToDeletePlayer();
             } catch (ExceptionWorldCup ex) {
                 JOptionPane.showMessageDialog(showPlayer, ex.getMessage());
             }
         }
-        
+
     }
-    public void jumpToDeleteTeam() throws ExceptionWorldCup{
-        Player playerDelete=selectPlayer();
+
+    public void jumpToDeletePlayer() throws ExceptionWorldCup {
+        Player playerDelete = selectPlayer();
         for (int i = 0; i < showPlayer.getActualTeam().getPlayers().size(); i++) {
-            if(showPlayer.getActualTeam().getPlayers().get(i).equals(playerDelete)){
-                if(showPlayer.getActualTeam().getPlayers().get(i).getGoals()==0)
-                    showPlayer.getActualTeam().getPlayers().remove(i);
-                else
+            if (showPlayer.getActualTeam().getPlayers().get(i).equals(playerDelete)) {
+                if (showPlayer.getActualTeam().getPlayers().get(i).getGoals() == 0) {
                     throw new ExceptionWorldCup(3);
+                }else{
+                    for (int j = 0; j < Lobby.controller.getListResults().size(); j++) {
+                        if(Lobby.controller.getListResults().get(j).getTeam1().getName().equals(showPlayer.getActualTeam().getName()) || Lobby.controller.getListResults().get(j).getTeam2().getName().equals(showPlayer.getActualTeam().getName())){
+                            throw new ExceptionWorldCup(3);
+                        }
+                    }
+                    showPlayer.getActualTeam().getPlayers().remove(i);
+                }
+                
+
             }
-            
+
         }
         showAllPlayers();
         showPlayer.jumpBeforeWindow();
     }
+
     /**
      * Update Player selected
      */
-    public void jumpToUpdatePlayer(){
-        
+    public void jumpToUpdatePlayer() {
+
         Player actualPlayer = selectPlayer();
         showPlayer.setVisible(false);
         CreateorUpdatePlayer windowAux = new CreateorUpdatePlayer();
-        System.out.println("EL nombre del jugador es: "+actualPlayer.getName());
+        System.out.println("EL nombre del jugador es: " + actualPlayer.getName());
         windowAux.setActualPlayer(actualPlayer);
         showPlayer.setVisible(false);
         windowAux.openWindow(showPlayer);
     }
+
     /**
      * Bridge to jump to Create Player
      */
-    public void jumpToCreatePlayer(){
+    public void jumpToCreatePlayer() {
         showPlayer.setVisible(false);
         CreateorUpdatePlayer windowAux = new CreateorUpdatePlayer();
         windowAux.setActualPlayer(null);
         showPlayer.setVisible(false);
         windowAux.openWindow(showPlayer);
     }
-    
+
     /**
-     * Select player 
-     * @return 
+     * Select player
+     *
+     * @return
      */
     public Player selectPlayer() {
-        
+
         String[] list = new String[showPlayer.getActualTeam().getPlayers().size()];
         for (int i = 0; i < showPlayer.getActualTeam().getPlayers().size(); i++) {
             list[i] = showPlayer.getActualTeam().getPlayers().get(i).getName();
         }
         JComboBox cmbOption = new JComboBox(list);
-        int input = JOptionPane.showOptionDialog(null, cmbOption, "Select Player that your like choose",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE, null, null, null);
-       if(input==-1){
-           return null;
-       }
+        int input = JOptionPane.showOptionDialog(null, cmbOption, "Select Player that your like choose", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+        if (input == -1) {
+            return null;
+        }
         Player playerAux = searchPlayer((String) cmbOption.getSelectedItem());
         return playerAux;
     }
+
     /**
      * Search Player
+     *
      * @param name
-     * @return 
+     * @return
      */
-    public Player searchPlayer(String name){
+    public Player searchPlayer(String name) {
         for (int i = 0; i < showPlayer.getActualTeam().getPlayers().size(); i++) {
-            if(showPlayer.getActualTeam().getPlayers().get(i).getName().equals(name))
+            if (showPlayer.getActualTeam().getPlayers().get(i).getName().equals(name)) {
                 return showPlayer.getActualTeam().getPlayers().get(i);
+            }
         }
         return null;
     }
-
-
 
 }
