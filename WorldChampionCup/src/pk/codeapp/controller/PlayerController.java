@@ -91,9 +91,7 @@ public class PlayerController implements ActionListener {
                 JOptionPane.showMessageDialog(showPlayer, ex.getMessage());
             }
         }
-
     }
-
     public void jumpToDeletePlayer() throws ExceptionWorldCup {
         Player playerDelete = selectPlayer();
         for (int i = 0; i < showPlayer.getActualTeam().getPlayers().size(); i++) {
@@ -109,12 +107,10 @@ public class PlayerController implements ActionListener {
                     showPlayer.getActualTeam().getPlayers().remove(i);
                 }
             }
-
         }
         showAllPlayers();
         showPlayer.jumpBeforeWindow();
     }
-
     /**
      * Update Player selected
      */
@@ -128,7 +124,6 @@ public class PlayerController implements ActionListener {
         showPlayer.setVisible(false);
         windowAux.openWindow(showPlayer);
     }
-
     /**
      * Bridge to jump to Create Player
      */
@@ -139,7 +134,6 @@ public class PlayerController implements ActionListener {
         showPlayer.setVisible(false);
         windowAux.openWindow(showPlayer);
     }
-
     /**
      * Select player
      *

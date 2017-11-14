@@ -23,6 +23,7 @@ public class StatisticsScreen extends javax.swing.JFrame implements JumpWindow {
      */
     public StatisticsScreen() {
         initComponents();
+        this.setLocationRelativeTo(null);
         controller = new StatisticsController(this);
         setActionPerformat();
     }
@@ -41,7 +42,6 @@ public class StatisticsScreen extends javax.swing.JFrame implements JumpWindow {
         btnBack1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnSeeMatchesResults = new javax.swing.JButton();
         btnSeePlayerAge = new javax.swing.JButton();
         btnSeeScorers = new javax.swing.JButton();
         btnSeeTable = new javax.swing.JButton();
@@ -86,11 +86,6 @@ public class StatisticsScreen extends javax.swing.JFrame implements JumpWindow {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnSeeMatchesResults.setBackground(new java.awt.Color(51, 153, 255));
-        btnSeeMatchesResults.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        btnSeeMatchesResults.setForeground(new java.awt.Color(255, 255, 255));
-        btnSeeMatchesResults.setText("See match results");
-
         btnSeePlayerAge.setBackground(new java.awt.Color(51, 153, 255));
         btnSeePlayerAge.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         btnSeePlayerAge.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,27 +105,24 @@ public class StatisticsScreen extends javax.swing.JFrame implements JumpWindow {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(194, 194, 194)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(199, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSeeMatchesResults, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSeePlayerAge, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSeeScorers, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSeeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addGap(181, 181, 181))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addComponent(btnSeeMatchesResults, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(179, 179, 179)
                 .addComponent(btnSeePlayerAge, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnSeeScorers, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(btnSeeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 770, 670));
@@ -203,7 +195,6 @@ public class StatisticsScreen extends javax.swing.JFrame implements JumpWindow {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBack1;
-    public javax.swing.JButton btnSeeMatchesResults;
     public javax.swing.JButton btnSeePlayerAge;
     public javax.swing.JButton btnSeeScorers;
     public javax.swing.JButton btnSeeTable;
@@ -226,7 +217,6 @@ public class StatisticsScreen extends javax.swing.JFrame implements JumpWindow {
 
     private void setActionPerformat() {
         btnBack1.addActionListener(controller);
-        btnSeeMatchesResults.addActionListener(controller);
         btnSeePlayerAge.addActionListener(controller);
         btnSeeScorers.addActionListener(controller);
         btnSeeTable.addActionListener(controller);

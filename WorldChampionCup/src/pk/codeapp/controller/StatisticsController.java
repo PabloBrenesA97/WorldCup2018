@@ -28,8 +28,6 @@ public class StatisticsController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == window.btnBack1) {
             window.jumpBeforeWindow();
-        } else if (e.getSource() == window.btnSeeMatchesResults) {
-            //jump see matches results
         } else if (e.getSource() == window.btnSeePlayerAge) {
             //jump see players age
             ShowPlayerInfo show= new ShowPlayerInfo();
