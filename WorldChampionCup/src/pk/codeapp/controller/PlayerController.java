@@ -98,7 +98,7 @@ public class PlayerController implements ActionListener {
         Player playerDelete = selectPlayer();
         for (int i = 0; i < showPlayer.getActualTeam().getPlayers().size(); i++) {
             if (showPlayer.getActualTeam().getPlayers().get(i).equals(playerDelete)) {
-                if (showPlayer.getActualTeam().getPlayers().get(i).getGoals() == 0) {
+                if (showPlayer.getActualTeam().getPlayers().get(i).getGoals() > 0) {
                     throw new ExceptionWorldCup(3);
                 }else{
                     for (int j = 0; j < Lobby.controller.getListResults().size(); j++) {
@@ -108,8 +108,6 @@ public class PlayerController implements ActionListener {
                     }
                     showPlayer.getActualTeam().getPlayers().remove(i);
                 }
-                
-
             }
 
         }
