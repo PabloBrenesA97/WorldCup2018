@@ -31,8 +31,6 @@ public class LobbyController implements ActionListener{
         
         this.lobby=lobby;
         group = new GroupScreen();
-        controller.createDefaultTeams();
-        controller.addDefaultPlayers();
     }
 
     @Override

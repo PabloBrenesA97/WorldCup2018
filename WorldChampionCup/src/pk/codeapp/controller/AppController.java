@@ -877,6 +877,7 @@ public class AppController {
             throw new ExceptionWorldCup(16);
         }
     }
+
     public boolean isNumber(String text) {
         try {
             Integer.parseInt(text);
@@ -885,4 +886,5 @@ public class AppController {
             return false;
         }
     }
+
 }
