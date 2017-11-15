@@ -6,7 +6,10 @@
 package pk.codeapp.view;
 
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import pk.codeapp.controller.AppController;
+import pk.codeapp.controller.LobbyController;
 /**
  *
  * @author Jose Pablo Brenes
@@ -18,14 +21,18 @@ public class Lobby extends javax.swing.JFrame {
      */
     final Color colorBackground = new Color(176, 15, 21);
     public static AppController controller = new AppController();
-    private GroupScreen group;
+   
     public Lobby() {
-
         initComponents();
-        controller.createDefaultTeams();
-        controller.addDefaultPlayers();
         this.setLocationRelativeTo(null);
-        group= new GroupScreen();
+        LobbyController controllerLobby = new LobbyController(this);
+        btnCalendars.addActionListener(controllerLobby);
+        btnGroups.addActionListener(controllerLobby);
+        btnMenu.addActionListener(controllerLobby);
+        btnResults.addActionListener(controllerLobby);
+        btnStadiums.addActionListener(controllerLobby);
+        btnStatistics.addActionListener(controllerLobby);
+        btnTeams.addActionListener(controllerLobby);
     }
 
     /**
@@ -58,11 +65,6 @@ public class Lobby extends javax.swing.JFrame {
 
         btnMenu.setForeground(new java.awt.Color(255, 255, 255));
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pk/codeapp/view/image/menu.png"))); // NOI18N
-        btnMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuActionPerformed(evt);
-            }
-        });
         getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         menuToggle.setBackground(new java.awt.Color(2, 120, 181));
@@ -85,11 +87,6 @@ public class Lobby extends javax.swing.JFrame {
                 btnStadiumsMouseExited(evt);
             }
         });
-        btnStadiums.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStadiumsActionPerformed(evt);
-            }
-        });
 
         btnTeams.setBackground(new java.awt.Color(176, 15, 21));
         btnTeams.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -102,11 +99,6 @@ public class Lobby extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnTeamsMouseExited(evt);
-            }
-        });
-        btnTeams.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTeamsActionPerformed(evt);
             }
         });
 
@@ -123,11 +115,6 @@ public class Lobby extends javax.swing.JFrame {
                 btnCalendarsMouseExited(evt);
             }
         });
-        btnCalendars.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalendarsActionPerformed(evt);
-            }
-        });
 
         btnGroups.setBackground(new java.awt.Color(176, 15, 21));
         btnGroups.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -140,11 +127,6 @@ public class Lobby extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnGroupsMouseExited(evt);
-            }
-        });
-        btnGroups.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGroupsActionPerformed(evt);
             }
         });
 
@@ -161,11 +143,6 @@ public class Lobby extends javax.swing.JFrame {
                 btnResultsMouseExited(evt);
             }
         });
-        btnResults.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResultsActionPerformed(evt);
-            }
-        });
 
         btnStatistics.setBackground(new java.awt.Color(176, 15, 21));
         btnStatistics.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
@@ -178,11 +155,6 @@ public class Lobby extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btnStatisticsMouseExited(evt);
-            }
-        });
-        btnStatistics.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStatisticsActionPerformed(evt);
             }
         });
 
@@ -243,10 +215,6 @@ public class Lobby extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        move();
-    }//GEN-LAST:event_btnMenuActionPerformed
-
     private void btnStadiumsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStadiumsMouseEntered
         btnStadiums.setBackground(Color.black);
     }//GEN-LAST:event_btnStadiumsMouseEntered
@@ -300,46 +268,6 @@ public class Lobby extends javax.swing.JFrame {
         btnCalendars.setBackground(Color.black);
     }//GEN-LAST:event_btnCalendarsMouseEntered
 
-    private void btnTeamsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeamsActionPerformed
-        MenuTeams menuTeams = new MenuTeams();
-        this.setVisible(false);
-        menuTeams.openWindow(this);
-    }//GEN-LAST:event_btnTeamsActionPerformed
-
-    private void btnStadiumsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStadiumsActionPerformed
-        StadiumsScreen jumpStadiums = new StadiumsScreen();
-        this.setVisible(false);
-        jumpStadiums.openWindow(this);
-
-    }//GEN-LAST:event_btnStadiumsActionPerformed
-
-    private void btnGroupsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGroupsActionPerformed
-        // TODO add your handling code here:
-       
-        this.setVisible(false);
-        group.openWindow(this);
-    }//GEN-LAST:event_btnGroupsActionPerformed
-
-    private void btnCalendarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalendarsActionPerformed
-        CalendarScreen calendar = new CalendarScreen();
-        this.setVisible(false);
-        calendar.openWindow(this);
-        
-    }//GEN-LAST:event_btnCalendarsActionPerformed
-
-
-    private void btnStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticsActionPerformed
-        // TODO add your handling code here:
-         StatisticsScreen estadistics = new StatisticsScreen();
-        this.setVisible(false);
-        estadistics.openWindow(this);
-    }//GEN-LAST:event_btnStatisticsActionPerformed
-
-    private void btnResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultsActionPerformed
-        this.setVisible(false);
-        ResultScreen result = new ResultScreen();
-        result.openWindow(this);
-    }//GEN-LAST:event_btnResultsActionPerformed
 
                      
     /**
@@ -391,13 +319,69 @@ public class Lobby extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel menuToggle;
     // End of variables declaration//GEN-END:variables
-public synchronized void move() {
-        if (menuToggle.getX() < 0) {
-            menuToggle.setLocation(0, 0);
 
-        } else {
-            menuToggle.setLocation(-410, 0);
-
-        }
+    public JButton getBtnCalendars() {
+        return btnCalendars;
     }
+
+    public void setBtnCalendars(JButton btnCalendars) {
+        this.btnCalendars = btnCalendars;
+    }
+
+    public JButton getBtnGroups() {
+        return btnGroups;
+    }
+
+    public void setBtnGroups(JButton btnGroups) {
+        this.btnGroups = btnGroups;
+    }
+
+    public JButton getBtnMenu() {
+        return btnMenu;
+    }
+
+    public void setBtnMenu(JButton btnMenu) {
+        this.btnMenu = btnMenu;
+    }
+
+    public JButton getBtnResults() {
+        return btnResults;
+    }
+
+    public void setBtnResults(JButton btnResults) {
+        this.btnResults = btnResults;
+    }
+
+    public JButton getBtnStadiums() {
+        return btnStadiums;
+    }
+
+    public void setBtnStadiums(JButton btnStadiums) {
+        this.btnStadiums = btnStadiums;
+    }
+
+    public JButton getBtnStatistics() {
+        return btnStatistics;
+    }
+
+    public void setBtnStatistics(JButton btnStatistics) {
+        this.btnStatistics = btnStatistics;
+    }
+
+    public JButton getBtnTeams() {
+        return btnTeams;
+    }
+
+    public void setBtnTeams(JButton btnTeams) {
+        this.btnTeams = btnTeams;
+    }
+
+    public JPanel getMenuToggle() {
+        return menuToggle;
+    }
+
+    public void setMenuToggle(JPanel menuToggle) {
+        this.menuToggle = menuToggle;
+    }
+    
 }

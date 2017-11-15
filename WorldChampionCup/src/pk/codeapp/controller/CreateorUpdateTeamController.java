@@ -83,14 +83,20 @@ public class CreateorUpdateTeamController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==windowAux.getBtnAdd()){
+            
             String confederacy=(String)windowAux.cmbConfederacy.getSelectedItem();
+            if(confederacy.equals("")){
+                JOptionPane.showMessageDialog(windowAux,"Select the confederacy");
+            }
             try {
                 checkSpaces(); // Check spaces blank
+                checkNumbers();
                  if(windowAux.getFunctiontoRealize().equals("Update")){ // Update 
                     updateTeam(windowAux.txtName.getText(),windowAux.txtCoach.getText(), windowAux.txtAssistant.getText(),confederacy);
                     windowAux.jumpBeforeWindow();
             }else{ //Create
                 try {
+                  
                     createTeam(controller.getTeams().size(),windowAux.txtName.getText(),windowAux.txtCoach.getText(), windowAux.txtAssistant.getText(),confederacy);
                     windowAux.jumpBeforeWindow();
                 } catch (ExceptionWorldCup ex) {
@@ -112,10 +118,18 @@ public class CreateorUpdateTeamController implements ActionListener {
      * @throws ExceptionWorldCup 
      */
     private void checkSpaces() throws ExceptionWorldCup{
-        System.out.println("Entro a chequear espacios");
         String conferancy = (String) windowAux.cmbConfederacy.getSelectedItem();
         if(windowAux.txtName.getText().equals("") || windowAux.txtCoach.getText().equals("")|| windowAux.txtAssistant.getText().equals("") ||conferancy.equals("")){
             throw new ExceptionWorldCup(6);
+        }
+    }
+    private void checkNumbers() throws ExceptionWorldCup{
+        try{
+            Integer.parseInt(windowAux.txtName.getText());
+            Integer.parseInt(windowAux.txtCoach.getText());
+            Integer.parseInt(windowAux.txtAssistant.getText());
+        }catch(Exception e){
+            throw new ExceptionWorldCup(16);
         }
     }
 }
