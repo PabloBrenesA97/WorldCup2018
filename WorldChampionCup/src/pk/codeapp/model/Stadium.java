@@ -52,4 +52,9 @@ public class Stadium extends Component {
     public void addCalendar(Calendar calendar){
         matches.add(calendar);
     }
+
+    public ArrayList<Calendar> getMatches() {
+        return matches;
+    }
+    
 }
