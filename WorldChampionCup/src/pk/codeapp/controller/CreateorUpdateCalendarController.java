@@ -111,8 +111,9 @@ public class CreateorUpdateCalendarController implements ActionListener {
         Team team1 = Lobby.controller.searchTeam(txtTeam1);
         Team team2 = Lobby.controller.searchTeam(txtTeam2);
         Stadium stadium = Lobby.controller.searchStadium(txtStadium);
-
+        
         Calendar newCalendar = new Calendar(Lobby.controller.getCalendars().size(), team1, team2, txtDate, stadium);
+        stadium.addCalendar(newCalendar);
         Lobby.controller.getCalendars().addElement(newCalendar);
         windowAux.getCalendarScreen().controller.fillData();
         windowAux.getCalendarScreen().setActualCalendar(newCalendar);
