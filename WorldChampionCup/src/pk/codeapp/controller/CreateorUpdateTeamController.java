@@ -123,13 +123,17 @@ public class CreateorUpdateTeamController implements ActionListener {
             throw new ExceptionWorldCup(6);
         }
     }
-    private void checkNumbers() throws ExceptionWorldCup{
+    
+    private void checkNumbers(){
         try{
-            Integer.parseInt(windowAux.txtName.getText());
-            Integer.parseInt(windowAux.txtCoach.getText());
-            Integer.parseInt(windowAux.txtAssistant.getText());
-        }catch(Exception e){
-            throw new ExceptionWorldCup(16);
+            
+            Lobby.controller.haveNumber(windowAux.txtName);
+            Lobby.controller.haveNumber(windowAux.txtCoach);
+            Lobby.controller.haveNumber(windowAux.txtAssistant);
+            
+        }catch(ExceptionWorldCup ex){
+            JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+            return;
         }
     }
 }

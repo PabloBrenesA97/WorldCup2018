@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import pk.codeapp.model.ExceptionWorldCup;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
 import pk.codeapp.model.Calendar;
 import pk.codeapp.model.Group;
 import pk.codeapp.model.Player;
@@ -718,7 +719,11 @@ public class AppController {
 
     //</editor-fold>
 
-    
+    /**
+     * Search Result
+     * @param id
+     * @return 
+     */
     public Result searchResult(int id){
         for (int i = 0; i < listResults.size(); i++) {
             if(listResults.get(i).getId()==id)
@@ -728,7 +733,11 @@ public class AppController {
     }
     
 
-
+    /**
+     * Search Calendar
+     * @param date
+     * @return 
+     */
     public Calendar searchCalendar(String date) {
 
         for (int i = 0; i < calendars.size(); i++) {
@@ -738,7 +747,11 @@ public class AppController {
         }
         return null;
     }
-
+    /**
+     * Search Stadium
+     * @param name
+     * @return 
+     */
     public Stadium searchStadium(String name) {
         for (int i = 0; i < arrayStadiums.size(); i++) {
             if (arrayStadiums.get(i).getName().equals(name)) {
@@ -818,7 +831,11 @@ public class AppController {
     }
     
 
-
+/**
+ * isInList Stadium
+ * @param stadium
+ * @return 
+ */
     public boolean isInList(Stadium stadium) {
         for (int i = 0; i < calendars.size(); i++) {
             if (calendars.get(i).getStadium() == stadium) {
@@ -827,6 +844,34 @@ public class AppController {
 
         }
         return false;
+    }
+    /**
+     * Check if the text contains numbers
+     * @param txt
+     * @throws ExceptionWorldCup 
+     */
+    public void haveNumber(JTextField txt) throws ExceptionWorldCup{
+        if(txt.getText().contains("1")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("2")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("3")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("4")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("5")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("6")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("7")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("8")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("9")){
+            throw new ExceptionWorldCup(16);
+        }else if(txt.getText().contains("0")){
+            throw new ExceptionWorldCup(16);
+        }
     }
 }
 
