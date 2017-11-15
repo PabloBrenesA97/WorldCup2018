@@ -411,6 +411,7 @@ public class GroupController implements ActionListener {
                 } catch (ExceptionWorldCup ex) {
                    
                 }
+                break;
             }
         }
     }

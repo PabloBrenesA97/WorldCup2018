@@ -21,11 +21,11 @@ public class Lobby extends javax.swing.JFrame {
      */
     final Color colorBackground = new Color(176, 15, 21);
     public static AppController controller = new AppController();
-   
+    public static LobbyController controllerLobby;
     public Lobby() {
         initComponents();
         this.setLocationRelativeTo(null);
-        LobbyController controllerLobby = new LobbyController(this);
+        controllerLobby = new LobbyController(this);
         btnCalendars.addActionListener(controllerLobby);
         btnGroups.addActionListener(controllerLobby);
         btnMenu.addActionListener(controllerLobby);

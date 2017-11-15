@@ -23,7 +23,7 @@ import pk.codeapp.view.StadiumsScreen;
  */
 public class LobbyController implements ActionListener{
 
-    private GroupScreen group;
+    public static GroupScreen group;
     private Lobby lobby;
     public LobbyController(Lobby lobby) {
         Lobby.controller.createDefaultTeams();
