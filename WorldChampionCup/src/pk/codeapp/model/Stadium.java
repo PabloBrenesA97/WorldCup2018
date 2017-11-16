@@ -6,22 +6,24 @@
 package pk.codeapp.model;
 
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
  *
  * @author Jose Pablo Brenes
- * 
+ *
  */
 public class Stadium extends Component {
+
     private String city;
     private int capacity;
     private String icon;
+    private ArrayList<Calendar> matches = new ArrayList();
+
     public void update(String name, int id, String city, int capacity) {
         super.setName(name);
         super.setId(id);
-        this.capacity=capacity;
-        this.city=city;
+        this.capacity = capacity;
+        this.city = city;
     }
 
     public String getCity() {
@@ -45,8 +47,7 @@ public class Stadium extends Component {
     }
 
     public void setIcon(String icon) {
-        this.icon= icon;
+        this.icon = icon;
     }
-    
-        
+
 }
