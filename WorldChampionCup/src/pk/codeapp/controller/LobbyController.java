@@ -16,6 +16,7 @@ import pk.codeapp.view.MenuTeams;
 import pk.codeapp.view.ResultScreen;
 import pk.codeapp.view.ShowStadium;
 import pk.codeapp.view.StadiumsScreen;
+import pk.codeapp.view.StatisticsScreen;
 
 /**
  *
@@ -61,6 +62,10 @@ public class LobbyController implements ActionListener{
            MenuTeams teams = new MenuTeams();
            lobby.setVisible(false);
            teams.openWindow(lobby);
+       }if(e.getSource()==lobby.getBtnStatistics()){
+           StatisticsScreen statistics = new StatisticsScreen();
+           lobby.setVisible(false);
+           statistics.openWindow(lobby);
        }
     }
     /**

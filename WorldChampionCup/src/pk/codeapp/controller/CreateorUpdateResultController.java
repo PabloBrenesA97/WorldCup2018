@@ -44,7 +44,9 @@ public class CreateorUpdateResultController implements ActionListener {
             windowAux.getLblTeam2().setText(calendar.getTeam2().getName());
         }
         if (e.getSource() == windowAux.getBtnAdd()) {
-            JButton button = (JButton) e.getSource();
+            try {
+                checkSpaces();
+                 JButton button = (JButton) e.getSource();
             if (button.getText().equals("Create")) {
 
                 jumpToCreate();
@@ -63,11 +65,25 @@ public class CreateorUpdateResultController implements ActionListener {
                     windowAux.jumpBeforeWindow();
                 } catch (ExceptionWorldCup ex) {
                     JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+                    return;
                 }
             }
+            } catch (ExceptionWorldCup ex) {                
+                JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+            }
+           
         }
     }
-
+    /**
+     * Check Spaces to validate correctly
+     */
+    public void checkSpaces() throws ExceptionWorldCup{
+        if(Lobby.controller.isNumber(windowAux.getTxtGoalsTeam1().getText())==false ||Lobby.controller.isNumber(windowAux.getTxtGoalsTeam2().getText())==false || Lobby.controller.isNumber(windowAux.getTxtCorners().getText())==false || Lobby.controller.isNumber(windowAux.getTxtFaults().getText())==false||
+                Lobby.controller.isNumber(windowAux.getTxtMinPlayed().getText())==false || Lobby.controller.isNumber(windowAux.getTxtOffsides().getText())==false || Lobby.controller.isNumber(windowAux.getTxtOffsides().getText())==false|| Lobby.controller.isNumber(windowAux.getTxtPosBalonE1().getText())==false || Lobby.controller.isNumber(windowAux.getTxtPosBalonE2().getText())==false || 
+                Lobby.controller.isNumber(windowAux.getTxtRedCard().getText())==false || Lobby.controller.isNumber(windowAux.getTxtYellowCard().getText())==false){
+            throw new ExceptionWorldCup(17);
+        }
+    }
     /**
      * Update Actual Result
      *
@@ -111,16 +127,16 @@ public class CreateorUpdateResultController implements ActionListener {
             try {
                 
                 if (Integer.parseInt(windowAux.getTxtGoalsTeam1().getText())>Integer.parseInt(windowAux.getTxtGoalsTeam2().getText())) {
-                    newResult.update(Lobby.controller.getListResults().size(), team1, team2, team1.getName(), team2.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
+                    newResult.update(calendar.getId(), team1, team2, team1.getName(), team2.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                             Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
                             Integer.parseInt(windowAux.getTxtOffsides().getText()), Integer.parseInt(windowAux.getTxtPosBalonE1().getText()), Integer.parseInt(windowAux.getTxtPosBalonE2().getText()));
 
                 } else if (Integer.parseInt(windowAux.getTxtGoalsTeam1().getText())<Integer.parseInt(windowAux.getTxtGoalsTeam2().getText())) {
-                    newResult.update(Lobby.controller.getListResults().size(), team1, team2, team2.getName(), team1.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
+                    newResult.update(calendar.getId(), team1, team2, team2.getName(), team1.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                             Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
                             Integer.parseInt(windowAux.getTxtOffsides().getText()), Integer.parseInt(windowAux.getTxtPosBalonE1().getText()), Integer.parseInt(windowAux.getTxtPosBalonE2().getText()));
                 } else {
-                    newResult.update(Lobby.controller.getListResults().size(), team1, team2, team1.getName(), team1.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
+                    newResult.update(calendar.getId(), team1, team2, team1.getName(), team1.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                             Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
                             Integer.parseInt(windowAux.getTxtOffsides().getText()), Integer.parseInt(windowAux.getTxtPosBalonE1().getText()), Integer.parseInt(windowAux.getTxtPosBalonE2().getText()));
                 }
@@ -177,15 +193,22 @@ public class CreateorUpdateResultController implements ActionListener {
             windowAux.getBtnAdd().setText("Create");
             windowAux.getCmbList().setVisible(true);
             DefaultComboBoxModel<String> listTeam1 = new DefaultComboBoxModel();
-
+            boolean add = false;
             for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
-                listTeam1.addElement(Lobby.controller.getCalendars().get(i).getId()+"");
+                for (int j = 0; j < Lobby.controller.getListResults().size(); j++) {
+                    if(Lobby.controller.getListResults().get(j).getId()== Lobby.controller.getCalendars().get(i).getId())
+                        add=true;
+                }
+                if(add==false)
+                    listTeam1.addElement(Lobby.controller.getCalendars().get(i).getId()+"");
+                add=false;
             }
             windowAux.getCmbList().setModel(listTeam1);
-            
+            Calendar calendar = Lobby.controller.searchCalendar(Integer.parseInt(listTeam1.getElementAt(0)));
+            windowAux.getLblTeam1().setText(calendar.getTeam1().getName());
+            windowAux.getLblTeam2().setText(calendar.getTeam2().getName());
+
         }
-        windowAux.getLblTeam1().setText(Lobby.controller.getCalendars().get(0).getTeam1().getName());
-        windowAux.getLblTeam2().setText(Lobby.controller.getCalendars().get(0).getTeam2().getName());
     }
 
 }
