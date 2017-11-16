@@ -18,7 +18,6 @@ public class Stadium extends Component {
     private int capacity;
     private String icon;
     private ArrayList<Calendar> matches = new ArrayList();
-
     public void update(String name, int id, String city, int capacity) {
         super.setName(name);
         super.setId(id);
@@ -49,5 +48,8 @@ public class Stadium extends Component {
     public void setIcon(String icon) {
         this.icon = icon;
     }
-
+    
+    public void addCalendar(Calendar calendar){
+        matches.add(calendar);
+    }
 }

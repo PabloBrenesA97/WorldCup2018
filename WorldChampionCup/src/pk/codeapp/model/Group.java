@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 package pk.codeapp.model;
-
-import java.awt.Frame;
 import java.util.ArrayList;
-import pk.codeapp.view.Lobby;
 
 /**
  *
