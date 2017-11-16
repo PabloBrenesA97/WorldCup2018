@@ -39,7 +39,7 @@ public class CreateorUpdateResultController implements ActionListener {
         }
         if(e.getSource()==windowAux.getCmbList()){
             JComboBox box = (JComboBox)e.getSource();
-            Calendar calendar = Lobby.controller.searchCalendar((String)box.getSelectedItem());
+            Calendar calendar = Lobby.controller.searchCalendar(Integer.parseInt((String)box.getSelectedItem()));
             windowAux.getLblTeam1().setText(calendar.getTeam1().getName());
             windowAux.getLblTeam2().setText(calendar.getTeam2().getName());
         }
@@ -105,10 +105,11 @@ public class CreateorUpdateResultController implements ActionListener {
             checkException();
             Result newResult = new Result();
             
-            Calendar calendar = Lobby.controller.searchCalendar((String) windowAux.getCmbList().getSelectedItem());
+            Calendar calendar = Lobby.controller.searchCalendar(Integer.parseInt((String)windowAux.getCmbList().getSelectedItem()));
             Team team1 = calendar.getTeam1();
             Team team2 = calendar.getTeam2();
             try {
+                
                 if (Integer.parseInt(windowAux.getTxtGoalsTeam1().getText())>Integer.parseInt(windowAux.getTxtGoalsTeam2().getText())) {
                     newResult.update(Lobby.controller.getListResults().size(), team1, team2, team1.getName(), team2.getName(), Integer.parseInt(windowAux.getTxtGoalsTeam1().getText()), Integer.parseInt(windowAux.getTxtGoalsTeam2().getText()), Integer.parseInt(windowAux.getTxtMinPlayed().getText()),
                             Integer.parseInt(windowAux.getTxtYellowCard().getText()), Integer.parseInt(windowAux.getTxtRedCard().getText()), Integer.parseInt(windowAux.getTxtFaults().getText()), Integer.parseInt(windowAux.getTxtCorners().getText()),
@@ -178,7 +179,7 @@ public class CreateorUpdateResultController implements ActionListener {
             DefaultComboBoxModel<String> listTeam1 = new DefaultComboBoxModel();
 
             for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
-                listTeam1.addElement(Lobby.controller.getCalendars().get(i).getDate());
+                listTeam1.addElement(Lobby.controller.getCalendars().get(i).getId()+"");
             }
             windowAux.getCmbList().setModel(listTeam1);
             
