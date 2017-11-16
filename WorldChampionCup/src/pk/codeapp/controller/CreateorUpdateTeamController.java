@@ -61,6 +61,7 @@ public class CreateorUpdateTeamController implements ActionListener {
         } else {
             newTeam = (Team) controller.getMasterMaker().factoryMethod("Team");
             newTeam.update(id, name, coach, assistant, confederacy, null);
+            Lobby.controllerLobby.group.gController.addNewTeam(newTeam);
             controller.getTeams().add(newTeam);
         }
     }

@@ -81,8 +81,6 @@ public class CreateorUpdatePlayerController implements ActionListener {
      */
 <<<<<<< Updated upstream
     public void updatePlayer() throws ExceptionWorldCup {
-        if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
-            throw new ExceptionWorldCup(12);}
         
             actualPlayer.update(actualPlayer.getId(), windowAux.getTxtName().getText(), windowAux.getTxtPosition().getText(), Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
                     Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));
@@ -111,14 +109,13 @@ public class CreateorUpdatePlayerController implements ActionListener {
      */
 <<<<<<< Updated upstream
     public void createPlayer() throws ExceptionWorldCup {
-                if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
-                throw new ExceptionWorldCup(12);
-                }
+               
                 Player newPlayer = (Player) Lobby.controller.getMasterMaker().factoryMethod("Player");
                 newPlayer.update(windowAux.getBeforeWindow().getActualTeam().getPlayers().size(), windowAux.getTxtName().getText(), windowAux.getTxtPosition().getText(), Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
                         Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));
-                windowAux.getBeforeWindow().getActualTeam().getPlayers().add(newPlayer);
+                windowAux.getBeforeWindow().getActualTeam().getPlayers().add(newPlayer);}
            
+<<<<<<< Updated upstream
 =======
     public void createPlayer() throws ExceptionWorldCup{
           if(Integer.parseInt(windowAux.getTxtAge().getText())<20){
@@ -137,6 +134,9 @@ public class CreateorUpdatePlayerController implements ActionListener {
             throw new ExceptionWorldCup(8);
 >>>>>>> Stashed changes
         }
+=======
+        
+>>>>>>> Stashed changes
 
     /**
      * Fill Data of Player if update
@@ -167,6 +167,10 @@ public class CreateorUpdatePlayerController implements ActionListener {
                 || windowAux.getTxtAge().getText().equals("")) {
             throw new ExceptionWorldCup(6);
         }
+        if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
+            throw new ExceptionWorldCup(12);}
+        if (Integer.parseInt(windowAux.getTxtAge().getText())>100) {
+            throw new ExceptionWorldCup(15);}
         try{
         Lobby.controller.haveNumber(windowAux.getTxtName());
         Lobby.controller.haveNumber(windowAux.getTxtPosition());
