@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Group;
@@ -346,7 +348,7 @@ public class GroupController implements ActionListener {
     //</editor-fold>
 
     public void showGroupData() {
-        ArrayList<Group> aux=Lobby.controller.getGroups();
+        ArrayList<Group> aux = Lobby.controller.getGroups();
         for (int i = 0; i < aux.size(); i++) {
             Group gr = aux.get(i);
             for (int j = 0; j < gr.getTeams().size(); j++) {
@@ -396,6 +398,19 @@ public class GroupController implements ActionListener {
                 window.btnEditH.setEnabled(true);
                 setGroupH(get, index + 1);
                 break;
+            }
+        }
+    }
+
+    public void addNewTeam(Team team) {
+        for (int i = 0; i < Lobby.controller.getGroups().size(); i++) {
+            if (Lobby.controller.getGroups().get(i).getTeams().size() < 4) {
+                Lobby.controller.getGroups().get(i).getTeams().add(team);
+                try {
+                    chargeTeams();
+                } catch (ExceptionWorldCup ex) {
+                   
+                }
             }
         }
     }

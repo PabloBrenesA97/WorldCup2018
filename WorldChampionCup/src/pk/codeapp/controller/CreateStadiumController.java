@@ -87,6 +87,7 @@ public class CreateStadiumController implements ActionListener {
         try {
             createStadium(window.getLblName().getText(), window.getLblCity().getText(), window.getLblCapacity().getText(), window.getLblId().getText(), path);
             JOptionPane.showMessageDialog(window, "Succesful");
+            window.jumpBeforeWindow();
         } catch (ExceptionWorldCup ex) {
             JOptionPane.showMessageDialog(window, ex.getMessage());
         }
@@ -147,11 +148,10 @@ public class CreateStadiumController implements ActionListener {
                     updateData(name, idInt, city, capacityInt, path);
                 }
             }else{
-                throw new ExceptionWorldCup(16);
+                throw new ExceptionWorldCup(17);
             }
         }
     }
-
     /**
      * Add this components into the handle of events
      */
@@ -160,7 +160,6 @@ public class CreateStadiumController implements ActionListener {
         window.getBtnSave().addActionListener(this);
         window.getBtnSearch().addActionListener(this);
     }
-
     /**
      * Seach a element into the list
      *
@@ -175,7 +174,6 @@ public class CreateStadiumController implements ActionListener {
         }
         return null;
     }
-
     /**
      * Update data
      *

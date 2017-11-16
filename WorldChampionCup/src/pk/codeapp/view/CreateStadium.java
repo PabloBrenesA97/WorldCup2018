@@ -218,6 +218,10 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
         return lblShowImage;
     }
 
+    public JTextField getLblCapacity() {
+        return lblCapacity;
+    }
+
  
     public JTextField getLblId() {
         return lblId;
