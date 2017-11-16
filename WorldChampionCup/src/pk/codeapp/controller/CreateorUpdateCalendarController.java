@@ -114,11 +114,14 @@ public class CreateorUpdateCalendarController implements ActionListener {
         Stadium stadium = Lobby.controller.searchStadium(txtStadium);
         
         Calendar newCalendar = new Calendar(Lobby.controller.getCalendars().size(), team1, team2, txtDate, stadium);
+<<<<<<< refs/remotes/origin/master
         for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
             if(newCalendar.getDate().equals(Lobby.controller.getCalendars().get(i).getDate()))
                 if(Lobby.controller.getCalendars().get(i).getTeam1().equals(newCalendar.getTeam1()) || Lobby.controller.getCalendars().get(i).getTeam1().equals(newCalendar.getTeam2()))
                     throw new ExceptionWorldCup(19);
         }
+=======
+>>>>>>> add Calendar in the stadium
         stadium.addCalendar(newCalendar);
         Lobby.controller.getCalendars().addElement(newCalendar);
         windowAux.getCalendarScreen().controller.fillData();
