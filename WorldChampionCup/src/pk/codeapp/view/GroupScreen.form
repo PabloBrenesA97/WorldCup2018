@@ -163,9 +163,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -176,9 +173,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -189,9 +183,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -202,9 +193,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -300,9 +288,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameB1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -330,9 +315,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameB2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -360,9 +342,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameB3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -390,9 +369,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameB4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -488,9 +464,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -518,9 +491,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -548,9 +518,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -578,9 +545,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -676,9 +640,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameD1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -706,9 +667,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameD2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -736,9 +694,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameD3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -766,9 +721,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameD4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -864,9 +816,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameE1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -894,9 +843,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameE2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -924,9 +870,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameE3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -954,9 +897,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameE4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1052,9 +992,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameG1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1082,9 +1019,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameG2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1112,9 +1046,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameG3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1142,9 +1073,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameG4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1240,9 +1168,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameH1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1270,9 +1195,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameH2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1300,9 +1222,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameH3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1330,9 +1249,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameH4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1428,9 +1344,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameF1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1458,9 +1371,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameF2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1488,9 +1398,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameF3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -1518,9 +1425,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameF4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name Team"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

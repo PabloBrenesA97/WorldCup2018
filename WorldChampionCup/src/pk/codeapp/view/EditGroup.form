@@ -124,7 +124,7 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="lblGroupEditing">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Book Antiqua" size="24" style="1"/>
@@ -135,6 +135,9 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="Editing"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="0" width="250" height="40"/>
@@ -212,22 +215,16 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="80" y="225" width="-1" height="-1"/>
+              <AbsoluteConstraints x="80" y="225" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -238,9 +235,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -251,9 +245,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameA3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -358,7 +349,7 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="lblGroupChange">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Book Antiqua" size="24" style="1"/>
@@ -368,6 +359,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Change"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="70" y="0" width="-1" height="40"/>
@@ -445,9 +439,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -458,9 +449,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -471,9 +459,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -484,9 +469,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="nameC3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Team Name"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

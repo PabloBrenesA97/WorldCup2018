@@ -8,8 +8,6 @@ package pk.codeapp.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Group;
@@ -25,7 +23,7 @@ import pk.codeapp.view.Lobby;
 public class EditGroupController implements ActionListener {
 
     private Group editing;
-    private ArrayList<Team> listCopy;
+    private Group aux;
     private ArrayList<Group> listGroups = Lobby.controller.getGroups();
     private EditGroup window;
 
@@ -37,7 +35,6 @@ public class EditGroupController implements ActionListener {
      */
     public EditGroupController(Group group, EditGroup window) {
         this.editing = group;
-        listCopy = editing.getTeams();
         this.window = window;
         window.btnMakeChange.setEnabled(false);
         managerMethods();
@@ -60,14 +57,14 @@ public class EditGroupController implements ActionListener {
         if (e.getSource() == window.btnMakeChange) {
             String name1 = null;
             String name2 = null;
-            try {
-                name1 = selectedOne();
-                name2 = selectedTwo();
-            } catch (ExceptionWorldCup ex) {
-                JOptionPane.showMessageDialog(window, ex.getMessage());
-            }
+
+            name1 = selectedOne();
+            name2 = selectedTwo();
             letsDoIt(name1, name2);
+            chargeData();
+            whatIs();
             saveChanges();
+
         }
 
     }
@@ -76,8 +73,9 @@ public class EditGroupController implements ActionListener {
      * Charge data in the panel called Editing
      */
     private void chargeData() {
-        for (int i = 0; i < listCopy.size(); i++) {
-            chargeDataAux(i);
+        window.lblGroupEditing.setText(editing.getName());
+        for (int i = 0; i < 4; i++) {
+            chargeDataHelper(i);
         }
     }
 
@@ -86,43 +84,47 @@ public class EditGroupController implements ActionListener {
      *
      * @param id
      */
-    private void chargeDataAux(int id) {
+    private void chargeDataHelper(int id) {
+        ArrayList<Team> listCopy = editing.getTeams();
         switch (id) {
             case 0: {
-                if (listCopy.get(0) != null) {
-                    
+                if (listCopy.size() > 0) {
                     window.lblA1.setIcon(listCopy.get(0).getImageTeam());
                     window.nameA1.setText(listCopy.get(0).getName());
 
-                }else{
-                    window.op1.setEnabled(false);
+                } else {
+                    window.lblA1.setIcon(null);
+                    window.nameA1.setText(null);
                 }
                 break;
             }
             case 1: {
-                if (listCopy.get(1) != null) {
+                if (listCopy.size() > 1) {
                     window.lblA2.setIcon(listCopy.get(1).getImageTeam());
                     window.nameA2.setText(listCopy.get(1).getName());
-                }else{
-                    window.op2.setEnabled(false);
+                } else {
+                    window.lblA2.setIcon(null);
+                    window.nameA2.setText(null);
                 }
                 break;
             }
             case 2: {
-                if (listCopy.get(2) != null) {
+                if (listCopy.size() > 2) {
                     window.lblA3.setIcon(listCopy.get(2).getImageTeam());
                     window.nameA3.setText(listCopy.get(2).getName());
-                }else{
-                    window.op3.setEnabled(false);
+                } else {
+                    window.lblA3.setIcon(null);
+                    window.nameA3.setText(null);
                 }
                 break;
             }
             case 3: {
-                if (listCopy.get(3) != null) {
+                if (listCopy.size() > 3) {
                     window.lblA4.setIcon(listCopy.get(3).getImageTeam());
                     window.nameA4.setText(listCopy.get(3).getName());
-                }else{
-                    window.op4.setEnabled(false);
+                } else {
+                    window.lblA4.setIcon(null);
+                    window.nameA4.setText(null);
                 }
                 break;
             }
@@ -147,11 +149,13 @@ public class EditGroupController implements ActionListener {
      */
     private void whatIs() {
         String selected = (String) window.cmbTeams.getSelectedItem();
+        
         if (selected.equals("Select a Group")) {
             window.btnMakeChange.setEnabled(false);
         } else {
             window.btnMakeChange.setEnabled(true);
-            Group aux = searchList(selected);
+            aux = searchList(selected);
+            window.lblGroupChange.setText(aux.getName());
             chargeDataAux(aux);
 
         }
@@ -172,14 +176,12 @@ public class EditGroupController implements ActionListener {
     }
 
     private void chargeDataAux(Group aux) {
-        ArrayList<Team> reco = aux.getTeams();
-        if (reco.size() == 0) {
+        if (aux.getTeams().size() == 0) {
             JOptionPane.showMessageDialog(window, "There is not elements");
             window.btnMakeChange.setEnabled(false);
         }
-
-        for (int i = 0; i < reco.size(); i++) {
-            chooseCase(i, reco);
+        for (int i = 0; i < 4; i++) {
+            chooseCase(i, aux.getTeams());
         }
 
     }
@@ -188,7 +190,7 @@ public class EditGroupController implements ActionListener {
         switch (i) {
             case 0: {
 
-                if (reco.get(0) != null) {
+                if (reco.size() > 0) {
                     window.lblC1.setIcon(reco.get(0).getImageTeam());
                     window.nameC1.setText(reco.get(0).getName());
                 } else {
@@ -198,7 +200,7 @@ public class EditGroupController implements ActionListener {
                 break;
             }
             case 1: {
-                if (reco.get(1) != null) {
+                if (reco.size() > 1) {
                     window.lblC2.setIcon(reco.get(1).getImageTeam());
                     window.nameC2.setText(reco.get(1).getName());
                 } else {
@@ -209,7 +211,7 @@ public class EditGroupController implements ActionListener {
             }
             case 2: {
 
-                if (reco.get(2) != null) {
+                if (reco.size() > 2) {
                     window.lblC3.setIcon(reco.get(2).getImageTeam());
                     window.nameC3.setText(reco.get(2).getName());
                 } else {
@@ -220,7 +222,7 @@ public class EditGroupController implements ActionListener {
             }
             case 3: {
 
-                if (reco.get(1) != null) {
+                if (reco.size() > 3) {
                     window.lblC4.setIcon(reco.get(3).getImageTeam());
                     window.nameC4.setText(reco.get(3).getName());
                 } else {
@@ -232,35 +234,51 @@ public class EditGroupController implements ActionListener {
         }
     }
 
-    private String selectedOne() throws ExceptionWorldCup {
+    /**
+     * What check button is selected in the panel 1
+     *
+     * @return
+     */
+    private String selectedOne() {
         if (window.op1.isSelected()) {
             return window.nameA1.getText();
-        } else if (window.op2.isSelected()) {
-            return window.nameA2.getText();
-        } else if (window.op3.isSelected()) {
-            return window.nameA3.getText();
-        } else if (window.op4.isSelected()) {
-            return window.nameA4.getText();
-        } else {
-            throw new ExceptionWorldCup(6);
         }
+        if (window.op2.isSelected()) {
+            return window.nameA2.getText();
+        }
+        if (window.op3.isSelected()) {
+            return window.nameA3.getText();
+        }
+        if (window.op4.isSelected()) {
+            return window.nameA4.getText();
+        }
+        return null;
     }
 
-    private String selectedTwo() throws ExceptionWorldCup {
+    /**
+     * What check button is selected in the panel 2
+     *
+     * @return
+     */
+    private String selectedTwo() {
         if (window.ch1.isSelected()) {
             return window.nameC1.getText();
-        } else if (window.ch1.isSelected()) {
-            return window.nameC2.getText();
-        } else if (window.ch1.isSelected()) {
-            return window.nameC3.getText();
-        } else if (window.ch1.isSelected()) {
-            return window.nameC4.getText();
-        } else {
-            throw new ExceptionWorldCup(6);
         }
-
+        if (window.ch2.isSelected()) {
+            return window.nameC2.getText();
+        }
+        if (window.ch3.isSelected()) {
+            return window.nameC3.getText();
+        }
+        if (window.ch4.isSelected()) {
+            return window.nameC4.getText();
+        }
+        return null;
     }
 
+    /**
+     * Save all changes in the differents groups
+     */
     private void saveChanges() {
         Lobby.controller.setGroups(listGroups);
         JOptionPane.showMessageDialog(window, "Successful");
@@ -270,33 +288,38 @@ public class EditGroupController implements ActionListener {
 
     }
 
+    /**
+     * make change
+     *
+     * @param name1
+     * @param name2
+     */
     private void letsDoIt(String name1, String name2) {
-        Group edit = null;
-        Team aux = null;
-        for (int i = 0; i < listGroups.size(); i++) {
-            if (listGroups.get(i).getName().equals(editing.getName())) {
-                edit = listGroups.get(i);
-                aux = searchTeam(name1, edit.getTeams());
-                edit.getTeams().remove(aux);
-            }
-        }
-
-        for (int i = 0; i < listGroups.size(); i++) {
-            for (int j = 0; j < listGroups.get(i).getTeams().size(); j++) {
-                if (listGroups.get(i).getTeams().get(j).getName().equals(name2)) {
-                    edit.getTeams().add(listGroups.get(i).getTeams().get(j));
-                    listGroups.get(i).getTeams().remove(listGroups.get(i).getTeams().get(j));
-                    listGroups.get(i).getTeams().add(aux);
-                }
+        Team team1 = searchTeam(name1, editing);
+        Team team2 = searchTeam(name2, aux);
+        System.out.println(team1);
+        System.out.println(team2);
+        if (team1 != null & team2 != null) {
+            editing.getTeams().remove(team1);
+            editing.getTeams().add(team2);
+            aux.getTeams().remove(team2);
+            aux.getTeams().add(team1);
+        } else {
+            if (team1 == null) {
+                aux.getTeams().remove(team2);
+                editing.getTeams().add(team2);
+            } else {
+                editing.getTeams().remove(team1);
+                aux.getTeams().add(team1);
             }
         }
 
     }
 
-    public Team searchTeam(String name, ArrayList<Team> aux) {
-        for (int j = 0; j < aux.size(); j++) {
-            if (aux.get(j).getName().equals(name)) {
-                return aux.get(j);
+    public Team searchTeam(String name, Group aux) {
+        for (int j = 0; j < aux.getTeams().size(); j++) {
+            if (aux.getTeams().get(j).getName().equals(name)) {
+                return aux.getTeams().get(j);
             }
         }
         return null;

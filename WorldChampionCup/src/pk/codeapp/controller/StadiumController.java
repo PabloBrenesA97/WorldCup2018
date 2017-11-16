@@ -195,7 +195,7 @@ public class StadiumController implements ActionListener {
     }
 
     /*Set Image in each label*/
-    private void setImageInScreen() {
+    public void setImageInScreen() {
         /*Left Label*/
         String path = getStadiumImage(0);
         ImageIcon newIcon = null;
@@ -221,20 +221,18 @@ public class StadiumController implements ActionListener {
     }
 
     /*Check if one label's icon is null and set enable their button*/
-    private String checkNulls() {
+    private void checkNulls() {
         if (window.lblViewRight.getIcon() == null) {
             window.getBtnRight().setEnabled(false);
-            return "right";
+           
         } else {
             window.getBtnRight().setEnabled(true);
         }
         if (window.lblViewLeft.getIcon() == null) {
             window.getBtnLeft().setEnabled(false);
-            return "left";
         } else {
             window.getBtnLeft().setEnabled(true);
         }
-        return "nobody";
     }
 
     public Stadium getFromList() {

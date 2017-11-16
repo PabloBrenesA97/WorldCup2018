@@ -15,10 +15,8 @@ import pk.codeapp.model.JumpWindow;
  * @author Daniel Amador
  */
 public class EditGroup extends javax.swing.JFrame implements JumpWindow {
-
     private GroupScreen beforeWindow;
     private EditGroupController editGroup;
-
     /**
      * Creates new form EditGroup
      */
@@ -26,7 +24,6 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +39,7 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         btnBack = new javax.swing.JButton();
         paneGroup1 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        lblGroupEditing = new javax.swing.JLabel();
         lblA1 = new javax.swing.JLabel();
         lblA2 = new javax.swing.JLabel();
         lblA3 = new javax.swing.JLabel();
@@ -57,7 +54,7 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         op3 = new javax.swing.JRadioButton();
         paneGroup2 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        lblGroupChange = new javax.swing.JLabel();
         lblC1 = new javax.swing.JLabel();
         lblC2 = new javax.swing.JLabel();
         lblC3 = new javax.swing.JLabel();
@@ -112,11 +109,11 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         jPanel9.setBackground(new java.awt.Color(51, 153, 255));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Editing");
-        jPanel9.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 40));
+        lblGroupEditing.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        lblGroupEditing.setForeground(new java.awt.Color(255, 255, 255));
+        lblGroupEditing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblGroupEditing.setText("Editing");
+        jPanel9.add(lblGroupEditing, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, 40));
 
         paneGroup1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -131,17 +128,9 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
 
         lblA4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup1.add(lblA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameA4.setText("Team Name");
-        paneGroup1.add(nameA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
-
-        nameA1.setText("Team Name");
+        paneGroup1.add(nameA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, 50, -1));
         paneGroup1.add(nameA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
-
-        nameA2.setText("Team Name");
         paneGroup1.add(nameA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
-
-        nameA3.setText("Team Name");
         paneGroup1.add(nameA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         group1.add(op4);
@@ -165,10 +154,10 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         jPanel10.setBackground(new java.awt.Color(51, 153, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Change");
-        jPanel10.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, 40));
+        lblGroupChange.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        lblGroupChange.setForeground(new java.awt.Color(255, 255, 255));
+        lblGroupChange.setText("Change");
+        jPanel10.add(lblGroupChange, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, 40));
 
         paneGroup2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 250, -1));
 
@@ -183,17 +172,9 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
 
         lblC4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup2.add(lblC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameC4.setText("Team Name");
         paneGroup2.add(nameC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
-
-        nameC1.setText("Team Name");
         paneGroup2.add(nameC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
-
-        nameC2.setText("Team Name");
         paneGroup2.add(nameC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
-
-        nameC3.setText("Team Name");
         paneGroup2.add(nameC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         group2.add(ch2);
@@ -259,7 +240,6 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBack;
     public javax.swing.JButton btnMakeChange;
@@ -271,8 +251,6 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
     public javax.swing.ButtonGroup group1;
     public javax.swing.ButtonGroup group2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel9;
@@ -284,6 +262,8 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
     public javax.swing.JLabel lblC2;
     public javax.swing.JLabel lblC3;
     public javax.swing.JLabel lblC4;
+    public javax.swing.JLabel lblGroupChange;
+    public javax.swing.JLabel lblGroupEditing;
     public javax.swing.JLabel nameA1;
     public javax.swing.JLabel nameA2;
     public javax.swing.JLabel nameA3;
@@ -305,20 +285,17 @@ public class EditGroup extends javax.swing.JFrame implements JumpWindow {
         this.beforeWindow = (GroupScreen) beforeWindow;
         this.setVisible(true);
     }
-
     @Override
     public void jumpBeforeWindow() {
         this.dispose();
         beforeWindow.setVisible(true);
         
     }
-
     private void setAction() {
         btnBack.addActionListener(editGroup);
         cmbTeams.addActionListener(editGroup);
         btnMakeChange.addActionListener(editGroup);
     }
-
     public void initData(Group gr) {
      editGroup = new EditGroupController(gr, this);
      setAction();

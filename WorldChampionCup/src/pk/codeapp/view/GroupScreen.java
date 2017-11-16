@@ -167,17 +167,9 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblA4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup1.add(lblA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameA4.setText("Name Team");
         paneGroup1.add(nameA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
-
-        nameA1.setText("Name Team");
         paneGroup1.add(nameA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
-
-        nameA2.setText("Name Team");
         paneGroup1.add(nameA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
-
-        nameA3.setText("Name Team");
         paneGroup1.add(nameA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         getContentPane().add(paneGroup1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 250, 300));
@@ -201,26 +193,18 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblB1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup2.add(lblB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
-
-        nameB1.setText("Name Team");
         paneGroup2.add(nameB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
         lblB2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup2.add(lblB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
-
-        nameB2.setText("Name Team");
         paneGroup2.add(nameB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
         lblB3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup2.add(lblB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
-
-        nameB3.setText("Name Team");
         paneGroup2.add(nameB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         lblB4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup2.add(lblB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameB4.setText("Name Team");
         paneGroup2.add(nameB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
         getContentPane().add(paneGroup2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 250, 300));
@@ -244,26 +228,18 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblC1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup3.add(lblC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
-
-        nameC1.setText("Name Team");
         paneGroup3.add(nameC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
         lblC2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup3.add(lblC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
-
-        nameC2.setText("Name Team");
         paneGroup3.add(nameC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
         lblC3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup3.add(lblC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
-
-        nameC3.setText("Name Team");
         paneGroup3.add(nameC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         lblC4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup3.add(lblC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameC4.setText("Name Team");
         paneGroup3.add(nameC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
         getContentPane().add(paneGroup3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 250, 300));
@@ -287,26 +263,18 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblD1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup4.add(lblD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
-
-        nameD1.setText("Name Team");
         paneGroup4.add(nameD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
         lblD2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup4.add(lblD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
-
-        nameD2.setText("Name Team");
         paneGroup4.add(nameD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
         lblD3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup4.add(lblD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
-
-        nameD3.setText("Name Team");
         paneGroup4.add(nameD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         lblD4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup4.add(lblD4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameD4.setText("Name Team");
         paneGroup4.add(nameD4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
         getContentPane().add(paneGroup4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 90, 250, 300));
@@ -330,26 +298,18 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblE1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup5.add(lblE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
-
-        nameE1.setText("Name Team");
         paneGroup5.add(nameE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
         lblE2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup5.add(lblE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
-
-        nameE2.setText("Name Team");
         paneGroup5.add(nameE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
         lblE3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup5.add(lblE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
-
-        nameE3.setText("Name Team");
         paneGroup5.add(nameE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         lblE4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup5.add(lblE4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameE4.setText("Name Team");
         paneGroup5.add(nameE4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
         getContentPane().add(paneGroup5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 250, 300));
@@ -373,26 +333,18 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblG1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup6.add(lblG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
-
-        nameG1.setText("Name Team");
         paneGroup6.add(nameG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
         lblG2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup6.add(lblG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
-
-        nameG2.setText("Name Team");
         paneGroup6.add(nameG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
         lblG3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup6.add(lblG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
-
-        nameG3.setText("Name Team");
         paneGroup6.add(nameG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         lblG4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup6.add(lblG4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameG4.setText("Name Team");
         paneGroup6.add(nameG4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
         getContentPane().add(paneGroup6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 250, 300));
@@ -416,26 +368,18 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblH1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup8.add(lblH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
-
-        nameH1.setText("Name Team");
         paneGroup8.add(nameH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
         lblH2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup8.add(lblH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
-
-        nameH2.setText("Name Team");
         paneGroup8.add(nameH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
         lblH3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup8.add(lblH3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
-
-        nameH3.setText("Name Team");
         paneGroup8.add(nameH3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         lblH4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup8.add(lblH4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameH4.setText("Name Team");
         paneGroup8.add(nameH4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
         getContentPane().add(paneGroup8, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 400, 250, 300));
@@ -459,26 +403,18 @@ public class GroupScreen extends javax.swing.JFrame implements JumpWindow{
 
         lblF1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup7.add(lblF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 28));
-
-        nameF1.setText("Name Team");
         paneGroup7.add(nameF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 65, -1, -1));
 
         lblF2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup7.add(lblF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 42, 28));
-
-        nameF2.setText("Name Team");
         paneGroup7.add(nameF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 125, -1, -1));
 
         lblF3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup7.add(lblF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 42, 28));
-
-        nameF3.setText("Name Team");
         paneGroup7.add(nameF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 175, -1, -1));
 
         lblF4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         paneGroup7.add(lblF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 42, 28));
-
-        nameF4.setText("Name Team");
         paneGroup7.add(nameF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 225, -1, -1));
 
         getContentPane().add(paneGroup7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 250, 300));

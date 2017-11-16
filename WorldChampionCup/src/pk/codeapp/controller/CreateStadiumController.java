@@ -90,6 +90,7 @@ public class CreateStadiumController implements ActionListener {
         } catch (ExceptionWorldCup ex) {
             JOptionPane.showMessageDialog(window, ex.getMessage());
         }
+        controller.setImageInScreen();
     }
 
     /**
@@ -130,7 +131,7 @@ public class CreateStadiumController implements ActionListener {
             throw new ExceptionWorldCup(6);
         } else {
             if (path == null) {
-                
+                throw new ExceptionWorldCup(20);
             } else {
                 if (Lobby.controller.isNumber(id) && Lobby.controller.isNumber(capacity)) {
                     int idInt = Integer.parseInt(id);

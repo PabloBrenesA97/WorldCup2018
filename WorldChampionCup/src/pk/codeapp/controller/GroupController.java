@@ -9,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Group;
@@ -122,204 +120,361 @@ public class GroupController implements ActionListener {
     }
 
     //<editor-fold defaultstate="collapsed" desc="SetGroups">
-    public void setGroupA(Team team, int id) {
+    public void setGroupA(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblA1.setIcon(team.getImageTeam());
-                window.nameA1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblA1.setIcon(teams.get(0).getImageTeam());
+                    window.nameA1.setText(teams.get(0).getName());
+                }else{
+                    window.lblA1.setIcon(null);
+                    window.nameA1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblA2.setIcon(team.getImageTeam());
-                window.nameA2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblA2.setIcon(teams.get(1).getImageTeam());
+                    window.nameA2.setText(teams.get(1).getName());
+                }else{
+                    window.lblA2.setIcon(null);
+                    window.nameA2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblA3.setIcon(team.getImageTeam());
-                window.nameA3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblA3.setIcon(teams.get(2).getImageTeam());
+                    window.nameA3.setText(teams.get(2).getName());
+                }else{
+                    window.lblA3.setIcon(null);
+                    window.nameA3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblA4.setIcon(team.getImageTeam());
-                window.nameA4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblA4.setIcon(teams.get(3).getImageTeam());
+                    window.nameA4.setText(teams.get(3).getName());
+                }else{
+                    window.lblA4.setIcon(null);
+                    window.nameA4.setText(null);
+                }
                 break;
             }
         }
     }
 
-    public void setGroupB(Team team, int id) {
+    public void setGroupB(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblB1.setIcon(team.getImageTeam());
-                window.nameB1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblB1.setIcon(teams.get(0).getImageTeam());
+                    window.nameB1.setText(teams.get(0).getName());
+                }else{
+                    window.lblB1.setIcon(null);
+                    window.nameB1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblB2.setIcon(team.getImageTeam());
-                window.nameB2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblB2.setIcon(teams.get(1).getImageTeam());
+                    window.nameB2.setText(teams.get(1).getName());
+                }else{
+                    window.lblB2.setIcon(null);
+                    window.nameB2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblB3.setIcon(team.getImageTeam());
-                window.nameB3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblB3.setIcon(teams.get(2).getImageTeam());
+                    window.nameB3.setText(teams.get(2).getName());
+                }else{
+                    window.lblB3.setIcon(null);
+                    window.nameB3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblB4.setIcon(team.getImageTeam());
-                window.nameB4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblB4.setIcon(teams.get(3).getImageTeam());
+                    window.nameB4.setText(teams.get(3).getName());
+                }else{
+                    window.lblB4.setIcon(null);
+                    window.nameB4.setText(null);
+                }
                 break;
             }
         }
     }
 
-    public void setGroupC(Team team, int id) {
-
+    public void setGroupC(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblC1.setIcon(team.getImageTeam());
-                window.nameC1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblC1.setIcon(teams.get(0).getImageTeam());
+                    window.nameC1.setText(teams.get(0).getName());
+                }else{
+                    window.lblC1.setIcon(null);
+                    window.nameC1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblC2.setIcon(team.getImageTeam());
-                window.nameC2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblC2.setIcon(teams.get(1).getImageTeam());
+                    window.nameC2.setText(teams.get(1).getName());
+                }else{
+                    window.lblC2.setIcon(null);
+                    window.nameC2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblC3.setIcon(team.getImageTeam());
-                window.nameC3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblC3.setIcon(teams.get(2).getImageTeam());
+                    window.nameC3.setText(teams.get(2).getName());
+                }else{
+                    window.lblC3.setIcon(null);
+                    window.nameB3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblC4.setIcon(team.getImageTeam());
-                window.nameC4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblC4.setIcon(teams.get(3).getImageTeam());
+                    window.nameC4.setText(teams.get(3).getName());
+                }else{
+                    window.lblC4.setIcon(null);
+                    window.nameC4.setText(null);
+                }
                 break;
             }
         }
     }
 
-    public void setGroupD(Team team, int id) {
+   public void setGroupD(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblD1.setIcon(team.getImageTeam());
-                window.nameD1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblD1.setIcon(teams.get(0).getImageTeam());
+                    window.nameD1.setText(teams.get(0).getName());
+                }else{
+                    window.lblD1.setIcon(null);
+                    window.nameD1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblD2.setIcon(team.getImageTeam());
-                window.nameD2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblD2.setIcon(teams.get(1).getImageTeam());
+                    window.nameD2.setText(teams.get(1).getName());
+                }else{
+                    window.lblD2.setIcon(null);
+                    window.nameD2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblD3.setIcon(team.getImageTeam());
-                window.nameD3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblD3.setIcon(teams.get(2).getImageTeam());
+                    window.nameD3.setText(teams.get(2).getName());
+                }else{
+                    window.lblD3.setIcon(null);
+                    window.nameD3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblD4.setIcon(team.getImageTeam());
-                window.nameD4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblD4.setIcon(teams.get(3).getImageTeam());
+                    window.nameD4.setText(teams.get(3).getName());
+                }else{
+                    window.lblD4.setIcon(null);
+                    window.nameD4.setText(null);
+                }
                 break;
             }
         }
     }
 
-    public void setGroupE(Team team, int id) {
+   public void setGroupE(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblE1.setIcon(team.getImageTeam());
-                window.nameE1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblE1.setIcon(teams.get(0).getImageTeam());
+                    window.nameE1.setText(teams.get(0).getName());
+                }else{
+                    window.lblE1.setIcon(null);
+                    window.nameE1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblE2.setIcon(team.getImageTeam());
-                window.nameE2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblE2.setIcon(teams.get(1).getImageTeam());
+                    window.nameE2.setText(teams.get(1).getName());
+                }else{
+                    window.lblE2.setIcon(null);
+                    window.nameE2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblE3.setIcon(team.getImageTeam());
-                window.nameE3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblE3.setIcon(teams.get(2).getImageTeam());
+                    window.nameE3.setText(teams.get(2).getName());
+                }else{
+                    window.lblE3.setIcon(null);
+                    window.nameE3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblE4.setIcon(team.getImageTeam());
-                window.nameE4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblE4.setIcon(teams.get(3).getImageTeam());
+                    window.nameE4.setText(teams.get(3).getName());
+                }else{
+                    window.lblE4.setIcon(null);
+                    window.nameE4.setText(null);
+                }
                 break;
             }
         }
     }
 
-    public void setGroupF(Team team, int id) {
+     public void setGroupF(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblF1.setIcon(team.getImageTeam());
-                window.nameF1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblF1.setIcon(teams.get(0).getImageTeam());
+                    window.nameF1.setText(teams.get(0).getName());
+                }else{
+                    window.lblF1.setIcon(null);
+                    window.nameF1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblF2.setIcon(team.getImageTeam());
-                window.nameF2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblF2.setIcon(teams.get(1).getImageTeam());
+                    window.nameF2.setText(teams.get(1).getName());
+                }else{
+                    window.lblF2.setIcon(null);
+                    window.nameF2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblF3.setIcon(team.getImageTeam());
-                window.nameF3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblF3.setIcon(teams.get(2).getImageTeam());
+                    window.nameF3.setText(teams.get(2).getName());
+                }else{
+                    window.lblF3.setIcon(null);
+                    window.nameF3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblF4.setIcon(team.getImageTeam());
-                window.nameF4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblF4.setIcon(teams.get(3).getImageTeam());
+                    window.nameF4.setText(teams.get(3).getName());
+                }else{
+                    window.lblF4.setIcon(null);
+                    window.nameF4.setText(null);
+                }
                 break;
             }
         }
     }
 
-    public void setGroupG(Team team, int id) {
-
+    public void setGroupG(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblG1.setIcon(team.getImageTeam());
-                window.nameG1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblG1.setIcon(teams.get(0).getImageTeam());
+                    window.nameG1.setText(teams.get(0).getName());
+                }else{
+                    window.lblG1.setIcon(null);
+                    window.nameG1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblG2.setIcon(team.getImageTeam());
-                window.nameG2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblG2.setIcon(teams.get(1).getImageTeam());
+                    window.nameG2.setText(teams.get(1).getName());
+                }else{
+                    window.lblG2.setIcon(null);
+                    window.nameG2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblG3.setIcon(team.getImageTeam());
-                window.nameG3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblG3.setIcon(teams.get(2).getImageTeam());
+                    window.nameG3.setText(teams.get(2).getName());
+                }else{
+                    window.lblG3.setIcon(null);
+                    window.nameG3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblG4.setIcon(team.getImageTeam());
-                window.nameG4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblG4.setIcon(teams.get(3).getImageTeam());
+                    window.nameG4.setText(teams.get(3).getName());
+                }else{
+                    window.lblG4.setIcon(null);
+                    window.nameG4.setText(null);
+                }
                 break;
             }
         }
     }
 
-    public void setGroupH(Team team, int id) {
-
+    public void setGroupH(ArrayList<Team> teams, int id) {
         switch (id) {
             case 1: {
-                window.lblH1.setIcon(team.getImageTeam());
-                window.nameH1.setText(team.getName());
+                if (teams.size() > 0) {
+                    window.lblH1.setIcon(teams.get(0).getImageTeam());
+                    window.nameH1.setText(teams.get(0).getName());
+                }else{
+                    window.lblH1.setIcon(null);
+                    window.nameH1.setText(null);
+                }
                 break;
             }
             case 2: {
-                window.lblH2.setIcon(team.getImageTeam());
-                window.nameH2.setText(team.getName());
+                if (teams.size() > 1) {
+                    window.lblH2.setIcon(teams.get(1).getImageTeam());
+                    window.nameH2.setText(teams.get(1).getName());
+                }else{
+                    window.lblH2.setIcon(null);
+                    window.nameH2.setText(null);
+                }
                 break;
             }
             case 3: {
-                window.lblH3.setIcon(team.getImageTeam());
-                window.nameH3.setText(team.getName());
+                 if (teams.size() > 2) {
+                    window.lblH3.setIcon(teams.get(2).getImageTeam());
+                    window.nameH3.setText(teams.get(2).getName());
+                }else{
+                    window.lblH3.setIcon(null);
+                    window.nameH3.setText(null);
+                }
                 break;
             }
             case 4: {
-                window.lblH4.setIcon(team.getImageTeam());
-                window.nameH4.setText(team.getName());
+                if (teams.size() > 3) {
+                    window.lblH4.setIcon(teams.get(3).getImageTeam());
+                    window.nameH4.setText(teams.get(3).getName());
+                }else{
+                    window.lblH4.setIcon(null);
+                    window.nameH4.setText(null);
+                }
                 break;
             }
         }
@@ -351,52 +506,53 @@ public class GroupController implements ActionListener {
         ArrayList<Group> aux = Lobby.controller.getGroups();
         for (int i = 0; i < aux.size(); i++) {
             Group gr = aux.get(i);
-            for (int j = 0; j < gr.getTeams().size(); j++) {
-                managerSetGroups(i, gr.getTeams().get(j), j);
+
+            for (int j = 1; j < 5; j++) {
+                managerSetGroups(i, gr.getTeams(), j);
             }
         }
     }
 
-    private void managerSetGroups(int i, Team get, int index) {
+    private void managerSetGroups(int i, ArrayList<Team> get, int index) {
         switch (i) {
             case 0: {
                 window.btnEditA.setEnabled(true);
-                setGroupA(get, index + 1);
+                setGroupA(get, index);
                 break;
             }
             case 1: {
                 window.btnEditB.setEnabled(true);
-                setGroupB(get, index + 1);
+                setGroupB(get, index);
                 break;
             }
             case 2: {
                 window.btnEditC.setEnabled(true);
-                setGroupC(get, index + 1);
+                setGroupC(get, index);
                 break;
             }
             case 3: {
                 window.btnEditD.setEnabled(true);
-                setGroupD(get, index + 1);
+                setGroupD(get, index);
                 break;
             }
             case 4: {
                 window.btnEditE.setEnabled(true);
-                setGroupE(get, index + 1);
+                setGroupE(get, index);
                 break;
             }
             case 5: {
                 window.btnEditF.setEnabled(true);
-                setGroupF(get, index + 1);
+                setGroupF(get, index);
                 break;
             }
             case 6: {
                 window.btnEditG.setEnabled(true);
-                setGroupG(get, index + 1);
+                setGroupG(get, index);
                 break;
             }
             case 7: {
                 window.btnEditH.setEnabled(true);
-                setGroupH(get, index + 1);
+                setGroupH(get, index);
                 break;
             }
         }
@@ -406,8 +562,8 @@ public class GroupController implements ActionListener {
         for (int i = 0; i < Lobby.controller.getGroups().size(); i++) {
             if (Lobby.controller.getGroups().get(i).getTeams().size() < 4) {
                 Lobby.controller.getGroups().get(i).getTeams().add(team);
-                    showGroupData();
-              
+                showGroupData();
+
                 break;
             }
         }
