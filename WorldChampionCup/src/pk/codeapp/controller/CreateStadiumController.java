@@ -24,17 +24,19 @@ import pk.codeapp.view.Lobby;
  * @author Daniel Amador
  */
 public class CreateStadiumController implements ActionListener {
+
     private CreateStadium window;
     private String path;
     private StadiumController controller;
     private Stadium stadium;
     private Maker maker = new MasterMaker();
     private String mode = "Creating";
-    
+
     /**
      * Mode create, make a new stadium
+     *
      * @param window
-     * @param controller 
+     * @param controller
      */
     public CreateStadiumController(CreateStadium window, StadiumController controller) {
         this.window = window;
@@ -42,11 +44,13 @@ public class CreateStadiumController implements ActionListener {
         addActionsLister();
         mode = "Creating";
     }
+
     /**
      * Mode editing, update information from any stadium
+     *
      * @param aThis
      * @param control
-     * @param show 
+     * @param show
      */
     public CreateStadiumController(CreateStadium aThis, StadiumController control, Stadium show) {
         this.stadium = show;
@@ -57,7 +61,7 @@ public class CreateStadiumController implements ActionListener {
         window.lblName.setEditable(false);
         chargeData();
     }
-    
+
     /**
      * Handle of events that are throws in the Create Stadium Screen
      *
@@ -75,7 +79,7 @@ public class CreateStadiumController implements ActionListener {
             openFileChooser();
         }
     }
-    
+
     /**
      * Save a new Stadium that was created
      */
@@ -87,6 +91,7 @@ public class CreateStadiumController implements ActionListener {
             JOptionPane.showMessageDialog(window, ex.getMessage());
         }
     }
+
     /**
      * Open a file choose to select any image
      */
@@ -104,43 +109,49 @@ public class CreateStadiumController implements ActionListener {
             try {
                 window.getShowImage().setIcon(controller.convertToImageIcon(path, window.getShowImage()));
             } catch (Exception e) {
-                
+
             }
         }
     }
+
     /**
-     * Create or update any stadium
-     *  this method can make a new instance or update one that is already exists
+     * Create or update any stadium this method can make a new instance or
+     * update one that is already exists
+     *
      * @param name
      * @param city
      * @param capacity
      * @param id
      * @param path
-     * @throws ExceptionWorldCup 
+     * @throws ExceptionWorldCup
      */
     private void createStadium(String name, String city, String capacity, String id, String path) throws ExceptionWorldCup {
         if (name == null | city == null | capacity == null | id == null | path == null) {
             throw new ExceptionWorldCup(6);
         } else {
-            int idInt = Integer.parseInt(id);
-            int capacityInt = Integer.parseInt(capacity);
-            /*mode creating*/
-            if (mode.equalsIgnoreCase("creating")) {
-                if (exist(idInt)!=null) {
-                    throw new ExceptionWorldCup(9);
+            if (Lobby.controller.isNumber(id) && Lobby.controller.isNumber(capacity)) {
+                int idInt = Integer.parseInt(id);
+                int capacityInt = Integer.parseInt(capacity);
+                /*mode creating*/
+                if (mode.equalsIgnoreCase("creating")) {
+                    if (exist(idInt) != null) {
+                        throw new ExceptionWorldCup(9);
+                    } else {
+                        Stadium stadium = (Stadium) maker.factoryMethod("Stadium");
+                        stadium.update(name, idInt, city, capacityInt);
+                        stadium.setIcon(path);
+                        Lobby.controller.addStadium(stadium);
+                    }
+                    /*Mode editing*/
                 } else {
-                    Stadium stadium = (Stadium) maker.factoryMethod("Stadium");
-                    stadium.update(name, idInt, city, capacityInt);
-                    stadium.setIcon(path);
-                    Lobby.controller.addStadium(stadium);
+                    updateData(name, idInt, city, capacityInt, path);
                 }
-            /*Mode editing*/
-            } else {
-                updateData(name, idInt, city, capacityInt,path);
+            }else{
+                throw new ExceptionWorldCup(16);
             }
-
         }
     }
+
     /**
      * Add this components into the handle of events
      */
@@ -149,45 +160,50 @@ public class CreateStadiumController implements ActionListener {
         window.getBtnSave().addActionListener(this);
         window.getBtnSearch().addActionListener(this);
     }
+
     /**
      * Seach a element into the list
+     *
      * @param id
-     * @return 
+     * @return
      */
     public Stadium exist(int id) {
         for (int i = 0; i < Lobby.controller.getArrayStadiums().size(); i++) {
             if (Lobby.controller.getArrayStadiums().get(i).getId() == id) {
-                return Lobby.controller.getArrayStadiums().get(i) ;
+                return Lobby.controller.getArrayStadiums().get(i);
             }
         }
         return null;
     }
+
     /**
      * Update data
+     *
      * @param name
      * @param idInt
      * @param city
      * @param capacityInt
      * @param path
-     * @throws ExceptionWorldCup 
+     * @throws ExceptionWorldCup
      */
-    private void updateData(String name, int idInt, String city, int capacityInt,String path) throws ExceptionWorldCup {
+    private void updateData(String name, int idInt, String city, int capacityInt, String path) throws ExceptionWorldCup {
         Stadium stadium = exist(idInt);
-        if(stadium!=null){
+        if (stadium != null) {
             stadium.update(name, idInt, city, capacityInt);
             stadium.setIcon(path);
-        }else{
+        } else {
             throw new ExceptionWorldCup(10);
         }
     }
+
     /**
      * Charge data in the screen
      */
     private void chargeData() {
-       window.lblName.setText(stadium.getName());
-       window.lblCity.setText(stadium.getCity());
-       window.lblCapacity.setText(stadium.getCapacity()+"");
-       window.lblId.setText(stadium.getId()+"");
-       window.getShowImage().setIcon(controller.convertToImageIcon(stadium.getIcon(), window.getShowImage()));
+        window.lblName.setText(stadium.getName());
+        window.lblCity.setText(stadium.getCity());
+        window.lblCapacity.setText(stadium.getCapacity() + "");
+        window.lblId.setText(stadium.getId() + "");
+        window.getShowImage().setIcon(controller.convertToImageIcon(stadium.getIcon(), window.getShowImage()));
     }
 }

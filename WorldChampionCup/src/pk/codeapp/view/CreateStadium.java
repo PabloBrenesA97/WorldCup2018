@@ -6,9 +6,11 @@
 package pk.codeapp.view;
 
 import java.awt.Frame;
+import java.text.NumberFormat;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.text.NumberFormatter;
 import pk.codeapp.controller.CreateStadiumController;
 import pk.codeapp.controller.StadiumController;
 import pk.codeapp.model.JumpWindows;
@@ -28,6 +30,7 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
      */
     public CreateStadium(Stadium show, StadiumController control) {
         initComponents();
+        
         controller = new CreateStadiumController(this, control, show);
         this.setLocationRelativeTo(null);
     }
@@ -215,10 +218,7 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
         return lblShowImage;
     }
 
-    public JTextField getLblCapacity() {
-        return lblCapacity;
-    }
-
+ 
     public JTextField getLblId() {
         return lblId;
     }

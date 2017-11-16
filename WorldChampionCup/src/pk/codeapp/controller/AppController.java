@@ -718,25 +718,26 @@ public class AppController {
     }
 
     //</editor-fold>
-
     /**
      * Search Result
+     *
      * @param id
-     * @return 
+     * @return
      */
-    public Result searchResult(int id){
+    public Result searchResult(int id) {
         for (int i = 0; i < listResults.size(); i++) {
-            if(listResults.get(i).getId()==id)
+            if (listResults.get(i).getId() == id) {
                 return listResults.get(i);
+            }
         }
         return null;
     }
-    
 
     /**
      * Search Calendar
+     *
      * @param date
-     * @return 
+     * @return
      */
     public Calendar searchCalendar(String date) {
 
@@ -747,10 +748,12 @@ public class AppController {
         }
         return null;
     }
+
     /**
      * Search Stadium
+     *
      * @param name
-     * @return 
+     * @return
      */
     public Stadium searchStadium(String name) {
         for (int i = 0; i < arrayStadiums.size(); i++) {
@@ -821,7 +824,6 @@ public class AppController {
         this.calendars = calendars;
     }
 
-
     public ArrayList<Result> getListResults() {
         return listResults;
     }
@@ -829,13 +831,13 @@ public class AppController {
     public void setListResults(ArrayList<Result> listResults) {
         this.listResults = listResults;
     }
-    
 
-/**
- * isInList Stadium
- * @param stadium
- * @return 
- */
+    /**
+     * isInList Stadium
+     *
+     * @param stadium
+     * @return
+     */
     public boolean isInList(Stadium stadium) {
         for (int i = 0; i < calendars.size(); i++) {
             if (calendars.get(i).getStadium() == stadium) {
@@ -845,33 +847,42 @@ public class AppController {
         }
         return false;
     }
+
     /**
      * Check if the text contains numbers
+     *
      * @param txt
-     * @throws ExceptionWorldCup 
+     * @throws ExceptionWorldCup
      */
-    public void haveNumber(JTextField txt) throws ExceptionWorldCup{
-        if(txt.getText().contains("1")){
+    public void haveNumber(JTextField txt) throws ExceptionWorldCup {
+        if (txt.getText().contains("1")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("2")){
+        } else if (txt.getText().contains("2")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("3")){
+        } else if (txt.getText().contains("3")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("4")){
+        } else if (txt.getText().contains("4")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("5")){
+        } else if (txt.getText().contains("5")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("6")){
+        } else if (txt.getText().contains("6")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("7")){
+        } else if (txt.getText().contains("7")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("8")){
+        } else if (txt.getText().contains("8")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("9")){
+        } else if (txt.getText().contains("9")) {
             throw new ExceptionWorldCup(16);
-        }else if(txt.getText().contains("0")){
+        } else if (txt.getText().contains("0")) {
             throw new ExceptionWorldCup(16);
         }
     }
+    public boolean isNumber(String text) {
+        try {
+            Integer.parseInt(text);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
-
