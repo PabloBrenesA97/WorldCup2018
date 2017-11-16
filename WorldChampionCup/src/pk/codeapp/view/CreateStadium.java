@@ -30,7 +30,7 @@ public class CreateStadium extends javax.swing.JFrame implements JumpWindows {
      */
     public CreateStadium(Stadium show, StadiumController control) {
         initComponents();
-        
+        lblId.setEnabled(false);
         controller = new CreateStadiumController(this, control, show);
         this.setLocationRelativeTo(null);
     }

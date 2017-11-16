@@ -58,7 +58,6 @@ public class CreateStadiumController implements ActionListener {
         this.controller = control;
         addActionsLister();
         mode = "Editing";
-        window.lblName.setEditable(false);
         chargeData();
     }
 
@@ -202,6 +201,7 @@ public class CreateStadiumController implements ActionListener {
         window.lblCity.setText(stadium.getCity());
         window.lblCapacity.setText(stadium.getCapacity() + "");
         window.lblId.setText(stadium.getId() + "");
+        window.getShowImage().setSize(430, 410);
         window.getShowImage().setIcon(controller.convertToImageIcon(stadium.getIcon(), window.getShowImage()));
     }
 }

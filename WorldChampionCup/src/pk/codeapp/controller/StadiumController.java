@@ -91,7 +91,7 @@ public class StadiumController implements ActionListener {
                 try {
                     throw new ExceptionWorldCup(5);
                 } catch (ExceptionWorldCup ex) {
-                    JOptionPane.showMessageDialog(window, ex.getMessage());
+                    
                 }
             }
         }

@@ -68,6 +68,9 @@ public class ShowStadium extends javax.swing.JFrame implements JumpWindows {
         lblImage.setOpaque(true);
         jPanel1.add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 719, 610));
 
+        jList1.setBackground(new java.awt.Color(102, 102, 102));
+        jList1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 250, 520, 410));

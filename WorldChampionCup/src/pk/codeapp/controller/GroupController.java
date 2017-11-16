@@ -406,11 +406,8 @@ public class GroupController implements ActionListener {
         for (int i = 0; i < Lobby.controller.getGroups().size(); i++) {
             if (Lobby.controller.getGroups().get(i).getTeams().size() < 4) {
                 Lobby.controller.getGroups().get(i).getTeams().add(team);
-                try {
-                    chargeTeams();
-                } catch (ExceptionWorldCup ex) {
-                   
-                }
+                    showGroupData();
+              
                 break;
             }
         }

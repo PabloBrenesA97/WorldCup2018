@@ -90,9 +90,12 @@ public class EditGroupController implements ActionListener {
         switch (id) {
             case 0: {
                 if (listCopy.get(0) != null) {
+                    
                     window.lblA1.setIcon(listCopy.get(0).getImageTeam());
                     window.nameA1.setText(listCopy.get(0).getName());
 
+                }else{
+                    window.op1.setEnabled(false);
                 }
                 break;
             }
@@ -100,6 +103,8 @@ public class EditGroupController implements ActionListener {
                 if (listCopy.get(1) != null) {
                     window.lblA2.setIcon(listCopy.get(1).getImageTeam());
                     window.nameA2.setText(listCopy.get(1).getName());
+                }else{
+                    window.op2.setEnabled(false);
                 }
                 break;
             }
@@ -107,6 +112,8 @@ public class EditGroupController implements ActionListener {
                 if (listCopy.get(2) != null) {
                     window.lblA3.setIcon(listCopy.get(2).getImageTeam());
                     window.nameA3.setText(listCopy.get(2).getName());
+                }else{
+                    window.op3.setEnabled(false);
                 }
                 break;
             }
@@ -114,6 +121,8 @@ public class EditGroupController implements ActionListener {
                 if (listCopy.get(3) != null) {
                     window.lblA4.setIcon(listCopy.get(3).getImageTeam());
                     window.nameA4.setText(listCopy.get(3).getName());
+                }else{
+                    window.op4.setEnabled(false);
                 }
                 break;
             }
