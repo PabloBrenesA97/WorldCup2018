@@ -121,6 +121,12 @@ public class CalendarController implements ActionListener{
      * Bridge to Jump to Create Calendar
      */
     public void jumpToCreate(){
+            for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
+                for (int j = 0; j < Lobby.controller.getListResults().size(); j++) {
+                    if(Lobby.controller.getListResults().get(j).getId()== Lobby.controller.getCalendars().get(i).getId())
+                        JOptionPane.showMessageDialog(windowAux,"No more results can be created");
+                }
+            }
         windowAux.setVisible(false);
         CreateorUpdateCalendar calendarAux = new CreateorUpdateCalendar();
         calendarAux.setFuction("Create");
