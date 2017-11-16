@@ -47,7 +47,12 @@ public class PlayerController implements ActionListener {
      * Show Actual Players of Team
      */
     public void showAllPlayers() {
+        //Limpiar Tabla
+        DefaultTableModel tb = (DefaultTableModel) showPlayer.getTablePlayers().getModel();
+        tb.setRowCount(0);
+        //------
         Team teamActual = showPlayer.getActualTeam();
+
         Object[][] datas = new Object[teamActual.getPlayers().size()][7];
         /*Fill information*/
         for (int i = 0; i < teamActual.getPlayers().size(); i++) {
@@ -69,6 +74,7 @@ public class PlayerController implements ActionListener {
                 return false;
             }
         };
+        
         showPlayer.getTablePlayers().setModel(dtm);
         showPlayer.getTablePlayers().setPreferredScrollableViewportSize(new Dimension(860, 540));
         showPlayer.getTablePlayers().setRowHeight(45);

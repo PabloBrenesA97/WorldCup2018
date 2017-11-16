@@ -36,6 +36,7 @@ public class CreateorUpdateTeamController implements ActionListener {
         if (windowAux.getFunctiontoRealize().equals("Update")){
             windowAux.getBtnAdd().setText("Update");
             windowAux.txtName.setText(teamUpdate.getName());
+            windowAux.txtName.setEnabled(false);
             windowAux.txtAssistant.setText(teamUpdate.getAssistant());
             windowAux.txtCoach.setText(teamUpdate.getCoach());
         } else {
@@ -91,12 +92,12 @@ public class CreateorUpdateTeamController implements ActionListener {
             try {
                 checkSpaces(); // Check spaces blank
                 checkNumbers();
-                 if(windowAux.getFunctiontoRealize().equals("Update")){ // Update 
+                 if(windowAux.getFunctiontoRealize().equals("Update")){ // Update
+                     
                     updateTeam(windowAux.txtName.getText(),windowAux.txtCoach.getText(), windowAux.txtAssistant.getText(),confederacy);
                     windowAux.jumpBeforeWindow();
             }else{ //Create
                 try {
-                  
                     createTeam(controller.getTeams().size(),windowAux.txtName.getText(),windowAux.txtCoach.getText(), windowAux.txtAssistant.getText(),confederacy);
                     windowAux.jumpBeforeWindow();
                 } catch (ExceptionWorldCup ex) {
@@ -123,8 +124,10 @@ public class CreateorUpdateTeamController implements ActionListener {
             throw new ExceptionWorldCup(6);
         }
     }
-    
-    private void checkNumbers(){
+    /**
+     * Check numbers in JTextFields
+     */
+    private void checkNumbers() throws ExceptionWorldCup{
         try{
             
             Lobby.controller.haveNumber(windowAux.txtName);
@@ -132,8 +135,7 @@ public class CreateorUpdateTeamController implements ActionListener {
             Lobby.controller.haveNumber(windowAux.txtAssistant);
             
         }catch(ExceptionWorldCup ex){
-            JOptionPane.showMessageDialog(windowAux, ex.getMessage());
-            return;
+            throw new ExceptionWorldCup(16);
         }
     }
 }

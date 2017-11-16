@@ -7,8 +7,11 @@ package pk.codeapp.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import jdk.nashorn.internal.ir.CatchNode;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Player;
 import pk.codeapp.view.CreateorUpdatePlayer;
@@ -42,7 +45,9 @@ public class CreateorUpdatePlayerController implements ActionListener {
             windowAux.jumpBeforeWindow();
         } else {
             if (e.getSource() == windowAux.getBtnAdd()) {
-                JButton button = (JButton) e.getSource();
+                try {
+                    checkSpaces();
+                    JButton button = (JButton) e.getSource();
                 String action = (String) button.getText();
                 if (action.equals("Create")) {
                     try {
@@ -61,6 +66,10 @@ public class CreateorUpdatePlayerController implements ActionListener {
                         JOptionPane.showMessageDialog(windowAux, ex.getMessage());
                     }
                 }
+                } catch (ExceptionWorldCup ex) {
+                    JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+                }
+                
             }
         }
     }
@@ -72,48 +81,27 @@ public class CreateorUpdatePlayerController implements ActionListener {
      */
     public void updatePlayer() throws ExceptionWorldCup {
         if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
-            throw new ExceptionWorldCup(12);
-        } else if (windowAux.getTxtName().getText().equals("") || windowAux.getTxtNumber().getText().equals("") || windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("") || windowAux.getTxtNRedCard().getText().equals("") || windowAux.getTxtGoals().getText().equals("")
-                || windowAux.getTxtAge().getText().equals("")) {
-            throw new ExceptionWorldCup(6);
-        }
-        try {
+            throw new ExceptionWorldCup(12);}
+        
             actualPlayer.update(actualPlayer.getId(), windowAux.getTxtName().getText(), windowAux.getTxtPosition().getText(), Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
                     Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));
-        } catch (Exception ex) {
-            throw new ExceptionWorldCup(8);
-        }
+        
     }
 
     /**
      * Add Player in the List
+     * @throws pk.codeapp.model.ExceptionWorldCup
      */
     public void createPlayer() throws ExceptionWorldCup {
-
-        if (windowAux.getTxtName().getText().equals("") || windowAux.getTxtNumber().getText().equals("") || windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("") || windowAux.getTxtNRedCard().getText().equals("") || windowAux.getTxtGoals().getText().equals("")
-                || windowAux.getTxtAge().getText().equals("")) {
-
-            if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
+                if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
                 throw new ExceptionWorldCup(12);
-            }
-            if (windowAux.getTxtName().getText() == null || windowAux.getTxtNumber().getText() == null || windowAux.getTxtPosition().getText() == null || windowAux.getTxtNYellowCard1().getText() == null || windowAux.getTxtNRedCard().getText() == null || windowAux.getTxtGoals().getText() == null
-                    || windowAux.getTxtAge().getText() == null) {
-                throw new ExceptionWorldCup(6);
-            }
-            if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
-                throw new ExceptionWorldCup(12);
-            }
-            Player newPlayer = (Player) Lobby.controller.getMasterMaker().factoryMethod("Player");
-            try {
+                }
+                Player newPlayer = (Player) Lobby.controller.getMasterMaker().factoryMethod("Player");
                 newPlayer.update(windowAux.getBeforeWindow().getActualTeam().getPlayers().size(), windowAux.getTxtName().getText(), windowAux.getTxtPosition().getText(), Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
                         Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));
                 windowAux.getBeforeWindow().getActualTeam().getPlayers().add(newPlayer);
-            } catch (Exception ex) {
-                throw new ExceptionWorldCup(8);
-            }
+           
         }
-
-    }
 
     /**
      * Fill Data of Player if update
@@ -135,5 +123,27 @@ public class CreateorUpdatePlayerController implements ActionListener {
             windowAux.getBtnAdd().setText("Create");
         }
     }
+    /**
+     * Check Spaces and all validations
+     * @throws ExceptionWorldCup 
+     */
+    private void checkSpaces() throws ExceptionWorldCup{
+        if (windowAux.getTxtName().getText().equals("") || windowAux.getTxtNumber().getText().equals("") || windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("") || windowAux.getTxtNRedCard().getText().equals("") || windowAux.getTxtGoals().getText().equals("")
+                || windowAux.getTxtAge().getText().equals("")) {
+            throw new ExceptionWorldCup(6);
+        }
+        try{
+        Lobby.controller.haveNumber(windowAux.getTxtName());
+        Lobby.controller.haveNumber(windowAux.getTxtPosition());
+        if(Lobby.controller.isNumber(windowAux.getTxtNumber().getText())==false || Lobby.controller.isNumber(windowAux.getTxtNYellowCard1().getText())==false || Lobby.controller.isNumber(windowAux.getTxtNRedCard().getText())== false ||
+                Lobby.controller.isNumber(windowAux.getTxtGoals().getText())==false || Lobby.controller.isNumber(windowAux.getTxtAge().getText())==false){
+            throw new ExceptionWorldCup(17);
+        }
+         if(Integer.parseInt(windowAux.getTxtAge().getText()) < 20){
+            throw new ExceptionWorldCup(12);
+        }
+    }catch(Exception e){
+        throw new ExceptionWorldCup(16);
+    }
+    }}
 
-}
