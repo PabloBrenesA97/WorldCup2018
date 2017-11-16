@@ -79,6 +79,7 @@ public class CreateorUpdatePlayerController implements ActionListener {
      *
      * @throws ExceptionWorldCup
      */
+<<<<<<< Updated upstream
     public void updatePlayer() throws ExceptionWorldCup {
         if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
             throw new ExceptionWorldCup(12);}
@@ -86,12 +87,29 @@ public class CreateorUpdatePlayerController implements ActionListener {
             actualPlayer.update(actualPlayer.getId(), windowAux.getTxtName().getText(), windowAux.getTxtPosition().getText(), Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
                     Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));
         
+=======
+    public void updatePlayer() throws ExceptionWorldCup{
+        if(Integer.parseInt(windowAux.getTxtAge().getText())<20){
+            throw new ExceptionWorldCup(12);
+        }
+        else if(windowAux.getTxtName().getText().equals("")|| windowAux.getTxtNumber().getText().equals("")|| windowAux.getTxtPosition().getText().equals("") || windowAux.getTxtNYellowCard1().getText().equals("")|| windowAux.getTxtNRedCard().getText().equals("")|| windowAux.getTxtGoals().getText().equals("")||
+                 windowAux.getTxtAge().getText().equals("")){
+             throw new ExceptionWorldCup(6);
+         }
+        try{
+        actualPlayer.update(actualPlayer.getId(),windowAux.getTxtName().getText(),windowAux.getTxtPosition().getText(),Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
+                Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));}
+        catch(Exception ex){
+            throw new ExceptionWorldCup(8);
+        }
+>>>>>>> Stashed changes
     }
 
     /**
      * Add Player in the List
      * @throws pk.codeapp.model.ExceptionWorldCup
      */
+<<<<<<< Updated upstream
     public void createPlayer() throws ExceptionWorldCup {
                 if (Integer.parseInt(windowAux.getTxtAge().getText()) < 20) {
                 throw new ExceptionWorldCup(12);
@@ -101,6 +119,23 @@ public class CreateorUpdatePlayerController implements ActionListener {
                         Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));
                 windowAux.getBeforeWindow().getActualTeam().getPlayers().add(newPlayer);
            
+=======
+    public void createPlayer() throws ExceptionWorldCup{
+          if(Integer.parseInt(windowAux.getTxtAge().getText())<20){
+            throw new ExceptionWorldCup(12);
+        }
+          if(windowAux.getTxtName().getText()==null|| windowAux.getTxtNumber().getText()==null|| windowAux.getTxtPosition().getText()==null || windowAux.getTxtNYellowCard1().getText()==null|| windowAux.getTxtNRedCard().getText()==null|| windowAux.getTxtGoals().getText()==null||
+                 windowAux.getTxtAge().getText()==null){
+             throw new ExceptionWorldCup(6);
+         }
+         Player newPlayer = (Player) Lobby.controller.getMasterMaker().factoryMethod("Player");
+         try{
+          newPlayer.update(windowAux.getBeforeWindow().getActualTeam().getPlayers().size(),windowAux.getTxtName().getText(),windowAux.getTxtPosition().getText(),Integer.parseInt(windowAux.getTxtAge().getText()), Integer.parseInt(windowAux.getTxtNYellowCard1().getText()),
+                Integer.parseInt(windowAux.getTxtNRedCard().getText()), Integer.parseInt(windowAux.getTxtNumber().getText()), Integer.parseInt(windowAux.getTxtGoals().getText()));
+         windowAux.getBeforeWindow().getActualTeam().getPlayers().add(newPlayer);}
+         catch(Exception ex){
+            throw new ExceptionWorldCup(8);
+>>>>>>> Stashed changes
         }
 
     /**
