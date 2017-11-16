@@ -98,6 +98,7 @@ public class CreateorUpdateCalendarController implements ActionListener {
      * Create a new Calendar
      */
     public void jumpCreateCalendar() throws ExceptionWorldCup{
+        
         String txtTeam1 = (String) windowAux.getCmbTeam1().getSelectedItem();
         String txtTeam2 = (String) windowAux.getCmbTeam2().getSelectedItem();
         if(txtTeam1.equals(txtTeam2)){
@@ -113,6 +114,11 @@ public class CreateorUpdateCalendarController implements ActionListener {
         Stadium stadium = Lobby.controller.searchStadium(txtStadium);
         
         Calendar newCalendar = new Calendar(Lobby.controller.getCalendars().size(), team1, team2, txtDate, stadium);
+        for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
+            if(newCalendar.getDate().equals(Lobby.controller.getCalendars().get(i).getDate()))
+                if(Lobby.controller.getCalendars().get(i).getTeam1().equals(newCalendar.getTeam1()) || Lobby.controller.getCalendars().get(i).getTeam1().equals(newCalendar.getTeam2()))
+                    throw new ExceptionWorldCup(19);
+        }
         stadium.addCalendar(newCalendar);
         Lobby.controller.getCalendars().addElement(newCalendar);
         windowAux.getCalendarScreen().controller.fillData();
@@ -121,6 +127,9 @@ public class CreateorUpdateCalendarController implements ActionListener {
         windowAux.jumpBeforeWindow();
     }
 
+        /**
+         * Update Calendar
+         */
     public void jumpUpdateCalendar() {
         String txtStadium = (String) windowAux.getCmbStadiums().getSelectedItem();
         String txtDay = (String) windowAux.getCmbDay().getSelectedItem();
@@ -129,7 +138,7 @@ public class CreateorUpdateCalendarController implements ActionListener {
         
         Stadium stadium = Lobby.controller.searchStadium(txtStadium);
         
-        //Falta validar si ya se jugo un partido
+        
         windowAux.getCalendarScreen().getActualCalendar().update(txtDate, stadium);
         windowAux.getCalendarScreen().controller.fillData();
         windowAux.getCalendarScreen().controller.completeInformation();

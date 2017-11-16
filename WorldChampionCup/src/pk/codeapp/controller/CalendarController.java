@@ -11,12 +11,16 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import pk.codeapp.model.Calendar;
+import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Stadium;
 import pk.codeapp.view.CalendarScreen;
 import pk.codeapp.view.CreateorUpdateCalendar;
@@ -46,16 +50,42 @@ public class CalendarController implements ActionListener{
         }
         if(e.getSource()==windowAux.getBtnUpdate()){
             if(windowAux.getActualCalendar()!=null)
-                jumpToUpdate();
+                try {
+                    jumpToUpdate();
+            } catch (ExceptionWorldCup ex) {
+                    JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+                    return;
+            }
         }if(e.getSource()==windowAux.getCmbCalendar()){
             JComboBox cmbAux = (JComboBox) e.getSource();
             String txtCalendar = (String) cmbAux.getSelectedItem();
             if(!txtCalendar.equals("")){
-            windowAux.setActualCalendar(Lobby.controller.searchCalendar(txtCalendar));
+            windowAux.setActualCalendar(Lobby.controller.searchCalendar(Integer.parseInt(txtCalendar)));
             completeInformation();}
+        }if(e.getSource()==windowAux.getBtnDelete()){
+            if(windowAux.getActualCalendar()!=null){
+            try {
+                jumpToDelete();
+            } catch (ExceptionWorldCup ex) {
+                JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+            }}
         }
         
         
+    }
+    
+    public void jumpToDelete() throws ExceptionWorldCup{
+       for (int i = 0; i < Lobby.controller.getListResults().size(); i++) {
+            if(Lobby.controller.getListResults().get(i).getTeam1().equals(windowAux.getActualCalendar().getTeam1()) || Lobby.controller.getListResults().get(i).getTeam2().equals(windowAux.getActualCalendar().getTeam1()) || Lobby.controller.getListResults().get(i).getTeam1().equals(windowAux.getActualCalendar().getTeam2()) || Lobby.controller.getListResults().get(i).getTeam2().equals(windowAux.getActualCalendar().getTeam2()))
+                throw new ExceptionWorldCup(18);
+        }
+        for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
+            if(windowAux.getActualCalendar().equals(Lobby.controller.getCalendars().get(i))){
+                Lobby.controller.getCalendars().remove(i);   
+            }
+        }
+        
+        windowAux.jumpBeforeWindow();
     }
     /**
      * Fill all Information in the window
@@ -79,7 +109,7 @@ public class CalendarController implements ActionListener{
     public void fillData(){
         DefaultComboBoxModel<String> listCalendars = new DefaultComboBoxModel();
         for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
-            listCalendars.addElement(Lobby.controller.getCalendars().get(i).getDate());
+            listCalendars.addElement(Lobby.controller.getCalendars().get(i).getId()+"");
         }
         windowAux.getCmbCalendar().setModel(listCalendars);
         if(Lobby.controller.getCalendars().size()>0){
@@ -99,8 +129,11 @@ public class CalendarController implements ActionListener{
     /**
      * Bridge to Jump to Update Calendar
      */
-    public void jumpToUpdate(){
-        
+    public void jumpToUpdate() throws ExceptionWorldCup{
+        for (int i = 0; i < Lobby.controller.getListResults().size(); i++) {
+            if(Lobby.controller.getListResults().get(i).getTeam1().equals(windowAux.getActualCalendar().getTeam1()) || Lobby.controller.getListResults().get(i).getTeam2().equals(windowAux.getActualCalendar().getTeam1()) || Lobby.controller.getListResults().get(i).getTeam1().equals(windowAux.getActualCalendar().getTeam2()) || Lobby.controller.getListResults().get(i).getTeam2().equals(windowAux.getActualCalendar().getTeam2()))
+                throw new ExceptionWorldCup(18);
+        }
         windowAux.setVisible(false);
         CreateorUpdateCalendar calendarAux = new CreateorUpdateCalendar();
         calendarAux.setFuction("Update");

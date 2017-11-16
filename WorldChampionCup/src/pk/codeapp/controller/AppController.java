@@ -736,13 +736,13 @@ public class AppController {
     /**
      * Search Calendar
      *
-     * @param date
+     * @param id
      * @return
      */
-    public Calendar searchCalendar(String date) {
+    public Calendar searchCalendar(int id) {
 
         for (int i = 0; i < calendars.size(); i++) {
-            if (calendars.get(i).getDate().equals(date)) {
+            if (calendars.get(i).getId()==id) {
                 return calendars.get(i);
             }
         }
