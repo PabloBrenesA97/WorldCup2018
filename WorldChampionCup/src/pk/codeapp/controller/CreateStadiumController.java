@@ -126,31 +126,37 @@ public class CreateStadiumController implements ActionListener {
      * @throws ExceptionWorldCup
      */
     private void createStadium(String name, String city, String capacity, String id, String path) throws ExceptionWorldCup {
-        if (name == null | city == null | capacity == null | id == null | path == null) {
+        if (name == null | city == null | capacity == null | id == null) {
             throw new ExceptionWorldCup(6);
         } else {
-            if (Lobby.controller.isNumber(id) && Lobby.controller.isNumber(capacity)) {
-                int idInt = Integer.parseInt(id);
-                int capacityInt = Integer.parseInt(capacity);
-                /*mode creating*/
-                if (mode.equalsIgnoreCase("creating")) {
-                    if (exist(idInt) != null) {
-                        throw new ExceptionWorldCup(9);
+            if (path == null) {
+                
+            } else {
+                if (Lobby.controller.isNumber(id) && Lobby.controller.isNumber(capacity)) {
+                    int idInt = Integer.parseInt(id);
+                    int capacityInt = Integer.parseInt(capacity);
+                    /*mode creating*/
+                    if (mode.equalsIgnoreCase("creating")) {
+                        if (exist(idInt) != null) {
+                            throw new ExceptionWorldCup(9);
+                        } else {
+                            Stadium stadium = (Stadium) maker.factoryMethod("Stadium");
+                            stadium.update(name, idInt, city, capacityInt);
+                            stadium.setIcon(path);
+                            Lobby.controller.addStadium(stadium);
+                        }
+                        /*Mode editing*/
                     } else {
-                        Stadium stadium = (Stadium) maker.factoryMethod("Stadium");
-                        stadium.update(name, idInt, city, capacityInt);
-                        stadium.setIcon(path);
-                        Lobby.controller.addStadium(stadium);
+                        updateData(name, idInt, city, capacityInt, path);
                     }
-                    /*Mode editing*/
                 } else {
-                    updateData(name, idInt, city, capacityInt, path);
+                    throw new ExceptionWorldCup(17);
                 }
-            }else{
-                throw new ExceptionWorldCup(17);
             }
+
         }
     }
+
     /**
      * Add this components into the handle of events
      */
@@ -159,6 +165,7 @@ public class CreateStadiumController implements ActionListener {
         window.getBtnSave().addActionListener(this);
         window.getBtnSearch().addActionListener(this);
     }
+
     /**
      * Seach a element into the list
      *
@@ -173,6 +180,7 @@ public class CreateStadiumController implements ActionListener {
         }
         return null;
     }
+
     /**
      * Update data
      *
