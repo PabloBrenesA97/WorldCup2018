@@ -44,7 +44,9 @@ public class CreateorUpdateResultController implements ActionListener {
             windowAux.getLblTeam2().setText(calendar.getTeam2().getName());
         }
         if (e.getSource() == windowAux.getBtnAdd()) {
-            JButton button = (JButton) e.getSource();
+            try {
+                checkSpaces();
+                 JButton button = (JButton) e.getSource();
             if (button.getText().equals("Create")) {
 
                 jumpToCreate();
@@ -63,11 +65,25 @@ public class CreateorUpdateResultController implements ActionListener {
                     windowAux.jumpBeforeWindow();
                 } catch (ExceptionWorldCup ex) {
                     JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+                    return;
                 }
             }
+            } catch (ExceptionWorldCup ex) {                
+                JOptionPane.showMessageDialog(windowAux, ex.getMessage());
+            }
+           
         }
     }
-
+    /**
+     * Check Spaces to validate correctly
+     */
+    public void checkSpaces() throws ExceptionWorldCup{
+        if(Lobby.controller.isNumber(windowAux.getTxtGoalsTeam1().getText())==false ||Lobby.controller.isNumber(windowAux.getTxtGoalsTeam2().getText())==false || Lobby.controller.isNumber(windowAux.getTxtCorners().getText())==false || Lobby.controller.isNumber(windowAux.getTxtFaults().getText())==false||
+                Lobby.controller.isNumber(windowAux.getTxtMinPlayed().getText())==false || Lobby.controller.isNumber(windowAux.getTxtOffsides().getText())==false || Lobby.controller.isNumber(windowAux.getTxtOffsides().getText())==false|| Lobby.controller.isNumber(windowAux.getTxtPosBalonE1().getText())==false || Lobby.controller.isNumber(windowAux.getTxtPosBalonE2().getText())==false || 
+                Lobby.controller.isNumber(windowAux.getTxtRedCard().getText())==false || Lobby.controller.isNumber(windowAux.getTxtYellowCard().getText())==false){
+            throw new ExceptionWorldCup(17);
+        }
+    }
     /**
      * Update Actual Result
      *
@@ -177,8 +193,9 @@ public class CreateorUpdateResultController implements ActionListener {
             windowAux.getBtnAdd().setText("Create");
             windowAux.getCmbList().setVisible(true);
             DefaultComboBoxModel<String> listTeam1 = new DefaultComboBoxModel();
-
+            
             for (int i = 0; i < Lobby.controller.getCalendars().size(); i++) {
+              
                 listTeam1.addElement(Lobby.controller.getCalendars().get(i).getId()+"");
             }
             windowAux.getCmbList().setModel(listTeam1);
