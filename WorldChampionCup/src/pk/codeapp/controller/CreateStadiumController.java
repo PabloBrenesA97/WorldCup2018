@@ -212,5 +212,6 @@ public class CreateStadiumController implements ActionListener {
         window.lblId.setText(stadium.getId() + "");
         window.getShowImage().setSize(430, 410);
         window.getShowImage().setIcon(controller.convertToImageIcon(stadium.getIcon(), window.getShowImage()));
+        path=stadium.getIcon();
     }
 }

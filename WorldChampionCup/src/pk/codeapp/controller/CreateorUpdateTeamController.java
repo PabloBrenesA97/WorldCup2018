@@ -7,6 +7,7 @@ package pk.codeapp.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import pk.codeapp.model.ExceptionWorldCup;
 import pk.codeapp.model.Team;
@@ -60,7 +61,7 @@ public class CreateorUpdateTeamController implements ActionListener {
             throw new ExceptionWorldCup(9);
         } else {
             newTeam = (Team) controller.getMasterMaker().factoryMethod("Team");
-            newTeam.update(id, name, coach, assistant, confederacy, null);
+            newTeam.update(id, name, coach, assistant, confederacy, new ImageIcon("src/pk/codeapp/view/image/flagTeams/def.png"));
             Lobby.controllerLobby.group.gController.addNewTeam(newTeam);
             controller.getTeams().add(newTeam);
         }
